@@ -1,0 +1,22 @@
+{
+  "name": "MATE ROV 2026 Environment",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/root/ros2_ws/src,type=bind",
+  "workspaceFolder": "/root/ros2_ws",
+  "runArgs": [
+    // "--device=/dev/tty.usbmodemXXXX" // UNCOMMENT to pass through USB devices
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-vscode.cpptools",
+    "ms-iot.vscode-ros",
+    "dotjoshjohnson.xml",
+    "redhat.vscode-yaml"
+  ]
+}
