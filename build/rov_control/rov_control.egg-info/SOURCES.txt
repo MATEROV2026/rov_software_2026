@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../build/rov_control/rov_control.egg-info/PKG-INFO
+../build/rov_control/rov_control.egg-info/SOURCES.txt
+../build/rov_control/rov_control.egg-info/dependency_links.txt
+../build/rov_control/rov_control.egg-info/entry_points.txt
+../build/rov_control/rov_control.egg-info/requires.txt
+../build/rov_control/rov_control.egg-info/top_level.txt
+../build/rov_control/rov_control.egg-info/zip-safe
+resource/rov_control
+rov_control/__init__.py
+rov_control/thruster_mapper_node.py
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

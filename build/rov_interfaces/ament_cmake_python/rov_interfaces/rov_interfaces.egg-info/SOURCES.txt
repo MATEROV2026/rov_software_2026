@@ -1,0 +1,8 @@
+setup.py
+rov_interfaces/__init__.py
+rov_interfaces.egg-info/PKG-INFO
+rov_interfaces.egg-info/SOURCES.txt
+rov_interfaces.egg-info/dependency_links.txt
+rov_interfaces.egg-info/top_level.txt
+rov_interfaces/msg/__init__.py
+rov_interfaces/msg/_thruster_power.py

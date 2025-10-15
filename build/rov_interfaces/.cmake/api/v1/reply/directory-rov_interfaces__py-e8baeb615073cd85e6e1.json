@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "rov_interfaces__py",
+		"source" : "/root/ros2_ws/src/build/rov_interfaces/rov_interfaces__py"
+	}
+}
