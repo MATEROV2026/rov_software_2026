@@ -6,8 +6,12 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/root/ros2_ws/src,type=bind",
   "workspaceFolder": "/root/ros2_ws",
   "runArgs": [
-    // "--device=/dev/tty.usbmodemXXXX" // UNCOMMENT to pass through USB devices
-  ],
+    "--privileged",
+    "--device=/dev/bus/usb:/dev/bus/usb",
+    "--device=/dev/hidraw0"
+]
+
+,
   "settings": {
     "python.defaultInterpreterPath": "/usr/bin/python3",
     "terminal.integrated.defaultProfile.linux": "bash"
@@ -20,3 +24,5 @@
     "redhat.vscode-yaml"
   ]
 }
+
+
