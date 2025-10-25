@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'thruster_mapper_node = rov_control.thruster_mapper_node:main',
+            'joystick_node = rov_control.joystick_node:main',
         ],
     },
 )
