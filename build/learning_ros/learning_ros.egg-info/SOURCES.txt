@@ -1,0 +1,12 @@
+package.xml
+setup.py
+learning_ros/__init__.py
+learning_ros/learning_node.py
+learning_ros.egg-info/PKG-INFO
+learning_ros.egg-info/SOURCES.txt
+learning_ros.egg-info/dependency_links.txt
+learning_ros.egg-info/entry_points.txt
+learning_ros.egg-info/requires.txt
+learning_ros.egg-info/top_level.txt
+learning_ros.egg-info/zip-safe
+resource/learning_ros

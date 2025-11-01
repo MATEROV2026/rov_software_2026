@@ -1,0 +1,20 @@
+running egg_info
+writing ../../build/my_talker/my_talker.egg-info/PKG-INFO
+writing dependency_links to ../../build/my_talker/my_talker.egg-info/dependency_links.txt
+writing entry points to ../../build/my_talker/my_talker.egg-info/entry_points.txt
+writing requirements to ../../build/my_talker/my_talker.egg-info/requires.txt
+writing top-level names to ../../build/my_talker/my_talker.egg-info/top_level.txt
+reading manifest file '../../build/my_talker/my_talker.egg-info/SOURCES.txt'
+writing manifest file '../../build/my_talker/my_talker.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages/my_talker-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/my_talker/my_talker.egg-info to /home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages/my_talker-0.0.0-py3.10.egg-info
+running install_scripts
+Installing talker script to /home/mousa/rov_software_2026/install/my_talker/lib/my_talker
+Installing thrusterpower script to /home/mousa/rov_software_2026/install/my_talker/lib/my_talker
+writing list of installed files to '/home/mousa/rov_software_2026/build/my_talker/install.log'

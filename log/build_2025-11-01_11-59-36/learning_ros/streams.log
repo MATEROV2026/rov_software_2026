@@ -1,0 +1,24 @@
+[1.474s] Invoking command in '/home/mousa/rov_software_2026/build/learning_ros': PYTHONPATH=/home/mousa/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/learning_ros/build --no-deps symlink_data
+[1.999s] running develop
+[2.317s] running egg_info
+[2.317s] creating learning_ros.egg-info
+[2.318s] writing learning_ros.egg-info/PKG-INFO
+[2.318s] writing dependency_links to learning_ros.egg-info/dependency_links.txt
+[2.319s] writing entry points to learning_ros.egg-info/entry_points.txt
+[2.319s] writing requirements to learning_ros.egg-info/requires.txt
+[2.319s] writing top-level names to learning_ros.egg-info/top_level.txt
+[2.320s] writing manifest file 'learning_ros.egg-info/SOURCES.txt'
+[2.323s] reading manifest file 'learning_ros.egg-info/SOURCES.txt'
+[2.324s] writing manifest file 'learning_ros.egg-info/SOURCES.txt'
+[2.328s] running build_ext
+[2.329s] Creating /home/mousa/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning-ros.egg-link (link to .)
+[2.330s] Installing learning_node script to /home/mousa/rov_software_2026/install/learning_ros/bin
+[2.333s] 
+[2.333s] Installed /home/mousa/rov_software_2026/build/learning_ros
+[2.333s] running symlink_data
+[2.333s] creating /home/mousa/rov_software_2026/install/learning_ros/share/ament_index
+[2.334s] creating /home/mousa/rov_software_2026/install/learning_ros/share/ament_index/resource_index
+[2.335s] creating /home/mousa/rov_software_2026/install/learning_ros/share/ament_index/resource_index/packages
+[2.337s] symbolically linking /home/mousa/rov_software_2026/build/learning_ros/resource/learning_ros -> /home/mousa/rov_software_2026/install/learning_ros/share/ament_index/resource_index/packages
+[2.338s] symbolically linking /home/mousa/rov_software_2026/build/learning_ros/package.xml -> /home/mousa/rov_software_2026/install/learning_ros/share/learning_ros
+[2.395s] Invoked command in '/home/mousa/rov_software_2026/build/learning_ros' returned '0': PYTHONPATH=/home/mousa/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/learning_ros/build --no-deps symlink_data

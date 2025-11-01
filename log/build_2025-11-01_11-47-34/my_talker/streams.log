@@ -1,0 +1,22 @@
+[1.608s] Invoking command in '/home/mousa/rov_software_2026/src/my_talker': PYTHONPATH=/home/mousa/rov_software_2026/build/my_talker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_talker build --build-base /home/mousa/rov_software_2026/build/my_talker/build install --record /home/mousa/rov_software_2026/build/my_talker/install.log --single-version-externally-managed install_data
+[2.030s] running egg_info
+[2.034s] writing ../../build/my_talker/my_talker.egg-info/PKG-INFO
+[2.036s] writing dependency_links to ../../build/my_talker/my_talker.egg-info/dependency_links.txt
+[2.037s] writing entry points to ../../build/my_talker/my_talker.egg-info/entry_points.txt
+[2.038s] writing requirements to ../../build/my_talker/my_talker.egg-info/requires.txt
+[2.039s] writing top-level names to ../../build/my_talker/my_talker.egg-info/top_level.txt
+[2.050s] reading manifest file '../../build/my_talker/my_talker.egg-info/SOURCES.txt'
+[2.054s] writing manifest file '../../build/my_talker/my_talker.egg-info/SOURCES.txt'
+[2.055s] running build
+[2.055s] running build_py
+[2.056s] running install
+[2.057s] running install_lib
+[2.062s] running install_data
+[2.063s] running install_egg_info
+[2.068s] removing '/home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages/my_talker-0.0.0-py3.10.egg-info' (and everything under it)
+[2.069s] Copying ../../build/my_talker/my_talker.egg-info to /home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages/my_talker-0.0.0-py3.10.egg-info
+[2.074s] running install_scripts
+[2.118s] Installing talker script to /home/mousa/rov_software_2026/install/my_talker/lib/my_talker
+[2.119s] Installing thrusterpower script to /home/mousa/rov_software_2026/install/my_talker/lib/my_talker
+[2.119s] writing list of installed files to '/home/mousa/rov_software_2026/build/my_talker/install.log'
+[2.163s] Invoked command in '/home/mousa/rov_software_2026/src/my_talker' returned '0': PYTHONPATH=/home/mousa/rov_software_2026/build/my_talker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_talker build --build-base /home/mousa/rov_software_2026/build/my_talker/build install --record /home/mousa/rov_software_2026/build/my_talker/install.log --single-version-externally-managed install_data

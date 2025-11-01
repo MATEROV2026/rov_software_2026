@@ -1,0 +1,3 @@
+[console_scripts]
+learning_node = learning_ros.learning_node:main
+
