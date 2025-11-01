@@ -1,0 +1,39 @@
+running egg_info
+creating ../build/rov_control/rov_control.egg-info
+writing ../build/rov_control/rov_control.egg-info/PKG-INFO
+writing dependency_links to ../build/rov_control/rov_control.egg-info/dependency_links.txt
+writing entry points to ../build/rov_control/rov_control.egg-info/entry_points.txt
+writing requirements to ../build/rov_control/rov_control.egg-info/requires.txt
+writing top-level names to ../build/rov_control/rov_control.egg-info/top_level.txt
+writing manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+reading manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+writing manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/dingmingyue/rov_software_2026/build/rov_control/build
+creating /home/dingmingyue/rov_software_2026/build/rov_control/build/lib
+creating /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control
+copying rov_control/joystick_node.py -> /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control
+copying rov_control/thruster_mapper_node.py -> /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control
+copying rov_control/__init__.py -> /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control
+running install
+running install_lib
+creating /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control
+copying /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control/joystick_node.py -> /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control
+copying /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control/thruster_mapper_node.py -> /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control
+copying /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control/__init__.py -> /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control
+byte-compiling /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control/joystick_node.py to joystick_node.cpython-310.pyc
+byte-compiling /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control/thruster_mapper_node.py to thruster_mapper_node.cpython-310.pyc
+byte-compiling /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/dingmingyue/rov_software_2026/install/rov_control/share/ament_index
+creating /home/dingmingyue/rov_software_2026/install/rov_control/share/ament_index/resource_index
+creating /home/dingmingyue/rov_software_2026/install/rov_control/share/ament_index/resource_index/packages
+copying resource/rov_control -> /home/dingmingyue/rov_software_2026/install/rov_control/share/ament_index/resource_index/packages
+copying package.xml -> /home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control
+running install_egg_info
+Copying ../build/rov_control/rov_control.egg-info to /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control-0.0.0-py3.10.egg-info
+running install_scripts
+Installing joystick_node script to /home/dingmingyue/rov_software_2026/install/rov_control/lib/rov_control
+Installing thruster_mapper_node script to /home/dingmingyue/rov_software_2026/install/rov_control/lib/rov_control
+writing list of installed files to '/home/dingmingyue/rov_software_2026/build/rov_control/install.log'

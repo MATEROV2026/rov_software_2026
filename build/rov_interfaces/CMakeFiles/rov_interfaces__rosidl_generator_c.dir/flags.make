@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DRCUTILS_ENABLE_FAULT_INJECTION -DROSIDL_GENERATOR_C_BUILDING_DLL_rov_interfaces -DROS_PACKAGE_NAME=\"rov_interfaces\"
 
-C_INCLUDES = -I/root/ros2_ws/src/build/rov_interfaces/rosidl_generator_c -isystem /opt/ros/humble/include/rosidl_runtime_c -isystem /opt/ros/humble/include/rcutils -isystem /opt/ros/humble/include/rosidl_typesupport_interface
+C_INCLUDES = -I/home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_c -isystem /opt/ros/humble/include/rosidl_runtime_c -isystem /opt/ros/humble/include/rcutils -isystem /opt/ros/humble/include/rosidl_typesupport_interface
 
 C_FLAGS = -fPIC -Wall -std=gnu11
 

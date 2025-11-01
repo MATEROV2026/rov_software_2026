@@ -1,0 +1,22 @@
+[2.205s] Invoking command in '/home/dingmingyue/rov_software_2026/rov_control': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/rov_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/rov_control build --build-base /home/dingmingyue/rov_software_2026/build/rov_control/build install --record /home/dingmingyue/rov_software_2026/build/rov_control/install.log --single-version-externally-managed install_data
+[2.990s] running egg_info
+[2.990s] writing ../build/rov_control/rov_control.egg-info/PKG-INFO
+[2.998s] writing dependency_links to ../build/rov_control/rov_control.egg-info/dependency_links.txt
+[3.000s] writing entry points to ../build/rov_control/rov_control.egg-info/entry_points.txt
+[3.000s] writing requirements to ../build/rov_control/rov_control.egg-info/requires.txt
+[3.001s] writing top-level names to ../build/rov_control/rov_control.egg-info/top_level.txt
+[3.002s] reading manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+[3.006s] writing manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+[3.030s] running build
+[3.030s] running build_py
+[3.030s] running install
+[3.030s] running install_lib
+[3.030s] running install_data
+[3.030s] running install_egg_info
+[3.030s] removing '/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control-0.0.0-py3.10.egg-info' (and everything under it)
+[3.030s] Copying ../build/rov_control/rov_control.egg-info to /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control-0.0.0-py3.10.egg-info
+[3.030s] running install_scripts
+[3.125s] Installing joystick_node script to /home/dingmingyue/rov_software_2026/install/rov_control/lib/rov_control
+[3.132s] Installing thruster_mapper_node script to /home/dingmingyue/rov_software_2026/install/rov_control/lib/rov_control
+[3.132s] writing list of installed files to '/home/dingmingyue/rov_software_2026/build/rov_control/install.log'
+[3.188s] Invoked command in '/home/dingmingyue/rov_software_2026/rov_control' returned '0': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/rov_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/rov_control build --build-base /home/dingmingyue/rov_software_2026/build/rov_control/build install --record /home/dingmingyue/rov_software_2026/build/rov_control/install.log --single-version-externally-managed install_data

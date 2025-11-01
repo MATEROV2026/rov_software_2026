@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ros2_ws/src/rov_interfaces
+CMAKE_SOURCE_DIR = /home/dingmingyue/rov_software_2026/rov_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ros2_ws/src/build/rov_interfaces
+CMAKE_BINARY_DIR = /home/dingmingyue/rov_software_2026/build/rov_interfaces
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend.make
@@ -83,8 +83,9 @@ rosidl_generator_c/rov_interfaces/msg/thruster_power.h: /opt/ros/humble/share/ro
 rosidl_generator_c/rov_interfaces/msg/thruster_power.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__type_support.h.em
 rosidl_generator_c/rov_interfaces/msg/thruster_power.h: /opt/ros/humble/share/rosidl_generator_c/resource/srv__type_support.h.em
 rosidl_generator_c/rov_interfaces/msg/thruster_power.h: rosidl_adapter/rov_interfaces/msg/ThrusterPower.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/ros2_ws/src/build/rov_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
-	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /root/ros2_ws/src/build/rov_interfaces/rosidl_generator_c__arguments.json
+rosidl_generator_c/rov_interfaces/msg/thruster_power.h: rosidl_adapter/rov_interfaces/srv/AddTwoInts.idl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dingmingyue/rov_software_2026/build/rov_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
+	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_c__arguments.json
 
 rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.h: rosidl_generator_c/rov_interfaces/msg/thruster_power.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.h
@@ -95,36 +96,67 @@ rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__struct.h: rosidl_ge
 rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__type_support.h: rosidl_generator_c/rov_interfaces/msg/thruster_power.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__type_support.h
 
+rosidl_generator_c/rov_interfaces/srv/add_two_ints.h: rosidl_generator_c/rov_interfaces/msg/thruster_power.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/rov_interfaces/srv/add_two_ints.h
+
+rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.h: rosidl_generator_c/rov_interfaces/msg/thruster_power.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.h
+
+rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__struct.h: rosidl_generator_c/rov_interfaces/msg/thruster_power.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__struct.h
+
+rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__type_support.h: rosidl_generator_c/rov_interfaces/msg/thruster_power.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__type_support.h
+
 rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c: rosidl_generator_c/rov_interfaces/msg/thruster_power.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c
+
+rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c: rosidl_generator_c/rov_interfaces/msg/thruster_power.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c
 
 CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o: CMakeFiles/rov_interfaces__rosidl_generator_c.dir/flags.make
 CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o: rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c
 CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o: CMakeFiles/rov_interfaces__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/ros2_ws/src/build/rov_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o -MF CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o.d -o CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o -c /root/ros2_ws/src/build/rov_interfaces/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dingmingyue/rov_software_2026/build/rov_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o -MF CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o.d -o CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o -c /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c
 
 CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/ros2_ws/src/build/rov_interfaces/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c > CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c > CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.i
 
 CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/ros2_ws/src/build/rov_interfaces/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c -o CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c -o CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.s
+
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o: CMakeFiles/rov_interfaces__rosidl_generator_c.dir/flags.make
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o: rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o: CMakeFiles/rov_interfaces__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dingmingyue/rov_software_2026/build/rov_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o -MF CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o.d -o CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o -c /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c
+
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c > CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.i
+
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c -o CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.s
 
 # Object files for target rov_interfaces__rosidl_generator_c
 rov_interfaces__rosidl_generator_c_OBJECTS = \
-"CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o"
+"CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o" \
+"CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o"
 
 # External object files for target rov_interfaces__rosidl_generator_c
 rov_interfaces__rosidl_generator_c_EXTERNAL_OBJECTS =
 
 librov_interfaces__rosidl_generator_c.so: CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o
+librov_interfaces__rosidl_generator_c.so: CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o
 librov_interfaces__rosidl_generator_c.so: CMakeFiles/rov_interfaces__rosidl_generator_c.dir/build.make
 librov_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 librov_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librcutils.so
 librov_interfaces__rosidl_generator_c.so: CMakeFiles/rov_interfaces__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/ros2_ws/src/build/rov_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library librov_interfaces__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dingmingyue/rov_software_2026/build/rov_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C shared library librov_interfaces__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rov_interfaces__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -140,6 +172,11 @@ CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/rov
 CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__struct.h
 CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__type_support.h
 CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/rov_interfaces/msg/thruster_power.h
-	cd /root/ros2_ws/src/build/rov_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/ros2_ws/src/rov_interfaces /root/ros2_ws/src/rov_interfaces /root/ros2_ws/src/build/rov_interfaces /root/ros2_ws/src/build/rov_interfaces /root/ros2_ws/src/build/rov_interfaces/CMakeFiles/rov_interfaces__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/rov_interfaces/srv/add_two_ints.h
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.h
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__struct.h
+CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__type_support.h
+	cd /home/dingmingyue/rov_software_2026/build/rov_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dingmingyue/rov_software_2026/rov_interfaces /home/dingmingyue/rov_software_2026/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces/CMakeFiles/rov_interfaces__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rov_interfaces__rosidl_generator_c.dir/depend
 

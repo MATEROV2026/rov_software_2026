@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ros2_ws/src/rov_interfaces
+CMAKE_SOURCE_DIR = /home/dingmingyue/rov_software_2026/rov_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ros2_ws/src/build/rov_interfaces
+CMAKE_BINARY_DIR = /home/dingmingyue/rov_software_2026/build/rov_interfaces
 
 # Utility rule file for rov_interfaces_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/rov_interfaces_uninstall.dir/compiler_depend.make
 include CMakeFiles/rov_interfaces_uninstall.dir/progress.make
 
 CMakeFiles/rov_interfaces_uninstall:
-	/usr/bin/cmake -P /root/ros2_ws/src/build/rov_interfaces/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/dingmingyue/rov_software_2026/build/rov_interfaces/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 rov_interfaces_uninstall: CMakeFiles/rov_interfaces_uninstall
 rov_interfaces_uninstall: CMakeFiles/rov_interfaces_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/rov_interfaces_uninstall.dir/clean:
 .PHONY : CMakeFiles/rov_interfaces_uninstall.dir/clean
 
 CMakeFiles/rov_interfaces_uninstall.dir/depend:
-	cd /root/ros2_ws/src/build/rov_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/ros2_ws/src/rov_interfaces /root/ros2_ws/src/rov_interfaces /root/ros2_ws/src/build/rov_interfaces /root/ros2_ws/src/build/rov_interfaces /root/ros2_ws/src/build/rov_interfaces/CMakeFiles/rov_interfaces_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dingmingyue/rov_software_2026/build/rov_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dingmingyue/rov_software_2026/rov_interfaces /home/dingmingyue/rov_software_2026/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces/CMakeFiles/rov_interfaces_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rov_interfaces_uninstall.dir/depend
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ros2_ws/src/rov_interfaces
+CMAKE_SOURCE_DIR = /home/dingmingyue/rov_software_2026/rov_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ros2_ws/src/build/rov_interfaces
+CMAKE_BINARY_DIR = /home/dingmingyue/rov_software_2026/build/rov_interfaces
 
 # Utility rule file for rov_interfaces__cpp.
 
@@ -71,6 +71,11 @@ CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/detail/t
 CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__struct.hpp
 CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__traits.hpp
 CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__type_support.hpp
+CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/add_two_ints.hpp
+CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__builder.hpp
+CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__struct.hpp
+CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__traits.hpp
+CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__type_support.hpp
 CMakeFiles/rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
 
 rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp: /opt/ros/humble/lib/rosidl_generator_cpp/rosidl_generator_cpp
@@ -89,8 +94,9 @@ rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp: /opt/ros/humble/shar
 rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
 rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp: rosidl_adapter/rov_interfaces/msg/ThrusterPower.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/ros2_ws/src/build/rov_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
-	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /root/ros2_ws/src/build/rov_interfaces/rosidl_generator_cpp__arguments.json
+rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp: rosidl_adapter/rov_interfaces/srv/AddTwoInts.idl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dingmingyue/rov_software_2026/build/rov_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
+	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_cpp__arguments.json
 
 rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__builder.hpp: rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__builder.hpp
@@ -104,12 +110,32 @@ rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__traits.hpp: rosid
 rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__type_support.hpp: rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__type_support.hpp
 
+rosidl_generator_cpp/rov_interfaces/srv/add_two_ints.hpp: rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/rov_interfaces/srv/add_two_ints.hpp
+
+rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__builder.hpp: rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__builder.hpp
+
+rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__struct.hpp: rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__struct.hpp
+
+rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__traits.hpp: rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__traits.hpp
+
+rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__type_support.hpp: rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__type_support.hpp
+
 rov_interfaces__cpp: CMakeFiles/rov_interfaces__cpp
 rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__builder.hpp
 rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__struct.hpp
 rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__traits.hpp
 rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__type_support.hpp
 rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/msg/thruster_power.hpp
+rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/add_two_ints.hpp
+rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__builder.hpp
+rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__struct.hpp
+rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__traits.hpp
+rov_interfaces__cpp: rosidl_generator_cpp/rov_interfaces/srv/detail/add_two_ints__type_support.hpp
 rov_interfaces__cpp: CMakeFiles/rov_interfaces__cpp.dir/build.make
 .PHONY : rov_interfaces__cpp
 
@@ -122,6 +148,6 @@ CMakeFiles/rov_interfaces__cpp.dir/clean:
 .PHONY : CMakeFiles/rov_interfaces__cpp.dir/clean
 
 CMakeFiles/rov_interfaces__cpp.dir/depend:
-	cd /root/ros2_ws/src/build/rov_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/ros2_ws/src/rov_interfaces /root/ros2_ws/src/rov_interfaces /root/ros2_ws/src/build/rov_interfaces /root/ros2_ws/src/build/rov_interfaces /root/ros2_ws/src/build/rov_interfaces/CMakeFiles/rov_interfaces__cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dingmingyue/rov_software_2026/build/rov_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dingmingyue/rov_software_2026/rov_interfaces /home/dingmingyue/rov_software_2026/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces/CMakeFiles/rov_interfaces__cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rov_interfaces__cpp.dir/depend
 

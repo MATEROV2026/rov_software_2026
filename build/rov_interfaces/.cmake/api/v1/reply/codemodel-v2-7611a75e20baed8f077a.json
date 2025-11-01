@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-2ceacb5d9bf3a60ea110.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "rov_interfaces__py",
+					"jsonFile" : "directory-rov_interfaces__py-e3f94ae3df64e812dd9b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/dingmingyue/rov_software_2026/build/rov_interfaces/rov_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "rov_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_rov_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_rov_interfaces_egg-2ba3f7e42dabe3487870.json",
+					"name" : "ament_cmake_python_build_rov_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_rov_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_rov_interfaces-c816700fc6e6ed72a58b.json",
+					"name" : "ament_cmake_python_copy_rov_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces-abcaccb2947240a51a43.json",
+					"name" : "rov_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__cpp-395748b79d89d9cb52ff.json",
+					"name" : "rov_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "rov_interfaces__py::@2b3048047f044660154a",
+					"jsonFile" : "target-rov_interfaces__py-0e5728f7d544fa1185d0.json",
+					"name" : "rov_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_generator_c-e125fbbd16386ddedc0a.json",
+					"name" : "rov_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_generator_py-91b4e020183367c83ae0.json",
+					"name" : "rov_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_typesupport_c-b9a17ad89018d04cb5d5.json",
+					"name" : "rov_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_typesupport_c__pyext-bef24898f7b1747c7c0f.json",
+					"name" : "rov_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_typesupport_cpp-7bc538d15545fa4ff71e.json",
+					"name" : "rov_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_typesupport_fastrtps_c-a17fc6d1c10d00e9b212.json",
+					"name" : "rov_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_typesupport_fastrtps_c__pyext-7e63bae57844216be76e.json",
+					"name" : "rov_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_typesupport_fastrtps_cpp-e3d7c07595fb6bc448c5.json",
+					"name" : "rov_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_typesupport_introspection_c-a31cff1b29a337ff6db3.json",
+					"name" : "rov_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_typesupport_introspection_c__pyext-40c15194f2ed1b860873.json",
+					"name" : "rov_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces__rosidl_typesupport_introspection_cpp-bde4383f52858bbc84c5.json",
+					"name" : "rov_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rov_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rov_interfaces_uninstall-445d451b9ce0aeb0f2e7.json",
+					"name" : "rov_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-d30c53c645c42aefcea3.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/dingmingyue/rov_software_2026/build/rov_interfaces",
+		"source" : "/home/dingmingyue/rov_software_2026/rov_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

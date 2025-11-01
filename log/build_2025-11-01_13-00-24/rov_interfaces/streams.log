@@ -1,0 +1,275 @@
+[0.023s] Invoking command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/dingmingyue/rov_software_2026/rov_interfaces -DCMAKE_INSTALL_PREFIX=/home/dingmingyue/rov_software_2026/install/rov_interfaces
+[1.175s] -- The C compiler identification is GNU 11.4.0
+[2.093s] -- The CXX compiler identification is GNU 11.4.0
+[2.207s] -- Detecting C compiler ABI info
+[2.758s] -- Detecting C compiler ABI info - done
+[2.771s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.773s] -- Detecting C compile features
+[2.779s] -- Detecting C compile features - done
+[2.825s] -- Detecting CXX compiler ABI info
+[3.400s] -- Detecting CXX compiler ABI info - done
+[3.468s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.468s] -- Detecting CXX compile features
+[3.469s] -- Detecting CXX compile features - done
+[3.556s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[4.185s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[4.662s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.098s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[5.130s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[5.173s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[5.422s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.562s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[7.401s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[8.493s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[8.622s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[8.636s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[8.717s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[8.720s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[8.720s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[8.720s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[8.798s] -- Found PythonExtra: .so  
+[8.979s] -- Added test 'lint_cmake' to check CMake code style
+[8.988s] -- Added test 'xmllint' to check XML markup files
+[9.028s] -- Configuring done
+[9.114s] -- Generating done
+[9.157s] -- Build files have been written to: /home/dingmingyue/rov_software_2026/build/rov_interfaces
+[9.165s] Invoked command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/dingmingyue/rov_software_2026/rov_interfaces -DCMAKE_INSTALL_PREFIX=/home/dingmingyue/rov_software_2026/install/rov_interfaces
+[9.169s] Invoking command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/dingmingyue/rov_software_2026/build/rov_interfaces -- -j1 -l1
+[9.546s] [  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[11.257s] [  2%] Built target rov_interfaces__cpp
+[11.326s] [  5%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[12.687s] [  7%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/rov_interfaces/msg/thruster_power__type_support.cpp.o[0m
+[14.704s] [ 10%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/rov_interfaces/srv/add_two_ints__type_support.cpp.o[0m
+[15.766s] [ 12%] [32m[1mLinking CXX shared library librov_interfaces__rosidl_typesupport_cpp.so[0m
+[15.994s] [ 12%] Built target rov_interfaces__rosidl_typesupport_cpp
+[16.070s] [ 15%] [34m[1mGenerating C code for ROS interfaces[0m
+[17.563s] [ 17%] [32mBuilding C object CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.c.o[0m
+[17.809s] [ 20%] [32mBuilding C object CMakeFiles/rov_interfaces__rosidl_generator_c.dir/rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.c.o[0m
+[18.173s] [ 23%] [32m[1mLinking C shared library librov_interfaces__rosidl_generator_c.so[0m
+[18.411s] [ 23%] Built target rov_interfaces__rosidl_generator_c
+[18.518s] [ 25%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[19.716s] [ 28%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/rov_interfaces/msg/detail/thruster_power__type_support_c.cpp.o[0m
+[21.186s] [ 30%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/rov_interfaces/srv/detail/add_two_ints__type_support_c.cpp.o[0m
+[25.012s] [ 33%] [32m[1mLinking CXX shared library librov_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[25.489s] [ 33%] Built target rov_interfaces__rosidl_typesupport_fastrtps_c
+[25.556s] [ 35%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[26.870s] [ 38%] [32mBuilding C object CMakeFiles/rov_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/rov_interfaces/msg/detail/thruster_power__type_support.c.o[0m
+[27.091s] [ 41%] [32mBuilding C object CMakeFiles/rov_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/rov_interfaces/srv/detail/add_two_ints__type_support.c.o[0m
+[27.350s] [ 43%] [32m[1mLinking C shared library librov_interfaces__rosidl_typesupport_introspection_c.so[0m
+[27.548s] [ 43%] Built target rov_interfaces__rosidl_typesupport_introspection_c
+[27.606s] [ 46%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[28.938s] [ 48%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/rov_interfaces/msg/thruster_power__type_support.cpp.o[0m
+[29.136s] [ 51%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/rov_interfaces/srv/add_two_ints__type_support.cpp.o[0m
+[29.282s] [ 53%] [32m[1mLinking CXX shared library librov_interfaces__rosidl_typesupport_c.so[0m
+[29.467s] [ 53%] Built target rov_interfaces__rosidl_typesupport_c
+[29.557s] [ 56%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[30.930s] [ 58%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/rov_interfaces/msg/detail/dds_fastrtps/thruster_power__type_support.cpp.o[0m
+[32.670s] [ 61%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/rov_interfaces/srv/detail/dds_fastrtps/add_two_ints__type_support.cpp.o[0m
+[34.273s] [ 64%] [32m[1mLinking CXX shared library librov_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[34.540s] [ 64%] Built target rov_interfaces__rosidl_typesupport_fastrtps_cpp
+[34.617s] [ 66%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[35.926s] [ 69%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/rov_interfaces/msg/detail/thruster_power__type_support.cpp.o[0m
+[37.666s] [ 71%] [32mBuilding CXX object CMakeFiles/rov_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/rov_interfaces/srv/detail/add_two_ints__type_support.cpp.o[0m
+[39.300s] [ 74%] [32m[1mLinking CXX shared library librov_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[39.645s] [ 74%] Built target rov_interfaces__rosidl_typesupport_introspection_cpp
+[39.866s] [ 74%] Built target rov_interfaces
+[40.048s] [ 74%] Built target ament_cmake_python_copy_rov_interfaces
+[40.965s] running egg_info
+[40.975s] creating rov_interfaces.egg-info
+[40.975s] writing rov_interfaces.egg-info/PKG-INFO
+[40.975s] writing dependency_links to rov_interfaces.egg-info/dependency_links.txt
+[40.975s] writing top-level names to rov_interfaces.egg-info/top_level.txt
+[40.975s] writing manifest file 'rov_interfaces.egg-info/SOURCES.txt'
+[40.975s] reading manifest file 'rov_interfaces.egg-info/SOURCES.txt'
+[40.975s] writing manifest file 'rov_interfaces.egg-info/SOURCES.txt'
+[41.142s] [ 74%] Built target ament_cmake_python_build_rov_interfaces_egg
+[41.473s] [ 76%] [34m[1mGenerating Python code for ROS interfaces[0m
+[44.355s] [ 76%] Built target rov_interfaces__py
+[44.541s] [ 79%] [32mBuilding C object CMakeFiles/rov_interfaces__rosidl_generator_py.dir/rosidl_generator_py/rov_interfaces/msg/_thruster_power_s.c.o[0m
+[45.258s] [ 82%] [32mBuilding C object CMakeFiles/rov_interfaces__rosidl_generator_py.dir/rosidl_generator_py/rov_interfaces/srv/_add_two_ints_s.c.o[0m
+[45.696s] [ 84%] [32m[1mLinking C shared library rosidl_generator_py/rov_interfaces/librov_interfaces__rosidl_generator_py.so[0m
+[45.908s] [ 84%] Built target rov_interfaces__rosidl_generator_py
+[46.072s] [ 87%] [32mBuilding C object CMakeFiles/rov_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/rov_interfaces/_rov_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[46.586s] [ 89%] [32m[1mLinking C shared library rosidl_generator_py/rov_interfaces/rov_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[46.820s] [ 89%] Built target rov_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[47.008s] [ 92%] [32mBuilding C object CMakeFiles/rov_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/rov_interfaces/_rov_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[47.409s] [ 94%] [32m[1mLinking C shared library rosidl_generator_py/rov_interfaces/rov_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[47.628s] [ 94%] Built target rov_interfaces__rosidl_typesupport_introspection_c__pyext
+[47.794s] [ 97%] [32mBuilding C object CMakeFiles/rov_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/rov_interfaces/_rov_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[48.233s] [100%] [32m[1mLinking C shared library rosidl_generator_py/rov_interfaces/rov_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[48.460s] [100%] Built target rov_interfaces__rosidl_typesupport_c__pyext
+[48.533s] Invoked command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/dingmingyue/rov_software_2026/build/rov_interfaces -- -j1 -l1
+[48.580s] Invoking command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/dingmingyue/rov_software_2026/build/rov_interfaces
+[48.673s] -- Install configuration: ""
+[48.675s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/ament_index/resource_index/rosidl_interfaces/rov_interfaces
+[48.681s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces
+[48.709s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__functions.h
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__struct.h
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__type_support.h
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__functions.c
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_generator_c__visibility_control.h
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/thruster_power.h
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__struct.h
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__functions.c
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__functions.h
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__type_support.h
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/add_two_ints.h
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/library_path.sh
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/library_path.dsv
+[48.710s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_generator_c.so
+[48.710s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_generator_c.so" to ""
+[48.710s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces
+[48.716s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg
+[48.716s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail
+[48.716s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__rosidl_typesupport_fastrtps_c.h
+[48.717s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[48.717s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv
+[48.717s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail
+[48.717s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__rosidl_typesupport_fastrtps_c.h
+[48.717s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_fastrtps_c.so
+[48.717s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[48.717s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces
+[48.718s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg
+[48.719s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__type_support.c
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__rosidl_typesupport_introspection_c.h
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[48.719s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv
+[48.719s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__rosidl_typesupport_introspection_c.h
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__type_support.c
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_introspection_c.so
+[48.719s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_c.so
+[48.719s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_c.so" to ""
+[48.719s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces
+[48.719s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg
+[48.719s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__struct.hpp
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__builder.hpp
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__type_support.hpp
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__traits.hpp
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/thruster_power.hpp
+[48.719s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[48.720s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv
+[48.720s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__traits.hpp
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__builder.hpp
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__struct.hpp
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__type_support.hpp
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/add_two_ints.hpp
+[48.720s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces
+[48.720s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg
+[48.720s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__rosidl_typesupport_fastrtps_cpp.hpp
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/dds_fastrtps
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[48.720s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv
+[48.720s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__rosidl_typesupport_fastrtps_cpp.hpp
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/dds_fastrtps
+[48.720s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[48.720s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[48.720s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces
+[48.720s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg
+[48.724s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail
+[48.724s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__type_support.cpp
+[48.724s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__rosidl_typesupport_introspection_cpp.hpp
+[48.724s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv
+[48.725s] -- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__type_support.cpp
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__rosidl_typesupport_introspection_cpp.hpp
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_introspection_cpp.so
+[48.725s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_cpp.so
+[48.725s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_cpp.so" to ""
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/pythonpath.sh
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/pythonpath.dsv
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/librov_interfaces__rosidl_generator_py.so
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg/__init__.py
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg/_thruster_power.py
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg/_thruster_power_s.c
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/__init__.py
+[48.725s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[48.726s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[48.726s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[48.726s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/_rov_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[48.726s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/_rov_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[48.726s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv
+[48.726s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv/_add_two_ints.py
+[48.726s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv/__init__.py
+[48.726s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv/_add_two_ints_s.c
+[48.726s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/_rov_interfaces_s.ep.rosidl_typesupport_c.c
+[48.881s] Listing '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces'...
+[48.882s] Compiling '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/__init__.py'...
+[48.882s] Listing '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg'...
+[48.882s] Compiling '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg/__init__.py'...
+[48.882s] Compiling '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg/_thruster_power.py'...
+[48.882s] Listing '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv'...
+[48.882s] Compiling '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv/__init__.py'...
+[48.882s] Compiling '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv/_add_two_ints.py'...
+[48.886s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[48.887s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[48.889s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[48.889s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[48.890s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[48.891s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[48.892s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_generator_py.so
+[48.892s] -- Set runtime path of "/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_generator_py.so" to ""
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/msg/ThrusterPower.idl
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/srv/AddTwoInts.idl
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/msg/ThrusterPower.msg
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/srv/AddTwoInts.srv
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/srv/AddTwoInts_Request.msg
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/srv/AddTwoInts_Response.msg
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/ament_index/resource_index/package_run_dependencies/rov_interfaces
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/ament_index/resource_index/parent_prefix_path/rov_interfaces
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/ament_prefix_path.sh
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/ament_prefix_path.dsv
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/path.sh
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/path.dsv
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/local_setup.bash
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/local_setup.sh
+[48.906s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/local_setup.zsh
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/local_setup.dsv
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.dsv
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/ament_index/resource_index/packages/rov_interfaces
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_cExport.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_cExport-noconfig.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_cExport.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_cppExport.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[48.907s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_cppExport.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_pyExport.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rosidl_cmake-extras.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfacesConfig.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfacesConfig-version.cmake
+[48.908s] -- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.xml
+[48.923s] Invoked command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/dingmingyue/rov_software_2026/build/rov_interfaces

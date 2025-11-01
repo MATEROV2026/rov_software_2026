@@ -1,0 +1,24 @@
+[2.793s] Invoking command in '/home/dingmingyue/rov_software_2026/learning_ros': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/learning_ros build --build-base /home/dingmingyue/rov_software_2026/build/learning_ros/build install --record /home/dingmingyue/rov_software_2026/build/learning_ros/install.log --single-version-externally-managed install_data
+[4.005s] running egg_info
+[4.010s] writing ../build/learning_ros/learning_ros.egg-info/PKG-INFO
+[4.029s] writing dependency_links to ../build/learning_ros/learning_ros.egg-info/dependency_links.txt
+[4.030s] writing entry points to ../build/learning_ros/learning_ros.egg-info/entry_points.txt
+[4.038s] writing requirements to ../build/learning_ros/learning_ros.egg-info/requires.txt
+[4.039s] writing top-level names to ../build/learning_ros/learning_ros.egg-info/top_level.txt
+[4.059s] reading manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'
+[4.067s] writing manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'
+[4.070s] running build
+[4.073s] running build_py
+[4.076s] running install
+[4.083s] running install_lib
+[4.120s] running install_data
+[4.127s] running install_egg_info
+[4.128s] removing '/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros-0.0.0-py3.10.egg-info' (and everything under it)
+[4.128s] Copying ../build/learning_ros/learning_ros.egg-info to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros-0.0.0-py3.10.egg-info
+[4.137s] running install_scripts
+[4.224s] Installing calculator_client script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+[4.226s] Installing joy_inspector script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+[4.229s] Installing listener script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+[4.239s] Installing talker script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+[4.243s] writing list of installed files to '/home/dingmingyue/rov_software_2026/build/learning_ros/install.log'
+[4.351s] Invoked command in '/home/dingmingyue/rov_software_2026/learning_ros' returned '0': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/learning_ros build --build-base /home/dingmingyue/rov_software_2026/build/learning_ros/build install --record /home/dingmingyue/rov_software_2026/build/learning_ros/install.log --single-version-externally-managed install_data

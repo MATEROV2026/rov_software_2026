@@ -1,0 +1,50 @@
+running egg_info
+creating ../build/learning_ros/learning_ros.egg-info
+writing ../build/learning_ros/learning_ros.egg-info/PKG-INFO
+writing dependency_links to ../build/learning_ros/learning_ros.egg-info/dependency_links.txt
+writing entry points to ../build/learning_ros/learning_ros.egg-info/entry_points.txt
+writing requirements to ../build/learning_ros/learning_ros.egg-info/requires.txt
+writing top-level names to ../build/learning_ros/learning_ros.egg-info/top_level.txt
+writing manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'
+reading manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'
+writing manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/dingmingyue/rov_software_2026/build/learning_ros/build
+creating /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib
+creating /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+copying learning_ros/listener_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+copying learning_ros/__init__.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+copying learning_ros/calculator_client_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+copying learning_ros/talker_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+copying learning_ros/joy_inspector_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+copying learning_ros/calculator_service_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+running install
+running install_lib
+creating /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/listener_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/__init__.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/calculator_client_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/talker_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/joy_inspector_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/calculator_service_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/listener_node.py to listener_node.cpython-310.pyc
+byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/calculator_client_node.py to calculator_client_node.cpython-310.pyc
+byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/talker_node.py to talker_node.cpython-310.pyc
+byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/joy_inspector_node.py to joy_inspector_node.cpython-310.pyc
+byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/calculator_service_node.py to calculator_service_node.cpython-310.pyc
+running install_data
+creating /home/dingmingyue/rov_software_2026/install/learning_ros/share/ament_index
+creating /home/dingmingyue/rov_software_2026/install/learning_ros/share/ament_index/resource_index
+creating /home/dingmingyue/rov_software_2026/install/learning_ros/share/ament_index/resource_index/packages
+copying resource/learning_ros -> /home/dingmingyue/rov_software_2026/install/learning_ros/share/ament_index/resource_index/packages
+copying package.xml -> /home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros
+running install_egg_info
+Copying ../build/learning_ros/learning_ros.egg-info to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros-0.0.0-py3.10.egg-info
+running install_scripts
+Installing calculator_client script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+Installing joy_inspector script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+Installing listener script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+Installing talker script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+writing list of installed files to '/home/dingmingyue/rov_software_2026/build/learning_ros/install.log'

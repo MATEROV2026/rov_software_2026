@@ -1,0 +1,41 @@
+[2.280s] Invoking command in '/home/dingmingyue/rov_software_2026/rov_control': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/rov_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/rov_control build --build-base /home/dingmingyue/rov_software_2026/build/rov_control/build install --record /home/dingmingyue/rov_software_2026/build/rov_control/install.log --single-version-externally-managed install_data
+[3.431s] running egg_info
+[3.431s] creating ../build/rov_control/rov_control.egg-info
+[3.431s] writing ../build/rov_control/rov_control.egg-info/PKG-INFO
+[3.431s] writing dependency_links to ../build/rov_control/rov_control.egg-info/dependency_links.txt
+[3.432s] writing entry points to ../build/rov_control/rov_control.egg-info/entry_points.txt
+[3.432s] writing requirements to ../build/rov_control/rov_control.egg-info/requires.txt
+[3.432s] writing top-level names to ../build/rov_control/rov_control.egg-info/top_level.txt
+[3.432s] writing manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+[3.432s] reading manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+[3.435s] writing manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+[3.435s] running build
+[3.435s] running build_py
+[3.436s] creating /home/dingmingyue/rov_software_2026/build/rov_control/build
+[3.436s] creating /home/dingmingyue/rov_software_2026/build/rov_control/build/lib
+[3.437s] creating /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control
+[3.438s] copying rov_control/joystick_node.py -> /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control
+[3.441s] copying rov_control/thruster_mapper_node.py -> /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control
+[3.442s] copying rov_control/__init__.py -> /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control
+[3.443s] running install
+[3.450s] running install_lib
+[3.482s] creating /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control
+[3.482s] copying /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control/joystick_node.py -> /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control
+[3.482s] copying /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control/thruster_mapper_node.py -> /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control
+[3.482s] copying /home/dingmingyue/rov_software_2026/build/rov_control/build/lib/rov_control/__init__.py -> /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control
+[3.482s] byte-compiling /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control/joystick_node.py to joystick_node.cpython-310.pyc
+[3.482s] byte-compiling /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control/thruster_mapper_node.py to thruster_mapper_node.cpython-310.pyc
+[3.482s] byte-compiling /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control/__init__.py to __init__.cpython-310.pyc
+[3.482s] running install_data
+[3.482s] creating /home/dingmingyue/rov_software_2026/install/rov_control/share/ament_index
+[3.482s] creating /home/dingmingyue/rov_software_2026/install/rov_control/share/ament_index/resource_index
+[3.482s] creating /home/dingmingyue/rov_software_2026/install/rov_control/share/ament_index/resource_index/packages
+[3.482s] copying resource/rov_control -> /home/dingmingyue/rov_software_2026/install/rov_control/share/ament_index/resource_index/packages
+[3.482s] copying package.xml -> /home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control
+[3.482s] running install_egg_info
+[3.483s] Copying ../build/rov_control/rov_control.egg-info to /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control-0.0.0-py3.10.egg-info
+[3.483s] running install_scripts
+[3.571s] Installing joystick_node script to /home/dingmingyue/rov_software_2026/install/rov_control/lib/rov_control
+[3.571s] Installing thruster_mapper_node script to /home/dingmingyue/rov_software_2026/install/rov_control/lib/rov_control
+[3.571s] writing list of installed files to '/home/dingmingyue/rov_software_2026/build/rov_control/install.log'
+[3.662s] Invoked command in '/home/dingmingyue/rov_software_2026/rov_control' returned '0': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/rov_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/rov_control build --build-base /home/dingmingyue/rov_software_2026/build/rov_control/build install --record /home/dingmingyue/rov_software_2026/build/rov_control/install.log --single-version-externally-managed install_data

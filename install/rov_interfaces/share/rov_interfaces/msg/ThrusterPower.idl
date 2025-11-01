@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from rov_interfaces/msg/ThrusterPower.msg
+// generated code does not contain a copyright notice
+
+
+module rov_interfaces {
+  module msg {
+    typedef float float__6[6];
+    @verbatim (language="comment", text=
+      "A message to hold power values for 6 thrusters" "\n"
+      "Values can be from -1.0 (full reverse) to 1.0 (full forward)")
+    struct ThrusterPower {
+      float__6 power_values;
+    };
+  };
+};

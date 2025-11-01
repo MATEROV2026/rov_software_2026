@@ -1,0 +1,369 @@
+[0.000000] (-) TimerEvent: {}
+[0.003134] (learning_ros) JobQueued: {'identifier': 'learning_ros', 'dependencies': OrderedDict()}
+[0.003212] (rov_control) JobQueued: {'identifier': 'rov_control', 'dependencies': OrderedDict()}
+[0.003230] (rov_interfaces) JobQueued: {'identifier': 'rov_interfaces', 'dependencies': OrderedDict()}
+[0.008095] (learning_ros) JobStarted: {'identifier': 'learning_ros'}
+[0.132143] (-) TimerEvent: {}
+[0.250937] (-) TimerEvent: {}
+[0.354526] (-) TimerEvent: {}
+[0.462797] (-) TimerEvent: {}
+[0.574203] (-) TimerEvent: {}
+[0.682400] (-) TimerEvent: {}
+[0.813087] (-) TimerEvent: {}
+[0.939085] (-) TimerEvent: {}
+[1.049194] (-) TimerEvent: {}
+[1.155413] (-) TimerEvent: {}
+[1.259148] (-) TimerEvent: {}
+[1.373501] (-) TimerEvent: {}
+[1.490076] (-) TimerEvent: {}
+[1.623118] (-) TimerEvent: {}
+[1.725858] (-) TimerEvent: {}
+[1.830393] (-) TimerEvent: {}
+[1.935132] (-) TimerEvent: {}
+[2.040253] (-) TimerEvent: {}
+[2.142135] (-) TimerEvent: {}
+[2.242503] (-) TimerEvent: {}
+[2.344805] (-) TimerEvent: {}
+[2.446408] (-) TimerEvent: {}
+[2.547207] (-) TimerEvent: {}
+[2.652251] (-) TimerEvent: {}
+[2.761460] (-) TimerEvent: {}
+[2.800482] (learning_ros) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/learning_ros', 'build', '--build-base', '/home/dingmingyue/rov_software_2026/build/learning_ros/build', 'install', '--record', '/home/dingmingyue/rov_software_2026/build/learning_ros/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/dingmingyue/rov_software_2026/learning_ros', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'dingmingyue', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/dingmingyue', 'CHROME_DESKTOP': 'code.desktop', 'TERM_PROGRAM_VERSION': '1.105.1', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'SYSTEMD_EXEC_PID': '1355', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'dingmingyue', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'dingmingyue', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/Ubuntu22:@/tmp/.ICE-unix/1318,unix/Ubuntu22:/tmp/.ICE-unix/1318', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/f10a746e_0ecc_4f03_b615_2a56c7bc9937', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.14L9E3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-6914686946.sock', 'GNOME_TERMINAL_SERVICE': ':1.96', 'TERM_PROGRAM': 'vscode', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/dingmingyue/rov_software_2026/build/learning_ros', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/dingmingyue/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.871990] (-) TimerEvent: {}
+[2.985098] (-) TimerEvent: {}
+[3.090720] (-) TimerEvent: {}
+[3.234390] (-) TimerEvent: {}
+[3.342128] (-) TimerEvent: {}
+[3.482111] (-) TimerEvent: {}
+[3.598359] (-) TimerEvent: {}
+[3.719107] (-) TimerEvent: {}
+[3.834335] (-) TimerEvent: {}
+[3.946170] (-) TimerEvent: {}
+[4.013147] (learning_ros) StdoutLine: {'line': b'running egg_info\n'}
+[4.017827] (learning_ros) StdoutLine: {'line': b'writing ../build/learning_ros/learning_ros.egg-info/PKG-INFO\n'}
+[4.031414] (learning_ros) StdoutLine: {'line': b'writing dependency_links to ../build/learning_ros/learning_ros.egg-info/dependency_links.txt\n'}
+[4.037768] (learning_ros) StdoutLine: {'line': b'writing entry points to ../build/learning_ros/learning_ros.egg-info/entry_points.txt\n'}
+[4.045769] (learning_ros) StdoutLine: {'line': b'writing requirements to ../build/learning_ros/learning_ros.egg-info/requires.txt\n'}
+[4.046729] (-) TimerEvent: {}
+[4.047470] (learning_ros) StdoutLine: {'line': b'writing top-level names to ../build/learning_ros/learning_ros.egg-info/top_level.txt\n'}
+[4.066692] (learning_ros) StdoutLine: {'line': b"reading manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'\n"}
+[4.074882] (learning_ros) StdoutLine: {'line': b"writing manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'\n"}
+[4.078001] (learning_ros) StdoutLine: {'line': b'running build\n'}
+[4.080736] (learning_ros) StdoutLine: {'line': b'running build_py\n'}
+[4.083562] (learning_ros) StdoutLine: {'line': b'running install\n'}
+[4.087740] (learning_ros) StdoutLine: {'line': b'running install_lib\n'}
+[4.127691] (learning_ros) StdoutLine: {'line': b'running install_data\n'}
+[4.134595] (learning_ros) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.135564] (learning_ros) StdoutLine: {'line': b"removing '/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[4.135814] (learning_ros) StdoutLine: {'line': b'Copying ../build/learning_ros/learning_ros.egg-info to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros-0.0.0-py3.10.egg-info\n'}
+[4.144530] (learning_ros) StdoutLine: {'line': b'running install_scripts\n'}
+[4.153395] (-) TimerEvent: {}
+[4.232229] (learning_ros) StdoutLine: {'line': b'Installing calculator_client script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros\n'}
+[4.234413] (learning_ros) StdoutLine: {'line': b'Installing joy_inspector script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros\n'}
+[4.237258] (learning_ros) StdoutLine: {'line': b'Installing listener script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros\n'}
+[4.247302] (learning_ros) StdoutLine: {'line': b'Installing talker script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros\n'}
+[4.251235] (learning_ros) StdoutLine: {'line': b"writing list of installed files to '/home/dingmingyue/rov_software_2026/build/learning_ros/install.log'\n"}
+[4.255390] (-) TimerEvent: {}
+[4.358269] (learning_ros) CommandEnded: {'returncode': 0}
+[4.358982] (-) TimerEvent: {}
+[4.463483] (-) TimerEvent: {}
+[4.517476] (learning_ros) JobEnded: {'identifier': 'learning_ros', 'rc': 0}
+[4.527963] (rov_control) JobStarted: {'identifier': 'rov_control'}
+[4.563811] (-) TimerEvent: {}
+[4.674013] (-) TimerEvent: {}
+[4.783536] (-) TimerEvent: {}
+[4.896123] (-) TimerEvent: {}
+[5.000248] (-) TimerEvent: {}
+[5.105128] (-) TimerEvent: {}
+[5.213298] (-) TimerEvent: {}
+[5.334311] (-) TimerEvent: {}
+[5.446067] (-) TimerEvent: {}
+[5.547401] (-) TimerEvent: {}
+[5.657519] (-) TimerEvent: {}
+[5.773556] (-) TimerEvent: {}
+[5.890022] (-) TimerEvent: {}
+[6.010163] (-) TimerEvent: {}
+[6.123338] (-) TimerEvent: {}
+[6.227401] (-) TimerEvent: {}
+[6.340428] (-) TimerEvent: {}
+[6.456042] (-) TimerEvent: {}
+[6.564002] (-) TimerEvent: {}
+[6.677733] (-) TimerEvent: {}
+[6.732333] (rov_control) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/rov_control', 'build', '--build-base', '/home/dingmingyue/rov_software_2026/build/rov_control/build', 'install', '--record', '/home/dingmingyue/rov_software_2026/build/rov_control/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/dingmingyue/rov_software_2026/rov_control', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'dingmingyue', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/dingmingyue', 'CHROME_DESKTOP': 'code.desktop', 'TERM_PROGRAM_VERSION': '1.105.1', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'SYSTEMD_EXEC_PID': '1355', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'dingmingyue', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'dingmingyue', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/Ubuntu22:@/tmp/.ICE-unix/1318,unix/Ubuntu22:/tmp/.ICE-unix/1318', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/f10a746e_0ecc_4f03_b615_2a56c7bc9937', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.14L9E3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-6914686946.sock', 'GNOME_TERMINAL_SERVICE': ':1.96', 'TERM_PROGRAM': 'vscode', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/dingmingyue/rov_software_2026/build/rov_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/dingmingyue/rov_software_2026/build/rov_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[6.786922] (-) TimerEvent: {}
+[6.925949] (-) TimerEvent: {}
+[7.046234] (-) TimerEvent: {}
+[7.153634] (-) TimerEvent: {}
+[7.265125] (-) TimerEvent: {}
+[7.379419] (-) TimerEvent: {}
+[7.484133] (-) TimerEvent: {}
+[7.518186] (rov_control) StdoutLine: {'line': b'running egg_info\n'}
+[7.518366] (rov_control) StdoutLine: {'line': b'writing ../build/rov_control/rov_control.egg-info/PKG-INFO\n'}
+[7.526140] (rov_control) StdoutLine: {'line': b'writing dependency_links to ../build/rov_control/rov_control.egg-info/dependency_links.txt\n'}
+[7.527496] (rov_control) StdoutLine: {'line': b'writing entry points to ../build/rov_control/rov_control.egg-info/entry_points.txt\n'}
+[7.527609] (rov_control) StdoutLine: {'line': b'writing requirements to ../build/rov_control/rov_control.egg-info/requires.txt\n'}
+[7.528444] (rov_control) StdoutLine: {'line': b'writing top-level names to ../build/rov_control/rov_control.egg-info/top_level.txt\n'}
+[7.530387] (rov_control) StdoutLine: {'line': b"reading manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'\n"}
+[7.533851] (rov_control) StdoutLine: {'line': b"writing manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'\n"}
+[7.557472] (rov_control) StdoutLine: {'line': b'running build\n'}
+[7.557794] (rov_control) StdoutLine: {'line': b'running build_py\n'}
+[7.557914] (rov_control) StdoutLine: {'line': b'running install\n'}
+[7.557975] (rov_control) StdoutLine: {'line': b'running install_lib\n'}
+[7.558022] (rov_control) StdoutLine: {'line': b'running install_data\n'}
+[7.558069] (rov_control) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.558117] (rov_control) StdoutLine: {'line': b"removing '/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[7.558166] (rov_control) StdoutLine: {'line': b'Copying ../build/rov_control/rov_control.egg-info to /home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages/rov_control-0.0.0-py3.10.egg-info\n'}
+[7.558230] (rov_control) StdoutLine: {'line': b'running install_scripts\n'}
+[7.609271] (-) TimerEvent: {}
+[7.652627] (rov_control) StdoutLine: {'line': b'Installing joystick_node script to /home/dingmingyue/rov_software_2026/install/rov_control/lib/rov_control\n'}
+[7.659483] (rov_control) StdoutLine: {'line': b'Installing thruster_mapper_node script to /home/dingmingyue/rov_software_2026/install/rov_control/lib/rov_control\n'}
+[7.659686] (rov_control) StdoutLine: {'line': b"writing list of installed files to '/home/dingmingyue/rov_software_2026/build/rov_control/install.log'\n"}
+[7.711144] (rov_control) CommandEnded: {'returncode': 0}
+[7.716326] (-) TimerEvent: {}
+[7.780925] (rov_control) JobEnded: {'identifier': 'rov_control', 'rc': 0}
+[7.798575] (rov_interfaces) JobStarted: {'identifier': 'rov_interfaces'}
+[7.832720] (-) TimerEvent: {}
+[7.866934] (rov_interfaces) JobProgress: {'identifier': 'rov_interfaces', 'progress': 'cmake'}
+[7.876305] (rov_interfaces) JobProgress: {'identifier': 'rov_interfaces', 'progress': 'build'}
+[7.878163] (rov_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/dingmingyue/rov_software_2026/build/rov_interfaces', '--', '-j1', '-l1'], 'cwd': '/home/dingmingyue/rov_software_2026/build/rov_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'dingmingyue'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/dingmingyue'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('SYSTEMD_EXEC_PID', '1355'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'dingmingyue'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'dingmingyue'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/Ubuntu22:@/tmp/.ICE-unix/1318,unix/Ubuntu22:/tmp/.ICE-unix/1318'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/f10a746e_0ecc_4f03_b615_2a56c7bc9937'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.14L9E3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6914686946.sock'), ('GNOME_TERMINAL_SERVICE', ':1.96'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/dingmingyue/rov_software_2026/build/rov_interfaces'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[7.933146] (-) TimerEvent: {}
+[8.034106] (-) TimerEvent: {}
+[8.134766] (-) TimerEvent: {}
+[8.236348] (-) TimerEvent: {}
+[8.337412] (-) TimerEvent: {}
+[8.442176] (-) TimerEvent: {}
+[8.549223] (-) TimerEvent: {}
+[8.637105] (rov_interfaces) StdoutLine: {'line': b'[  2%] Built target rov_interfaces__cpp\n'}
+[8.659146] (-) TimerEvent: {}
+[8.761274] (-) TimerEvent: {}
+[8.772977] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_typesupport_cpp\x1b[0m\n'}
+[8.870451] (-) TimerEvent: {}
+[8.953343] (rov_interfaces) StdoutLine: {'line': b'[ 12%] Built target rov_interfaces__rosidl_typesupport_cpp\n'}
+[8.973261] (-) TimerEvent: {}
+[9.012895] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_generator_c\x1b[0m\n'}
+[9.074269] (-) TimerEvent: {}
+[9.124235] (rov_interfaces) StdoutLine: {'line': b'[ 23%] Built target rov_interfaces__rosidl_generator_c\n'}
+[9.178122] (-) TimerEvent: {}
+[9.199342] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[9.293129] (-) TimerEvent: {}
+[9.295433] (rov_interfaces) StdoutLine: {'line': b'[ 33%] Built target rov_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[9.366332] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[9.396827] (-) TimerEvent: {}
+[9.449298] (rov_interfaces) StdoutLine: {'line': b'[ 43%] Built target rov_interfaces__rosidl_typesupport_introspection_c\n'}
+[9.497287] (-) TimerEvent: {}
+[9.500545] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_typesupport_c\x1b[0m\n'}
+[9.569573] (rov_interfaces) StdoutLine: {'line': b'[ 53%] Built target rov_interfaces__rosidl_typesupport_c\n'}
+[9.598440] (-) TimerEvent: {}
+[9.645099] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[9.700145] (-) TimerEvent: {}
+[9.719172] (rov_interfaces) StdoutLine: {'line': b'[ 64%] Built target rov_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[9.789457] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[9.801363] (-) TimerEvent: {}
+[9.867205] (rov_interfaces) StdoutLine: {'line': b'[ 74%] Built target rov_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[9.902945] (-) TimerEvent: {}
+[9.995120] (rov_interfaces) StdoutLine: {'line': b'[ 74%] Built target rov_interfaces\n'}
+[10.003685] (-) TimerEvent: {}
+[10.120041] (-) TimerEvent: {}
+[10.222240] (-) TimerEvent: {}
+[10.289113] (rov_interfaces) StdoutLine: {'line': b'[ 74%] Built target ament_cmake_python_copy_rov_interfaces\n'}
+[10.323214] (-) TimerEvent: {}
+[10.425236] (-) TimerEvent: {}
+[10.545737] (-) TimerEvent: {}
+[10.664345] (-) TimerEvent: {}
+[10.775053] (-) TimerEvent: {}
+[10.893408] (-) TimerEvent: {}
+[10.997484] (-) TimerEvent: {}
+[11.079118] (rov_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[11.085477] (rov_interfaces) StdoutLine: {'line': b'writing rov_interfaces.egg-info/PKG-INFO\n'}
+[11.086719] (rov_interfaces) StdoutLine: {'line': b'writing dependency_links to rov_interfaces.egg-info/dependency_links.txt\n'}
+[11.102880] (-) TimerEvent: {}
+[11.103637] (rov_interfaces) StdoutLine: {'line': b'writing top-level names to rov_interfaces.egg-info/top_level.txt\n'}
+[11.103815] (rov_interfaces) StdoutLine: {'line': b"reading manifest file 'rov_interfaces.egg-info/SOURCES.txt'\n"}
+[11.163234] (rov_interfaces) StdoutLine: {'line': b"writing manifest file 'rov_interfaces.egg-info/SOURCES.txt'\n"}
+[11.203513] (-) TimerEvent: {}
+[11.242385] (rov_interfaces) StdoutLine: {'line': b'[ 74%] Built target ament_cmake_python_build_rov_interfaces_egg\n'}
+[11.314603] (-) TimerEvent: {}
+[11.402257] (rov_interfaces) StdoutLine: {'line': b'[ 76%] Built target rov_interfaces__py\n'}
+[11.415296] (-) TimerEvent: {}
+[11.491130] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_generator_py\x1b[0m\n'}
+[11.518063] (-) TimerEvent: {}
+[11.599434] (rov_interfaces) StdoutLine: {'line': b'[ 84%] Built target rov_interfaces__rosidl_generator_py\n'}
+[11.619446] (-) TimerEvent: {}
+[11.683242] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[11.722351] (-) TimerEvent: {}
+[11.749175] (rov_interfaces) StdoutLine: {'line': b'[ 89%] Built target rov_interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[11.830415] (-) TimerEvent: {}
+[11.846996] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[11.919294] (rov_interfaces) StdoutLine: {'line': b'[ 94%] Built target rov_interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[11.943679] (-) TimerEvent: {}
+[12.023165] (rov_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rov_interfaces__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[12.044096] (-) TimerEvent: {}
+[12.102508] (rov_interfaces) StdoutLine: {'line': b'[100%] Built target rov_interfaces__rosidl_typesupport_c__pyext\n'}
+[12.153780] (-) TimerEvent: {}
+[12.183952] (rov_interfaces) CommandEnded: {'returncode': 0}
+[12.201185] (rov_interfaces) JobProgress: {'identifier': 'rov_interfaces', 'progress': 'install'}
+[12.249471] (rov_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/dingmingyue/rov_software_2026/build/rov_interfaces'], 'cwd': '/home/dingmingyue/rov_software_2026/build/rov_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'dingmingyue'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/dingmingyue'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('SYSTEMD_EXEC_PID', '1355'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'dingmingyue'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'dingmingyue'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/Ubuntu22:@/tmp/.ICE-unix/1318,unix/Ubuntu22:/tmp/.ICE-unix/1318'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/f10a746e_0ecc_4f03_b615_2a56c7bc9937'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.14L9E3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6914686946.sock'), ('GNOME_TERMINAL_SERVICE', ':1.96'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/dingmingyue/rov_software_2026/build/rov_interfaces'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[12.254353] (-) TimerEvent: {}
+[12.293575] (rov_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[12.307401] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/ament_index/resource_index/rosidl_interfaces/rov_interfaces\n'}
+[12.307607] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces\n'}
+[12.307675] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg\n'}
+[12.307724] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail\n'}
+[12.307771] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__functions.h\n'}
+[12.307841] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__struct.h\n'}
+[12.307889] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__type_support.h\n'}
+[12.307934] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__functions.c\n'}
+[12.307978] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[12.308023] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/thruster_power.h\n'}
+[12.308073] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv\n'}
+[12.308119] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail\n'}
+[12.308180] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__struct.h\n'}
+[12.308225] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__functions.c\n'}
+[12.308312] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__functions.h\n'}
+[12.308367] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__type_support.h\n'}
+[12.308412] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/add_two_ints.h\n'}
+[12.308459] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/library_path.sh\n'}
+[12.308503] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/library_path.dsv\n'}
+[12.323196] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_generator_c.so\n'}
+[12.323408] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces\n'}
+[12.323900] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg\n'}
+[12.323978] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail\n'}
+[12.324039] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__rosidl_typesupport_fastrtps_c.h\n'}
+[12.324100] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[12.324157] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv\n'}
+[12.324218] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail\n'}
+[12.324274] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__rosidl_typesupport_fastrtps_c.h\n'}
+[12.327312] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[12.327752] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces\n'}
+[12.328147] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg\n'}
+[12.328661] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail\n'}
+[12.329204] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__type_support.c\n'}
+[12.329409] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__rosidl_typesupport_introspection_c.h\n'}
+[12.329790] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[12.335472] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv\n'}
+[12.335566] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail\n'}
+[12.335615] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__rosidl_typesupport_introspection_c.h\n'}
+[12.335662] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__type_support.c\n'}
+[12.339566] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[12.342970] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_c.so\n'}
+[12.343843] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces\n'}
+[12.356387] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg\n'}
+[12.356633] (-) TimerEvent: {}
+[12.356828] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail\n'}
+[12.357066] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__struct.hpp\n'}
+[12.357200] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__builder.hpp\n'}
+[12.357302] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__type_support.hpp\n'}
+[12.357403] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__traits.hpp\n'}
+[12.357503] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/thruster_power.hpp\n'}
+[12.357603] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[12.357700] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv\n'}
+[12.357803] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail\n'}
+[12.357898] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__traits.hpp\n'}
+[12.357994] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__builder.hpp\n'}
+[12.358089] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__struct.hpp\n'}
+[12.358183] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__type_support.hpp\n'}
+[12.358278] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/add_two_ints.hpp\n'}
+[12.358371] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces\n'}
+[12.358465] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg\n'}
+[12.358558] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail\n'}
+[12.358651] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.358768] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/dds_fastrtps\n'}
+[12.358892] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[12.358990] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv\n'}
+[12.359135] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail\n'}
+[12.359235] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.359325] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/dds_fastrtps\n'}
+[12.379552] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[12.379780] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces\n'}
+[12.382139] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg\n'}
+[12.391454] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail\n'}
+[12.391551] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__type_support.cpp\n'}
+[12.393070] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/msg/detail/thruster_power__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.393166] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv\n'}
+[12.393240] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail\n'}
+[12.393294] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__type_support.cpp\n'}
+[12.393349] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/include/rov_interfaces/rov_interfaces/srv/detail/add_two_ints__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.393403] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[12.393455] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_typesupport_cpp.so\n'}
+[12.393508] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/pythonpath.sh\n'}
+[12.393560] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/pythonpath.dsv\n'}
+[12.393659] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info\n'}
+[12.394134] (rov_interfaces) StdoutLine: {'line': b'-- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[12.394821] (rov_interfaces) StdoutLine: {'line': b'-- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[12.395776] (rov_interfaces) StdoutLine: {'line': b'-- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[12.396072] (rov_interfaces) StdoutLine: {'line': b'-- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[12.396796] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces\n'}
+[12.397235] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/librov_interfaces__rosidl_generator_py.so\n'}
+[12.397753] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg\n'}
+[12.399370] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg/__init__.py\n'}
+[12.399545] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg/_thruster_power.py\n'}
+[12.399673] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg/_thruster_power_s.c\n'}
+[12.399806] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/__init__.py\n'}
+[12.399916] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[12.400704] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[12.400815] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[12.401355] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/_rov_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[12.401435] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/_rov_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[12.401491] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv\n'}
+[12.401536] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv/_add_two_ints.py\n'}
+[12.401581] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv/__init__.py\n'}
+[12.401624] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv/_add_two_ints_s.c\n'}
+[12.412311] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/_rov_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[12.470451] (-) TimerEvent: {}
+[12.593471] (rov_interfaces) StdoutLine: {'line': b"Listing '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces'...\n"}
+[12.593718] (-) TimerEvent: {}
+[12.593853] (rov_interfaces) StdoutLine: {'line': b"Listing '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/msg'...\n"}
+[12.593963] (rov_interfaces) StdoutLine: {'line': b"Listing '/home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/srv'...\n"}
+[12.611055] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[12.614626] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[12.617571] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/local/lib/python3.10/dist-packages/rov_interfaces/rov_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[12.628361] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/librov_interfaces__rosidl_generator_py.so\n'}
+[12.628534] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/msg/ThrusterPower.idl\n'}
+[12.628593] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/srv/AddTwoInts.idl\n'}
+[12.628637] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/msg/ThrusterPower.msg\n'}
+[12.629175] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/srv/AddTwoInts.srv\n'}
+[12.629234] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/srv/AddTwoInts_Request.msg\n'}
+[12.629277] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/srv/AddTwoInts_Response.msg\n'}
+[12.629321] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/ament_index/resource_index/package_run_dependencies/rov_interfaces\n'}
+[12.629367] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/ament_index/resource_index/parent_prefix_path/rov_interfaces\n'}
+[12.629416] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/ament_prefix_path.sh\n'}
+[12.629468] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/ament_prefix_path.dsv\n'}
+[12.629512] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/path.sh\n'}
+[12.629593] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/environment/path.dsv\n'}
+[12.629664] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/local_setup.bash\n'}
+[12.629708] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/local_setup.sh\n'}
+[12.629753] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/local_setup.zsh\n'}
+[12.629797] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/local_setup.dsv\n'}
+[12.629841] (rov_interfaces) StdoutLine: {'line': b'-- Installing: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.dsv\n'}
+[12.629885] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/ament_index/resource_index/packages/rov_interfaces\n'}
+[12.635173] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_cExport.cmake\n'}
+[12.635269] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[12.635317] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[12.635358] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[12.636051] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[12.636131] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[12.636703] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[12.659706] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[12.659891] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_cppExport.cmake\n'}
+[12.662374] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[12.662514] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[12.662607] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[12.662667] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[12.666590] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[12.666716] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[12.669127] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_pyExport.cmake\n'}
+[12.669241] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/export_rov_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[12.669782] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[12.669869] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[12.669916] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[12.669960] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[12.670004] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[12.670047] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[12.670089] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[12.670132] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfacesConfig.cmake\n'}
+[12.670175] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/cmake/rov_interfacesConfig-version.cmake\n'}
+[12.670218] (rov_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.xml\n'}
+[12.712394] (rov_interfaces) CommandEnded: {'returncode': 0}
+[12.713045] (-) TimerEvent: {}
+[12.784259] (rov_interfaces) JobEnded: {'identifier': 'rov_interfaces', 'rc': 0}
+[12.785591] (-) EventReactorShutdown: {}

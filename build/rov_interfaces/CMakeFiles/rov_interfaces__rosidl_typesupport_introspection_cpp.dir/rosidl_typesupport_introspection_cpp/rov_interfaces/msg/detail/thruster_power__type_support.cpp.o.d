@@ -1,5 +1,5 @@
 CMakeFiles/rov_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/rov_interfaces/msg/detail/thruster_power__type_support.cpp.o: \
- /root/ros2_ws/src/build/rov_interfaces/rosidl_typesupport_introspection_cpp/rov_interfaces/msg/detail/thruster_power__type_support.cpp \
+ /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_typesupport_introspection_cpp/rov_interfaces/msg/detail/thruster_power__type_support.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/array \
  /usr/include/c++/11/utility \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -137,7 +137,7 @@ CMakeFiles/rov_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_types
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/visibility_control.h \
  /opt/ros/humble/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h \
  /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_typesupport_cpp/message_type_support.hpp \
- /root/ros2_ws/src/build/rov_interfaces/rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__struct.hpp \
+ /home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_generator_cpp/rov_interfaces/msg/detail/thruster_power__struct.hpp \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \

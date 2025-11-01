@@ -1,0 +1,6 @@
+Invoking command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/dingmingyue/rov_software_2026/rov_interfaces -DCMAKE_INSTALL_PREFIX=/home/dingmingyue/rov_software_2026/install/rov_interfaces
+Invoked command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/dingmingyue/rov_software_2026/rov_interfaces -DCMAKE_INSTALL_PREFIX=/home/dingmingyue/rov_software_2026/install/rov_interfaces
+Invoking command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/dingmingyue/rov_software_2026/build/rov_interfaces -- -j1 -l1
+Invoked command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/dingmingyue/rov_software_2026/build/rov_interfaces -- -j1 -l1
+Invoking command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/dingmingyue/rov_software_2026/build/rov_interfaces
+Invoked command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/dingmingyue/rov_software_2026/build/rov_interfaces

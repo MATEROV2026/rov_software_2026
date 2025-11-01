@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ros2_ws/src/rov_interfaces
+CMAKE_SOURCE_DIR = /home/dingmingyue/rov_software_2026/rov_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ros2_ws/src/build/rov_interfaces
+CMAKE_BINARY_DIR = /home/dingmingyue/rov_software_2026/build/rov_interfaces
 
 # Utility rule file for ament_cmake_python_build_rov_interfaces_egg.
 
@@ -67,7 +67,7 @@ include CMakeFiles/ament_cmake_python_build_rov_interfaces_egg.dir/compiler_depe
 include CMakeFiles/ament_cmake_python_build_rov_interfaces_egg.dir/progress.make
 
 CMakeFiles/ament_cmake_python_build_rov_interfaces_egg:
-	cd /root/ros2_ws/src/build/rov_interfaces/ament_cmake_python/rov_interfaces && /usr/bin/python3 setup.py egg_info
+	cd /home/dingmingyue/rov_software_2026/build/rov_interfaces/ament_cmake_python/rov_interfaces && /usr/bin/python3 setup.py egg_info
 
 ament_cmake_python_build_rov_interfaces_egg: CMakeFiles/ament_cmake_python_build_rov_interfaces_egg
 ament_cmake_python_build_rov_interfaces_egg: CMakeFiles/ament_cmake_python_build_rov_interfaces_egg.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/ament_cmake_python_build_rov_interfaces_egg.dir/clean:
 .PHONY : CMakeFiles/ament_cmake_python_build_rov_interfaces_egg.dir/clean
 
 CMakeFiles/ament_cmake_python_build_rov_interfaces_egg.dir/depend:
-	cd /root/ros2_ws/src/build/rov_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/ros2_ws/src/rov_interfaces /root/ros2_ws/src/rov_interfaces /root/ros2_ws/src/build/rov_interfaces /root/ros2_ws/src/build/rov_interfaces /root/ros2_ws/src/build/rov_interfaces/CMakeFiles/ament_cmake_python_build_rov_interfaces_egg.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dingmingyue/rov_software_2026/build/rov_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dingmingyue/rov_software_2026/rov_interfaces /home/dingmingyue/rov_software_2026/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces /home/dingmingyue/rov_software_2026/build/rov_interfaces/CMakeFiles/ament_cmake_python_build_rov_interfaces_egg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ament_cmake_python_build_rov_interfaces_egg.dir/depend
 

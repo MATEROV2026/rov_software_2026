@@ -1,0 +1,52 @@
+[2.606s] Invoking command in '/home/dingmingyue/rov_software_2026/learning_ros': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/learning_ros build --build-base /home/dingmingyue/rov_software_2026/build/learning_ros/build install --record /home/dingmingyue/rov_software_2026/build/learning_ros/install.log --single-version-externally-managed install_data
+[3.539s] running egg_info
+[3.548s] creating ../build/learning_ros/learning_ros.egg-info
+[3.549s] writing ../build/learning_ros/learning_ros.egg-info/PKG-INFO
+[3.549s] writing dependency_links to ../build/learning_ros/learning_ros.egg-info/dependency_links.txt
+[3.549s] writing entry points to ../build/learning_ros/learning_ros.egg-info/entry_points.txt
+[3.549s] writing requirements to ../build/learning_ros/learning_ros.egg-info/requires.txt
+[3.549s] writing top-level names to ../build/learning_ros/learning_ros.egg-info/top_level.txt
+[3.549s] writing manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'
+[3.549s] reading manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'
+[3.549s] writing manifest file '../build/learning_ros/learning_ros.egg-info/SOURCES.txt'
+[3.559s] running build
+[3.559s] running build_py
+[3.559s] creating /home/dingmingyue/rov_software_2026/build/learning_ros/build
+[3.560s] creating /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib
+[3.560s] creating /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+[3.560s] copying learning_ros/listener_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+[3.561s] copying learning_ros/__init__.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+[3.569s] copying learning_ros/calculator_client_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+[3.572s] copying learning_ros/talker_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+[3.573s] copying learning_ros/joy_inspector_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+[3.576s] copying learning_ros/calculator_service_node.py -> /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros
+[3.584s] running install
+[3.600s] running install_lib
+[3.601s] creating /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+[3.601s] copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/listener_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+[3.601s] copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/__init__.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+[3.601s] copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/calculator_client_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+[3.601s] copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/talker_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+[3.601s] copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/joy_inspector_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+[3.601s] copying /home/dingmingyue/rov_software_2026/build/learning_ros/build/lib/learning_ros/calculator_service_node.py -> /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros
+[3.601s] byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/listener_node.py to listener_node.cpython-310.pyc
+[3.601s] byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/__init__.py to __init__.cpython-310.pyc
+[3.601s] byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/calculator_client_node.py to calculator_client_node.cpython-310.pyc
+[3.633s] byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/talker_node.py to talker_node.cpython-310.pyc
+[3.633s] byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/joy_inspector_node.py to joy_inspector_node.cpython-310.pyc
+[3.633s] byte-compiling /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros/calculator_service_node.py to calculator_service_node.cpython-310.pyc
+[3.633s] running install_data
+[3.633s] creating /home/dingmingyue/rov_software_2026/install/learning_ros/share/ament_index
+[3.633s] creating /home/dingmingyue/rov_software_2026/install/learning_ros/share/ament_index/resource_index
+[3.633s] creating /home/dingmingyue/rov_software_2026/install/learning_ros/share/ament_index/resource_index/packages
+[3.633s] copying resource/learning_ros -> /home/dingmingyue/rov_software_2026/install/learning_ros/share/ament_index/resource_index/packages
+[3.633s] copying package.xml -> /home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros
+[3.633s] running install_egg_info
+[3.659s] Copying ../build/learning_ros/learning_ros.egg-info to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning_ros-0.0.0-py3.10.egg-info
+[3.659s] running install_scripts
+[3.733s] Installing calculator_client script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+[3.755s] Installing joy_inspector script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+[3.755s] Installing listener script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+[3.756s] Installing talker script to /home/dingmingyue/rov_software_2026/install/learning_ros/lib/learning_ros
+[3.756s] writing list of installed files to '/home/dingmingyue/rov_software_2026/build/learning_ros/install.log'
+[3.812s] Invoked command in '/home/dingmingyue/rov_software_2026/learning_ros' returned '0': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/learning_ros build --build-base /home/dingmingyue/rov_software_2026/build/learning_ros/build install --record /home/dingmingyue/rov_software_2026/build/learning_ros/install.log --single-version-externally-managed install_data

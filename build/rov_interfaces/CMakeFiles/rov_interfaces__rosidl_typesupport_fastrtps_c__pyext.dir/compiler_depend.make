@@ -245,8 +245,13 @@ CMakeFiles/rov_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_gener
   rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__type_support.h \
   rosidl_generator_c/rov_interfaces/msg/rosidl_generator_c__visibility_control.h \
   rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__struct.h \
-  rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.h
+  rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__functions.h \
+  rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__type_support.h \
+  rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__struct.h \
+  rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.h
 
+
+rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__type_support.h:
 
 rosidl_generator_c/rov_interfaces/msg/rosidl_generator_c__visibility_control.h:
 
@@ -348,11 +353,15 @@ rosidl_generator_c/rov_interfaces/msg/detail/thruster_power__type_support.h:
 
 /usr/include/wchar.h:
 
+rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__functions.h:
+
 /usr/include/python3.10/listobject.h:
 
 /usr/include/ctype.h:
 
 /usr/include/python3.10/unicodeobject.h:
+
+rosidl_generator_c/rov_interfaces/srv/detail/add_two_ints__struct.h:
 
 /usr/include/python3.10/pylifecycle.h:
 

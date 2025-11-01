@@ -1,0 +1,236 @@
+[1.545s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[1.545s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=1, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7919ff62ed10>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7919ff7781c0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7919ff7781c0>>)
+[2.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[2.218s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[2.218s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[2.218s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[2.219s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[2.219s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[2.219s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/dingmingyue/rov_software_2026'
+[2.219s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[2.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[2.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[2.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[2.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[2.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[2.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[2.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[2.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[2.253s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[2.253s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[2.253s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[2.253s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[2.253s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[2.254s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[2.254s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[2.254s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[2.254s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[2.254s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[2.254s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[2.256s] Level 1:colcon.colcon_core.package_identification:_identify(learning_ros) by extensions ['ignore', 'ignore_ament_install']
+[2.256s] Level 1:colcon.colcon_core.package_identification:_identify(learning_ros) by extension 'ignore'
+[2.256s] Level 1:colcon.colcon_core.package_identification:_identify(learning_ros) by extension 'ignore_ament_install'
+[2.256s] Level 1:colcon.colcon_core.package_identification:_identify(learning_ros) by extensions ['colcon_pkg']
+[2.256s] Level 1:colcon.colcon_core.package_identification:_identify(learning_ros) by extension 'colcon_pkg'
+[2.256s] Level 1:colcon.colcon_core.package_identification:_identify(learning_ros) by extensions ['colcon_meta']
+[2.257s] Level 1:colcon.colcon_core.package_identification:_identify(learning_ros) by extension 'colcon_meta'
+[2.257s] Level 1:colcon.colcon_core.package_identification:_identify(learning_ros) by extensions ['ros']
+[2.257s] Level 1:colcon.colcon_core.package_identification:_identify(learning_ros) by extension 'ros'
+[2.268s] DEBUG:colcon.colcon_core.package_identification:Package 'learning_ros' with type 'ros.ament_python' and name 'learning_ros'
+[2.268s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[2.268s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[2.268s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[2.270s] Level 1:colcon.colcon_core.package_identification:_identify(rov_control) by extensions ['ignore', 'ignore_ament_install']
+[2.270s] Level 1:colcon.colcon_core.package_identification:_identify(rov_control) by extension 'ignore'
+[2.270s] Level 1:colcon.colcon_core.package_identification:_identify(rov_control) by extension 'ignore_ament_install'
+[2.270s] Level 1:colcon.colcon_core.package_identification:_identify(rov_control) by extensions ['colcon_pkg']
+[2.270s] Level 1:colcon.colcon_core.package_identification:_identify(rov_control) by extension 'colcon_pkg'
+[2.270s] Level 1:colcon.colcon_core.package_identification:_identify(rov_control) by extensions ['colcon_meta']
+[2.270s] Level 1:colcon.colcon_core.package_identification:_identify(rov_control) by extension 'colcon_meta'
+[2.271s] Level 1:colcon.colcon_core.package_identification:_identify(rov_control) by extensions ['ros']
+[2.271s] Level 1:colcon.colcon_core.package_identification:_identify(rov_control) by extension 'ros'
+[2.273s] DEBUG:colcon.colcon_core.package_identification:Package 'rov_control' with type 'ros.ament_python' and name 'rov_control'
+[2.274s] Level 1:colcon.colcon_core.package_identification:_identify(rov_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[2.275s] Level 1:colcon.colcon_core.package_identification:_identify(rov_interfaces) by extension 'ignore'
+[2.275s] Level 1:colcon.colcon_core.package_identification:_identify(rov_interfaces) by extension 'ignore_ament_install'
+[2.275s] Level 1:colcon.colcon_core.package_identification:_identify(rov_interfaces) by extensions ['colcon_pkg']
+[2.275s] Level 1:colcon.colcon_core.package_identification:_identify(rov_interfaces) by extension 'colcon_pkg'
+[2.275s] Level 1:colcon.colcon_core.package_identification:_identify(rov_interfaces) by extensions ['colcon_meta']
+[2.275s] Level 1:colcon.colcon_core.package_identification:_identify(rov_interfaces) by extension 'colcon_meta'
+[2.275s] Level 1:colcon.colcon_core.package_identification:_identify(rov_interfaces) by extensions ['ros']
+[2.275s] Level 1:colcon.colcon_core.package_identification:_identify(rov_interfaces) by extension 'ros'
+[2.277s] DEBUG:colcon.colcon_core.package_identification:Package 'rov_interfaces' with type 'ros.ament_cmake' and name 'rov_interfaces'
+[2.277s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[2.277s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[2.277s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[2.278s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[2.278s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[2.363s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[2.363s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[2.377s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 271 installed packages in /opt/ros/humble
+[2.380s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[2.693s] Level 5:colcon.colcon_core.verb:set package 'learning_ros' build argument 'cmake_args' from command line to 'None'
+[2.694s] Level 5:colcon.colcon_core.verb:set package 'learning_ros' build argument 'cmake_target' from command line to 'None'
+[2.694s] Level 5:colcon.colcon_core.verb:set package 'learning_ros' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.694s] Level 5:colcon.colcon_core.verb:set package 'learning_ros' build argument 'cmake_clean_cache' from command line to 'False'
+[2.694s] Level 5:colcon.colcon_core.verb:set package 'learning_ros' build argument 'cmake_clean_first' from command line to 'False'
+[2.694s] Level 5:colcon.colcon_core.verb:set package 'learning_ros' build argument 'cmake_force_configure' from command line to 'False'
+[2.694s] Level 5:colcon.colcon_core.verb:set package 'learning_ros' build argument 'ament_cmake_args' from command line to 'None'
+[2.694s] Level 5:colcon.colcon_core.verb:set package 'learning_ros' build argument 'catkin_cmake_args' from command line to 'None'
+[2.694s] Level 5:colcon.colcon_core.verb:set package 'learning_ros' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.694s] DEBUG:colcon.colcon_core.verb:Building package 'learning_ros' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/dingmingyue/rov_software_2026/build/learning_ros', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/dingmingyue/rov_software_2026/install/learning_ros', 'merge_install': False, 'path': '/home/dingmingyue/rov_software_2026/learning_ros', 'symlink_install': False, 'test_result_base': None}
+[2.695s] Level 5:colcon.colcon_core.verb:set package 'rov_control' build argument 'cmake_args' from command line to 'None'
+[2.695s] Level 5:colcon.colcon_core.verb:set package 'rov_control' build argument 'cmake_target' from command line to 'None'
+[2.695s] Level 5:colcon.colcon_core.verb:set package 'rov_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.695s] Level 5:colcon.colcon_core.verb:set package 'rov_control' build argument 'cmake_clean_cache' from command line to 'False'
+[2.695s] Level 5:colcon.colcon_core.verb:set package 'rov_control' build argument 'cmake_clean_first' from command line to 'False'
+[2.695s] Level 5:colcon.colcon_core.verb:set package 'rov_control' build argument 'cmake_force_configure' from command line to 'False'
+[2.695s] Level 5:colcon.colcon_core.verb:set package 'rov_control' build argument 'ament_cmake_args' from command line to 'None'
+[2.695s] Level 5:colcon.colcon_core.verb:set package 'rov_control' build argument 'catkin_cmake_args' from command line to 'None'
+[2.696s] Level 5:colcon.colcon_core.verb:set package 'rov_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.696s] DEBUG:colcon.colcon_core.verb:Building package 'rov_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/dingmingyue/rov_software_2026/build/rov_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/dingmingyue/rov_software_2026/install/rov_control', 'merge_install': False, 'path': '/home/dingmingyue/rov_software_2026/rov_control', 'symlink_install': False, 'test_result_base': None}
+[2.699s] Level 5:colcon.colcon_core.verb:set package 'rov_interfaces' build argument 'cmake_args' from command line to 'None'
+[2.699s] Level 5:colcon.colcon_core.verb:set package 'rov_interfaces' build argument 'cmake_target' from command line to 'None'
+[2.699s] Level 5:colcon.colcon_core.verb:set package 'rov_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.699s] Level 5:colcon.colcon_core.verb:set package 'rov_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[2.699s] Level 5:colcon.colcon_core.verb:set package 'rov_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[2.699s] Level 5:colcon.colcon_core.verb:set package 'rov_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[2.699s] Level 5:colcon.colcon_core.verb:set package 'rov_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[2.699s] Level 5:colcon.colcon_core.verb:set package 'rov_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[2.699s] Level 5:colcon.colcon_core.verb:set package 'rov_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.699s] DEBUG:colcon.colcon_core.verb:Building package 'rov_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/dingmingyue/rov_software_2026/build/rov_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/dingmingyue/rov_software_2026/install/rov_interfaces', 'merge_install': False, 'path': '/home/dingmingyue/rov_software_2026/rov_interfaces', 'symlink_install': False, 'test_result_base': None}
+[2.699s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[2.701s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[2.701s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/dingmingyue/rov_software_2026/learning_ros' with build type 'ament_python'
+[2.701s] Level 1:colcon.colcon_core.shell:create_environment_hook('learning_ros', 'ament_prefix_path')
+[2.728s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[2.729s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/hook/ament_prefix_path.ps1'
+[2.734s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/hook/ament_prefix_path.dsv'
+[2.737s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/hook/ament_prefix_path.sh'
+[2.742s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.743s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.750s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/dingmingyue/rov_software_2026/learning_ros'
+[3.751s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.751s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.310s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/dingmingyue/rov_software_2026/learning_ros': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/learning_ros build --build-base /home/dingmingyue/rov_software_2026/build/learning_ros/build install --record /home/dingmingyue/rov_software_2026/build/learning_ros/install.log --single-version-externally-managed install_data
+[6.517s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/dingmingyue/rov_software_2026/learning_ros' returned '0': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/learning_ros build --build-base /home/dingmingyue/rov_software_2026/build/learning_ros/build install --record /home/dingmingyue/rov_software_2026/build/learning_ros/install.log --single-version-externally-managed install_data
+[6.555s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/learning_ros' for CMake module files
+[6.556s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/learning_ros' for CMake config files
+[6.558s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/learning_ros/lib'
+[6.558s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/learning_ros/bin'
+[6.558s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/learning_ros/lib/pkgconfig/learning_ros.pc'
+[6.558s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/learning_ros/lib/python3.10/site-packages'
+[6.558s] Level 1:colcon.colcon_core.shell:create_environment_hook('learning_ros', 'pythonpath')
+[6.558s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/hook/pythonpath.ps1'
+[6.559s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/hook/pythonpath.dsv'
+[6.559s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/hook/pythonpath.sh'
+[6.560s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/learning_ros/bin'
+[6.560s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(learning_ros)
+[6.560s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/package.ps1'
+[6.579s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/package.dsv'
+[6.584s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/package.sh'
+[6.587s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/package.bash'
+[6.590s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/learning_ros/share/learning_ros/package.zsh'
+[6.594s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/dingmingyue/rov_software_2026/install/learning_ros/share/colcon-core/packages/learning_ros)
+[6.596s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/dingmingyue/rov_software_2026/rov_control' with build type 'ament_python'
+[6.597s] Level 1:colcon.colcon_core.shell:create_environment_hook('rov_control', 'ament_prefix_path')
+[6.597s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/hook/ament_prefix_path.ps1'
+[6.598s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/hook/ament_prefix_path.dsv'
+[6.598s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/hook/ament_prefix_path.sh'
+[6.599s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.599s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.595s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/dingmingyue/rov_software_2026/rov_control'
+[7.596s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[7.596s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[8.877s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/dingmingyue/rov_software_2026/rov_control': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/rov_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/rov_control build --build-base /home/dingmingyue/rov_software_2026/build/rov_control/build install --record /home/dingmingyue/rov_software_2026/build/rov_control/install.log --single-version-externally-managed install_data
+[10.259s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_control' for CMake module files
+[10.259s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/dingmingyue/rov_software_2026/rov_control' returned '0': PYTHONPATH=/home/dingmingyue/rov_software_2026/build/rov_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/rov_control build --build-base /home/dingmingyue/rov_software_2026/build/rov_control/build install --record /home/dingmingyue/rov_software_2026/build/rov_control/install.log --single-version-externally-managed install_data
+[10.260s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_control' for CMake config files
+[10.260s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_control/lib'
+[10.260s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_control/bin'
+[10.260s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_control/lib/pkgconfig/rov_control.pc'
+[10.261s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_control/lib/python3.10/site-packages'
+[10.261s] Level 1:colcon.colcon_core.shell:create_environment_hook('rov_control', 'pythonpath')
+[10.261s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/hook/pythonpath.ps1'
+[10.261s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/hook/pythonpath.dsv'
+[10.262s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/hook/pythonpath.sh'
+[10.262s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_control/bin'
+[10.262s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rov_control)
+[10.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/package.ps1'
+[10.263s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/package.dsv'
+[10.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/package.sh'
+[10.267s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/package.bash'
+[10.267s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_control/share/rov_control/package.zsh'
+[10.267s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/dingmingyue/rov_software_2026/install/rov_control/share/colcon-core/packages/rov_control)
+[10.277s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/dingmingyue/rov_software_2026/rov_interfaces' with build type 'ament_cmake'
+[10.278s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/dingmingyue/rov_software_2026/rov_interfaces'
+[10.278s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[10.278s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.300s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/dingmingyue/rov_software_2026/rov_interfaces -DCMAKE_INSTALL_PREFIX=/home/dingmingyue/rov_software_2026/install/rov_interfaces
+[19.443s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/dingmingyue/rov_software_2026/rov_interfaces -DCMAKE_INSTALL_PREFIX=/home/dingmingyue/rov_software_2026/install/rov_interfaces
+[19.446s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/dingmingyue/rov_software_2026/build/rov_interfaces -- -j1 -l1
+[58.810s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/dingmingyue/rov_software_2026/build/rov_interfaces -- -j1 -l1
+[58.857s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/dingmingyue/rov_software_2026/build/rov_interfaces
+[59.192s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rov_interfaces)
+[59.193s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces' for CMake module files
+[59.193s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces' for CMake config files
+[59.194s] Level 1:colcon.colcon_core.shell:create_environment_hook('rov_interfaces', 'cmake_prefix_path')
+[59.194s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/cmake_prefix_path.ps1'
+[59.194s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/cmake_prefix_path.dsv'
+[59.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/cmake_prefix_path.sh'
+[59.195s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib'
+[59.195s] Level 1:colcon.colcon_core.shell:create_environment_hook('rov_interfaces', 'ld_library_path_lib')
+[59.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/ld_library_path_lib.ps1'
+[59.196s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/ld_library_path_lib.dsv'
+[59.196s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/ld_library_path_lib.sh'
+[59.201s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/dingmingyue/rov_software_2026/build/rov_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/dingmingyue/rov_software_2026/build/rov_interfaces
+[59.202s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/bin'
+[59.202s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/pkgconfig/rov_interfaces.pc'
+[59.202s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/python3.10/site-packages'
+[59.202s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/bin'
+[59.203s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.ps1'
+[59.203s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.dsv'
+[59.211s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.sh'
+[59.211s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.bash'
+[59.212s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.zsh'
+[59.212s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/colcon-core/packages/rov_interfaces)
+[59.212s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rov_interfaces)
+[59.213s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces' for CMake module files
+[59.213s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces' for CMake config files
+[59.214s] Level 1:colcon.colcon_core.shell:create_environment_hook('rov_interfaces', 'cmake_prefix_path')
+[59.214s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/cmake_prefix_path.ps1'
+[59.229s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/cmake_prefix_path.dsv'
+[59.233s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/cmake_prefix_path.sh'
+[59.235s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib'
+[59.235s] Level 1:colcon.colcon_core.shell:create_environment_hook('rov_interfaces', 'ld_library_path_lib')
+[59.236s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/ld_library_path_lib.ps1'
+[59.242s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/ld_library_path_lib.dsv'
+[59.248s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/hook/ld_library_path_lib.sh'
+[59.249s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/bin'
+[59.249s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/pkgconfig/rov_interfaces.pc'
+[59.249s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/lib/python3.10/site-packages'
+[59.250s] Level 1:colcon.colcon_core.environment:checking '/home/dingmingyue/rov_software_2026/install/rov_interfaces/bin'
+[59.250s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.ps1'
+[59.255s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.dsv'
+[59.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.sh'
+[59.261s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.bash'
+[59.265s] INFO:colcon.colcon_core.shell:Creating package script '/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/rov_interfaces/package.zsh'
+[59.268s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/dingmingyue/rov_software_2026/install/rov_interfaces/share/colcon-core/packages/rov_interfaces)
+[59.270s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[59.271s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[59.271s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[59.271s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[59.316s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[59.316s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[59.316s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[60.123s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[60.123s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/dingmingyue/rov_software_2026/install/local_setup.ps1'
+[60.135s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/dingmingyue/rov_software_2026/install/_local_setup_util_ps1.py'
+[60.157s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/dingmingyue/rov_software_2026/install/setup.ps1'
+[60.179s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/dingmingyue/rov_software_2026/install/local_setup.sh'
+[60.182s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/dingmingyue/rov_software_2026/install/_local_setup_util_sh.py'
+[60.183s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/dingmingyue/rov_software_2026/install/setup.sh'
+[60.192s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/dingmingyue/rov_software_2026/install/local_setup.bash'
+[60.196s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/dingmingyue/rov_software_2026/install/setup.bash'
+[60.202s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/dingmingyue/rov_software_2026/install/local_setup.zsh'
+[60.211s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/dingmingyue/rov_software_2026/install/setup.zsh'

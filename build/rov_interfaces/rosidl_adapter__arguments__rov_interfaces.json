@@ -1,0 +1,7 @@
+{
+  "package_name": "rov_interfaces",
+  "non_idl_tuples": [
+    "/home/dingmingyue/rov_software_2026/rov_interfaces:msg/ThrusterPower.msg",
+    "/home/dingmingyue/rov_software_2026/rov_interfaces:srv/AddTwoInts.srv"
+  ]
+}

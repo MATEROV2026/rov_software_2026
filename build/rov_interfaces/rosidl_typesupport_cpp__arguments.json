@@ -1,0 +1,19 @@
+{
+  "package_name": "rov_interfaces",
+  "output_dir": "/home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_typesupport_cpp/rov_interfaces",
+  "template_dir": "/opt/ros/humble/share/rosidl_typesupport_cpp/resource",
+  "idl_tuples": [
+    "/home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_adapter/rov_interfaces:msg/ThrusterPower.idl",
+    "/home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_adapter/rov_interfaces:srv/AddTwoInts.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/humble/lib/rosidl_typesupport_cpp/rosidl_typesupport_cpp",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_typesupport_cpp/__init__.py",
+    "/opt/ros/humble/share/rosidl_typesupport_cpp/resource/action__type_support.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_cpp/resource/idl__type_support.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_cpp/resource/msg__type_support.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_cpp/resource/srv__type_support.cpp.em",
+    "/home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_adapter/rov_interfaces/msg/ThrusterPower.idl",
+    "/home/dingmingyue/rov_software_2026/build/rov_interfaces/rosidl_adapter/rov_interfaces/srv/AddTwoInts.idl"
+  ]
+}
