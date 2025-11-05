@@ -11,7 +11,11 @@ setup.py
 my_talker/__init__.py
 my_talker/talker.py
 my_talker/thrusterpower.py
+my_talker.egg-info/PKG-INFO
+my_talker.egg-info/SOURCES.txt
+my_talker.egg-info/dependency_links.txt
+my_talker.egg-info/entry_points.txt
+my_talker.egg-info/requires.txt
+my_talker.egg-info/top_level.txt
+my_talker.egg-info/zip-safe
 resource/my_talker
-test/test_copyright.py
-test/test_flake8.py
-test/test_pep257.py

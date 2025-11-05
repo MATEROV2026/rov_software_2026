@@ -1,0 +1,18 @@
+[1.240s] Invoking command in '/home/mousa/rov_software_2026/build/controller': PYTHONPATH=/home/mousa/rov_software_2026/build/controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/controller/build --no-deps symlink_data
+[1.491s] running develop
+[1.630s] running egg_info
+[1.630s] writing controller.egg-info/PKG-INFO
+[1.630s] writing dependency_links to controller.egg-info/dependency_links.txt
+[1.630s] writing entry points to controller.egg-info/entry_points.txt
+[1.631s] writing requirements to controller.egg-info/requires.txt
+[1.631s] writing top-level names to controller.egg-info/top_level.txt
+[1.633s] reading manifest file 'controller.egg-info/SOURCES.txt'
+[1.634s] writing manifest file 'controller.egg-info/SOURCES.txt'
+[1.636s] running build_ext
+[1.636s] Creating /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller.egg-link (link to .)
+[1.637s] Installing joy_inspector script to /home/mousa/rov_software_2026/install/controller/lib/controller
+[1.638s] Installing joy_node script to /home/mousa/rov_software_2026/install/controller/lib/controller
+[1.639s] 
+[1.639s] Installed /home/mousa/rov_software_2026/build/controller
+[1.639s] running symlink_data
+[1.682s] Invoked command in '/home/mousa/rov_software_2026/build/controller' returned '0': PYTHONPATH=/home/mousa/rov_software_2026/build/controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/controller/build --no-deps symlink_data

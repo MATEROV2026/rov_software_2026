@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
             'talker = my_talker.talker:main',
             'thrusterpower = my_talker.thrusterpower:main'
+            
         ],
     },
 )

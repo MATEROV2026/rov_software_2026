@@ -1,0 +1,17 @@
+[1.239s] Invoking command in '/home/mousa/rov_software_2026/build/learning_ros': PYTHONPATH=/home/mousa/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/learning_ros/build --no-deps symlink_data
+[1.490s] running develop
+[1.637s] running egg_info
+[1.638s] writing learning_ros.egg-info/PKG-INFO
+[1.639s] writing dependency_links to learning_ros.egg-info/dependency_links.txt
+[1.639s] writing entry points to learning_ros.egg-info/entry_points.txt
+[1.639s] writing requirements to learning_ros.egg-info/requires.txt
+[1.639s] writing top-level names to learning_ros.egg-info/top_level.txt
+[1.642s] reading manifest file 'learning_ros.egg-info/SOURCES.txt'
+[1.643s] writing manifest file 'learning_ros.egg-info/SOURCES.txt'
+[1.645s] running build_ext
+[1.645s] Creating /home/mousa/rov_software_2026/install/learning_ros/lib/python3.10/site-packages/learning-ros.egg-link (link to .)
+[1.646s] Installing learning_node script to /home/mousa/rov_software_2026/install/learning_ros/bin
+[1.647s] 
+[1.647s] Installed /home/mousa/rov_software_2026/build/learning_ros
+[1.647s] running symlink_data
+[1.704s] Invoked command in '/home/mousa/rov_software_2026/build/learning_ros' returned '0': PYTHONPATH=/home/mousa/rov_software_2026/build/learning_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/learning_ros/build --no-deps symlink_data

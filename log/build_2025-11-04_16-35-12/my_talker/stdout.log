@@ -1,0 +1,18 @@
+running develop
+running egg_info
+writing my_talker.egg-info/PKG-INFO
+writing dependency_links to my_talker.egg-info/dependency_links.txt
+writing entry points to my_talker.egg-info/entry_points.txt
+writing requirements to my_talker.egg-info/requires.txt
+writing top-level names to my_talker.egg-info/top_level.txt
+reading manifest file 'my_talker.egg-info/SOURCES.txt'
+writing manifest file 'my_talker.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages/my-talker.egg-link (link to .)
+Installing talker script to /home/mousa/rov_software_2026/install/my_talker/lib/my_talker
+Installing thrusterpower script to /home/mousa/rov_software_2026/install/my_talker/lib/my_talker
+
+Installed /home/mousa/rov_software_2026/build/my_talker
+running symlink_data
+symbolically linking /home/mousa/rov_software_2026/build/my_talker/resource/my_talker -> /home/mousa/rov_software_2026/install/my_talker/share/ament_index/resource_index/packages
+symbolically linking /home/mousa/rov_software_2026/build/my_talker/package.xml -> /home/mousa/rov_software_2026/install/my_talker/share/my_talker

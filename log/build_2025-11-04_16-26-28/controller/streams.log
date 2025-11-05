@@ -1,0 +1,25 @@
+[0.756s] Invoking command in '/home/mousa/rov_software_2026/build/controller': PYTHONPATH=/home/mousa/rov_software_2026/build/controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/controller/build --no-deps symlink_data
+[0.982s] running develop
+[1.108s] running egg_info
+[1.108s] creating controller.egg-info
+[1.109s] writing controller.egg-info/PKG-INFO
+[1.109s] writing dependency_links to controller.egg-info/dependency_links.txt
+[1.109s] writing entry points to controller.egg-info/entry_points.txt
+[1.109s] writing requirements to controller.egg-info/requires.txt
+[1.109s] writing top-level names to controller.egg-info/top_level.txt
+[1.109s] writing manifest file 'controller.egg-info/SOURCES.txt'
+[1.111s] reading manifest file 'controller.egg-info/SOURCES.txt'
+[1.112s] writing manifest file 'controller.egg-info/SOURCES.txt'
+[1.114s] running build_ext
+[1.114s] Creating /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller.egg-link (link to .)
+[1.115s] Installing joy_inspector script to /home/mousa/rov_software_2026/install/controller/bin
+[1.116s] Installing joy_node script to /home/mousa/rov_software_2026/install/controller/bin
+[1.116s] 
+[1.116s] Installed /home/mousa/rov_software_2026/build/controller
+[1.116s] running symlink_data
+[1.116s] creating /home/mousa/rov_software_2026/install/controller/share/ament_index
+[1.117s] creating /home/mousa/rov_software_2026/install/controller/share/ament_index/resource_index
+[1.117s] creating /home/mousa/rov_software_2026/install/controller/share/ament_index/resource_index/packages
+[1.118s] symbolically linking /home/mousa/rov_software_2026/build/controller/resource/controller -> /home/mousa/rov_software_2026/install/controller/share/ament_index/resource_index/packages
+[1.118s] symbolically linking /home/mousa/rov_software_2026/build/controller/package.xml -> /home/mousa/rov_software_2026/install/controller/share/controller
+[1.159s] Invoked command in '/home/mousa/rov_software_2026/build/controller' returned '0': PYTHONPATH=/home/mousa/rov_software_2026/build/controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/controller/build --no-deps symlink_data

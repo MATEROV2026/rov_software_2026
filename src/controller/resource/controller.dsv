@@ -1,0 +1,2 @@
+prepend-non-duplicate;PATH;${prefix}/bin
+prepend-non-duplicate;PYTHONPATH;${prefix}/lib/python3.10/site-packages

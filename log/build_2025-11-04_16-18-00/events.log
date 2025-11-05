@@ -1,0 +1,58 @@
+[0.000000] (-) TimerEvent: {}
+[0.000529] (-) JobUnselected: {'identifier': 'learning_ros'}
+[0.000583] (-) JobUnselected: {'identifier': 'my_talker'}
+[0.000625] (controller) JobQueued: {'identifier': 'controller', 'dependencies': OrderedDict()}
+[0.000665] (controller) JobStarted: {'identifier': 'controller'}
+[0.099538] (-) TimerEvent: {}
+[0.199916] (-) TimerEvent: {}
+[0.300283] (-) TimerEvent: {}
+[0.400660] (-) TimerEvent: {}
+[0.501016] (-) TimerEvent: {}
+[0.601357] (-) TimerEvent: {}
+[0.701761] (-) TimerEvent: {}
+[0.720283] (controller) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/controller', 'build', '--build-base', '/home/mousa/rov_software_2026/build/controller/build', 'install', '--record', '/home/mousa/rov_software_2026/build/controller/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/mousa/rov_software_2026/src/controller', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'mousa', 'GIT_ASKPASS': '/home/mousa/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/mousa', 'OLDPWD': '/home/mousa/rov_software_2026', 'TERM_PROGRAM_VERSION': '1.105.1', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-8b546dfa-a602-4533-80cb-ac66d07dfbf8.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/mousa/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/mousa/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/mousa/rov_software_2026/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'mousa', 'NAME': 'Code', 'WSL_INTEROP': '/run/WSL/2985_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/mousa/rov_software_2026/install/learning_ros/bin:/home/mousa/rov_software_2026/install/controller/bin:/opt/ros/humble/bin:/home/mousa/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/Docker/host/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/materov1/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/materov1/.dotnet/tools:/mnt/c/Users/materov1/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin:/home/mousa/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-0274818717.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/mousa/rov_software_2026/install/my_talker:/home/mousa/rov_software_2026/install/learning_ros:/home/mousa/rov_software_2026/install/controller:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'PWD': '/home/mousa/rov_software_2026/build/controller', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/mousa/rov_software_2026/build/controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages:/home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages:/home/mousa/rov_software_2026/build/learning_ros:/home/mousa/rov_software_2026/install/learning_ros/lib/python3.10/site-packages:/home/mousa/rov_software_2026/build/controller:/home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'WSLENV': 'ELECTRON_RUN_AS_NODE/w:'}, 'shell': False}
+[0.801906] (-) TimerEvent: {}
+[0.902322] (-) TimerEvent: {}
+[0.935789] (controller) StdoutLine: {'line': b'running egg_info\n'}
+[0.936410] (controller) StdoutLine: {'line': b'creating ../../build/controller/controller.egg-info\n'}
+[0.937121] (controller) StdoutLine: {'line': b'writing ../../build/controller/controller.egg-info/PKG-INFO\n'}
+[0.937366] (controller) StdoutLine: {'line': b'writing dependency_links to ../../build/controller/controller.egg-info/dependency_links.txt\n'}
+[0.937547] (controller) StdoutLine: {'line': b'writing entry points to ../../build/controller/controller.egg-info/entry_points.txt\n'}
+[0.937696] (controller) StdoutLine: {'line': b'writing requirements to ../../build/controller/controller.egg-info/requires.txt\n'}
+[0.937875] (controller) StdoutLine: {'line': b'writing top-level names to ../../build/controller/controller.egg-info/top_level.txt\n'}
+[0.938011] (controller) StdoutLine: {'line': b"writing manifest file '../../build/controller/controller.egg-info/SOURCES.txt'\n"}
+[0.939454] (controller) StdoutLine: {'line': b"reading manifest file '../../build/controller/controller.egg-info/SOURCES.txt'\n"}
+[0.939941] (controller) StdoutLine: {'line': b"writing manifest file '../../build/controller/controller.egg-info/SOURCES.txt'\n"}
+[0.940138] (controller) StdoutLine: {'line': b'running build\n'}
+[0.940282] (controller) StdoutLine: {'line': b'running build_py\n'}
+[0.940503] (controller) StdoutLine: {'line': b'creating /home/mousa/rov_software_2026/build/controller/build\n'}
+[0.940905] (controller) StdoutLine: {'line': b'creating /home/mousa/rov_software_2026/build/controller/build/lib\n'}
+[0.941317] (controller) StdoutLine: {'line': b'creating /home/mousa/rov_software_2026/build/controller/build/lib/controller\n'}
+[0.941784] (controller) StdoutLine: {'line': b'copying controller/joy_inspector_node.py -> /home/mousa/rov_software_2026/build/controller/build/lib/controller\n'}
+[0.942409] (controller) StdoutLine: {'line': b'copying controller/__init__.py -> /home/mousa/rov_software_2026/build/controller/build/lib/controller\n'}
+[0.942854] (controller) StdoutLine: {'line': b'copying controller/joy_node.py -> /home/mousa/rov_software_2026/build/controller/build/lib/controller\n'}
+[0.943337] (controller) StdoutLine: {'line': b'running install\n'}
+[0.943740] (controller) StdoutLine: {'line': b'running install_lib\n'}
+[0.944604] (controller) StdoutLine: {'line': b'creating /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller\n'}
+[0.945200] (controller) StdoutLine: {'line': b'copying /home/mousa/rov_software_2026/build/controller/build/lib/controller/joy_inspector_node.py -> /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller\n'}
+[0.945355] (controller) StdoutLine: {'line': b'copying /home/mousa/rov_software_2026/build/controller/build/lib/controller/__init__.py -> /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller\n'}
+[0.945544] (controller) StdoutLine: {'line': b'copying /home/mousa/rov_software_2026/build/controller/build/lib/controller/joy_node.py -> /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller\n'}
+[0.946029] (controller) StdoutLine: {'line': b'byte-compiling /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller/joy_inspector_node.py to joy_inspector_node.cpython-310.pyc\n'}
+[0.947331] (controller) StdoutLine: {'line': b'byte-compiling /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller/__init__.py to __init__.cpython-310.pyc\n'}
+[0.947636] (controller) StdoutLine: {'line': b'byte-compiling /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller/joy_node.py to joy_node.cpython-310.pyc\n'}
+[0.948336] (controller) StdoutLine: {'line': b'running install_data\n'}
+[0.948466] (controller) StdoutLine: {'line': b'creating /home/mousa/rov_software_2026/install/controller/share/ament_index\n'}
+[0.949065] (controller) StdoutLine: {'line': b'creating /home/mousa/rov_software_2026/install/controller/share/ament_index/resource_index\n'}
+[0.949463] (controller) StdoutLine: {'line': b'creating /home/mousa/rov_software_2026/install/controller/share/ament_index/resource_index/packages\n'}
+[0.949996] (controller) StdoutLine: {'line': b'copying resource/controller -> /home/mousa/rov_software_2026/install/controller/share/ament_index/resource_index/packages\n'}
+[0.950128] (controller) StdoutLine: {'line': b'copying package.xml -> /home/mousa/rov_software_2026/install/controller/share/controller\n'}
+[0.950235] (controller) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.952122] (controller) StdoutLine: {'line': b'Copying ../../build/controller/controller.egg-info to /home/mousa/rov_software_2026/install/controller/lib/python3.10/site-packages/controller-0.0.1-py3.10.egg-info\n'}
+[0.953494] (controller) StdoutLine: {'line': b'running install_scripts\n'}
+[0.972684] (controller) StdoutLine: {'line': b'Installing joy_inspector script to /home/mousa/rov_software_2026/install/controller/bin\n'}
+[0.973388] (controller) StdoutLine: {'line': b'Installing joy_node script to /home/mousa/rov_software_2026/install/controller/bin\n'}
+[0.973727] (controller) StdoutLine: {'line': b"writing list of installed files to '/home/mousa/rov_software_2026/build/controller/install.log'\n"}
+[1.000407] (controller) CommandEnded: {'returncode': 0}
+[1.002411] (-) TimerEvent: {}
+[1.019308] (controller) JobEnded: {'identifier': 'controller', 'rc': 0}
+[1.020155] (-) EventReactorShutdown: {}

@@ -1,0 +1,20 @@
+[1.231s] Invoking command in '/home/mousa/rov_software_2026/build/my_talker': PYTHONPATH=/home/mousa/rov_software_2026/build/my_talker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/my_talker/build --no-deps symlink_data --force
+[1.475s] running develop
+[1.622s] running egg_info
+[1.622s] writing my_talker.egg-info/PKG-INFO
+[1.622s] writing dependency_links to my_talker.egg-info/dependency_links.txt
+[1.622s] writing entry points to my_talker.egg-info/entry_points.txt
+[1.623s] writing requirements to my_talker.egg-info/requires.txt
+[1.623s] writing top-level names to my_talker.egg-info/top_level.txt
+[1.625s] reading manifest file 'my_talker.egg-info/SOURCES.txt'
+[1.626s] writing manifest file 'my_talker.egg-info/SOURCES.txt'
+[1.627s] running build_ext
+[1.628s] Creating /home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages/my-talker.egg-link (link to .)
+[1.628s] Installing talker script to /home/mousa/rov_software_2026/install/my_talker/lib/my_talker
+[1.629s] Installing thrusterpower script to /home/mousa/rov_software_2026/install/my_talker/lib/my_talker
+[1.629s] 
+[1.629s] Installed /home/mousa/rov_software_2026/build/my_talker
+[1.629s] running symlink_data
+[1.629s] symbolically linking /home/mousa/rov_software_2026/build/my_talker/resource/my_talker -> /home/mousa/rov_software_2026/install/my_talker/share/ament_index/resource_index/packages
+[1.630s] symbolically linking /home/mousa/rov_software_2026/build/my_talker/package.xml -> /home/mousa/rov_software_2026/install/my_talker/share/my_talker
+[1.685s] Invoked command in '/home/mousa/rov_software_2026/build/my_talker' returned '0': PYTHONPATH=/home/mousa/rov_software_2026/build/my_talker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mousa/rov_software_2026/install/my_talker/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/mousa/rov_software_2026/build/my_talker/build --no-deps symlink_data --force

@@ -1,0 +1,4 @@
+[console_scripts]
+joy_inspector = controller.joy_inspector_node:main
+joy_node = controller.joy_node:main
+
