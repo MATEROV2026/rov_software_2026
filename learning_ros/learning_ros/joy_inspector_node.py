@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Joy
+import serial
 
 class JoyInspectorNode(Node):
     def __init__(self):
@@ -24,6 +25,9 @@ class JoyInspectorNode(Node):
         self.get_logger().info(f"Axes:   [{axes_str}]")
         self.get_logger().info(f"Buttons: {buttons_list}\n---")
 
+
+def init_serial():
+    ser = serial.Serial(port = "")
 
 def main(args=None):
     rclpy.init(args=args)
