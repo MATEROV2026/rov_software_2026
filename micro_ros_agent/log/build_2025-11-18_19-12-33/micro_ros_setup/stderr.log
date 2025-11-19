@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/Users/ahmadhamzeh/miniconda3/lib/python3.13/site-packages/colcon_core/executor/__init__.py", line 91, in __call__
+    rc = await self.task(*args, **kwargs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ahmadhamzeh/miniconda3/lib/python3.13/site-packages/colcon_core/task/__init__.py", line 93, in __call__
+    return await task_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ahmadhamzeh/miniconda3/lib/python3.13/site-packages/colcon_ros/task/ament_cmake/build.py", line 59, in build
+    rc = await extension.build(
+         ^^^^^^^^^^^^^^^^^^^^^^
+        skip_hook_creation=False,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+        environment_callback=add_app_to_cpp)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ahmadhamzeh/miniconda3/lib/python3.13/site-packages/colcon_cmake/task/cmake/build.py", line 87, in build
+    rc = await self._reconfigure(args, env)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ahmadhamzeh/miniconda3/lib/python3.13/site-packages/colcon_cmake/task/cmake/build.py", line 169, in _reconfigure
+    raise RuntimeError("Could not find 'cmake' executable")
+RuntimeError: Could not find 'cmake' executable

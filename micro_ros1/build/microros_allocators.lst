@@ -1,0 +1,359 @@
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"microros_allocators.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c"
+  20              		.section	.text.microros_allocate,"ax",%progbits
+  21              		.align	1
+  22              		.global	microros_allocate
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	microros_allocate:
+  28              	.LVL0:
+  29              	.LFB4:
+   1:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** 
+   2:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** #include <unistd.h>
+   3:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** #include "cmsis_os.h"
+   4:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** 
+   5:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** int absoluteUsedMemory = 0;
+   6:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** int usedMemory = 0;
+   7:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** 
+   8:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** void *pvPortMallocMicroROS( size_t xWantedSize );
+   9:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** void vPortFreeMicroROS( void *pv );
+  10:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** void *pvPortReallocMicroROS( void *pv, size_t xWantedSize );
+  11:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** size_t getBlockSize( void *pv );
+  12:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** void *pvPortCallocMicroROS( size_t num, size_t xWantedSize );
+  13:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** 
+  14:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** void * microros_allocate(size_t size, void * state){
+  30              		.loc 1 14 52 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 14 52 is_stmt 0 view .LVU1
+  35 0000 08B5     		push	{r3, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 3, -8
+  39              		.cfi_offset 14, -4
+  15:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   (void) state;
+  40              		.loc 1 15 3 is_stmt 1 view .LVU2
+  16:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   // printf("-- Alloc %d (prev: %d B)\n",size, xPortGetFreeHeapSize());
+  17:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   absoluteUsedMemory += size;
+  41              		.loc 1 17 3 view .LVU3
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s 			page 2
+
+
+  42              		.loc 1 17 22 is_stmt 0 view .LVU4
+  43 0002 0549     		ldr	r1, .L3
+  44              	.LVL1:
+  45              		.loc 1 17 22 view .LVU5
+  46 0004 0A68     		ldr	r2, [r1]
+  47 0006 0244     		add	r2, r2, r0
+  48 0008 0A60     		str	r2, [r1]
+  18:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   usedMemory += size;
+  49              		.loc 1 18 3 is_stmt 1 view .LVU6
+  50              		.loc 1 18 14 is_stmt 0 view .LVU7
+  51 000a 0449     		ldr	r1, .L3+4
+  52 000c 0A68     		ldr	r2, [r1]
+  53 000e 0244     		add	r2, r2, r0
+  54 0010 0A60     		str	r2, [r1]
+  19:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   return pvPortMallocMicroROS(size);
+  55              		.loc 1 19 3 is_stmt 1 view .LVU8
+  56              		.loc 1 19 10 is_stmt 0 view .LVU9
+  57 0012 FFF7FEFF 		bl	pvPortMallocMicroROS
+  58              	.LVL2:
+  20:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** }
+  59              		.loc 1 20 1 view .LVU10
+  60 0016 08BD     		pop	{r3, pc}
+  61              	.L4:
+  62              		.align	2
+  63              	.L3:
+  64 0018 00000000 		.word	absoluteUsedMemory
+  65 001c 00000000 		.word	usedMemory
+  66              		.cfi_endproc
+  67              	.LFE4:
+  69              		.section	.text.microros_deallocate,"ax",%progbits
+  70              		.align	1
+  71              		.global	microros_deallocate
+  72              		.syntax unified
+  73              		.thumb
+  74              		.thumb_func
+  76              	microros_deallocate:
+  77              	.LVL3:
+  78              	.LFB5:
+  21:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** 
+  22:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** void microros_deallocate(void * pointer, void * state){
+  79              		.loc 1 22 55 is_stmt 1 view -0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  23:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   (void) state;
+  83              		.loc 1 23 3 view .LVU12
+  24:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   // printf("-- Free %d (prev: %d B)\n",getBlockSize(pointer), xPortGetFreeHeapSize());
+  25:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   if (NULL != pointer){
+  84              		.loc 1 25 3 view .LVU13
+  85              		.loc 1 25 6 is_stmt 0 view .LVU14
+  86 0000 58B1     		cbz	r0, .L8
+  22:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   (void) state;
+  87              		.loc 1 22 55 view .LVU15
+  88 0002 10B5     		push	{r4, lr}
+  89              	.LCFI1:
+  90              		.cfi_def_cfa_offset 8
+  91              		.cfi_offset 4, -8
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s 			page 3
+
+
+  92              		.cfi_offset 14, -4
+  93 0004 0446     		mov	r4, r0
+  26:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****     usedMemory -= getBlockSize(pointer);
+  94              		.loc 1 26 5 is_stmt 1 view .LVU16
+  95              		.loc 1 26 19 is_stmt 0 view .LVU17
+  96 0006 FFF7FEFF 		bl	getBlockSize
+  97              	.LVL4:
+  98              		.loc 1 26 16 discriminator 1 view .LVU18
+  99 000a 044A     		ldr	r2, .L11
+ 100 000c 1368     		ldr	r3, [r2]
+ 101 000e 1B1A     		subs	r3, r3, r0
+ 102 0010 1360     		str	r3, [r2]
+  27:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****     vPortFreeMicroROS(pointer);
+ 103              		.loc 1 27 5 is_stmt 1 view .LVU19
+ 104 0012 2046     		mov	r0, r4
+ 105 0014 FFF7FEFF 		bl	vPortFreeMicroROS
+ 106              	.LVL5:
+  28:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   }
+  29:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** }
+ 107              		.loc 1 29 1 is_stmt 0 view .LVU20
+ 108 0018 10BD     		pop	{r4, pc}
+ 109              	.LVL6:
+ 110              	.L8:
+ 111              	.LCFI2:
+ 112              		.cfi_def_cfa_offset 0
+ 113              		.cfi_restore 4
+ 114              		.cfi_restore 14
+ 115              		.loc 1 29 1 view .LVU21
+ 116 001a 7047     		bx	lr
+ 117              	.L12:
+ 118              		.align	2
+ 119              	.L11:
+ 120 001c 00000000 		.word	usedMemory
+ 121              		.cfi_endproc
+ 122              	.LFE5:
+ 124              		.section	.text.microros_reallocate,"ax",%progbits
+ 125              		.align	1
+ 126              		.global	microros_reallocate
+ 127              		.syntax unified
+ 128              		.thumb
+ 129              		.thumb_func
+ 131              	microros_reallocate:
+ 132              	.LVL7:
+ 133              	.LFB6:
+  30:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** 
+  31:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** void * microros_reallocate(void * pointer, size_t size, void * state){
+ 134              		.loc 1 31 70 is_stmt 1 view -0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              		.loc 1 31 70 is_stmt 0 view .LVU23
+ 139 0000 38B5     		push	{r3, r4, r5, lr}
+ 140              	.LCFI3:
+ 141              		.cfi_def_cfa_offset 16
+ 142              		.cfi_offset 3, -16
+ 143              		.cfi_offset 4, -12
+ 144              		.cfi_offset 5, -8
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s 			page 4
+
+
+ 145              		.cfi_offset 14, -4
+ 146 0002 0C46     		mov	r4, r1
+  32:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   (void) state;
+ 147              		.loc 1 32 3 is_stmt 1 view .LVU24
+  33:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   // printf("-- Realloc %d -> %d (prev: %d B)\n",getBlockSize(pointer),size, xPortGetFreeHeapSize()
+  34:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   absoluteUsedMemory += size;
+ 148              		.loc 1 34 3 view .LVU25
+ 149              		.loc 1 34 22 is_stmt 0 view .LVU26
+ 150 0004 0C4A     		ldr	r2, .L18
+ 151              	.LVL8:
+ 152              		.loc 1 34 22 view .LVU27
+ 153 0006 1368     		ldr	r3, [r2]
+ 154 0008 0B44     		add	r3, r3, r1
+ 155 000a 1360     		str	r3, [r2]
+  35:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   usedMemory += size;
+ 156              		.loc 1 35 3 is_stmt 1 view .LVU28
+ 157              		.loc 1 35 14 is_stmt 0 view .LVU29
+ 158 000c 0B4A     		ldr	r2, .L18+4
+ 159 000e 1368     		ldr	r3, [r2]
+ 160 0010 0B44     		add	r3, r3, r1
+ 161 0012 1360     		str	r3, [r2]
+  36:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   if (NULL == pointer){
+ 162              		.loc 1 36 3 is_stmt 1 view .LVU30
+ 163              		.loc 1 36 6 is_stmt 0 view .LVU31
+ 164 0014 58B1     		cbz	r0, .L17
+ 165 0016 0546     		mov	r5, r0
+  37:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****     return pvPortMallocMicroROS(size);
+  38:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   } else {
+  39:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****     usedMemory -= getBlockSize(pointer);
+ 166              		.loc 1 39 5 is_stmt 1 view .LVU32
+ 167              		.loc 1 39 19 is_stmt 0 view .LVU33
+ 168 0018 FFF7FEFF 		bl	getBlockSize
+ 169              	.LVL9:
+ 170              		.loc 1 39 16 discriminator 1 view .LVU34
+ 171 001c 074A     		ldr	r2, .L18+4
+ 172 001e 1368     		ldr	r3, [r2]
+ 173 0020 1B1A     		subs	r3, r3, r0
+ 174 0022 1360     		str	r3, [r2]
+  40:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****     return pvPortReallocMicroROS(pointer,size);
+ 175              		.loc 1 40 5 is_stmt 1 view .LVU35
+ 176              		.loc 1 40 12 is_stmt 0 view .LVU36
+ 177 0024 2146     		mov	r1, r4
+ 178 0026 2846     		mov	r0, r5
+ 179 0028 FFF7FEFF 		bl	pvPortReallocMicroROS
+ 180              	.LVL10:
+ 181              	.L13:
+  41:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   }
+  42:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** }
+ 182              		.loc 1 42 1 view .LVU37
+ 183 002c 38BD     		pop	{r3, r4, r5, pc}
+ 184              	.LVL11:
+ 185              	.L17:
+  37:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   } else {
+ 186              		.loc 1 37 5 is_stmt 1 view .LVU38
+  37:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   } else {
+ 187              		.loc 1 37 12 is_stmt 0 view .LVU39
+ 188 002e 0846     		mov	r0, r1
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s 			page 5
+
+
+ 189              	.LVL12:
+  37:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   } else {
+ 190              		.loc 1 37 12 view .LVU40
+ 191 0030 FFF7FEFF 		bl	pvPortMallocMicroROS
+ 192              	.LVL13:
+  37:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   } else {
+ 193              		.loc 1 37 12 view .LVU41
+ 194 0034 FAE7     		b	.L13
+ 195              	.L19:
+ 196 0036 00BF     		.align	2
+ 197              	.L18:
+ 198 0038 00000000 		.word	absoluteUsedMemory
+ 199 003c 00000000 		.word	usedMemory
+ 200              		.cfi_endproc
+ 201              	.LFE6:
+ 203              		.section	.text.microros_zero_allocate,"ax",%progbits
+ 204              		.align	1
+ 205              		.global	microros_zero_allocate
+ 206              		.syntax unified
+ 207              		.thumb
+ 208              		.thumb_func
+ 210              	microros_zero_allocate:
+ 211              	.LVL14:
+ 212              	.LFB7:
+  43:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** 
+  44:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** void * microros_zero_allocate(size_t number_of_elements, size_t size_of_element, void * state){
+ 213              		.loc 1 44 95 is_stmt 1 view -0
+ 214              		.cfi_startproc
+ 215              		@ args = 0, pretend = 0, frame = 0
+ 216              		@ frame_needed = 0, uses_anonymous_args = 0
+ 217              		.loc 1 44 95 is_stmt 0 view .LVU43
+ 218 0000 10B5     		push	{r4, lr}
+ 219              	.LCFI4:
+ 220              		.cfi_def_cfa_offset 8
+ 221              		.cfi_offset 4, -8
+ 222              		.cfi_offset 14, -4
+  45:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   (void) state;
+ 223              		.loc 1 45 3 is_stmt 1 view .LVU44
+  46:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   // printf("-- Calloc %d x %d = %d -> (prev: %d B)\n",number_of_elements,size_of_element, number_o
+  47:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   absoluteUsedMemory += number_of_elements*size_of_element;
+ 224              		.loc 1 47 3 view .LVU45
+ 225              		.loc 1 47 43 is_stmt 0 view .LVU46
+ 226 0002 01FB00F3 		mul	r3, r1, r0
+ 227              		.loc 1 47 22 view .LVU47
+ 228 0006 054C     		ldr	r4, .L22
+ 229 0008 2268     		ldr	r2, [r4]
+ 230              	.LVL15:
+ 231              		.loc 1 47 22 view .LVU48
+ 232 000a 1A44     		add	r2, r2, r3
+ 233 000c 2260     		str	r2, [r4]
+  48:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   usedMemory += number_of_elements*size_of_element;
+ 234              		.loc 1 48 3 is_stmt 1 view .LVU49
+ 235              		.loc 1 48 14 is_stmt 0 view .LVU50
+ 236 000e 044C     		ldr	r4, .L22+4
+ 237 0010 2268     		ldr	r2, [r4]
+ 238 0012 1A44     		add	r2, r2, r3
+ 239 0014 2260     		str	r2, [r4]
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s 			page 6
+
+
+  49:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c ****   return pvPortCallocMicroROS(number_of_elements,size_of_element);
+ 240              		.loc 1 49 3 is_stmt 1 view .LVU51
+ 241              		.loc 1 49 10 is_stmt 0 view .LVU52
+ 242 0016 FFF7FEFF 		bl	pvPortCallocMicroROS
+ 243              	.LVL16:
+  50:micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c **** }...
+ 244              		.loc 1 50 1 view .LVU53
+ 245 001a 10BD     		pop	{r4, pc}
+ 246              	.L23:
+ 247              		.align	2
+ 248              	.L22:
+ 249 001c 00000000 		.word	absoluteUsedMemory
+ 250 0020 00000000 		.word	usedMemory
+ 251              		.cfi_endproc
+ 252              	.LFE7:
+ 254              		.global	usedMemory
+ 255              		.section	.bss.usedMemory,"aw",%nobits
+ 256              		.align	2
+ 259              	usedMemory:
+ 260 0000 00000000 		.space	4
+ 261              		.global	absoluteUsedMemory
+ 262              		.section	.bss.absoluteUsedMemory,"aw",%nobits
+ 263              		.align	2
+ 266              	absoluteUsedMemory:
+ 267 0000 00000000 		.space	4
+ 268              		.text
+ 269              	.Letext0:
+ 270              		.file 2 "/Applications/ArmGNUToolchain/14.3.rel1/arm-none-eabi/lib/gcc/arm-none-eabi/14.3.1/includ
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 microros_allocators.c
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:21     .text.microros_allocate:00000000 $t
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:27     .text.microros_allocate:00000000 microros_allocate
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:64     .text.microros_allocate:00000018 $d
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:266    .bss.absoluteUsedMemory:00000000 absoluteUsedMemory
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:259    .bss.usedMemory:00000000 usedMemory
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:70     .text.microros_deallocate:00000000 $t
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:76     .text.microros_deallocate:00000000 microros_deallocate
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:120    .text.microros_deallocate:0000001c $d
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:125    .text.microros_reallocate:00000000 $t
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:131    .text.microros_reallocate:00000000 microros_reallocate
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:198    .text.microros_reallocate:00000038 $d
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:204    .text.microros_zero_allocate:00000000 $t
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:210    .text.microros_zero_allocate:00000000 microros_zero_allocate
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:249    .text.microros_zero_allocate:0000001c $d
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:256    .bss.usedMemory:00000000 $d
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccNRhoWi.s:263    .bss.absoluteUsedMemory:00000000 $d
+
+UNDEFINED SYMBOLS
+pvPortMallocMicroROS
+getBlockSize
+vPortFreeMicroROS
+pvPortReallocMicroROS
+pvPortCallocMicroROS

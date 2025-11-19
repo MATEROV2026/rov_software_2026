@@ -1,0 +1,294 @@
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"microros_time.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "micro_ros_stm32cubemx_utils/extra_sources/microros_time.c"
+  20              		.section	.text.UTILS_NanosecondsToTimespec,"ax",%progbits
+  21              		.align	1
+  22              		.global	UTILS_NanosecondsToTimespec
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	UTILS_NanosecondsToTimespec:
+  28              	.LVL0:
+  29              	.LFB4:
+   1:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** #include <unistd.h>
+   2:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** #include <time.h>
+   3:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** #include "cmsis_os.h"
+   4:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+   5:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** #define MICROSECONDS_PER_SECOND    ( 1000000LL )                                   /**< Microsecond
+   6:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** #define NANOSECONDS_PER_SECOND     ( 1000000000LL )                                /**< Nanoseconds
+   7:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** #define NANOSECONDS_PER_TICK       ( NANOSECONDS_PER_SECOND / configTICK_RATE_HZ ) /**< Nanoseconds
+   8:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+   9:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** void UTILS_NanosecondsToTimespec( int64_t llSource,
+  10:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****                                   struct timespec * const pxDestination )
+  11:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** {
+  30              		.loc 1 11 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 11 1 is_stmt 0 view .LVU1
+  35 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 24
+  38              		.cfi_offset 4, -24
+  39              		.cfi_offset 5, -20
+  40              		.cfi_offset 6, -16
+  41              		.cfi_offset 7, -12
+  42              		.cfi_offset 8, -8
+  43              		.cfi_offset 14, -4
+  44 0004 0746     		mov	r7, r0
+  45 0006 0E46     		mov	r6, r1
+  46 0008 1446     		mov	r4, r2
+  12:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     long lCarrySec = 0;
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s 			page 2
+
+
+  47              		.loc 1 12 5 is_stmt 1 view .LVU2
+  48              	.LVL1:
+  13:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  14:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     /* Convert to timespec. */
+  15:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     pxDestination->tv_sec = ( time_t ) ( llSource / NANOSECONDS_PER_SECOND );
+  49              		.loc 1 15 5 view .LVU3
+  50              		.loc 1 15 29 is_stmt 0 view .LVU4
+  51 000a 15A3     		adr	r3, .L5+8
+  52 000c D3E90023 		ldrd	r2, [r3]
+  53              	.LVL2:
+  54              		.loc 1 15 29 view .LVU5
+  55 0010 FFF7FEFF 		bl	__aeabi_ldivmod
+  56              	.LVL3:
+  57              		.loc 1 15 29 view .LVU6
+  58 0014 0D46     		mov	r5, r1
+  59 0016 8046     		mov	r8, r0
+  60              		.loc 1 15 27 view .LVU7
+  61 0018 2060     		str	r0, [r4]
+  62 001a 6160     		str	r1, [r4, #4]
+  16:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     pxDestination->tv_nsec = ( long ) ( llSource % NANOSECONDS_PER_SECOND );
+  63              		.loc 1 16 5 is_stmt 1 view .LVU8
+  64              		.loc 1 16 50 is_stmt 0 view .LVU9
+  65 001c 10A3     		adr	r3, .L5+8
+  66 001e D3E90023 		ldrd	r2, [r3]
+  67 0022 3846     		mov	r0, r7
+  68 0024 3146     		mov	r1, r6
+  69 0026 FFF7FEFF 		bl	__aeabi_ldivmod
+  70              	.LVL4:
+  71              		.loc 1 16 28 view .LVU10
+  72 002a A260     		str	r2, [r4, #8]
+  17:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  18:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     /* Subtract from tv_sec if tv_nsec < 0. */
+  19:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     if( pxDestination->tv_nsec < 0L )
+  73              		.loc 1 19 5 is_stmt 1 view .LVU11
+  74              		.loc 1 19 7 is_stmt 0 view .LVU12
+  75 002c 002A     		cmp	r2, #0
+  76 002e 01DB     		blt	.L4
+  77              	.LVL5:
+  78              	.L1:
+  20:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     {
+  21:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****         /* Compute the number of seconds to carry. */
+  22:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****         lCarrySec = ( pxDestination->tv_nsec / ( long ) NANOSECONDS_PER_SECOND ) + 1L;
+  23:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  24:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****         pxDestination->tv_sec -= ( time_t ) ( lCarrySec );
+  25:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****         pxDestination->tv_nsec += lCarrySec * ( long ) NANOSECONDS_PER_SECOND;
+  26:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     }
+  27:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** }
+  79              		.loc 1 27 1 view .LVU13
+  80 0030 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+  81              	.LVL6:
+  82              	.L4:
+  22:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  83              		.loc 1 22 9 is_stmt 1 view .LVU14
+  22:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  84              		.loc 1 22 46 is_stmt 0 view .LVU15
+  85 0034 0849     		ldr	r1, .L5
+  86 0036 81FB0231 		smull	r3, r1, r1, r2
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s 			page 3
+
+
+  87 003a D317     		asrs	r3, r2, #31
+  88 003c C3EB2173 		rsb	r3, r3, r1, asr #28
+  22:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  89              		.loc 1 22 19 view .LVU16
+  90 0040 0133     		adds	r3, r3, #1
+  91              	.LVL7:
+  24:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****         pxDestination->tv_nsec += lCarrySec * ( long ) NANOSECONDS_PER_SECOND;
+  92              		.loc 1 24 9 is_stmt 1 view .LVU17
+  24:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****         pxDestination->tv_nsec += lCarrySec * ( long ) NANOSECONDS_PER_SECOND;
+  93              		.loc 1 24 31 is_stmt 0 view .LVU18
+  94 0042 B8EB0301 		subs	r1, r8, r3
+  95 0046 65EBE375 		sbc	r5, r5, r3, asr #31
+  96 004a 2160     		str	r1, [r4]
+  97 004c 6560     		str	r5, [r4, #4]
+  25:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     }
+  98              		.loc 1 25 9 is_stmt 1 view .LVU19
+  25:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     }
+  99              		.loc 1 25 32 is_stmt 0 view .LVU20
+ 100 004e 0349     		ldr	r1, .L5+4
+ 101 0050 01FB0322 		mla	r2, r1, r3, r2
+ 102 0054 A260     		str	r2, [r4, #8]
+ 103              		.loc 1 27 1 view .LVU21
+ 104 0056 EBE7     		b	.L1
+ 105              	.L6:
+ 106              		.align	3
+ 107              	.L5:
+ 108 0058 A12FB844 		.word	1152921505
+ 109 005c 00CA9A3B 		.word	1000000000
+ 110 0060 00CA9A3B 		.word	1000000000
+ 111 0064 00000000 		.word	0
+ 112              		.cfi_endproc
+ 113              	.LFE4:
+ 115              		.section	.text.clock_gettime,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	clock_gettime
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 122              	clock_gettime:
+ 123              	.LVL8:
+ 124              	.LFB5:
+  28:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  29:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** int clock_gettime( int clock_id,
+  30:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****                    struct timespec * tp )
+  31:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** {
+ 125              		.loc 1 31 1 is_stmt 1 view -0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 8
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		.loc 1 31 1 is_stmt 0 view .LVU23
+ 130 0000 70B5     		push	{r4, r5, r6, lr}
+ 131              	.LCFI1:
+ 132              		.cfi_def_cfa_offset 16
+ 133              		.cfi_offset 4, -16
+ 134              		.cfi_offset 5, -12
+ 135              		.cfi_offset 6, -8
+ 136              		.cfi_offset 14, -4
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s 			page 4
+
+
+ 137 0002 82B0     		sub	sp, sp, #8
+ 138              	.LCFI2:
+ 139              		.cfi_def_cfa_offset 24
+ 140 0004 0D46     		mov	r5, r1
+  32:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     TimeOut_t xCurrentTime = { 0 };
+ 141              		.loc 1 32 5 is_stmt 1 view .LVU24
+ 142              		.loc 1 32 15 is_stmt 0 view .LVU25
+ 143 0006 6846     		mov	r0, sp
+ 144              	.LVL9:
+ 145              		.loc 1 32 15 view .LVU26
+ 146 0008 0024     		movs	r4, #0
+ 147 000a 0094     		str	r4, [sp]
+ 148 000c 0194     		str	r4, [sp, #4]
+  33:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  34:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     /* Intermediate variable used to convert TimeOut_t to struct timespec.
+  35:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****      * Also used to detect overflow issues. It must be unsigned because the
+  36:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****      * behavior of signed integer overflow is undefined. */
+  37:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     uint64_t ullTickCount = 0ULL;
+ 149              		.loc 1 37 5 is_stmt 1 view .LVU27
+ 150              	.LVL10:
+  38:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  39:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     /* Silence warnings about unused parameters. */
+  40:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     ( void ) clock_id;
+ 151              		.loc 1 40 5 view .LVU28
+  41:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  42:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     /* Get the current tick count and overflow count. vTaskSetTimeOutState()
+  43:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****      * is used to get these values because they are both static in tasks.c. */
+  44:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     vTaskSetTimeOutState( &xCurrentTime );
+ 152              		.loc 1 44 5 view .LVU29
+ 153 000e FFF7FEFF 		bl	vTaskSetTimeOutState
+ 154              	.LVL11:
+  45:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  46:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     /* Adjust the tick count for the number of times a TickType_t has overflowed.
+  47:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****      * portMAX_DELAY should be the maximum value of a TickType_t. */
+  48:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     ullTickCount = ( uint64_t ) ( xCurrentTime.xOverflowCount ) << ( sizeof( TickType_t ) * 8 );
+ 155              		.loc 1 48 5 view .LVU30
+ 156              		.loc 1 48 47 is_stmt 0 view .LVU31
+ 157 0012 009E     		ldr	r6, [sp]
+ 158              	.LVL12:
+  49:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  50:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     /* Add the current tick count. */
+  51:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     ullTickCount += xCurrentTime.xTimeOnEntering;
+ 159              		.loc 1 51 5 is_stmt 1 view .LVU32
+ 160              		.loc 1 51 18 is_stmt 0 view .LVU33
+ 161 0014 019A     		ldr	r2, [sp, #4]
+ 162              	.LVL13:
+  52:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  53:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     /* Convert ullTickCount to timespec. */
+  54:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     UTILS_NanosecondsToTimespec( ( int64_t ) ullTickCount * NANOSECONDS_PER_TICK, tp );
+ 163              		.loc 1 54 5 is_stmt 1 view .LVU34
+ 164 0016 4FEA461C 		lsl	ip, r6, #5
+ 165 001a 4CEAD26C 		orr	ip, ip, r2, lsr #27
+ 166 001e 5301     		lsls	r3, r2, #5
+ 167 0020 9B1A     		subs	r3, r3, r2
+ 168 0022 6CEB060C 		sbc	ip, ip, r6
+ 169 0026 4FEA4C2C 		lsl	ip, ip, #9
+ 170 002a 4CEAD35C 		orr	ip, ip, r3, lsr #23
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s 			page 5
+
+
+ 171 002e 5B02     		lsls	r3, r3, #9
+ 172 0030 9B18     		adds	r3, r3, r2
+ 173 0032 46EB0C0C 		adc	ip, r6, ip
+ 174 0036 4FEA8C11 		lsl	r1, ip, #6
+ 175 003a 41EA9361 		orr	r1, r1, r3, lsr #26
+ 176 003e 9801     		lsls	r0, r3, #6
+ 177 0040 C01A     		subs	r0, r0, r3
+ 178 0042 61EB0C01 		sbc	r1, r1, ip
+ 179 0046 8018     		adds	r0, r0, r2
+ 180 0048 2A46     		mov	r2, r5
+ 181              	.LVL14:
+ 182              		.loc 1 54 5 is_stmt 0 view .LVU35
+ 183 004a 46EB0101 		adc	r1, r6, r1
+ 184 004e FFF7FEFF 		bl	UTILS_NanosecondsToTimespec
+ 185              	.LVL15:
+  55:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** 
+  56:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c ****     return 0;
+ 186              		.loc 1 56 5 is_stmt 1 view .LVU36
+  57:micro_ros_stm32cubemx_utils/extra_sources/microros_time.c **** }...
+ 187              		.loc 1 57 1 is_stmt 0 view .LVU37
+ 188 0052 2046     		mov	r0, r4
+ 189 0054 02B0     		add	sp, sp, #8
+ 190              	.LCFI3:
+ 191              		.cfi_def_cfa_offset 16
+ 192              		@ sp needed
+ 193 0056 70BD     		pop	{r4, r5, r6, pc}
+ 194              		.loc 1 57 1 view .LVU38
+ 195              		.cfi_endproc
+ 196              	.LFE5:
+ 198              		.text
+ 199              	.Letext0:
+ 200              		.file 2 "/Applications/ArmGNUToolchain/14.3.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
+ 201              		.file 3 "/Applications/ArmGNUToolchain/14.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+ 202              		.file 4 "/Applications/ArmGNUToolchain/14.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_timeval.
+ 203              		.file 5 "/Applications/ArmGNUToolchain/14.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_timespec
+ 204              		.file 6 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h"
+ 205              		.file 7 "Middlewares/Third_Party/FreeRTOS/Source/include/task.h"
+ARM GAS  /var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 microros_time.c
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s:21     .text.UTILS_NanosecondsToTimespec:00000000 $t
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s:27     .text.UTILS_NanosecondsToTimespec:00000000 UTILS_NanosecondsToTimespec
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s:108    .text.UTILS_NanosecondsToTimespec:00000058 $d
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s:116    .text.clock_gettime:00000000 $t
+/var/folders/z1/7hblc8rd7jv9pj72sd3ljz3h0000gn/T//ccB4rQzF.s:122    .text.clock_gettime:00000000 clock_gettime
+
+UNDEFINED SYMBOLS
+__aeabi_ldivmod
+vTaskSetTimeOutState
