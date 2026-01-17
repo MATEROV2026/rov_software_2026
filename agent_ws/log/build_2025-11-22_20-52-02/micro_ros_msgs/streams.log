@@ -1,0 +1,98 @@
+[0.005s] Invoking command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ahmadhamzeh/rov_software_2026/agent_ws/src/uros/micro_ros_msgs -DUAGENT_BUILD_EXECUTABLE=OFF -DUAGENT_P2P_PROFILE=OFF --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs
+[0.011s] Not searching for unused variables given on the command line.
+[0.042s] -- The C compiler identification is GNU 11.4.0
+[0.067s] -- The CXX compiler identification is GNU 11.4.0
+[0.070s] -- Detecting C compiler ABI info
+[0.098s] -- Detecting C compiler ABI info - done
+[0.101s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.101s] -- Detecting C compile features
+[0.102s] -- Detecting C compile features - done
+[0.103s] -- Detecting CXX compiler ABI info
+[0.135s] -- Detecting CXX compiler ABI info - done
+[0.138s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.139s] -- Detecting CXX compile features
+[0.139s] -- Detecting CXX compile features - done
+[0.141s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.201s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.237s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.239s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.242s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.261s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.275s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.384s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.459s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.556s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.565s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[0.566s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[0.577s] -- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[0.577s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.577s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[0.577s] -- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+[0.585s] -- Found PythonExtra: .so  
+[0.600s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.603s] -- Added test 'lint_cmake' to check CMake code style
+[0.604s] -- Added test 'xmllint' to check XML markup files
+[0.607s] -- Configuring done
+[0.624s] -- Generating done
+[0.629s] -- Build files have been written to: /home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs
+[0.631s] Invoked command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ahmadhamzeh/rov_software_2026/agent_ws/src/uros/micro_ros_msgs -DUAGENT_BUILD_EXECUTABLE=OFF -DUAGENT_P2P_PROFILE=OFF --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs
+[0.632s] Invoking command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs -- -j4 -l4
+[0.647s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[0.650s] [  4%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[0.653s] [  4%] Built target ament_cmake_python_copy_micro_ros_msgs
+[0.754s] running egg_info
+[0.755s] creating micro_ros_msgs.egg-info
+[0.755s] writing micro_ros_msgs.egg-info/PKG-INFO
+[0.756s] writing dependency_links to micro_ros_msgs.egg-info/dependency_links.txt
+[0.756s] writing top-level names to micro_ros_msgs.egg-info/top_level.txt
+[0.756s] writing manifest file 'micro_ros_msgs.egg-info/SOURCES.txt'
+[0.756s] reading manifest file 'micro_ros_msgs.egg-info/SOURCES.txt'
+[0.757s] writing manifest file 'micro_ros_msgs.egg-info/SOURCES.txt'
+[0.769s] [  4%] Built target ament_cmake_python_build_micro_ros_msgs_egg
+[0.817s] [  4%] Built target micro_ros_msgs__cpp
+[0.821s] [  6%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[0.821s] [  8%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[0.821s] [ 10%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[0.825s] [ 12%] [32mBuilding C object CMakeFiles/micro_ros_msgs__rosidl_generator_c.dir/rosidl_generator_c/micro_ros_msgs/msg/detail/graph__functions.c.o[0m
+[0.857s] [ 14%] [32mBuilding C object CMakeFiles/micro_ros_msgs__rosidl_generator_c.dir/rosidl_generator_c/micro_ros_msgs/msg/detail/node__functions.c.o[0m
+[0.889s] [ 17%] [32mBuilding C object CMakeFiles/micro_ros_msgs__rosidl_generator_c.dir/rosidl_generator_c/micro_ros_msgs/msg/detail/entity__functions.c.o[0m
+[0.913s] [ 19%] [32m[1mLinking C shared library libmicro_ros_msgs__rosidl_generator_c.so[0m
+[0.935s] [ 19%] Built target micro_ros_msgs__rosidl_generator_c
+[0.941s] [ 21%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[0.966s] [ 23%] [32mBuilding CXX object CMakeFiles/micro_ros_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/micro_ros_msgs/msg/graph__type_support.cpp.o[0m
+[0.978s] [ 25%] [32mBuilding CXX object CMakeFiles/micro_ros_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/micro_ros_msgs/msg/detail/graph__type_support.cpp.o[0m
+[1.002s] [ 27%] [32mBuilding CXX object CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/graph__type_support.cpp.o[0m
+[1.089s] [ 29%] [32mBuilding CXX object CMakeFiles/micro_ros_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/micro_ros_msgs/msg/node__type_support.cpp.o[0m
+[1.107s] [ 31%] [32mBuilding CXX object CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/micro_ros_msgs/msg/detail/graph__type_support_c.cpp.o[0m
+[1.180s] [01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/graph__type_support.cpp:[m[K In function ‘[01m[Kbool micro_ros_msgs::msg::typesupport_fastrtps_cpp::cdr_deserialize(eprosima::fastcdr::Cdr&, micro_ros_msgs::msg::Graph&)[m[K’:
+[1.180s] [01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/graph__type_support.cpp:85:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass eprosima::fastcdr::Cdr[m[K’ has no member named ‘[01m[KgetState[m[K’; did you mean ‘[01m[Kget_state[m[K’?
+[1.180s]    85 |     auto old_state = cdr.[01;31m[KgetState[m[K();
+[1.180s]       |                          [01;31m[K^~~~~~~~[m[K
+[1.180s]       |                          [32m[Kget_state[m[K
+[1.181s] [01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/graph__type_support.cpp:87:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass eprosima::fastcdr::Cdr[m[K’ has no member named ‘[01m[KsetState[m[K’; did you mean ‘[01m[Kset_state[m[K’?
+[1.181s]    87 |     cdr.[01;31m[KsetState[m[K(old_state);
+[1.181s]       |         [01;31m[K^~~~~~~~[m[K
+[1.181s]       |         [32m[Kset_state[m[K
+[1.222s] gmake[2]: *** [CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:105: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/graph__type_support.cpp.o] Error 1
+[1.223s] gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_cpp.dir/all] Error 2
+[1.223s] gmake[1]: *** Waiting for unfinished jobs....
+[1.226s] [ 34%] [32mBuilding CXX object CMakeFiles/micro_ros_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/micro_ros_msgs/msg/entity__type_support.cpp.o[0m
+[1.227s] [ 36%] [32mBuilding CXX object CMakeFiles/micro_ros_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/micro_ros_msgs/msg/detail/node__type_support.cpp.o[0m
+[1.227s] [ 38%] [32mBuilding CXX object CMakeFiles/micro_ros_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/micro_ros_msgs/msg/detail/entity__type_support.cpp.o[0m
+[1.247s] [01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_c/micro_ros_msgs/msg/detail/graph__type_support_c.cpp:[m[K In function ‘[01m[Kbool _Graph__cdr_deserialize(eprosima::fastcdr::Cdr&, void*)[m[K’:
+[1.247s] [01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_c/micro_ros_msgs/msg/detail/graph__type_support_c.cpp:107:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass eprosima::fastcdr::Cdr[m[K’ has no member named ‘[01m[KgetState[m[K’; did you mean ‘[01m[Kget_state[m[K’?
+[1.247s]   107 |     auto old_state = cdr.[01;31m[KgetState[m[K();
+[1.247s]       |                          [01;31m[K^~~~~~~~[m[K
+[1.247s]       |                          [32m[Kget_state[m[K
+[1.247s] [01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_c/micro_ros_msgs/msg/detail/graph__type_support_c.cpp:109:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass eprosima::fastcdr::Cdr[m[K’ has no member named ‘[01m[KsetState[m[K’; did you mean ‘[01m[Kset_state[m[K’?
+[1.247s]   109 |     cdr.[01;31m[KsetState[m[K(old_state);
+[1.247s]       |         [01;31m[K^~~~~~~~[m[K
+[1.247s]       |         [32m[Kset_state[m[K
+[1.259s] gmake[2]: *** [CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_c.dir/build.make:105: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/micro_ros_msgs/msg/detail/graph__type_support_c.cpp.o] Error 1
+[1.259s] gmake[1]: *** [CMakeFiles/Makefile2:239: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_c.dir/all] Error 2
+[1.327s] [ 40%] [32m[1mLinking CXX shared library libmicro_ros_msgs__rosidl_typesupport_cpp.so[0m
+[1.347s] [ 40%] Built target micro_ros_msgs__rosidl_typesupport_cpp
+[1.408s] [ 42%] [32m[1mLinking CXX shared library libmicro_ros_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[1.439s] [ 42%] Built target micro_ros_msgs__rosidl_typesupport_introspection_cpp
+[1.439s] gmake: *** [Makefile:146: all] Error 2
+[1.440s] Invoked command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs -- -j4 -l4

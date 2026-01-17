@@ -1,0 +1,24 @@
+[01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/graph__type_support.cpp:[m[K In function ‘[01m[Kbool micro_ros_msgs::msg::typesupport_fastrtps_cpp::cdr_deserialize(eprosima::fastcdr::Cdr&, micro_ros_msgs::msg::Graph&)[m[K’:
+[01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/graph__type_support.cpp:85:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass eprosima::fastcdr::Cdr[m[K’ has no member named ‘[01m[KgetState[m[K’; did you mean ‘[01m[Kget_state[m[K’?
+   85 |     auto old_state = cdr.[01;31m[KgetState[m[K();
+      |                          [01;31m[K^~~~~~~~[m[K
+      |                          [32m[Kget_state[m[K
+[01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/graph__type_support.cpp:87:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass eprosima::fastcdr::Cdr[m[K’ has no member named ‘[01m[KsetState[m[K’; did you mean ‘[01m[Kset_state[m[K’?
+   87 |     cdr.[01;31m[KsetState[m[K(old_state);
+      |         [01;31m[K^~~~~~~~[m[K
+      |         [32m[Kset_state[m[K
+gmake[2]: *** [CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:105: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/graph__type_support.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_cpp.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_c/micro_ros_msgs/msg/detail/graph__type_support_c.cpp:[m[K In function ‘[01m[Kbool _Graph__cdr_deserialize(eprosima::fastcdr::Cdr&, void*)[m[K’:
+[01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_c/micro_ros_msgs/msg/detail/graph__type_support_c.cpp:107:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass eprosima::fastcdr::Cdr[m[K’ has no member named ‘[01m[KgetState[m[K’; did you mean ‘[01m[Kget_state[m[K’?
+  107 |     auto old_state = cdr.[01;31m[KgetState[m[K();
+      |                          [01;31m[K^~~~~~~~[m[K
+      |                          [32m[Kget_state[m[K
+[01m[K/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_typesupport_fastrtps_c/micro_ros_msgs/msg/detail/graph__type_support_c.cpp:109:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass eprosima::fastcdr::Cdr[m[K’ has no member named ‘[01m[KsetState[m[K’; did you mean ‘[01m[Kset_state[m[K’?
+  109 |     cdr.[01;31m[KsetState[m[K(old_state);
+      |         [01;31m[K^~~~~~~~[m[K
+      |         [32m[Kset_state[m[K
+gmake[2]: *** [CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_c.dir/build.make:105: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/micro_ros_msgs/msg/detail/graph__type_support_c.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:239: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_c.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

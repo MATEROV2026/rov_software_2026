@@ -1,0 +1,8 @@
+{
+  "package_name": "micro_ros_msgs",
+  "non_idl_tuples": [
+    "/home/ahmadhamzeh/rov_software_2026/micro_ros1/agent_ws/src/uros/micro_ros_msgs:msg/Graph.msg",
+    "/home/ahmadhamzeh/rov_software_2026/micro_ros1/agent_ws/src/uros/micro_ros_msgs:msg/Node.msg",
+    "/home/ahmadhamzeh/rov_software_2026/micro_ros1/agent_ws/src/uros/micro_ros_msgs:msg/Entity.msg"
+  ]
+}
