@@ -24,6 +24,7 @@ setup(
             'listener = learning_ros.listener_node:main',
             'joy_inspector = learning_ros.joy_inspector_node:main',
             'calculator_client = learning_ros.calculator_client',
+            'signal_publisher = learning_ros.signal_publisher_node:main',
         ],
     },
 )
