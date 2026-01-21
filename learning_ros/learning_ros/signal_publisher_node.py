@@ -23,13 +23,18 @@ class SignalPublisherNode(Node):
         buttons_list = list(msg.buttons)
         axes_list = list(msg.axes)
 
+        self.get_logger().info(f"Type of axes_list: {type(axes_list)}")
+        self.get_logger().info(f"Length of axes_list: {len(axes_list)}")
+        self.get_logger().info(f"Type of buttons_list: {type(buttons_list)}")
+        self.get_logger().info(f"Length of buttons_list: {len(buttons_list)}")
+
         # Log the formatted output
         self.get_logger().info(f"Axes:   {buttons_list}")
         self.get_logger().info(f"Buttons: {buttons_list}\n---")
 
         # Translate controller input into signals for thrusters
         # info_dic : { thruster_number : pulse }
-        if axes_list[7] == 1.0:         # move forward
+        if axes_list[1] <= -0.8:         # move forward
             info_dic[0] = 1900
             info_dic[1] = 1900
             info_dic[2] = 1500
@@ -37,7 +42,7 @@ class SignalPublisherNode(Node):
             info_dic[4] = 1400
             info_dic[5] = 1400
 
-        elif axes_list[7] == -1.0:      # move backward
+        elif axes_list[1] >= 0.8:      # move backward
             info_dic[0] = 1400
             info_dic[1] = 1400
             info_dic[2] = 1500
@@ -45,7 +50,7 @@ class SignalPublisherNode(Node):
             info_dic[4] = 1900
             info_dic[5] = 1900
 
-        elif axes_list[6] == 1.0:       # move left
+        elif axes_list[0] <= -0.8:       # move left
             info_dic[0] = 1400
             info_dic[1] = 1900
             info_dic[2] = 1500
@@ -53,7 +58,7 @@ class SignalPublisherNode(Node):
             info_dic[4] = 1400
             info_dic[5] = 1900
 
-        elif axes_list[6] == -1.0:      # move right  
+        elif axes_list[0] >= 0.8:      # move right  
             info_dic[0] = 1900
             info_dic[1] = 1400
             info_dic[2] = 1500
