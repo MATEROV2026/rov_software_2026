@@ -23,11 +23,6 @@ class SignalPublisherNode(Node):
         buttons_list = list(msg.buttons)
         axes_list = list(msg.axes)
 
-        self.get_logger().info(f"Type of axes_list: {type(axes_list)}")
-        self.get_logger().info(f"Length of axes_list: {len(axes_list)}")
-        self.get_logger().info(f"Type of buttons_list: {type(buttons_list)}")
-        self.get_logger().info(f"Length of buttons_list: {len(buttons_list)}")
-
         # Log the formatted output
         self.get_logger().info(f"Axes:   {buttons_list}")
         self.get_logger().info(f"Buttons: {buttons_list}\n---")
