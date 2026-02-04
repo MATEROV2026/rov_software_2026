@@ -3,8 +3,8 @@ from rclpy.node import Node
 from sensor_msgs.msg import Joy
 import serial
 
-info_dic = {0: 1500, 1: 1500, 2: 1500, 3: 1500,
-            4: 1500, 5: 1500}
+info_dic = [1500, 1500, 1500, 1500, 1500, 1500]
+
 
 class SignalPublisherNode(Node):
     def __init__(self):
@@ -15,7 +15,26 @@ class SignalPublisherNode(Node):
             'joy',
             self.joy_callback,
             10)
+
+        self.ser = serial.Serial(
+            port="/dev/ttyUSB0",
+            baudrate=115200,
+            timeout=0.01
+        )
+
+        # 100 Hz timer → 0.01 seconds
+        self.timer = self.create_timer(0.01, self.serial_timer_callback)
+
         self.get_logger().info("Signal publisher node started. Move your controller to controll thrusters.")
+
+    def serial_timer_callback(self):
+        message = self.list2message(info_dic)
+        self.ser.write(message.encode('utf-8'))
+
+    def list2message(self, list): # info_dic to serial message
+        value = list[0] - 1500
+        return value.to_bytes(2, byteorder="little", signed=True)
+
 
     def joy_callback(self, msg):
 
@@ -29,95 +48,35 @@ class SignalPublisherNode(Node):
 
         # Translate controller input into signals for thrusters
         # info_dic : { thruster_number : pulse }
-        if axes_list[1] <= -0.8:         # move forward
-            info_dic[0] = 1900
-            info_dic[1] = 1900
-            info_dic[2] = 1500
-            info_dic[3] = 1500
-            info_dic[4] = 1400
-            info_dic[5] = 1400
+        if axes_list[1] <= -0.8:         # forward
+            info_dic[:] = [1900, 1900, 1500, 1500, 1400, 1400]
 
-        elif axes_list[1] >= 0.8:      # move backward
-            info_dic[0] = 1400
-            info_dic[1] = 1400
-            info_dic[2] = 1500
-            info_dic[3] = 1500
-            info_dic[4] = 1900
-            info_dic[5] = 1900
+        elif axes_list[1] >= 0.8:        # backward
+            info_dic[:] = [1400, 1400, 1500, 1500, 1900, 1900]
 
-        elif axes_list[0] <= -0.8:       # move left
-            info_dic[0] = 1400
-            info_dic[1] = 1900
-            info_dic[2] = 1500
-            info_dic[3] = 1500
-            info_dic[4] = 1400
-            info_dic[5] = 1900
+        elif axes_list[0] <= -0.8:       # left
+            info_dic[:] = [1400, 1900, 1500, 1500, 1400, 1900]
 
-        elif axes_list[0] >= 0.8:      # move right  
-            info_dic[0] = 1900
-            info_dic[1] = 1400
-            info_dic[2] = 1500
-            info_dic[3] = 1500
-            info_dic[4] = 1900
-            info_dic[5] = 1400
+        elif axes_list[0] >= 0.8:        # right
+            info_dic[:] = [1900, 1400, 1500, 1500, 1900, 1400]
 
-        elif buttons_list[3] == 1:      # move up
-            info_dic[0] = 1500
-            info_dic[1] = 1500
-            info_dic[2] = 1900
-            info_dic[3] = 1900
-            info_dic[4] = 1500
-            info_dic[5] = 1500
+        elif buttons_list[3] == 1:       # up
+            info_dic[:] = [1500, 1500, 1900, 1900, 1500, 1500]
 
-        elif buttons_list[0] == 1:      # move down
-            info_dic[0] = 1500
-            info_dic[1] = 1500
-            info_dic[2] = 1100
-            info_dic[3] = 1100
-            info_dic[4] = 1500
-            info_dic[5] = 1500
+        elif buttons_list[0] == 1:       # down
+            info_dic[:] = [1500, 1500, 1100, 1100, 1500, 1500]
 
-        elif buttons_list[4] == 1:      # turn left
-            info_dic[0] = 1400
-            info_dic[1] = 1900
-            info_dic[2] = 1500
-            info_dic[3] = 1500
-            info_dic[4] = 1900
-            info_dic[5] = 1400
+        elif buttons_list[4] == 1:       # turn left
+            info_dic[:] = [1400, 1900, 1500, 1500, 1900, 1400]
 
-        elif buttons_list[5] == 1:      # turn right
-            info_dic[0] = 1900
-            info_dic[1] = 1400
-            info_dic[2] = 1500
-            info_dic[3] = 1500
-            info_dic[4] = 1400
-            info_dic[5] = 1900
+        elif buttons_list[5] == 1:       # turn right
+            info_dic[:] = [1900, 1400, 1500, 1500, 1400, 1900]
 
-        else:                           # idle state
-            info_dic[0] = 1500
-            info_dic[1] = 1500
-            info_dic[2] = 1500
-            info_dic[3] = 1500
-            info_dic[4] = 1500
-            info_dic[5] = 1500     
+        else:
+            info_dic[:] = [1500] * 6
 
         print(info_dic)     
-            
-        # establish serial connection and write messages
-        # ser = serial.Serial(port = "/dev/ttyACM0")
-        # print(ser.name)
 
-        # message = dic2message(info_dic)
-        # ser.write(message)
-        # ser.close()
-
-def dic2message(dic):
-    message = ""
-
-    for key in list(dic.keys()):
-        message += key + " " + dic[key] + "\n"
-
-    return message
 
 
 def main(args=None):
