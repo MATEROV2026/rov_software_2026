@@ -16,11 +16,11 @@ class SignalPublisherNode(Node):
 
         self.info_dic = [1500, 1500, 1500, 1500, 1500, 1500]
 
-        # self.ser = serial.Serial(
-        #     port="/dev/ttyUSB0",
-        #     baudrate=115200,
-        #     timeout=0.01
-        # )
+        self.ser = serial.Serial(
+            port="/dev/ttyUSB0",
+            baudrate=115200,
+            timeout=0.01
+        )
 
         # 100 Hz timer → 0.01 seconds
         self.timer = self.create_timer(0.01, self.serial_timer_callback)
@@ -28,10 +28,10 @@ class SignalPublisherNode(Node):
         self.get_logger().info("Signal publisher node started. Move your controller to controll thrusters.")
 
     def serial_timer_callback(self):
-        # message = self.list2message(info_dic)
-        # self.ser.write(message.encode('utf-8'))
-        message = self.info_dic[0]
-        # print(message)
+        message = self.list2message(self.info_dic)
+        self.ser.write(message)
+        # message = self.info_dic[0]
+        print(message)
 
     def list2message(self, list): # info_dic to serial message
         value = list[0] - 1500
@@ -45,8 +45,8 @@ class SignalPublisherNode(Node):
         axes_list = list(msg.axes)
 
         # Log the formatted output
-        self.get_logger().info(f"Axes:   {buttons_list}")
-        self.get_logger().info(f"Buttons: {buttons_list}\n---")
+        # self.get_logger().info(f"Axes:   {buttons_list}")
+        # self.get_logger().info(f"Buttons: {buttons_list}\n---")
 
         # Translate controller input into signals for thrusters
         # info_dic : { thruster_number : pulse }
@@ -77,7 +77,7 @@ class SignalPublisherNode(Node):
         else:
             self.info_dic = [1500, 1500, 1500, 1500, 1500, 1500]
 
-        print(self.info_dic)     
+        # print(self.info_dic)     
 
 
 
