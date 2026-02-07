@@ -4,6 +4,11 @@ from sensor_msgs.msg import Joy
 import serial
 
 
+# TODO 1. documentation for the code
+# TODO 2. single output to six serial output
+# TODO 3. input parameters from command line (like hz)
+
+
 class SignalPublisherNode(Node):
     def __init__(self):
         super().__init__('signal_publisher')
@@ -14,7 +19,7 @@ class SignalPublisherNode(Node):
             self.joy_callback,
             10)
 
-        self.info_dic = [1500, 1500, 1500, 1500, 1500, 1500]
+        self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
 
         self.ser = serial.Serial(
             port="/dev/ttyUSB0",
@@ -28,14 +33,20 @@ class SignalPublisherNode(Node):
         self.get_logger().info("Signal publisher node started. Move your controller to controll thrusters.")
 
     def serial_timer_callback(self):
-        message = self.list2message(self.info_dic)
+        message = self.list2message(self.values_list)
         self.ser.write(message)
-        # message = self.info_dic[0]
+        # message = self.values_list[0]
         print(message)
 
-    def list2message(self, list): # info_dic to serial message
-        value = list[0] - 1500
-        return value.to_bytes(2, byteorder="little", signed=True)
+    def list2message(self, values): # values_list to serial message
+        
+        message = b""
+
+        for v in values:
+            adjusted = v - 1500
+            message += adjusted.to_bytes(2, byteorder="little", signed=True)
+
+        return message
 
 
     def joy_callback(self, msg):
@@ -49,35 +60,35 @@ class SignalPublisherNode(Node):
         # self.get_logger().info(f"Buttons: {buttons_list}\n---")
 
         # Translate controller input into signals for thrusters
-        # info_dic : { thruster_number : pulse }
+        # values_list : { thruster_number : pulse }
         if axes_list[1] <= -0.8:         # forward
-            self.info_dic = [1900, 1900, 1500, 1500, 1400, 1400]
+            self.values_list = [1900, 1900, 1500, 1500, 1400, 1400]
 
         elif axes_list[1] >= 0.8:        # backward
-            self.info_dic = [1400, 1400, 1500, 1500, 1900, 1900]
+            self.values_list = [1400, 1400, 1500, 1500, 1900, 1900]
 
         elif axes_list[0] <= -0.8:       # left
-            self.info_dic = [1400, 1900, 1500, 1500, 1400, 1900]
+            self.values_list = [1400, 1900, 1500, 1500, 1400, 1900]
 
         elif axes_list[0] >= 0.8:        # right
-            self.info_dic = [1900, 1400, 1500, 1500, 1900, 1400]
+            self.values_list = [1900, 1400, 1500, 1500, 1900, 1400]
 
         elif buttons_list[3] == 1:       # up
-            self.info_dic = [1500, 1500, 1900, 1900, 1500, 1500]
+            self.values_list = [1500, 1500, 1900, 1900, 1500, 1500]
 
         elif buttons_list[0] == 1:       # down
-            self.info_dic = [1500, 1500, 1100, 1100, 1500, 1500]
+            self.values_list = [1500, 1500, 1100, 1100, 1500, 1500]
 
         elif buttons_list[4] == 1:       # turn left
-            self.info_dic = [1400, 1900, 1500, 1500, 1900, 1400]
+            self.values_list = [1400, 1900, 1500, 1500, 1900, 1400]
 
         elif buttons_list[5] == 1:       # turn right
-            self.info_dic = [1900, 1400, 1500, 1500, 1400, 1900]
+            self.values_list = [1900, 1400, 1500, 1500, 1400, 1900]
 
         else:
-            self.info_dic = [1500, 1500, 1500, 1500, 1500, 1500]
+            self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
 
-        # print(self.info_dic)     
+        # print(self.values_list)     
 
 
 
