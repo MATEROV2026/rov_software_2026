@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-4d53c0186313e339fb90.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "micro_ros_agent",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "micro_ros_agent::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-micro_ros_agent-111b7db10d3bef1f0e2d.json",
+					"name" : "micro_ros_agent",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "micro_ros_agent_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-micro_ros_agent_uninstall-2e0d522f08865352ff2c.json",
+					"name" : "micro_ros_agent_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-9f814914342ef94d6417.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent",
+		"source" : "/home/ahmadhamzeh/rov_software_2026/agent_ws/src/uros/micro-ROS-Agent/micro_ros_agent"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

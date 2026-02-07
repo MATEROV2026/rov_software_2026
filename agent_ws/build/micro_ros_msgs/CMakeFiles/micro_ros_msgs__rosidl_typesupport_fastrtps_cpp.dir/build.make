@@ -154,7 +154,7 @@ libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/micro_ros_msgs
 libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/micro_ros_msgs/msg/detail/dds_fastrtps/entity__type_support.cpp.o
 libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/micro_ros_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make
 libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_cpp.so
-libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so: /usr/local/lib/libfastcdr.so.2.1.3
+libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/libfastcdr.so.1.0.29
 libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/librmw.so
 libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/librcutils.so

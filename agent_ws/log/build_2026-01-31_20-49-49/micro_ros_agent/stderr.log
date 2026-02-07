@@ -1,0 +1,25 @@
+Cloning into 'xrceagent'...
+HEAD is now at 57d0862 Release v2.4.2
+[31mCMake Error at CMakeLists.txt:153 (find_package):
+  By not providing "Findfastrtps.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "fastrtps",
+  but CMake did not find one.
+
+  Could not find a package configuration file provided by "fastrtps"
+  (requested version 2) with any of the following names:
+
+    fastrtpsConfig.cmake
+    fastrtps-config.cmake
+
+  Add the installation prefix of "fastrtps" to CMAKE_PREFIX_PATH or set
+  "fastrtps_DIR" to a directory containing one of the above files.  If
+  "fastrtps" provides a separate development package or SDK, be sure it has
+  been installed.
+
+[0m
+gmake[5]: *** [CMakeFiles/uagent.dir/build.make:93: uagent-prefix/src/uagent-stamp/uagent-configure] Error 1
+gmake[4]: *** [CMakeFiles/Makefile2:83: CMakeFiles/uagent.dir/all] Error 2
+gmake[3]: *** [Makefile:91: all] Error 2
+gmake[2]: *** [CMakeFiles/xrceagent.dir/build.make:86: agent/src/xrceagent-stamp/xrceagent-build] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:85: CMakeFiles/xrceagent.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2

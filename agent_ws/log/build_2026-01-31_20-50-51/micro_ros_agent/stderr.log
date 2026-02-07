@@ -1,0 +1,31 @@
+[33mCMake Warning (dev) at /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+  The package name passed to `find_package_handle_standard_args` (tinyxml2)
+  does not match the name of the calling package (TinyXML2).  This can lead
+  to problems in calling code that expects `find_package` result variables
+  (e.g., `_FOUND`) to follow a certain pattern.
+Call Stack (most recent call first):
+  cmake/modules/FindTinyXML2.cmake:40 (find_package_handle_standard_args)
+  /opt/ros/humble/share/fastrtps/cmake/fastrtps-config.cmake:51 (find_package)
+  CMakeLists.txt:153 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+[31mCMake Error at CMakeLists.txt:39 (find_package):
+  By not providing "Findrmw_dds_common.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "rmw_dds_common", but CMake did not find one.
+
+  Could not find a package configuration file provided by "rmw_dds_common"
+  with any of the following names:
+
+    rmw_dds_commonConfig.cmake
+    rmw_dds_common-config.cmake
+
+  Add the installation prefix of "rmw_dds_common" to CMAKE_PREFIX_PATH or set
+  "rmw_dds_common_DIR" to a directory containing one of the above files.  If
+  "rmw_dds_common" provides a separate development package or SDK, be sure it
+  has been installed.
+
+[0m
+gmake[2]: *** [CMakeFiles/micro_ros_agent.dir/build.make:94: micro_ros_agent-prefix/src/micro_ros_agent-stamp/micro_ros_agent-configure] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/micro_ros_agent.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2

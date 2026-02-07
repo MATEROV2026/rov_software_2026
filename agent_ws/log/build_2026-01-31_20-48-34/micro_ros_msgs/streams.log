@@ -1,0 +1,22 @@
+[0.006s] Invoking command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ahmadhamzeh/rov_software_2026/agent_ws/src/uros/micro_ros_msgs -DCMAKE_INSTALL_PREFIX=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs
+[0.011s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.084s] [31mCMake Error at CMakeLists.txt:20 (find_package):
+[0.084s]   By not providing "Findrosidl_default_generators.cmake" in CMAKE_MODULE_PATH
+[0.084s]   this project has asked CMake to find a package configuration file provided
+[0.084s]   by "rosidl_default_generators", but CMake did not find one.
+[0.084s] 
+[0.085s]   Could not find a package configuration file provided by
+[0.085s]   "rosidl_default_generators" with any of the following names:
+[0.085s] 
+[0.085s]     rosidl_default_generatorsConfig.cmake
+[0.085s]     rosidl_default_generators-config.cmake
+[0.085s] 
+[0.085s]   Add the installation prefix of "rosidl_default_generators" to
+[0.085s]   CMAKE_PREFIX_PATH or set "rosidl_default_generators_DIR" to a directory
+[0.085s]   containing one of the above files.  If "rosidl_default_generators" provides
+[0.085s]   a separate development package or SDK, be sure it has been installed.
+[0.085s] 
+[0.085s] [0m
+[0.086s] -- Configuring incomplete, errors occurred!
+[0.086s] See also "/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/CMakeFiles/CMakeOutput.log".
+[0.087s] Invoked command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ahmadhamzeh/rov_software_2026/agent_ws/src/uros/micro_ros_msgs -DCMAKE_INSTALL_PREFIX=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs

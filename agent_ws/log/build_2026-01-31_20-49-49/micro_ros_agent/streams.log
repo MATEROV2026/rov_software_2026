@@ -1,0 +1,80 @@
+[0.004s] Invoking command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent': AMENT_PREFIX_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs:/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_setup:/opt/ros/humble LD_LIBRARY_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/ahmadhamzeh/rov_software_2026/agent_ws/src/uros/micro-ROS-Agent/micro_ros_agent -DCMAKE_INSTALL_PREFIX=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_agent
+[0.031s] -- The C compiler identification is GNU 11.4.0
+[0.034s] -- Detecting C compiler ABI info
+[0.064s] -- Detecting C compiler ABI info - done
+[0.067s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.068s] -- Detecting C compile features
+[0.068s] -- Detecting C compile features - done
+[0.096s] -- The CXX compiler identification is GNU 11.4.0
+[0.099s] -- Detecting CXX compiler ABI info
+[0.132s] -- Detecting CXX compiler ABI info - done
+[0.135s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.135s] -- Detecting CXX compile features
+[0.136s] -- Detecting CXX compile features - done
+[0.152s] -- Configuring done
+[0.153s] -- Generating done
+[0.154s] -- Build files have been written to: /home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent
+[0.158s] Invoked command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent' returned '0': AMENT_PREFIX_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs:/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_setup:/opt/ros/humble LD_LIBRARY_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/ahmadhamzeh/rov_software_2026/agent_ws/src/uros/micro-ROS-Agent/micro_ros_agent -DCMAKE_INSTALL_PREFIX=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_agent
+[0.158s] Invoking command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent': AMENT_PREFIX_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs:/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_setup:/opt/ros/humble LD_LIBRARY_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent -- -j4 -l4
+[0.175s] [  6%] [34m[1mCreating directories for 'xrceagent'[0m
+[0.198s] [ 12%] [34m[1mPerforming download step (git clone) for 'xrceagent'[0m
+[0.204s] Cloning into 'xrceagent'...
+[1.119s] HEAD is now at 57d0862 Release v2.4.2
+[1.139s] [ 18%] [34m[1mPerforming update step for 'xrceagent'[0m
+[1.148s] [ 25%] [34m[1mNo patch step for 'xrceagent'[0m
+[1.156s] [ 31%] [34m[1mPerforming configure step for 'xrceagent'[0m
+[1.158s] loading initial cache file /home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/tmp/xrceagent-cache-.cmake
+[1.182s] -- The C compiler identification is GNU 11.4.0
+[1.185s] -- Detecting C compiler ABI info
+[1.213s] -- Detecting C compiler ABI info - done
+[1.216s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.216s] -- Detecting C compile features
+[1.217s] -- Detecting C compile features - done
+[1.239s] -- The CXX compiler identification is GNU 11.4.0
+[1.242s] -- Detecting CXX compiler ABI info
+[1.275s] -- Detecting CXX compiler ABI info - done
+[1.279s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.279s] -- Detecting CXX compile features
+[1.279s] -- Detecting CXX compile features - done
+[1.285s] -- Looking for pthread.h
+[1.313s] -- Looking for pthread.h - found
+[1.313s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.341s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.342s] -- Found Threads: TRUE  
+[1.348s] -- Configuring done
+[1.349s] -- Generating done
+[1.349s] -- Build files have been written to: /home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build
+[1.356s] [ 37%] [34m[1mPerforming build step for 'xrceagent'[0m
+[1.371s] [ 12%] [34m[1mCreating directories for 'uagent'[0m
+[1.393s] [ 25%] [34m[1mNo download step for 'uagent'[0m
+[1.402s] [ 37%] [34m[1mNo update step for 'uagent'[0m
+[1.409s] [ 50%] [34m[1mNo patch step for 'uagent'[0m
+[1.418s] [ 62%] [34m[1mPerforming configure step for 'uagent'[0m
+[1.421s] loading initial cache file /home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build/uagent-prefix/tmp/uagent-cache-.cmake
+[1.423s] -- Setting build type to 'Release' as none was specified.
+[1.429s] [31mCMake Error at CMakeLists.txt:153 (find_package):
+[1.429s]   By not providing "Findfastrtps.cmake" in CMAKE_MODULE_PATH this project has
+[1.429s]   asked CMake to find a package configuration file provided by "fastrtps",
+[1.429s]   but CMake did not find one.
+[1.429s] 
+[1.429s]   Could not find a package configuration file provided by "fastrtps"
+[1.429s]   (requested version 2) with any of the following names:
+[1.429s] 
+[1.429s]     fastrtpsConfig.cmake
+[1.429s]     fastrtps-config.cmake
+[1.429s] 
+[1.429s]   Add the installation prefix of "fastrtps" to CMAKE_PREFIX_PATH or set
+[1.429s]   "fastrtps_DIR" to a directory containing one of the above files.  If
+[1.429s]   "fastrtps" provides a separate development package or SDK, be sure it has
+[1.429s]   been installed.
+[1.429s] 
+[1.429s] [0m
+[1.429s] -- Configuring incomplete, errors occurred!
+[1.429s] See also "/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build/CMakeFiles/CMakeOutput.log".
+[1.430s] gmake[5]: *** [CMakeFiles/uagent.dir/build.make:93: uagent-prefix/src/uagent-stamp/uagent-configure] Error 1
+[1.430s] gmake[4]: *** [CMakeFiles/Makefile2:83: CMakeFiles/uagent.dir/all] Error 2
+[1.430s] gmake[3]: *** [Makefile:91: all] Error 2
+[1.430s] gmake[2]: *** [CMakeFiles/xrceagent.dir/build.make:86: agent/src/xrceagent-stamp/xrceagent-build] Error 2
+[1.430s] gmake[1]: *** [CMakeFiles/Makefile2:85: CMakeFiles/xrceagent.dir/all] Error 2
+[1.430s] gmake: *** [Makefile:91: all] Error 2
+[1.432s] Invoked command in '/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent' returned '2': AMENT_PREFIX_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs:/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_setup:/opt/ros/humble LD_LIBRARY_PATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ahmadhamzeh/rov_software_2026/agent_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent -- -j4 -l4

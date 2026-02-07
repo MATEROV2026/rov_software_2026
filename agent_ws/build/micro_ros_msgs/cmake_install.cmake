@@ -97,7 +97,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmicro_ros_msgs__rosidl_typesupport_fastrtps_c.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmicro_ros_msgs__rosidl_typesupport_fastrtps_c.so"
-         OLD_RPATH "/opt/ros/humble/lib:/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs:/usr/local/lib:"
+         OLD_RPATH "/opt/ros/humble/lib:/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmicro_ros_msgs__rosidl_typesupport_fastrtps_c.so")
@@ -178,7 +178,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so"
-         OLD_RPATH "/opt/ros/humble/lib:/usr/local/lib:"
+         OLD_RPATH "/opt/ros/humble/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmicro_ros_msgs__rosidl_typesupport_fastrtps_cpp.so")
@@ -275,7 +275,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/micro_ros_msgs/micro_ros_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/micro_ros_msgs/micro_ros_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so"
-         OLD_RPATH "/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_generator_py/micro_ros_msgs:/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs:/opt/ros/humble/lib:/usr/local/lib:"
+         OLD_RPATH "/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs/rosidl_generator_py/micro_ros_msgs:/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_msgs:/opt/ros/humble/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/micro_ros_msgs/micro_ros_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so")

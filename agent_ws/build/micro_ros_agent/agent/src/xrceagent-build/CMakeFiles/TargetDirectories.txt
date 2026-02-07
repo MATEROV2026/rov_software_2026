@@ -1,0 +1,7 @@
+/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build/CMakeFiles/microxrcedds_agent.dir
+/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build/CMakeFiles/edit_cache.dir
+/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build/CMakeFiles/rebuild_cache.dir
+/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build/CMakeFiles/list_install_components.dir
+/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build/CMakeFiles/install.dir
+/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build/CMakeFiles/install/local.dir
+/home/ahmadhamzeh/rov_software_2026/agent_ws/build/micro_ros_agent/agent/src/xrceagent-build/CMakeFiles/install/strip.dir
