@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Joy
 import serial
+import argparse
 
 
 # TODO 1. documentation for the code
@@ -10,7 +11,8 @@ import serial
 
 
 class SignalPublisherNode(Node):
-    def __init__(self):
+
+    def __init__(self, port, baudrate, hz):
         super().__init__('signal_publisher')
         # Subscribe to the /joy topic published by your other package
         self.subscription = self.create_subscription(
@@ -22,13 +24,13 @@ class SignalPublisherNode(Node):
         self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
 
         self.ser = serial.Serial(
-            port="/dev/ttyUSB0",
-            baudrate=115200,
-            timeout=0.01
+            port = port,
+            baudrate = baudrate,
+            timeout = 0.01
         )
 
         # 100 Hz timer → 0.01 seconds
-        self.timer = self.create_timer(0.01, self.serial_timer_callback)
+        self.timer = self.create_timer(1.0 / hz, self.serial_timer_callback)
 
         self.get_logger().info("Signal publisher node started. Move your controller to controll thrusters.")
 
@@ -93,8 +95,38 @@ class SignalPublisherNode(Node):
 
 
 def main(args=None):
-    rclpy.init(args=args)
-    node = SignalPublisherNode()
+    parser = argparse.ArgumentParser(description="Signal Publisher Node")
+
+    parser.add_argument(
+        "--port",
+        type=str,
+        default="/dev/ttyUSB0",
+        help="Serial port (default: /dev/ttyUSB0)"
+    )
+
+    parser.add_argument(
+        "--baudrate",
+        type=int,
+        default=115200,
+        help="Serial baudrate (default: 115200)"
+    )
+
+    parser.add_argument(
+        "--hz",
+        type=float,
+        default=100.0,
+        help="Timer frequency in Hz (default: 100)"
+    )
+
+    parsed_args, remaining = parser.parse_known_args(args=args)
+
+    rclpy.init(args=remaining)
+    node = SignalPublisherNode(
+        port=parsed_args.port,
+        baudrate=parsed_args.baudrate,
+        hz=parsed_args.hz
+    )
+
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
