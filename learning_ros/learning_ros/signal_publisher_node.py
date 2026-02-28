@@ -63,17 +63,22 @@ class SignalPublisherNode(Node):
 
         # Translate controller input into signals for thrusters
         # values_list : { thruster_number : pulse }
-        if axes_list[1] <= -0.8:         # forward
-            self.values_list = [1900, 1900, 1500, 1500, 1400, 1400]
+        full_speed = [1500, 1500, 1500, 1500, 1500, 1500]
 
+        if axes_list[1] <= -0.4:         # forward
+            full_speed = [1900, 1900, 1500, 1500, 1100, 1100]
+            factor = (axes_list[1] * 5 / 3) + (2 /3)
+            # print(factor)
+            self.values_list =  [int(factor * float(x)) for x in full_speed]
+            # print(self.values_list)
         elif axes_list[1] >= 0.8:        # backward
-            self.values_list = [1400, 1400, 1500, 1500, 1900, 1900]
+            self.values_list = [1100, 1100, 1500, 1500, 1900, 1900]
 
         elif axes_list[0] <= -0.8:       # left
-            self.values_list = [1400, 1900, 1500, 1500, 1400, 1900]
+            self.values_list = [1100, 1900, 1500, 1500, 1100, 1900]
 
         elif axes_list[0] >= 0.8:        # right
-            self.values_list = [1900, 1400, 1500, 1500, 1900, 1400]
+            self.values_list = [1900, 1100, 1500, 1500, 1900, 1100]
 
         elif buttons_list[3] == 1:       # up
             self.values_list = [1500, 1500, 1900, 1900, 1500, 1500]
@@ -82,10 +87,10 @@ class SignalPublisherNode(Node):
             self.values_list = [1500, 1500, 1100, 1100, 1500, 1500]
 
         elif buttons_list[4] == 1:       # turn left
-            self.values_list = [1400, 1900, 1500, 1500, 1900, 1400]
+            self.values_list = [1100, 1900, 1500, 1500, 1900, 1100]
 
         elif buttons_list[5] == 1:       # turn right
-            self.values_list = [1900, 1400, 1500, 1500, 1400, 1900]
+            self.values_list = [1900, 1100, 1500, 1500, 1100, 1900]
 
         else:
             self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
