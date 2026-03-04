@@ -20,6 +20,11 @@ import argparse
 #   AA 55 0C <12 payload bytes> <crc>
 
 
+# maps [-1.0, 0.4] to [0.1, 1]
+def map2factor(x):
+    return abs(1.5 * x + 0.5) # -1 + (x - (-1)) * (3 / 2)
+
+
 class SignalPublisherNode(Node):
 
     def __init__(self, port, baudrate, hz):
@@ -59,7 +64,7 @@ class SignalPublisherNode(Node):
             message += adjusted.to_bytes(2, byteorder="little", signed=True)
 
         return message
-
+    
 
     def joy_callback(self, msg):
 
@@ -73,13 +78,13 @@ class SignalPublisherNode(Node):
 
         # Translate controller input into signals for thrusters
         # values_list : { thruster_number : pulse }
-        full_speed = [1500, 1500, 1500, 1500, 1500, 1500]
+        base = 1500
 
         if axes_list[1] <= -0.4:         # forward
-            full_speed = [1900, 1900, 1500, 1500, 1100, 1100]
-            factor = (axes_list[1] * 5 / 3) + (2 /3)
+            deviation = [400, 400, 0, 0, -400, -400]
+            factor = map2factor(axes_list[1]) 
             # print(factor)
-            self.values_list =  [int(factor * float(x)) for x in full_speed]
+            self.values_list =  [int(factor * float(x)) + base for x in deviation]
             # print(self.values_list)
         elif axes_list[1] >= 0.8:        # backward
             self.values_list = [1100, 1100, 1500, 1500, 1900, 1900]
@@ -105,7 +110,9 @@ class SignalPublisherNode(Node):
         else:
             self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
 
-        # print(self.values_list)     
+        # print(self.values_list) 
+
+    
 
 
 
