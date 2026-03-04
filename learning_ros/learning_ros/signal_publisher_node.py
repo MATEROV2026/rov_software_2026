@@ -41,11 +41,11 @@ class SignalPublisherNode(Node):
 
         self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
 
-        self.ser = serial.Serial(
-            port = port,
-            baudrate = baudrate,
-            timeout = 0.01
-        )
+        # self.ser = serial.Serial(
+        #     port = port,
+        #     baudrate = baudrate,
+        #     timeout = 0.01
+        # )
 
         # 100 Hz timer → 0.01 seconds
         self.timer = self.create_timer(1.0 / hz, self.serial_timer_callback)
@@ -54,8 +54,7 @@ class SignalPublisherNode(Node):
 
     def serial_timer_callback(self):
         message = self.list2message(self.values_list)
-        self.ser.write(message)
-        # message = self.values_list[0]
+        # self.ser.write(message)
         print(message)
 
     def list2message(self, values): # values_list to serial message
@@ -63,7 +62,7 @@ class SignalPublisherNode(Node):
         message = b""
 
         for v in values:
-            adjusted = v - 1500
+            adjusted = int(v - 1500)
             message += adjusted.to_bytes(2, byteorder="little", signed=True)
 
         return message
@@ -96,39 +95,19 @@ class SignalPublisherNode(Node):
                 count += 1
                 factor = map2factor(axes_list[1])
                 deviation = [-400, -400, 0, 0, 400, 400]
-                temp.append([int(factor * float(x)) + base for x in deviation])
+                temp.append([factor * float(x) + base for x in deviation])
             
             # right or left
             if (axes_list[0] <= -0.4 or axes_list[0] >= 0.4):
                 count += 1
                 factor = map2factor(axes_list[0])
                 deviation = [400, -400, 0, 0, 400, -400]
-                temp.append([int(factor * float(x)) + base for x in deviation])
+                temp.append([factor * float(x) + base for x in deviation])
 
             if count == 1:
                 self.values_list = temp[0]
             else:
-                self.values_list = [(temp[0][i] + temp[1][i]) / 2 for i in range(6)]
-
-
-
-
-
-
-        if axes_list[1] <= -0.4:         # forward
-            deviation = [400, 400, 0, 0, -400, -400] #[1900, 1900, 1500, 1500, 1100, 1100]
-            factor = map2factor(axes_list[1]) 
-            # print(factor)
-            self.values_list =  [int(factor * float(x)) + base for x in deviation]
-            # print(self.values_list)
-        elif axes_list[1] >= 0.8:        # backward
-            self.values_list = [1100, 1100, 1500, 1500, 1900, 1900]
-
-        elif axes_list[0] <= -0.8:       # left
-            self.values_list = [1100, 1900, 1500, 1500, 1100, 1900]
-
-        elif axes_list[0] >= 0.8:        # right
-            self.values_list = [1900, 1100, 1500, 1500, 1900, 1100]
+                self.values_list = [int((temp[0][i] + temp[1][i]) / 2) for i in range(6)]
 
         elif buttons_list[3] == 1:       # up
             self.values_list = [1500, 1500, 1900, 1900, 1500, 1500]
@@ -144,6 +123,41 @@ class SignalPublisherNode(Node):
 
         else:
             self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
+
+
+        print(self.values_list)
+
+
+
+        # if axes_list[1] <= -0.4:         # forward
+        #     deviation = [400, 400, 0, 0, -400, -400] #[1900, 1900, 1500, 1500, 1100, 1100]
+        #     factor = map2factor(axes_list[1]) 
+        #     # print(factor)
+        #     self.values_list =  [int(factor * float(x)) + base for x in deviation]
+        #     # print(self.values_list)
+        # elif axes_list[1] >= 0.8:        # backward
+        #     self.values_list = [1100, 1100, 1500, 1500, 1900, 1900]
+
+        # elif axes_list[0] <= -0.8:       # left
+        #     self.values_list = [1100, 1900, 1500, 1500, 1100, 1900]
+
+        # elif axes_list[0] >= 0.8:        # right
+        #     self.values_list = [1900, 1100, 1500, 1500, 1900, 1100]
+
+        # elif buttons_list[3] == 1:       # up
+        #     self.values_list = [1500, 1500, 1900, 1900, 1500, 1500]
+
+        # elif buttons_list[0] == 1:       # down
+        #     self.values_list = [1500, 1500, 1100, 1100, 1500, 1500]
+
+        # elif buttons_list[4] == 1:       # turn left
+        #     self.values_list = [1100, 1900, 1500, 1500, 1900, 1100]
+
+        # elif buttons_list[5] == 1:       # turn right
+        #     self.values_list = [1900, 1100, 1500, 1500, 1100, 1900]
+
+        # else:
+        #     self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
 
         # print(self.values_list) 
 
