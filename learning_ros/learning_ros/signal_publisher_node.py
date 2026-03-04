@@ -8,6 +8,16 @@ import argparse
 # TODO 1. documentation for the code
 # TODO 2. single output to six serial output
 # TODO 3. input parameters from command line (like hz)
+# TODO 3.: (added by martin) This is not an urgent change but needs to be made when we decide to fully deploy!
+# make serial messages framed so MCU can resync if bytes get dropped
+# What we currently have is just raw 6x int16 values - that can desync in case of noise
+# Example:
+#   [0xAA][0x55][len=12][payload (6 int16 little-endian)][crc8]
+# keep payload exactly same values as now (v - 1500), just wrap it in a frame
+# update serial_timer_callback() to send the full frame instead of raw payload
+#
+# So it would look like:
+#   AA 55 0C <12 payload bytes> <crc>
 
 
 class SignalPublisherNode(Node):
