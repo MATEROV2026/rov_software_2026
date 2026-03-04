@@ -22,7 +22,10 @@ import argparse
 
 # maps [-1.0, 0.4] to [0.1, 1]
 def map2factor(x):
-    return abs(1.5 * x + 0.5) # -1 + (x - (-1)) * (3 / 2)
+    if -1 <= x <= -0.4:
+        return 1.5 * x + 0.5
+    elif 0.4 <= x <= 1:
+        return 1.5 * x - 0.5
 
 
 class SignalPublisherNode(Node):
@@ -80,8 +83,40 @@ class SignalPublisherNode(Node):
         # values_list : { thruster_number : pulse }
         base = 1500
 
+        if (axes_list[1] <= -0.4 or     # forward
+            axes_list[1] >= 0.4 or      # backward
+            axes_list[0] <= -0.4 or     # left
+            axes_list[0] >= 0.4):       # right
+
+            count = 0
+            temp = []
+
+            # forward or backward
+            if (axes_list[1] <= -0.4 or axes_list[1] >= 0.4):
+                count += 1
+                factor = map2factor(axes_list[1])
+                deviation = [-400, -400, 0, 0, 400, 400]
+                temp.append([int(factor * float(x)) + base for x in deviation])
+            
+            # right or left
+            if (axes_list[0] <= -0.4 or axes_list[0] >= 0.4):
+                count += 1
+                factor = map2factor(axes_list[0])
+                deviation = [400, -400, 0, 0, 400, -400]
+                temp.append([int(factor * float(x)) + base for x in deviation])
+
+            if count == 1:
+                self.values_list = temp[0]
+            else:
+                self.values_list = [(temp[0][i] + temp[1][i]) / 2 for i in range(6)]
+
+
+
+
+
+
         if axes_list[1] <= -0.4:         # forward
-            deviation = [400, 400, 0, 0, -400, -400]
+            deviation = [400, 400, 0, 0, -400, -400] #[1900, 1900, 1500, 1500, 1100, 1100]
             factor = map2factor(axes_list[1]) 
             # print(factor)
             self.values_list =  [int(factor * float(x)) + base for x in deviation]
