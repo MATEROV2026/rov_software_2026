@@ -1,0 +1,7 @@
+# Backend
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.6
+
+# GUI uses stdlib urllib for HTTP (no httpx). See requirements-joystick.txt.
+customtkinter>=5.2.0

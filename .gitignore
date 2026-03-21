@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Mission control uploads (local only)
+mission_control/backend/uploaded_images/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
