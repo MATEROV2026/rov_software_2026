@@ -28,6 +28,20 @@ def map2factor(x):
         return 1.5 * x - 0.5
 
 
+def crc8(data):
+    crc = 0x00
+    poly = 0x07
+
+    for byte in data:
+        crc ^= byte
+        for _ in range(8):
+            if crc & 0x80:  # if MSB is set
+                crc = ((crc << 1) ^ poly) & 0xFF
+            else:
+                crc = (crc << 1) & 0xFF
+
+    return crc
+
 class SignalPublisherNode(Node):
 
     def __init__(self, port, baudrate, hz):
@@ -51,9 +65,17 @@ class SignalPublisherNode(Node):
         self.timer = self.create_timer(1.0 / hz, self.serial_timer_callback)
 
         self.get_logger().info("Signal publisher node started. Move your controller to controll thrusters.")
+       
 
     def serial_timer_callback(self):
-        message = self.list2message(self.values_list)
+        header = bytes([0xAA, 0x55])
+        length = bytes([0x0C])
+
+        m = self.list2message(self.values_list)
+
+        crc_val = crc8(header + length + m)
+
+        message = header + length + m + bytes([crc_val])
         # self.ser.write(message)
         print(message)
 
