@@ -2,3 +2,7 @@ dataset/
 runs/
 dataset.zip
 *.pt
+build/
+install/
+log/
+test/
