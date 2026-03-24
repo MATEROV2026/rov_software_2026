@@ -5,10 +5,10 @@ import serial
 import argparse
 
 
-# TODO 1. documentation for the code
-# TODO 2. single output to six serial output
-# TODO 3. input parameters from command line (like hz)
-# TODO 3.: (added by martin) This is not an urgent change but needs to be made when we decide to fully deploy!
+# DONE 1. documentation for the code
+# DONE 2. single output to six serial output
+# DONE 3. input parameters from command line (like hz)
+# DONE 3.: (added by martin) This is not an urgent change but needs to be made when we decide to fully deploy!
 # make serial messages framed so MCU can resync if bytes get dropped
 # What we currently have is just raw 6x int16 values - that can desync in case of noise
 # Example:
