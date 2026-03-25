@@ -1,0 +1,260 @@
+{
+    "task_id": "task_2",
+    "title": "Task 2 - SmartAtlantic Alliance: Better Information, Better Decisions",
+    "mode": "guided",
+    "subsections": [
+      {
+        "subtask_id": "task_2_1_invasive_species",
+        "title": "Task 2.1 - Mitigate Invasive Species",
+        "objective": "Use computer vision and a crab classifier to identify and count invasive European Green crabs, then submit the result.",
+        "interaction_type": "computer_vision_detection_pipeline",
+        "overview": {
+          "summary": "Pilot to the crab board, capture a clear full-frame image, run the classifier, verify the detections, and submit the final count.",
+          "success_definition": "The full crab board is visible, the classifier identifies the invasive crabs correctly, and the final count is submitted."
+        },
+        "system_mode": {
+          "primary_method": "computer_vision",
+          "model_type": "crab_classifier",
+          "target_species": "European Green crab",
+          "non_target_species": ["Rock crab", "Jonah crab"]
+        },
+        "phases": [
+          {
+            "phase_id": "approach_and_frame",
+            "title": "Approach and Frame the Target",
+            "workflow_style": "position_and_stabilize",
+            "steps": [
+              {
+                "id": "navigate_to_board",
+                "instruction": "Pilot the ROV to the invasive species sample area."
+              },
+              {
+                "id": "center_full_board",
+                "instruction": "Adjust the camera until the entire crab board is visible in frame."
+              },
+              {
+                "id": "stabilize_camera",
+                "instruction": "Hold the ROV steady so the image is clear."
+              }
+            ]
+          },
+          {
+            "phase_id": "run_detection",
+            "title": "Run Computer Vision Detection",
+            "workflow_style": "capture_then_infer",
+            "steps": [
+              {
+                "id": "capture_frame",
+                "instruction": "Capture or freeze the frame for classification."
+              },
+              {
+                "id": "run_classifier",
+                "instruction": "Run the crab classifier."
+              },
+              {
+                "id": "generate_output",
+                "instruction": "Wait for detections and final count to appear."
+              }
+            ]
+          },
+          {
+            "phase_id": "judge_verification",
+            "title": "Verify Detection Output",
+            "workflow_style": "visual_review",
+            "steps": [
+              {
+                "id": "review_target_boxes",
+                "instruction": "Verify European Green crabs are correctly detected."
+              },
+              {
+                "id": "review_non_targets",
+                "instruction": "Ensure Rock and Jonah crabs are not counted."
+              },
+              {
+                "id": "show_judge_output",
+                "instruction": "Show detections and count to the judge."
+              }
+            ]
+          },
+          {
+            "phase_id": "submission",
+            "title": "Submit Invasive Species Result",
+            "workflow_style": "reporting_sequence",
+            "steps": [
+              {
+                "id": "open_form",
+                "instruction": "Open the reporting form."
+              },
+              {
+                "id": "enter_count",
+                "instruction": "Enter the final crab count."
+              },
+              {
+                "id": "submit",
+                "instruction": "Submit the result."
+              }
+            ]
+          }
+        ],
+        "final_checks": [
+          "Full board visible",
+          "Classifier output shown",
+          "Correct crab count",
+          "Submission completed"
+        ],
+        "completion_prompt": "Judge confirms invasive species task complete."
+      },
+  
+      {
+        "subtask_id": "task_2_2_iceberg_tracking",
+        "title": "Task 2.2 - Iceberg Tracking",
+        "interaction_type": "survey_then_analysis",
+        "phases": [
+          {
+            "phase_id": "survey",
+            "title": "Survey Iceberg",
+            "steps": [
+              { "id": "p1", "instruction": "Record survey point 1." },
+              { "id": "p2", "instruction": "Record survey point 2." },
+              { "id": "p3", "instruction": "Record survey point 3." },
+              { "id": "p4", "instruction": "Record survey point 4." },
+              { "id": "p5", "instruction": "Record survey point 5." }
+            ]
+          },
+          {
+            "phase_id": "measure",
+            "title": "Measure Keel Depth",
+            "steps": [
+              { "id": "measure", "instruction": "Measure keel depth." }
+            ]
+          },
+          {
+            "phase_id": "analyze",
+            "title": "Determine Threat",
+            "steps": [
+              { "id": "platforms", "instruction": "Evaluate 4 platforms." },
+              { "id": "subsea", "instruction": "Evaluate subsea assets." }
+            ]
+          }
+        ],
+        "final_checks": [
+          "Survey complete",
+          "Keel depth measured",
+          "Threat analysis complete"
+        ]
+      },
+  
+      {
+        "subtask_id": "task_2_3_whale_safe_fishing_gear",
+        "title": "Task 2.3 - Whale Safe Fishing Gear",
+        "interaction_type": "trigger_then_recover",
+        "phases": [
+          {
+            "phase_id": "trigger",
+            "title": "Trigger Release",
+            "steps": [
+              { "id": "align", "instruction": "Align with release handle." },
+              { "id": "turn", "instruction": "Turn handle to trigger release." }
+            ]
+          },
+          {
+            "phase_id": "recover",
+            "title": "Recover Pot",
+            "steps": [
+              { "id": "grab", "instruction": "Secure lobster pot." },
+              { "id": "lift", "instruction": "Lift pot." },
+              { "id": "surface", "instruction": "Bring to surface." }
+            ]
+          }
+        ],
+        "final_checks": [
+          "Release triggered",
+          "Pot recovered"
+        ]
+      },
+  
+      {
+        "subtask_id": "task_2_4_buoy_anchor_recovery",
+        "title": "Task 2.4 - Buoy Anchor Recovery",
+        "interaction_type": "attach_and_return",
+        "phases": [
+          {
+            "phase_id": "attach",
+            "title": "Attach Line",
+            "steps": [
+              { "id": "position", "instruction": "Position recovery line." },
+              { "id": "attach", "instruction": "Attach line to anchor." }
+            ]
+          },
+          {
+            "phase_id": "return",
+            "title": "Return Line",
+            "steps": [
+              { "id": "surface", "instruction": "Bring line to surface." }
+            ]
+          }
+        ],
+        "final_checks": [
+          "Line attached",
+          "Line returned to surface"
+        ]
+      },
+  
+      {
+        "subtask_id": "task_2_5_holyrood_observatory",
+        "title": "Task 2.5 - Service Observatory",
+        "interaction_type": "service_workflow",
+        "phases": [
+          {
+            "phase_id": "recover",
+            "title": "Recover Old Sensor",
+            "steps": [
+              { "id": "remove", "instruction": "Remove old sensor." },
+              { "id": "surface", "instruction": "Bring to surface." }
+            ]
+          },
+          {
+            "phase_id": "analyze",
+            "title": "Analyze Data",
+            "steps": [
+              { "id": "analyze", "instruction": "Calculate organism frequency." }
+            ]
+          },
+          {
+            "phase_id": "install",
+            "title": "Install New Sensor",
+            "steps": [
+              { "id": "place", "instruction": "Place new sensor." },
+              { "id": "connect", "instruction": "Connect sensor." }
+            ]
+          },
+          {
+            "phase_id": "clean",
+            "title": "Clean Camera",
+            "steps": [
+              { "id": "rotate", "instruction": "Rotate until target color appears 3 times." }
+            ]
+          }
+        ],
+        "final_checks": [
+          "Old sensor recovered",
+          "Data analyzed",
+          "New sensor installed",
+          "Camera cleaned"
+        ]
+      }
+    ],
+    "task_final_flow": {
+      "title": "Task 2 Complete",
+      "steps": [
+        {
+          "id": "verify",
+          "instruction": "Verify all subsections completed."
+        },
+        {
+          "id": "judge",
+          "instruction": "Wait for judge confirmation."
+        }
+      ]
+    }
+  }

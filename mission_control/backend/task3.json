@@ -1,0 +1,212 @@
+{
+    "task_id": "task_3",
+    "title": "Task 3 - Offshore Energy Infrastructure",
+    "mode": "guided",
+    "subsections": [
+      {
+        "subtask_id": "task_3_1_retrieve_connector",
+        "title": "Task 3.1 - Retrieve Power Connector",
+        "objective": "Retrieve the power connector from the wind farm subsea station.",
+        "interaction_type": "precision_grab_and_extract",
+        "overview": {
+          "summary": "Navigate to the wind farm, secure the connector, and safely extract it.",
+          "success_definition": "The connector is fully removed and under control of the ROV."
+        },
+        "steps": [
+          {
+            "id": "navigate_to_station",
+            "instruction": "Pilot the ROV to the wind farm subsea station.",
+            "user_action": "confirm_arrived"
+          },
+          {
+            "id": "locate_connector",
+            "instruction": "Identify the power connector and its orientation.",
+            "user_action": "confirm_target_visible"
+          },
+          {
+            "id": "align_gripper",
+            "instruction": "Align the manipulator with the connector handle.",
+            "user_action": "confirm_aligned"
+          },
+          {
+            "id": "secure_connector",
+            "instruction": "Grip the connector securely.",
+            "user_action": "confirm_secured"
+          },
+          {
+            "id": "extract_connector",
+            "instruction": "Pull the connector free from its mount.",
+            "user_action": "confirm_removed"
+          }
+        ],
+        "live_hints": [
+          "Make sure the connector is fully secured before pulling.",
+          "Avoid misalignment during extraction."
+        ],
+        "final_checks": [
+          "Connector removed from station",
+          "Connector under full control"
+        ],
+        "completion_prompt": "Judge confirms connector retrieval complete."
+      },
+  
+      {
+        "subtask_id": "task_3_2_remove_port_cover",
+        "title": "Task 3.2 - Remove Oil Platform Port Cover",
+        "objective": "Remove the protective cover from the oil platform port.",
+        "interaction_type": "targeted_removal",
+        "overview": {
+          "summary": "Locate the oil platform port and remove its cover cleanly.",
+          "success_definition": "The cover is fully removed and the port is exposed."
+        },
+        "steps": [
+          {
+            "id": "navigate_to_platform",
+            "instruction": "Pilot the ROV to the oil platform.",
+            "user_action": "confirm_arrived"
+          },
+          {
+            "id": "locate_port",
+            "instruction": "Identify the port and its protective cover.",
+            "user_action": "confirm_target_visible"
+          },
+          {
+            "id": "align_with_cover",
+            "instruction": "Position the tool to remove the cover.",
+            "user_action": "confirm_aligned"
+          },
+          {
+            "id": "remove_cover",
+            "instruction": "Remove the cover from the port.",
+            "user_action": "confirm_removed"
+          },
+          {
+            "id": "clear_area",
+            "instruction": "Move the cover away so the port remains accessible.",
+            "user_action": "confirm_cleared"
+          }
+        ],
+        "live_hints": [
+          "Ensure the cover is fully removed before proceeding.",
+          "Do not block the port after removal."
+        ],
+        "final_checks": [
+          "Port cover removed",
+          "Port fully visible"
+        ],
+        "completion_prompt": "Judge confirms port cover removal complete."
+      },
+  
+      {
+        "subtask_id": "task_3_3_route_and_align_connector",
+        "title": "Task 3.3 - Transport and Align Connector",
+        "objective": "Transport the connector and align it with the oil platform port.",
+        "interaction_type": "transport_and_precision_alignment",
+        "overview": {
+          "summary": "Carry the connector from the wind farm to the oil platform and align it properly.",
+          "success_definition": "The connector is positioned correctly in front of the port."
+        },
+        "steps": [
+          {
+            "id": "begin_transport",
+            "instruction": "Carry the connector toward the oil platform.",
+            "user_action": "confirm_in_transit"
+          },
+          {
+            "id": "stabilize_payload",
+            "instruction": "Keep the connector stable during movement.",
+            "user_action": "confirm_stable"
+          },
+          {
+            "id": "approach_port",
+            "instruction": "Slowly approach the exposed port.",
+            "user_action": "confirm_near_port"
+          },
+          {
+            "id": "align_orientation",
+            "instruction": "Align the connector orientation with the port.",
+            "user_action": "confirm_aligned"
+          }
+        ],
+        "live_hints": [
+          "Slow down near the port.",
+          "Correct alignment is critical before insertion."
+        ],
+        "final_checks": [
+          "Connector positioned in front of port",
+          "Alignment correct"
+        ],
+        "completion_prompt": "Judge confirms alignment ready for insertion."
+      },
+  
+      {
+        "subtask_id": "task_3_4_install_connector",
+        "title": "Task 3.4 - Install Power Connector",
+        "objective": "Insert the power connector into the oil platform port.",
+        "interaction_type": "precision_insertion",
+        "overview": {
+          "summary": "Insert the connector carefully and ensure it is properly seated.",
+          "success_definition": "The connector is fully inserted and remains in place."
+        },
+        "steps": [
+          {
+            "id": "begin_insertion",
+            "instruction": "Begin inserting the connector into the port.",
+            "user_action": "confirm_inserting"
+          },
+          {
+            "id": "adjust_alignment",
+            "instruction": "Make small adjustments to ensure smooth insertion.",
+            "user_action": "confirm_adjusted"
+          },
+          {
+            "id": "seat_connector",
+            "instruction": "Push until the connector is fully seated.",
+            "user_action": "confirm_seated"
+          },
+          {
+            "id": "release_grip",
+            "instruction": "Release the connector only after it is secure.",
+            "user_action": "confirm_released"
+          }
+        ],
+        "live_hints": [
+          "Do not release early.",
+          "If resistance occurs, re-align before pushing."
+        ],
+        "final_checks": [
+          "Connector fully inserted",
+          "Connector remains in place after release"
+        ],
+        "completion_prompt": "Judge confirms connector installation complete."
+      }
+    ],
+  
+    "task_final_flow": {
+      "title": "Task 3 Final Completion Flow",
+      "steps": [
+        {
+          "id": "verify_installation",
+          "instruction": "Confirm the connector is fully installed and stable.",
+          "user_action": "confirm_verified"
+        },
+        {
+          "id": "final_position",
+          "instruction": "Hold position so the judge can clearly see the final state.",
+          "user_action": "confirm_visible"
+        },
+        {
+          "id": "judge_confirmation",
+          "instruction": "Wait for judge confirmation of Task 3 completion.",
+          "user_action": "confirm_judge_done"
+        }
+      ],
+      "final_checks": [
+        "Connector retrieved",
+        "Port cover removed",
+        "Connector aligned correctly",
+        "Connector installed successfully",
+        "Final state visible to judge"
+      ]
+    }
+  }

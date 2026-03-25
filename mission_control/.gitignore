@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Local uploads (keep folder if needed; do not commit binaries)
+backend/uploaded_images/*
+!backend/uploaded_images/.gitkeep

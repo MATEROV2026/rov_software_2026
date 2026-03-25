@@ -29,6 +29,7 @@ if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
 from backend.routes.tasks import router as tasks_router
+from backend.routes.tutorial import router as tutorial_router
 from backend.routes.uploads import router as uploads_router
 from shared.robot_interface import MockRobotInterface
 
@@ -42,6 +43,7 @@ app = FastAPI(
 _robot = MockRobotInterface()
 
 app.include_router(tasks_router)
+app.include_router(tutorial_router)
 app.include_router(uploads_router)
 
 

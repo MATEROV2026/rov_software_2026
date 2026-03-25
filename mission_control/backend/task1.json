@@ -1,0 +1,455 @@
+{
+    "task_id": "task_1",
+    "title": "Task 1 - Seabed 2030: A Kaleidoscope of Corals in Cold Water",
+    "mode": "guided",
+    "subsections": [
+      {
+        "subtask_id": "task_1_1_basket_stars",
+        "title": "Task 1.1 - Collect Basket Stars",
+        "objective": "Collect two basket stars and return them to the surface, side of the pool.",
+        "interaction_type": "precision_collection",
+        "overview": {
+          "summary": "Locate a basket star, align carefully, secure it, lift it, and deliver it to the pool deck.",
+          "success_definition": "The basket star must be removed from the water and placed on the pool deck."
+        },
+        "items_required": {
+          "target_count": 2,
+          "target_type": "basket_star"
+        },
+        "steps": [
+          {
+            "id": "locate_target",
+            "label": "Locate basket star",
+            "instruction": "Navigate to the coral garden area and identify one basket star target.",
+            "user_action": "confirm_when_target_visible"
+          },
+          {
+            "id": "align_tool",
+            "label": "Align manipulator",
+            "instruction": "Center the basket star in view and approach slowly.",
+            "user_action": "confirm_alignment"
+          },
+          {
+            "id": "secure_target",
+            "label": "Secure basket star",
+            "instruction": "Grip or capture the basket star securely before lifting.",
+            "user_action": "confirm_secured"
+          },
+          {
+            "id": "lift_target",
+            "label": "Lift target",
+            "instruction": "Lift the basket star clear of the bottom without dropping it.",
+            "user_action": "confirm_lifted"
+          },
+          {
+            "id": "transport_target",
+            "label": "Transport to surface",
+            "instruction": "Carry the basket star to the surface and toward the side of the pool.",
+            "user_action": "confirm_at_surface"
+          },
+          {
+            "id": "deliver_target",
+            "label": "Deliver basket star",
+            "instruction": "Remove the basket star from the water and place it on the pool deck.",
+            "user_action": "confirm_delivered"
+          }
+        ],
+        "loop": {
+          "enabled": true,
+          "repeat_for_total_targets": 2,
+          "progress_label": "Basket stars collected"
+        },
+        "live_hints": [
+          "Approach slowly before gripping.",
+          "Make sure the object is secure before lifting.",
+          "Delivery only counts when placed on the pool deck."
+        ],
+        "final_checks": [
+          "Two basket stars collected",
+          "Each basket star removed from the water",
+          "Each basket star placed on the pool deck"
+        ],
+        "completion_prompt": "Judge confirms basket star collection complete."
+      },
+      {
+        "subtask_id": "task_1_1_coral_species",
+        "title": "Task 1.1 - Collect Coral Species",
+        "objective": "Collect two coral species and return them to the surface, side of the pool.",
+        "interaction_type": "delicate_collection_with_decision",
+        "overview": {
+          "summary": "Retrieve coral carefully. For maximum points, collect by the substrate only.",
+          "success_definition": "The coral must be removed from the water and placed on the pool deck."
+        },
+        "items_required": {
+          "target_count": 2,
+          "target_type": "coral_species"
+        },
+        "decision_points": [
+          {
+            "id": "choose_collection_method",
+            "label": "Choose collection method",
+            "instruction": "Decide whether to grip the coral by the substrate only or by the coral itself.",
+            "recommended_choice": "substrate_only"
+          }
+        ],
+        "steps": [
+          {
+            "id": "locate_coral",
+            "label": "Locate coral species",
+            "instruction": "Identify one coral species on the coral garden.",
+            "user_action": "confirm_when_target_visible"
+          },
+          {
+            "id": "inspect_substrate",
+            "label": "Inspect substrate",
+            "instruction": "Identify the substrate area before attempting collection.",
+            "user_action": "confirm_substrate_visible"
+          },
+          {
+            "id": "align_collection_tool",
+            "label": "Align tool",
+            "instruction": "Approach carefully and position the tool to collect by the substrate only if possible.",
+            "user_action": "confirm_alignment"
+          },
+          {
+            "id": "secure_coral",
+            "label": "Secure coral",
+            "instruction": "Grip the substrate or stabilize the coral for lifting.",
+            "user_action": "confirm_secured"
+          },
+          {
+            "id": "lift_coral",
+            "label": "Lift target",
+            "instruction": "Lift the coral clear of the garden without losing control.",
+            "user_action": "confirm_lifted"
+          },
+          {
+            "id": "transport_coral",
+            "label": "Transport to surface",
+            "instruction": "Carry the coral to the surface and toward the side of the pool.",
+            "user_action": "confirm_at_surface"
+          },
+          {
+            "id": "deliver_coral",
+            "label": "Deliver coral",
+            "instruction": "Remove the coral from the water and place it on the pool deck.",
+            "user_action": "confirm_delivered"
+          }
+        ],
+        "loop": {
+          "enabled": true,
+          "repeat_for_total_targets": 2,
+          "progress_label": "Coral species collected"
+        },
+        "live_hints": [
+          "Best score comes from collecting by the substrate only.",
+          "Avoid gripping the chenille pipe cleaners if possible.",
+          "Delivery only counts when placed on the pool deck."
+        ],
+        "final_checks": [
+          "Two coral species collected",
+          "Each coral removed from the water",
+          "Each coral placed on the pool deck",
+          "Collection method recorded for scoring"
+        ],
+        "completion_prompt": "Judge confirms coral collection complete."
+      },
+      {
+        "subtask_id": "task_1_2_photogrammetry",
+        "title": "Task 1.2 - Coral Garden Ridge Modelling via Photogrammetry",
+        "objective": "Create a scaled 3D model of the coral garden using photogrammetry.",
+        "interaction_type": "iterative_capture_pipeline",
+        "overview": {
+          "summary": "Capture overlapping images around the coral garden, transfer them if needed, build the 3D model, and present it on screen.",
+          "success_definition": "A rotatable 3D image of the coral garden is shown on screen, ideally with all eight targets visible."
+        },
+        "preconditions": [
+          "Coral garden located",
+          "Camera feed working",
+          "Image capture method ready",
+          "Modeling software ready"
+        ],
+        "optional_tools": [
+          "Known-size reference object such as a ruler"
+        ],
+        "phases": [
+          {
+            "phase_id": "capture_setup",
+            "title": "Capture Setup",
+            "steps": [
+              {
+                "id": "position_start",
+                "label": "Position at first view",
+                "instruction": "Move to a starting view where the coral garden is fully visible.",
+                "user_action": "confirm_positioned"
+              },
+              {
+                "id": "check_frame",
+                "label": "Check framing",
+                "instruction": "Make sure the garden and visible targets are centered and clear.",
+                "user_action": "confirm_frame_ready"
+              }
+            ]
+          },
+          {
+            "phase_id": "image_capture_loop",
+            "title": "Image Capture Loop",
+            "steps": [
+              {
+                "id": "capture_angle_01_front",
+                "label": "Photo 1 of 8 — Front view",
+                "instruction": "Face the coral garden from the front (primary approach direction). Center the garden and visible targets, then capture one overlapping photo.",
+                "user_action": "confirm_image_captured"
+              },
+              {
+                "id": "capture_angle_02_45cw",
+                "label": "Photo 2 of 8 — ~45° clockwise",
+                "instruction": "Orbit slightly to your right (~45° around the garden from the front). Keep strong overlap with the last image, then capture.",
+                "user_action": "confirm_image_captured"
+              },
+              {
+                "id": "capture_angle_03_right",
+                "label": "Photo 3 of 8 — Right side (~90°)",
+                "instruction": "Move to the right-side viewpoint (~90° from the front). Overlap with previous frames, then capture.",
+                "user_action": "confirm_image_captured"
+              },
+              {
+                "id": "capture_angle_04_135cw",
+                "label": "Photo 4 of 8 — ~135°",
+                "instruction": "Continue orbiting (~135° from the front). Maintain overlap, then capture.",
+                "user_action": "confirm_image_captured"
+              },
+              {
+                "id": "capture_angle_05_rear",
+                "label": "Photo 5 of 8 — Rear (~180°)",
+                "instruction": "Position behind the garden (~180° from the front). Capture with overlap from prior shots.",
+                "user_action": "confirm_image_captured"
+              },
+              {
+                "id": "capture_angle_06_225cw",
+                "label": "Photo 6 of 8 — ~225°",
+                "instruction": "Continue the orbit (~225° from the front). Overlap and capture.",
+                "user_action": "confirm_image_captured"
+              },
+              {
+                "id": "capture_angle_07_left",
+                "label": "Photo 7 of 8 — Left side (~270°)",
+                "instruction": "Move to the left-side viewpoint (~270° from the front). Capture with overlap.",
+                "user_action": "confirm_image_captured"
+              },
+              {
+                "id": "capture_angle_08_close_loop",
+                "label": "Photo 8 of 8 — Final angle (~315°)",
+                "instruction": "Complete the orbit (~315° from the front). Capture one last overlapping image that ties back toward your first frame for photogrammetry coverage.",
+                "user_action": "confirm_image_captured"
+              }
+            ]
+          },
+          {
+            "phase_id": "measurement_scaling",
+            "title": "Measurement and Scaling",
+            "steps": [
+              {
+                "id": "measure_length",
+                "label": "Measure garden length",
+                "instruction": "Measure the coral garden length or capture enough reference information to measure it within 5 cm.",
+                "user_action": "confirm_measurement_recorded"
+              },
+              {
+                "id": "set_scale",
+                "label": "Set model scale",
+                "instruction": "Use the measured length to scale the 3D model.",
+                "user_action": "confirm_scale_applied"
+              },
+              {
+                "id": "estimate_height",
+                "label": "Estimate height",
+                "instruction": "Use the properly scaled model to estimate the garden height within 5 cm.",
+                "user_action": "confirm_height_recorded"
+              }
+            ]
+          },
+          {
+            "phase_id": "processing_and_display",
+            "title": "Processing and Display",
+            "steps": [
+              {
+                "id": "transfer_images",
+                "label": "Transfer images",
+                "instruction": "Transfer captured images to the modeling computer or device if needed.",
+                "user_action": "confirm_transfer_complete"
+              },
+              {
+                "id": "build_model",
+                "label": "Build 3D model",
+                "instruction": "Run the photogrammetry workflow and generate the 3D model.",
+                "user_action": "confirm_model_generated"
+              },
+              {
+                "id": "display_model",
+                "label": "Display model",
+                "instruction": "Show the 3D model on screen and make sure it can be rotated for the judge.",
+                "user_action": "confirm_model_displayed"
+              }
+            ]
+          }
+        ],
+        "live_hints": [
+          "Capture overlapping images from multiple viewpoints.",
+          "Try to show all eight colored square targets.",
+          "Keep a known-size reference under control or remove it before the end."
+        ],
+        "final_checks": [
+          "3D model displayed on screen",
+          "Model can be rotated",
+          "Model is scaled using measured length",
+          "Height estimate recorded",
+          "Visible target count noted for scoring"
+        ],
+        "completion_prompt": "Judge confirms photogrammetry model review complete."
+      },
+      {
+        "subtask_id": "task_1_2_manual_cad",
+        "title": "Task 1.2 - Coral Garden Ridge Modelling via Manual CAD",
+        "objective": "Measure the coral garden and create a scaled CAD model manually.",
+        "interaction_type": "measure_then_build",
+        "overview": {
+          "summary": "Measure the coral garden length and height, then build and display a manual CAD model with those dimensions included.",
+          "success_definition": "A rotatable CAD model is displayed on screen with the measured length and height included."
+        },
+        "steps": [
+          {
+            "id": "inspect_garden",
+            "label": "Inspect coral garden",
+            "instruction": "Position to view the coral garden clearly for measurement.",
+            "user_action": "confirm_positioned"
+          },
+          {
+            "id": "measure_length",
+            "label": "Measure length",
+            "instruction": "Measure the coral garden length or explain how the length is being estimated.",
+            "user_action": "confirm_length_recorded"
+          },
+          {
+            "id": "measure_height",
+            "label": "Measure height",
+            "instruction": "Measure the coral garden height or explain how the height is being estimated.",
+            "user_action": "confirm_height_recorded"
+          },
+          {
+            "id": "show_measurements",
+            "label": "Show measurements",
+            "instruction": "Be ready to show both measurements to the judge or explain the method used.",
+            "user_action": "confirm_measurements_ready"
+          },
+          {
+            "id": "build_cad_model",
+            "label": "Build CAD model",
+            "instruction": "Create the 3D CAD model and include the measured length and height dimensions on the model.",
+            "user_action": "confirm_model_created"
+          },
+          {
+            "id": "display_cad_model",
+            "label": "Display model",
+            "instruction": "Show the CAD model on screen and make sure it can be rotated and viewed from any angle.",
+            "user_action": "confirm_model_displayed"
+          }
+        ],
+        "live_hints": [
+          "The manual model only needs the basic structure.",
+          "Targets do not need to appear on the manual CAD model.",
+          "Length and height dimensions must be included on the model."
+        ],
+        "final_checks": [
+          "Length measurement recorded",
+          "Height measurement recorded",
+          "CAD model displayed on screen",
+          "Model can be rotated",
+          "Length and height dimensions shown on model"
+        ],
+        "completion_prompt": "Judge confirms manual CAD model complete."
+      },
+      {
+        "subtask_id": "task_1_3_transect",
+        "title": "Task 1.3 - Fly Transect Over the Coral Garden",
+        "objective": "Create the required coral garden video by maintaining the correct path or position for the competition format.",
+        "interaction_type": "continuous_navigation_with_constraints",
+        "overview": {
+          "summary": "This is a navigation and framing task. Use fewer clicks and keep key constraints visible during the run.",
+          "success_definition": "The required video pass or maintained position is completed for judge review."
+        },
+        "steps": [
+          {
+            "id": "start_position",
+            "label": "Move into task position",
+            "instruction": "Position the ROV for the start of the transect or holding position task.",
+            "user_action": "confirm_ready"
+          },
+          {
+            "id": "select_camera",
+            "label": "Select official camera feed",
+            "instruction": "Choose the camera feed the judge should use for scoring.",
+            "user_action": "confirm_camera_selected"
+          },
+          {
+            "id": "begin_run",
+            "label": "Begin task",
+            "instruction": "Start the transect pass or begin maintaining position over the coral garden.",
+            "user_action": "start_task"
+          },
+          {
+            "id": "maintain_constraints",
+            "label": "Maintain correct view",
+            "instruction": "Keep the required framing and control until the task is complete.",
+            "user_action": "confirm_run_complete"
+          },
+          {
+            "id": "hold_for_review",
+            "label": "Hold for judge review",
+            "instruction": "Hold position briefly so the judge can verify completion.",
+            "user_action": "confirm_review_done"
+          }
+        ],
+        "live_hints": [
+          "This task should feel more like a live overlay than a heavy tutorial.",
+          "Keep the official scoring view stable.",
+          "Focus on framing and control, not repeated prompts."
+        ],
+        "final_checks": [
+          "Required video task completed",
+          "Official camera feed used",
+          "Judge had time to verify completion"
+        ],
+        "completion_prompt": "Judge confirms transect task complete."
+      }
+    ],
+    "task_final_flow": {
+      "title": "Task 1 Final Completion Flow",
+      "steps": [
+        {
+          "id": "review_subtasks",
+          "label": "Review completed subsections",
+          "instruction": "Confirm which Task 1 subsections were attempted and completed.",
+          "user_action": "confirm_review"
+        },
+        {
+          "id": "verify_outputs",
+          "label": "Verify outputs",
+          "instruction": "Check that all physical items, measurements, videos, and models required for scoring are available for the judge.",
+          "user_action": "confirm_outputs_ready"
+        },
+        {
+          "id": "judge_confirmation",
+          "label": "Judge confirmation",
+          "instruction": "Present the final outputs and wait for the station judge to confirm Task 1 scoring items.",
+          "user_action": "confirm_judge_done"
+        }
+      ],
+      "final_checks": [
+        "Collected items delivered correctly",
+        "Modeling output shown if attempted",
+        "Transect or holding task shown if attempted",
+        "Judge has reviewed all relevant Task 1 evidence"
+      ]
+    }
+  }

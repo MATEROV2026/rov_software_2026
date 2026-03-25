@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import urllib.error
+import urllib.parse
 import urllib.request
 import uuid
 from pathlib import Path
@@ -140,6 +141,33 @@ def send_command(
     data = _urlopen_json(req, timeout=30.0, base_url=base_url)
     if not isinstance(data, dict):
         raise RuntimeError(f"Expected JSON object from /command, got {type(data)}")
+    return data
+
+
+def get_tutorial_tasks(base_url: str = DEFAULT_BASE_URL) -> List[Dict[str, Any]]:
+    """GET /tutorial/tasks — catalog of normalized tutorial tasks."""
+    req = urllib.request.Request(_join(base_url, "/tutorial/tasks"), method="GET")
+    data = _urlopen_json(req, timeout=15.0, base_url=base_url)
+    if not isinstance(data, list):
+        raise RuntimeError(f"Expected JSON array from /tutorial/tasks, got {type(data)}")
+    return data
+
+
+def get_tutorial_task(
+    task_id: str,
+    base_url: str = DEFAULT_BASE_URL,
+) -> Dict[str, Any]:
+    """GET /tutorial/tasks/{task_id} — full normalized task with subsections/steps."""
+    safe = urllib.parse.quote(task_id, safe="")
+    req = urllib.request.Request(
+        _join(base_url, f"/tutorial/tasks/{safe}"),
+        method="GET",
+    )
+    data = _urlopen_json(req, timeout=30.0, base_url=base_url)
+    if not isinstance(data, dict):
+        raise RuntimeError(
+            f"Expected JSON object from /tutorial/tasks/{task_id}, got {type(data)}"
+        )
     return data
 
 

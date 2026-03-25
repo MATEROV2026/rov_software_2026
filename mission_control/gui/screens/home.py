@@ -7,7 +7,7 @@ import customtkinter as ctk
 class HomeScreen(ctk.CTkFrame):
     """Mission home; selection drives navigation in gui.app."""
 
-    ITEMS = ("Browse Tasks", "Exit")
+    ITEMS = ("Operator Tutorial", "Browse Tasks", "Exit")
 
     def __init__(self, master: ctk.CTk | ctk.CTkFrame, **kwargs) -> None:
         super().__init__(master, **kwargs)
