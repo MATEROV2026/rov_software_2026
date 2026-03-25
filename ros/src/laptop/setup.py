@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'vision_node = laptop.vision_node:main'
         ],
     },
 )
