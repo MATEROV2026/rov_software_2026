@@ -9,6 +9,6 @@ def generate_launch_description():
         name="vision_node"
     )
     
-    return LaunchDescription(
+    return LaunchDescription([
         ui_node
-    )
+    ])

@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import CompressedImage
+from std_msgs.msg import String
 import numpy as np
 import cv2
 
@@ -10,17 +11,40 @@ class VisionNode(Node):
 
         self.subscription = self.create_subscription(
             CompressedImage,
-            '/zed/zed_node/rgb/image_rect_color/compressed',
+            '/camera/image_compressed',
             self.image_callback,
             10
         )
+        
+        # Publisher for sending commands to the Jetson
+        self.command_publisher = self.create_publisher(
+            String,
+            'commands',
+            10
+        )
+        
+        self.get_logger().info("Vision node initialized - Camera feed and command control ready")
 
     def image_callback(self, msg):
         np_arr = np.frombuffer(msg.data, np.uint8)
         frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
         cv2.imshow("Camera Feed", frame)
-        cv2.waitKey(1)
+        key = cv2.waitKey(1) & 0xFF
+        
+        # Simple keyboard controls
+        if key == ord('w'):
+            self.send_command("forward")
+        elif key == ord('s'):
+            self.send_command("backward")
+        elif key == ord('q'):
+            self.send_command("stop")
+
+    def send_command(self, command):
+        msg = String()
+        msg.data = command
+        self.command_publisher.publish(msg)
+        self.get_logger().info(f"Sent command: {command}")
 
 def main():
     rclpy.init()
