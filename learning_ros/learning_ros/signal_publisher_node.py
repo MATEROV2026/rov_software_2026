@@ -19,6 +19,20 @@ import argparse
 # So it would look like:
 #   AA 55 0C <12 payload bytes> <crc>
 
+# TODO 5.: Whenever you go from one value to another in the interval force it to slowly ramp up/down over a second. 
+# So if you send a signal of 100 it should take a second to search it and can ramp in periodic fragments {0, 25, 50, 75, 100}.
+# Make the steps a higher number tho - maybe 10 or 15? We are doing this because we want to keep the difference in current low
+# every time we throttle up or down. 
+
+# TODO 6.: Make an option to run is as a scattered ramp up - we do not want all 6 thrusters to synchronously ramp up or down (or any group of thrusters).
+# So whenever you set any given group of thrusters to 100, they should reach that throttle asynchronously from each other. 
+# IMPORTANT: That should not be noticeable in practice! So keep the gaps between them small
+# There is most likely some stochastic approach to doing this efficiently, no need to overthink it.
+
+# TODO 7.: For now cap your signal to be slightly above neutral! So map at maximum the equivalent of 1700 (if 1500 is neutral). 
+# This is so that we avoid maxing out which would spike the difference in current
+
+
 
 # maps [-1.0, 0.4] to [0.1, 1]
 def map2factor(x):
