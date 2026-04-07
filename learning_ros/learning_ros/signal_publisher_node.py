@@ -67,7 +67,9 @@ class SignalPublisherNode(Node):
             self.joy_callback,
             10)
 
-        self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
+        self.current_values = [1500, 1500, 1500, 1500, 1500, 1500]
+        self.target_values = [1500, 1500, 1500, 1500, 1500, 1500]
+        self.ramp_steps = int(hz * 1.0)  # 1 second ramp
 
         # self.ser = serial.Serial(
         #     port = port,
@@ -85,7 +87,16 @@ class SignalPublisherNode(Node):
         header = bytes([0xAA, 0x55])
         length = bytes([0x0C])
 
-        m = self.list2message(self.values_list)
+        for i in range(6):
+            diff = self.target_values[i] - self.current_values[i]
+        
+            if abs(diff) < 1:
+                self.current_values[i] = self.target_values[i]
+            else:
+                self.current_values[i] += diff / self.ramp_steps
+        print(self.current_values)
+
+        m = self.list2message(self.current_values)
 
         crc_val = crc8(header + length + m)
 
@@ -98,7 +109,7 @@ class SignalPublisherNode(Node):
         message = b""
 
         for v in values:
-            adjusted = int(v - 1500)
+            adjusted = int((v - 1500) * 0.25)   # make the max and min closer to neutral
             message += adjusted.to_bytes(2, byteorder="little", signed=True)
 
         return message
@@ -141,61 +152,27 @@ class SignalPublisherNode(Node):
                 temp.append([factor * float(x) + base for x in deviation])
 
             if count == 1:
-                self.values_list = temp[0]
+                self.target_values = temp[0]
             else:
-                self.values_list = [int((temp[0][i] + temp[1][i]) / 2) for i in range(6)]
+                self.target_values = [int((temp[0][i] + temp[1][i]) / 2) for i in range(6)]
 
         elif buttons_list[3] == 1:       # up
-            self.values_list = [1500, 1500, 1900, 1900, 1500, 1500]
+            self.target_values = [1500, 1500, 1900, 1900, 1500, 1500]
 
         elif buttons_list[0] == 1:       # down
-            self.values_list = [1500, 1500, 1100, 1100, 1500, 1500]
+            self.target_values = [1500, 1500, 1100, 1100, 1500, 1500]
 
         elif buttons_list[4] == 1:       # turn left
-            self.values_list = [1100, 1900, 1500, 1500, 1900, 1100]
+            self.target_values = [1100, 1900, 1500, 1500, 1900, 1100]
 
         elif buttons_list[5] == 1:       # turn right
-            self.values_list = [1900, 1100, 1500, 1500, 1100, 1900]
+            self.target_values = [1900, 1100, 1500, 1500, 1100, 1900]
 
         else:
-            self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
+            self.target_values = [1500, 1500, 1500, 1500, 1500, 1500]
 
 
-        print(self.values_list)
-
-
-
-        # if axes_list[1] <= -0.4:         # forward
-        #     deviation = [400, 400, 0, 0, -400, -400] #[1900, 1900, 1500, 1500, 1100, 1100]
-        #     factor = map2factor(axes_list[1]) 
-        #     # print(factor)
-        #     self.values_list =  [int(factor * float(x)) + base for x in deviation]
-        #     # print(self.values_list)
-        # elif axes_list[1] >= 0.8:        # backward
-        #     self.values_list = [1100, 1100, 1500, 1500, 1900, 1900]
-
-        # elif axes_list[0] <= -0.8:       # left
-        #     self.values_list = [1100, 1900, 1500, 1500, 1100, 1900]
-
-        # elif axes_list[0] >= 0.8:        # right
-        #     self.values_list = [1900, 1100, 1500, 1500, 1900, 1100]
-
-        # elif buttons_list[3] == 1:       # up
-        #     self.values_list = [1500, 1500, 1900, 1900, 1500, 1500]
-
-        # elif buttons_list[0] == 1:       # down
-        #     self.values_list = [1500, 1500, 1100, 1100, 1500, 1500]
-
-        # elif buttons_list[4] == 1:       # turn left
-        #     self.values_list = [1100, 1900, 1500, 1500, 1900, 1100]
-
-        # elif buttons_list[5] == 1:       # turn right
-        #     self.values_list = [1900, 1100, 1500, 1500, 1100, 1900]
-
-        # else:
-        #     self.values_list = [1500, 1500, 1500, 1500, 1500, 1500]
-
-        # print(self.values_list) 
+        # print(self.target_values)
 
     
 
