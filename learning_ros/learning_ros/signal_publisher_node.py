@@ -23,6 +23,7 @@ import argparse
 # So if you send a signal of 100 it should take a second to search it and can ramp in periodic fragments {0, 25, 50, 75, 100}.
 # Make the steps a higher number tho - maybe 10 or 15? We are doing this because we want to keep the difference in current low
 # every time we throttle up or down. 
+#### ramp up takes 2-3 seconds
 
 # TODO 6.: Make an option to run is as a scattered ramp up - we do not want all 6 thrusters to synchronously ramp up or down (or any group of thrusters).
 # So whenever you set any given group of thrusters to 100, they should reach that throttle asynchronously from each other. 
@@ -69,7 +70,7 @@ class SignalPublisherNode(Node):
 
         self.current_values = [1500, 1500, 1500, 1500, 1500, 1500]
         self.target_values = [1500, 1500, 1500, 1500, 1500, 1500]
-        self.ramp_steps = int(hz * 0.1)  # 1 second ramp
+        self.ramp_steps = int(hz * 0.2)  # 1 second ramp
 
         # self.ser = serial.Serial(
         #     port = port,
@@ -109,7 +110,7 @@ class SignalPublisherNode(Node):
         message = b""
 
         for v in values:
-            adjusted = int((v - 1500) * 0.25)   # make the max and min closer to neutral
+            adjusted = int((v - 1500) * 0.5)   # make the max and min closer to neutral
             message += adjusted.to_bytes(2, byteorder="little", signed=True)
 
         return message
