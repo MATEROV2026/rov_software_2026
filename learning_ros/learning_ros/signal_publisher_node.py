@@ -19,7 +19,7 @@ import argparse
 # So it would look like:
 #   AA 55 0C <12 payload bytes> <crc>
 
-# TODO 5.: Whenever you go from one value to another in the interval force it to slowly ramp up/down over a second. 
+# DONE 5.: Whenever you go from one value to another in the interval force it to slowly ramp up/down over a second. 
 # So if you send a signal of 100 it should take a second to search it and can ramp in periodic fragments {0, 25, 50, 75, 100}.
 # Make the steps a higher number tho - maybe 10 or 15? We are doing this because we want to keep the difference in current low
 # every time we throttle up or down. 
@@ -59,7 +59,7 @@ def crc8(data):
 
 class SignalPublisherNode(Node):
 
-    def __init__(self, port, baudrate, hz):
+    def __init__(self, port, baudrate, hz, ramp_mode):
         super().__init__('signal_publisher')
         # Subscribe to the /joy topic published by your other package
         self.subscription = self.create_subscription(
@@ -70,7 +70,9 @@ class SignalPublisherNode(Node):
 
         self.current_values = [1500, 1500, 1500, 1500, 1500, 1500]
         self.target_values = [1500, 1500, 1500, 1500, 1500, 1500]
+        self.ramp_mode = ramp_mode
         self.ramp_steps = int(hz * 0.2)  # 1 second ramp
+        self.active_thruster = 0
 
         # self.ser = serial.Serial(
         #     port = port,
@@ -85,25 +87,40 @@ class SignalPublisherNode(Node):
        
 
     def serial_timer_callback(self):
-        header = bytes([0xAA, 0x55])
-        length = bytes([0x0C])
 
-        for i in range(6):
+        if self.ramp_mode == "sync":
+            header = bytes([0xAA, 0x55])
+            length = bytes([0x0C])
+
+            for i in range(6):
+                diff = self.target_values[i] - self.current_values[i]
+            
+                if abs(diff) < 1:
+                    self.current_values[i] = self.target_values[i]
+                else:
+                    self.current_values[i] += diff / self.ramp_steps
+            print(self.current_values)
+
+            m = self.list2message(self.current_values)
+
+            crc_val = crc8(header + length + m)
+
+            message = header + length + m + bytes([crc_val])
+            # self.ser.write(message)
+            # print(message)
+
+        elif self.ramp_mode == "async":
+            i = self.active_thruster
+
             diff = self.target_values[i] - self.current_values[i]
-        
+
             if abs(diff) < 1:
                 self.current_values[i] = self.target_values[i]
             else:
                 self.current_values[i] += diff / self.ramp_steps
-        print(self.current_values)
 
-        m = self.list2message(self.current_values)
-
-        crc_val = crc8(header + length + m)
-
-        message = header + length + m + bytes([crc_val])
-        # self.ser.write(message)
-        # print(message)
+            # move to next thruster for next cycle
+            self.active_thruster = (self.active_thruster + 1) % 6
 
     def list2message(self, values): # values_list to serial message
         
@@ -203,13 +220,22 @@ def main(args=None):
         help="Timer frequency in Hz (default: 100)"
     )
 
+    parser.add_argument(
+        "--ramp_mode",
+        type=str,
+        default="sync",
+        choices=["sync", "async"],
+        help="Ramp mode: sync (default) or async"
+    )
+
     parsed_args, remaining = parser.parse_known_args(args=args)
 
     rclpy.init(args=remaining)
     node = SignalPublisherNode(
         port=parsed_args.port,
         baudrate=parsed_args.baudrate,
-        hz=parsed_args.hz
+        hz=parsed_args.hz,
+        ramp_mode=parsed_args.ramp_mode
     )
 
     rclpy.spin(node)
