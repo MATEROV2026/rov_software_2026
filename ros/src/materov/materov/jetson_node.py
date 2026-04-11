@@ -3,7 +3,7 @@ import rclpy
 import cv2
 from rclpy.node import Node
 from std_msgs.msg import String
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, Imu
 from cv_bridge import CvBridge
 
 class JetsonNode(Node):
@@ -23,6 +23,13 @@ class JetsonNode(Node):
             'camera',
             self.image_callback,
             10  # QoS history depth
+        )
+
+        self.imu_subscription = self.create_subscription(
+            Imu,
+            'imu/data_raw',
+            self.imu_callback,
+            10
         )
         self.get_logger().info("Jetson node started and listening for commands...")
 
@@ -60,6 +67,16 @@ class JetsonNode(Node):
 
     def stop_motors(self):
         self.get_logger().info("Stopping motors (placeholder)")
+
+    def imu_callback(self, msg: Imu):
+        # Log IMU data (for demonstration)
+        ax = msg.linear_acceleration.x
+        ay = msg.linear_acceleration.y
+        az = msg.linear_acceleration.z
+        gx = msg.angular_velocity.x
+        gy = msg.angular_velocity.y
+        gz = msg.angular_velocity.z
+        self.get_logger().info(f"IMU Accel: ({ax:.2f}, {ay:.2f}, {az:.2f}) | Gyro: ({gx:.2f}, {gy:.2f}, {gz:.2f})")
 
 
 def main(args=None):

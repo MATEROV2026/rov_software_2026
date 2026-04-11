@@ -7,8 +7,12 @@ import os
 
 def generate_launch_description():
 
-    zed_launch_path = "~/ros2_ws/src/zed-ros2-wrapper/zed_wrapper/launch/zed_camera.launch.py"
-
+    zed_launch_path = os.path.join(
+        get_package_share_directory('zed_wrapper'),
+        'launch',
+        'zed_camera.launch.py'
+    )
+    
     zed_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(zed_launch_path),
         launch_arguments={
@@ -24,7 +28,15 @@ def generate_launch_description():
         name='jetson_node'
     )
 
+    imu_sensor_node = Node(
+        package='materov',
+        executable='imu_sensor_node',
+        name='imu_sensor_node'
+    )
+
+
     return LaunchDescription([
         jetson_node,
+        imu_sensor_node,
         zed_launch
     ])
