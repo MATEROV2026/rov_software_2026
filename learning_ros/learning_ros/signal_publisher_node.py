@@ -71,7 +71,10 @@ class SignalPublisherNode(Node):
         self.current_values = [1500, 1500, 1500, 1500, 1500, 1500]
         self.target_values = [1500, 1500, 1500, 1500, 1500, 1500]
         self.ramp_mode = ramp_mode
-        self.ramp_steps = int(hz * 0.2)  # 1 second ramp
+        if self.ramp_mode == "sync":
+            self.ramp_steps = int(hz * 0.2)  # 3 second ramp
+        elif self.ramp_mode == "async":
+            self.ramp_steps = int(hz * 0.05)  # 3 second ramp
         self.active_thruster = 0
 
         # self.ser = serial.Serial(
@@ -88,10 +91,10 @@ class SignalPublisherNode(Node):
 
     def serial_timer_callback(self):
 
-        if self.ramp_mode == "sync":
-            header = bytes([0xAA, 0x55])
-            length = bytes([0x0C])
+        header = bytes([0xAA, 0x55])
+        length = bytes([0x0C])
 
+        if self.ramp_mode == "sync":
             for i in range(6):
                 diff = self.target_values[i] - self.current_values[i]
             
@@ -99,15 +102,6 @@ class SignalPublisherNode(Node):
                     self.current_values[i] = self.target_values[i]
                 else:
                     self.current_values[i] += diff / self.ramp_steps
-            print(self.current_values)
-
-            m = self.list2message(self.current_values)
-
-            crc_val = crc8(header + length + m)
-
-            message = header + length + m + bytes([crc_val])
-            # self.ser.write(message)
-            # print(message)
 
         elif self.ramp_mode == "async":
             i = self.active_thruster
@@ -122,6 +116,14 @@ class SignalPublisherNode(Node):
             # move to next thruster for next cycle
             self.active_thruster = (self.active_thruster + 1) % 6
 
+        print(self.current_values)
+        m = self.list2message(self.current_values)
+        crc_val = crc8(header + length + m)
+        message = header + length + m + bytes([crc_val])
+        # self.ser.write(message)
+        # print(message)
+
+            
     def list2message(self, values): # values_list to serial message
         
         message = b""
