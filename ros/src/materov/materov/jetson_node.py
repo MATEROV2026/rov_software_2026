@@ -27,7 +27,7 @@ class JetsonNode(Node):
 
         self.imu_subscription = self.create_subscription(
             Imu,
-            'imu/data_raw',
+            '/imu/data_raw',
             self.imu_callback,
             10
         )

@@ -34,9 +34,16 @@ def generate_launch_description():
         name='imu_sensor_node'
     )
 
+    pressure_sensor_node = Node(
+        package='materov',
+        executable='pressure_sensor_node',
+        name='pressure_sensor_node'
+    )
+
 
     return LaunchDescription([
         jetson_node,
         imu_sensor_node,
+        pressure_sensor_node,
         zed_launch
     ])

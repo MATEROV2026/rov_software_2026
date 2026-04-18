@@ -80,38 +80,38 @@ class ImuSensorNode(Node):
         msg.header.frame_id = "imu_link"
 
         # Example dummy data (replace with real sensor values)
-        msg.linear_acceleration.x = ax
-        msg.linear_acceleration.y = ay
-        msg.linear_acceleration.z = az
+        msg.linear_acceleration.x = float(ax)
+        msg.linear_acceleration.y = float(ay)
+        msg.linear_acceleration.z = float(az)
 
-        msg.angular_velocity.x = gx
-        msg.angular_velocity.y = gy
-        msg.angular_velocity.z = gz
+        msg.angular_velocity.x = float(gx)
+        msg.angular_velocity.y = float(gy)
+        msg.angular_velocity.z = float(gz)
 
         # No orientation
         msg.orientation_covariance[0] = -1
 
         # Covariances (recommended)
         msg.angular_velocity_covariance = [
-            0.01,0,0,
-            0,0.01,0,
-            0,0,0.01
+            0.01, 0.0, 0.0,
+            0.0, 0.01, 0.0,
+            0.0, 0.0, 0.01
         ]
 
         msg.linear_acceleration_covariance = [
-            0.1,0,0,
-            0,0.1,0,
-            0,0,0.1
+            0.1, 0.0, 0.0,
+            0.0, 0.1, 0.0,
+            0.0, 0.0, 0.1
         ]
 
         self.pub.publish(msg)
 
         self.get_logger().info("Published IMU data")
     
-    def select_bank(bank):
+    def select_bank(self, bank):
         bus.write_byte_data(addr, REG_BANK_SEL, bank << 4)
 
-    def read_word_2c(reg_h):
+    def read_word_2c(self, reg_h):
         high = bus.read_byte_data(addr, reg_h)
         low = bus.read_byte_data(addr, reg_h + 1)
         value = (high << 8) | low

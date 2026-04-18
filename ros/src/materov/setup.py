@@ -27,7 +27,8 @@ setup(
         'console_scripts': [
             'jetson_node = materov.jetson_node:main',
             'camera_node = materov.camera_node:main',
-            'imu_sensor_node = materov.imu_sensor_node:main'
+            'imu_sensor_node = materov.imu_sensor_node:main',
+            'pressure_sensor_node = materov.pressure_sensor_node:main',
         ],
     },
 )
