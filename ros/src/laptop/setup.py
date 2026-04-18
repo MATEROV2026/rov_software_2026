@@ -25,7 +25,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'vision_node = laptop.vision_node:main'
+            'vision_node = laptop.vision_node:main',
+            'reconstruction_service = laptop.reconstruction_service:main'
         ],
     },
 )
