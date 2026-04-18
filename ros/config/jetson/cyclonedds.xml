@@ -1,0 +1,7 @@
+<CycloneDDS>
+  <Domain>
+    <General>
+      <NetworkInterfaceAddress>enP8p1s0</NetworkInterfaceAddress>
+    </General>
+  </Domain>
+</CycloneDDS>
