@@ -244,6 +244,8 @@ class MissionApp(ctk.CTk):
                 self._show_upload(tid)
             elif act == "Send run_task command":
                 self._run_task_command(tid)
+            elif act == "Run reconstruction":
+                self._run_reconstruction_command(tid)
             elif act == "Back":
                 self._show_menu()
             return
@@ -289,6 +291,17 @@ class MissionApp(ctk.CTk):
             return
         self._set_mission_sent()
         self._toast(f"run_task sent for {task_id}")
+
+    def _run_reconstruction_command(self, task_id: str) -> None:
+        try:
+            api_mod.send_command(
+                {"command": "run_reconstruction", "task_id": task_id}
+            )
+        except Exception as exc:  # noqa: BLE001
+            self._toast(f"Reconstruction failed: {exc}")
+            return
+        self._set_mission_sent()
+        self._toast(f"run_reconstruction sent for {task_id}")
 
     def _toast(self, message: str) -> None:
         # Lightweight feedback without extra dialogs.

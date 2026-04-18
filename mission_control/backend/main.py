@@ -31,7 +31,7 @@ if str(_PROJECT_ROOT) not in sys.path:
 
 from backend.routes.tasks import router as tasks_router
 from backend.routes.uploads import router as uploads_router
-from shared.robot_interface import RosRobotInterface
+from shared.robot_interface import RobotInterface
 
 app = FastAPI(
     title="Matrov Mission Control API",
@@ -39,8 +39,8 @@ app = FastAPI(
     version="0.1.0",
 )
 
-# Single process mock; replace with a ROS2-backed class in shared/ later.
-_robot = RosRobotInterface()
+# Single process robot bridge used by the desktop app.
+_robot = RobotInterface()
 
 app.include_router(tasks_router)
 app.include_router(uploads_router)
@@ -86,5 +86,13 @@ def post_command(body: CommandBody) -> Dict[str, Any]:
             )
         paths = body.image_paths or []
         return _robot.send_images(body.task_id, paths)
+
+    if cmd == "run_reconstruction":
+        if not body.task_id:
+            raise HTTPException(
+                status_code=400, detail="task_id required for run_reconstruction"
+            )
+        paths = body.image_paths or []
+        return _robot.run_reconstruction(body.task_id, paths)
 
     raise HTTPException(status_code=400, detail=f"Unknown command: {body.command}")

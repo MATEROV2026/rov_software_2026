@@ -19,6 +19,7 @@ venv/
 .eggs/
 dist/
 build/
+*.pyc
 
 # Mission control uploads (local only)
 mission_control/backend/uploaded_images/

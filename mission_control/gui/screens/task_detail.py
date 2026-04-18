@@ -8,15 +8,10 @@ import customtkinter as ctk
 
 class TaskDetailScreen(ctk.CTkFrame):
     """
-    Displays one task; bottom menu drives Upload / run_task / Back.
+    Displays one task; bottom menu drives task actions.
 
-    Indices:
-      0 — Upload images
-      1 — Send run_task command
-      2 — Back
+    Task 1.1 also gets a selectable reconstruction action.
     """
-
-    ACTIONS = ("Upload images", "Send run_task command", "Back")
 
     def __init__(
         self,
@@ -30,6 +25,11 @@ class TaskDetailScreen(ctk.CTkFrame):
         self._action_labels: list[ctk.CTkLabel] = []
 
         tid = task.get("id", "")
+        self._actions = ["Upload images", "Send run_task command"]
+        if tid == "1.1":
+            self._actions.append("Run reconstruction")
+        self._actions.append("Back")
+
         title = task.get("title", "")
         ctk.CTkLabel(
             self,
@@ -78,7 +78,7 @@ class TaskDetailScreen(ctk.CTkFrame):
             font=ctk.CTkFont(size=14, weight="bold"),
         ).pack(anchor="w", padx=16, pady=(12, 4))
 
-        for text in self.ACTIONS:
+        for text in self._actions:
             lb = ctk.CTkLabel(self, text=text, font=ctk.CTkFont(size=16))
             lb.pack(pady=6)
             self._action_labels.append(lb)
@@ -87,7 +87,7 @@ class TaskDetailScreen(ctk.CTkFrame):
 
     @property
     def option_count(self) -> int:
-        return len(self.ACTIONS)
+        return len(self._actions)
 
     def set_selection(self, index: int) -> None:
         self._selected = max(0, min(self.option_count - 1, index))
@@ -97,7 +97,7 @@ class TaskDetailScreen(ctk.CTkFrame):
         self.set_selection(self._selected + delta)
 
     def selected_action(self) -> str:
-        return self.ACTIONS[self._selected]
+        return self._actions[self._selected]
 
     def task_id(self) -> str:
         return str(self._task.get("id", ""))
