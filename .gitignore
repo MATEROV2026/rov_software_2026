@@ -28,3 +28,4 @@ mission_control/backend/uploaded_images/
 .idea/
 .vscode/
 *.swp
+.codex

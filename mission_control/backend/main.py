@@ -23,6 +23,7 @@ from typing import Any, Dict, List, Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
+
 # Allow `shared` import when running as `uvicorn backend.main:app`
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(_PROJECT_ROOT) not in sys.path:
@@ -30,7 +31,7 @@ if str(_PROJECT_ROOT) not in sys.path:
 
 from backend.routes.tasks import router as tasks_router
 from backend.routes.uploads import router as uploads_router
-from shared.robot_interface import MockRobotInterface
+from shared.robot_interface import RosRobotInterface
 
 app = FastAPI(
     title="Matrov Mission Control API",
@@ -39,7 +40,7 @@ app = FastAPI(
 )
 
 # Single process mock; replace with a ROS2-backed class in shared/ later.
-_robot = MockRobotInterface()
+_robot = RosRobotInterface()
 
 app.include_router(tasks_router)
 app.include_router(uploads_router)
