@@ -5,6 +5,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from sensor_msgs.msg import Image, Imu
 from cv_bridge import CvBridge
+from interfaces.srv import RunReconstruction
 
 class JetsonNode(Node):
     def __init__(self):
@@ -31,6 +32,12 @@ class JetsonNode(Node):
             self.imu_callback,
             10
         )
+
+        self.client = self.create_client(
+            RunReconstruction,
+            'run_reconstruction'
+        )
+
         self.get_logger().info("Jetson node started and listening for commands...")
 
     def image_callback(self, msg: Image):
@@ -78,12 +85,29 @@ class JetsonNode(Node):
         gz = msg.angular_velocity.z
         self.get_logger().info(f"IMU Accel: ({ax:.2f}, {ay:.2f}, {az:.2f}) | Gyro: ({gx:.2f}, {gy:.2f}, {gz:.2f})")
 
+    def send_reconstruction_request(self):
+        req = RunReconstruction.Request()
+        req.image_folder = "/shared/images"
+
+        while not self.client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info("Waiting for service...")
+
+        future = self.client.call_async(req)
+        rclpy.spin_until_future_complete(self, future)
+
+        response = future.result()
+
+        self.get_logger().info(f"Success: {response.success}")
+        self.get_logger().info(f"Path: {response.model_path}")
+
+        return response
 
 def main(args=None):
     rclpy.init(args=args)
     node = JetsonNode()
     try:
-        rclpy.spin(node)  # Keep the node alive
+        # rclpy.spin(node)  # Keep the node alive
+        node.send_reconstruction_request()
     except KeyboardInterrupt:
         pass
     finally:
