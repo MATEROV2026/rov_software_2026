@@ -1,7 +1,7 @@
 # materov/materov/jetson_node.py
 from pathlib import Path
 import shutil
-
+import os
 import cv2
 import numpy as np
 import rclpy
@@ -16,7 +16,8 @@ class JetsonNode(Node):
     def __init__(self):
         super().__init__('jetson_node')
         self.bridge = CvBridge()
-        self.capture_dir = Path("/shared/images")
+        self.capture_dir = Path("/home/m8rov123/shared/images")
+        os.makedirs(self.capture_dir, exist_ok=True)
         self.capture_target_count = 6
         self.capture_interval_s = 5.0
         self.capture_count = 0
@@ -178,9 +179,11 @@ class JetsonNode(Node):
         req = RunReconstruction.Request()
         req.image_folder = str(self.capture_dir)
 
-        while not self.client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info("Waiting for service...")
-
+        if not self.client.wait_for_service(timeout_sec=0.0):
+            self.get_logger().error("Reconstruction service not available")
+            self.status_pub.publish(String(data="reconstruction_failed"))
+            return
+        
         future = self.client.call_async(req)
         rclpy.spin_until_future_complete(self, future)
         response = future.result()
