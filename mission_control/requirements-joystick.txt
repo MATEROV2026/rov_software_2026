@@ -1,0 +1,8 @@
+# Optional: gamepad via pygame (use on Linux/Windows only).
+# On macOS, many pygame wheels abort on import; use keyboard or map the
+# controller to keys in System Settings instead.
+#
+#   export MATROV_JOY_BACKEND=pygame
+#   pip install -r requirements-joystick.txt
+
+pygame>=2.5.0

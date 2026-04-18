@@ -1,0 +1,244 @@
+[
+  {
+    "id": "1.1",
+    "title": "Collect species from the coral garden",
+    "instructions": [
+      "Collect two basket stars from the coral garden",
+      "Collect two coral species",
+      "Return collected specimens to the surface / designated area"
+    ],
+    "required_images": [
+      "front_view",
+      "side_view",
+      "close_up",
+      "completion_view"
+    ]
+  },
+  {
+    "id": "1.2",
+    "title": "Create a 3D image of the coral garden",
+    "instructions": [
+      "Create a 3D representation of the coral garden (autonomous photogrammetry or manual/CAD)",
+      "Ensure coverage documents the extent and structure of the habitat"
+    ],
+    "required_images": [
+      "overview_scan",
+      "detail_stills",
+      "model_or_screenshot"
+    ]
+  },
+  {
+    "id": "1.3",
+    "title": "Video transect in current (coral garden)",
+    "instructions": [
+      "Maintain position or fly a transect in simulated current",
+      "Record video that shows the coral garden for documentation"
+    ],
+    "required_images": [
+      "transect_start",
+      "transect_mid",
+      "transect_end"
+    ]
+  },
+  {
+    "id": "2.1",
+    "title": "European green crab — count and report",
+    "instructions": [
+      "Determine the number of invasive European green crabs in the sample",
+      "Use image recognition or manual count as allowed",
+      "Upload results to the Invasive Species form"
+    ],
+    "required_images": [
+      "sample_tray_overview",
+      "crab_closeups",
+      "data_form_screenshot"
+    ]
+  },
+  {
+    "id": "2.2",
+    "title": "Iceberg survey — measure keel depth",
+    "instructions": [
+      "Survey the iceberg model",
+      "Measure and record keel depth for reporting"
+    ],
+    "required_images": [
+      "iceberg_profile",
+      "measurement_reference",
+      "keel_depth_documentation"
+    ]
+  },
+  {
+    "id": "2.3",
+    "title": "Iceberg threat assessment for platforms",
+    "instructions": [
+      "Use location, heading, and keel depth of the iceberg",
+      "Determine threat level to the four oil platforms per mission rules"
+    ],
+    "required_images": [
+      "position_heading_notes",
+      "threat_matrix_or_summary"
+    ]
+  },
+  {
+    "id": "2.4",
+    "title": "Whale-safe gear — acoustic release and pot recovery",
+    "instructions": [
+      "Simulate acoustic release of retrieval buoy on whale-safe fishing gear",
+      "Recover the lobster pot per mission procedure"
+    ],
+    "required_images": [
+      "pre_release",
+      "post_release",
+      "pot_recovered"
+    ]
+  },
+  {
+    "id": "2.5",
+    "title": "Recovery line to buoy anchor",
+    "instructions": [
+      "Attach a recovery line to the buoy anchor",
+      "Return the line to the surface at the designated pool side"
+    ],
+    "required_images": [
+      "attachment_point",
+      "line_at_surface"
+    ]
+  },
+  {
+    "id": "2.6",
+    "title": "Replace eDNA sensor on Holyrood observatory",
+    "instructions": [
+      "Remove the existing eDNA sensor",
+      "Install the new sensor and connect it to the Holyrood subsea observatory"
+    ],
+    "required_images": [
+      "sensor_before",
+      "sensor_installed",
+      "connection_closeup"
+    ]
+  },
+  {
+    "id": "2.7",
+    "title": "Observatory — data frequency and camera biofouling",
+    "instructions": [
+      "Analyze observatory data to determine organism sighting frequency",
+      "Remove biofouling from the observatory camera"
+    ],
+    "required_images": [
+      "data_plot_or_notes",
+      "camera_before_cleaning",
+      "camera_after_cleaning"
+    ]
+  },
+  {
+    "id": "3.1",
+    "title": "Bubble curtain and micropile installation",
+    "instructions": [
+      "Place a bubble curtain around the designated installation area",
+      "Install a micropile per mission specification"
+    ],
+    "required_images": [
+      "curtain_layout",
+      "micropile_installed"
+    ]
+  },
+  {
+    "id": "3.2",
+    "title": "Retrieve power connector and lay cable",
+    "instructions": [
+      "Retrieve the power connector from the wind farm subsea station",
+      "Lay the cable through the specified waypoint"
+    ],
+    "required_images": [
+      "connector_retrieved",
+      "cable_route",
+      "waypoint_passed"
+    ]
+  },
+  {
+    "id": "3.3",
+    "title": "Install power connector on oil platform port",
+    "instructions": [
+      "Remove the cover from the oil platform port",
+      "Install the power connector securely"
+    ],
+    "required_images": [
+      "port_cover_removed",
+      "connector_mated",
+      "final_verification"
+    ]
+  },
+  {
+    "id": "4.1",
+    "title": "Profiling float — pre-mission build (documentation)",
+    "instructions": [
+      "Prior to competition, design and construct an operational profiling float",
+      "Bring documentation photos for inspection / mission control records"
+    ],
+    "required_images": [
+      "float_overview",
+      "sensor_payload",
+      "communication_module"
+    ]
+  },
+  {
+    "id": "4.2",
+    "title": "Float — handshake before descent",
+    "instructions": [
+      "Float communicates with the mission station prior to descending",
+      "Confirm mission station receives expected status or telemetry"
+    ],
+    "required_images": [
+      "mission_station_display",
+      "float_ready_state"
+    ]
+  },
+  {
+    "id": "4.3",
+    "title": "Float — two vertical profiles under ice",
+    "instructions": [
+      "Complete two vertical profiles under the simulated ice",
+      "Follow depth and timing constraints in the manual"
+    ],
+    "required_images": [
+      "profile_1_trace",
+      "profile_2_trace"
+    ]
+  },
+  {
+    "id": "4.4",
+    "title": "Float — hold depth at 2.5 m and 40 cm",
+    "instructions": [
+      "At prescribed stages, maintain depth at 2.5 meters",
+      "Maintain depth at 40 cm as specified for the mission scenario"
+    ],
+    "required_images": [
+      "hold_2_5m_evidence",
+      "hold_40cm_evidence"
+    ]
+  },
+  {
+    "id": "4.5",
+    "title": "Float — post-recovery data upload",
+    "instructions": [
+      "After recovery, float communicates stored profile data to mission station",
+      "Verify data integrity at the station"
+    ],
+    "required_images": [
+      "recovery_photo",
+      "upload_confirmation"
+    ]
+  },
+  {
+    "id": "4.6",
+    "title": "Float — depth vs. time graph",
+    "instructions": [
+      "Graph recorded data as depth over time",
+      "Submit or display per scoring / operator requirements"
+    ],
+    "required_images": [
+      "depth_time_graph",
+      "raw_data_reference"
+    ]
+  }
+]
