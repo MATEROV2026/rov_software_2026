@@ -4,6 +4,7 @@ set -u
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 ROS_WS="$REPO_ROOT/ros"
+CYCLONE_CFG="$REPO_ROOT/ros/config/laptop/cyclonedds.xml"
 
 FAILURES=0
 WARNINGS=0
@@ -96,11 +97,22 @@ check_apt_packages() {
 section "Laptop Setup"
 ok "Repo root: $REPO_ROOT"
 
+# ROS Humble requires Python 3.10. Miniconda/Conda can shadow it with a newer
+# version that cannot load ROS C extensions. Prepend /usr/bin so python3 → 3.10.
+export PATH="/usr/bin:$PATH"
+if python3 --version 2>&1 | grep -q "3\.10"; then
+  ok "python3 → $(python3 --version)"
+else
+  warn "python3 is $(python3 --version); expected 3.10 for ROS Humble. C extensions may fail."
+fi
+
 if [ ! -f /opt/ros/humble/setup.bash ]; then
   fail "ROS 2 Humble is not installed at /opt/ros/humble"
 else
+  set +u
   # shellcheck disable=SC1091
   source /opt/ros/humble/setup.bash
+  set -u
   ok "Sourced ROS 2 Humble"
 fi
 
@@ -109,6 +121,23 @@ export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-0}"
 ok "ROS_LOCALHOST_ONLY=$ROS_LOCALHOST_ONLY"
 ok "ROS_DOMAIN_ID=$ROS_DOMAIN_ID"
 
+section "DDS / Network"
+if dpkg -s ros-humble-rmw-cyclonedds-cpp >/dev/null 2>&1; then
+  ok "ros-humble-rmw-cyclonedds-cpp installed"
+  export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+  ok "RMW_IMPLEMENTATION=rmw_cyclonedds_cpp"
+else
+  warn "ros-humble-rmw-cyclonedds-cpp not installed — using default FastDDS"
+  warn "Install it: sudo apt install ros-humble-rmw-cyclonedds-cpp"
+fi
+
+if [ -f "$CYCLONE_CFG" ]; then
+  export CYCLONEDDS_URI="file://$CYCLONE_CFG"
+  ok "CYCLONEDDS_URI=$CYCLONEDDS_URI"
+else
+  warn "CycloneDDS config not found at $CYCLONE_CFG"
+fi
+
 section "Package Checks"
 check_apt_packages \
   python3-colcon-common-extensions \
@@ -116,7 +145,8 @@ check_apt_packages \
   python3-opencv \
   python3-numpy \
   ros-humble-cv-bridge \
-  ros-humble-joy-linux
+  ros-humble-joy \
+  ros-humble-rmw-cyclonedds-cpp
 
 section "Tool Checks"
 command -v ros2 >/dev/null 2>&1 && ok "ros2 found" || fail "ros2 not found"
@@ -144,8 +174,10 @@ else
 fi
 
 if [ -f "$ROS_WS/install/setup.bash" ]; then
+  set +u
   # shellcheck disable=SC1091
   source "$ROS_WS/install/setup.bash"
+  set -u
   ok "Sourced workspace install"
 else
   fail "Missing $ROS_WS/install/setup.bash"
@@ -154,7 +186,7 @@ fi
 section "ROS Package Checks"
 ros2 pkg prefix interfaces >/dev/null 2>&1 && ok "interfaces package found" || fail "interfaces package missing"
 ros2 pkg prefix laptop >/dev/null 2>&1 && ok "laptop package found" || fail "laptop package missing"
-ros2 pkg prefix joy_linux >/dev/null 2>&1 && ok "joy_linux package found" || fail "joy_linux package missing"
+ros2 pkg prefix joy >/dev/null 2>&1 && ok "joy package found" || fail "joy package missing"
 
 section "Joystick Checks"
 if ls /dev/input/js* >/dev/null 2>&1; then
@@ -167,9 +199,12 @@ section "Launch Check"
 run_optional ros2 launch laptop laptop.launch.py --show-args
 
 section "Next Command"
+echo "export PATH=\"/usr/bin:\$PATH\""
 echo "source \"$ROS_WS/install/setup.bash\""
 echo "export ROS_LOCALHOST_ONLY=0"
 echo "export ROS_DOMAIN_ID=$ROS_DOMAIN_ID"
+echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp"
+echo "export CYCLONEDDS_URI=\"file://$CYCLONE_CFG\""
 echo "ros2 launch laptop laptop.launch.py"
 
 section "Summary"

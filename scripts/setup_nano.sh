@@ -99,8 +99,10 @@ ok "Repo root: $REPO_ROOT"
 if [ ! -f /opt/ros/humble/setup.bash ]; then
   fail "ROS 2 Humble is not installed at /opt/ros/humble"
 else
+  set +u
   # shellcheck disable=SC1091
   source /opt/ros/humble/setup.bash
+  set -u
   ok "Sourced ROS 2 Humble"
 fi
 
@@ -180,8 +182,10 @@ else
 fi
 
 if [ -f "$ROS_WS/install/setup.bash" ]; then
+  set +u
   # shellcheck disable=SC1091
   source "$ROS_WS/install/setup.bash"
+  set -u
   ok "Sourced workspace install"
 else
   fail "Missing $ROS_WS/install/setup.bash"
