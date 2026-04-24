@@ -17,7 +17,15 @@ def generate_launch_description():
         output="screen",
     )
 
+    joy_node = Node(
+        package="joy_linux",
+        executable="joy_linux_node",
+        name="joy_linux_node",
+        output="screen",
+    )
+
     return LaunchDescription([
         vision_node,
         reconstruction_service,
+        joy_node,
     ])

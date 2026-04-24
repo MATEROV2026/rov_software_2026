@@ -1,7 +1,6 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32
-import math
 import smbus
 import time
 
@@ -36,8 +35,7 @@ class PressureSensorNode(Node):
 
         self.pub = self.create_publisher(Float32, '/pressure/data_raw', 10)
 
-        # 50 Hz
-        self.timer = self.create_timer(0.02, self.publish_pressure)
+        self.timer = self.create_timer(0.1, self.publish_pressure)
 
         self.get_logger().info("Pressure publisher node started...")
 
@@ -77,6 +75,10 @@ class PressureSensorNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = PressureSensorNode()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()

@@ -8,7 +8,10 @@ class LaptopController:
 
         self._time = time
         self._rclpy = rclpy
-        rclpy.init()
+        self._owns_rclpy = False
+        if not rclpy.ok():
+            rclpy.init()
+            self._owns_rclpy = True
         self.node = Node("laptop_controller")
 
         self.command_publisher = self.node.create_publisher(
@@ -41,4 +44,5 @@ class LaptopController:
 
     def close(self):
         self.node.destroy_node()
-        self._rclpy.shutdown()
+        if self._owns_rclpy and self._rclpy.ok():
+            self._rclpy.shutdown()

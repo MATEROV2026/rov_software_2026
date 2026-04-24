@@ -1,7 +1,6 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Imu
-import math
 import smbus
 import time
 
@@ -89,7 +88,7 @@ class ImuSensorNode(Node):
         msg.angular_velocity.z = float(gz)
 
         # No orientation
-        msg.orientation_covariance[0] = -1
+        msg.orientation_covariance[0] = -1.0
 
         # Covariances (recommended)
         msg.angular_velocity_covariance = [
@@ -123,7 +122,11 @@ class ImuSensorNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = ImuSensorNode()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 

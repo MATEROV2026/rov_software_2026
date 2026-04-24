@@ -46,3 +46,4 @@ API default: `http://127.0.0.1:8000`. Optional pygame joystick: see
 
 If `tkinter.Tk()` aborts, use Homebrew Python 3.12 and a fresh venv. Run
 `python diagnose_gui.py` from this folder to verify Tcl/Tk.
+

@@ -1,12 +1,14 @@
+# ROS / colcon
+build/
+install/
+log/
+
+# Datasets and trained weights
 dataset/
 runs/
 dataset.zip
 *.pt
-build/
-install/
-log/
-test/
-__pycache__/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -18,8 +20,6 @@ venv/
 *.egg-info/
 .eggs/
 dist/
-build/
-*.pyc
 
 # Mission control uploads (local only)
 mission_control/backend/uploaded_images/

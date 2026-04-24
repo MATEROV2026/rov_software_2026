@@ -179,21 +179,27 @@ class JetsonNode(Node):
         req = RunReconstruction.Request()
         req.image_folder = str(self.capture_dir)
 
-        if not self.client.wait_for_service(timeout_sec=0.0):
+        if not self.client.wait_for_service(timeout_sec=1.0):
             self.get_logger().error("Reconstruction service not available")
             self.status_pub.publish(String(data="reconstruction_failed"))
             return
-        
+
         future = self.client.call_async(req)
-        rclpy.spin_until_future_complete(self, future)
-        response = future.result()
+        future.add_done_callback(self._on_reconstruction_response)
+
+    def _on_reconstruction_response(self, future):
+        try:
+            response = future.result()
+        except Exception as exc:  # noqa: BLE001
+            self.get_logger().error(f"Reconstruction call failed: {exc}")
+            self.status_pub.publish(String(data="reconstruction_failed"))
+            return
 
         self.get_logger().info(f"Success: {response.success}")
         self.get_logger().info(f"Path: {response.model_path}")
 
         status = "reconstruction_done" if response.success else "reconstruction_failed"
         self.status_pub.publish(String(data=status))
-        return response
 
 
 def main(args=None):
