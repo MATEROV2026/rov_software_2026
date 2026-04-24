@@ -120,7 +120,8 @@ check_apt_packages \
   python3-serial \
   python3-smbus \
   i2c-tools \
-  ros-humble-cv-bridge
+  ros-humble-cv-bridge \
+  ros-humble-rmw-cyclonedds-cpp
 
 section "Tool Checks"
 command -v ros2 >/dev/null 2>&1 && ok "ros2 found" || fail "ros2 not found"
@@ -140,6 +141,18 @@ elif [ -x /usr/local/zed/tools/ZED_Diagnostic ]; then
   ok "ZED_Diagnostic found at /usr/local/zed/tools/ZED_Diagnostic"
 else
   warn "ZED_Diagnostic not found on PATH"
+fi
+
+ZED_ROS2_WS="$HOME/ros2_ws"
+if [ -f "$ZED_ROS2_WS/install/setup.bash" ]; then
+  set +u
+  # shellcheck disable=SC1091
+  source "$ZED_ROS2_WS/install/setup.bash"
+  set -u
+  ok "Sourced ZED ROS2 workspace: $ZED_ROS2_WS"
+else
+  warn "ZED ROS2 workspace not found at $ZED_ROS2_WS/install/setup.bash; zed_wrapper will be skipped at launch"
+  ZED_ROS2_WS=""
 fi
 
 section "Device Checks"
@@ -206,9 +219,14 @@ section "Launch Check"
 run_optional ros2 launch materov materov.launch.py --show-args
 
 section "Next Command"
+if [ -n "${ZED_ROS2_WS:-}" ]; then
+  echo "source \"$ZED_ROS2_WS/install/setup.bash\""
+fi
 echo "source \"$ROS_WS/install/setup.bash\""
 echo "export ROS_LOCALHOST_ONLY=0"
 echo "export ROS_DOMAIN_ID=$ROS_DOMAIN_ID"
+echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp"
+echo "export CYCLONEDDS_URI=\"file://$REPO_ROOT/ros/config/jetson/cyclonedds.xml\""
 echo "ros2 launch materov materov.launch.py"
 
 section "Summary"

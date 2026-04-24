@@ -109,13 +109,16 @@ class SignalPublisherNode(Node):
             )
             self.get_logger().info(f"Serial port {port} opened at {baudrate} baud.")
         except serial.SerialException as e:
-            self.get_logger().fatal(f"Could not open serial port {port}: {e}")
-            raise
+            self.ser = None
+            self.get_logger().error(
+                f"Could not open serial port {port}: {e}  "
+                f"-- running without hardware; thruster signals will NOT be sent."
+            )
 
         # 100 Hz timer → 0.01 seconds
         self.timer = self.create_timer(1.0 / hz, self.serial_timer_callback)
 
-        self.get_logger().info("Signal publisher node started. Move your controller to controll thrusters.")
+        self.get_logger().info("Signal publisher node started. Move your controller to control thrusters.")
        
     def build_tam(self, thruster_geometry):
         columns = []
@@ -190,7 +193,8 @@ class SignalPublisherNode(Node):
         m = self.list2message(self.current_values)
         crc_val = crc8(header + length + m)
         message = header + length + m + bytes([crc_val])
-        self.ser.write(message)
+        if self.ser is not None:
+            self.ser.write(message)
 
             
     def list2message(self, values): # values_list to serial message
@@ -205,7 +209,7 @@ class SignalPublisherNode(Node):
         return message
 
     def destroy_node(self):
-        if hasattr(self, 'ser') and self.ser.is_open:
+        if self.ser is not None and self.ser.is_open:
             self.ser.close()
         super().destroy_node()
 
