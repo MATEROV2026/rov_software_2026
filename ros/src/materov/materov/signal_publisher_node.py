@@ -4,6 +4,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import Joy
 import serial
 import argparse
+import numpy as np
 
 
 # DONE 1. documentation for the code
@@ -44,6 +45,13 @@ def map2factor(x):
         return 1.5 * x - 0.5
 
 
+def axis2command(x):
+    factor = map2factor(x)
+    if factor is None:
+        return 0.0
+    return float(factor)
+
+
 def crc8(data):
     crc = 0x00
     poly = 0x07
@@ -57,6 +65,17 @@ def crc8(data):
                 crc = (crc << 1) & 0xFF
 
     return crc
+
+
+THRUSTER_GEOMETRY = [
+    {"type": "horizontal", "x": 0.225, "y": -0.185, "z": 0.00, "angle_deg": 45.0},
+    {"type": "horizontal", "x": 0.225, "y": 0.185, "z": 0.00, "angle_deg": 315.0},
+    {"type": "vertical",   "x": 0.000, "y": -0.185, "z": 0.00, "vertical_sign": 1.0},
+    {"type": "vertical",   "x": 0.000, "y": 0.185, "z": 0.00, "vertical_sign": 1.0},
+    {"type": "horizontal", "x": -0.225, "y": -0.185, "z": 0.00, "angle_deg": 135.0},
+    {"type": "horizontal", "x": -0.225, "y": 0.185, "z": 0.00, "angle_deg": 225.0},
+]
+
 
 class SignalPublisherNode(Node):
 
@@ -78,6 +97,9 @@ class SignalPublisherNode(Node):
             self.ramp_steps = int(hz * 0.05)  # 3 second ramp
         self.active_thruster = 0
         self._async_queue = []
+        self.wrench_gains = np.array([1.0, 1.0, 1.0, 1.0], dtype=float)
+        self.B = self.build_tam(THRUSTER_GEOMETRY)
+        self.B_pinv = np.linalg.pinv(self.B)
 
         try:
             self.ser = serial.Serial(
@@ -95,6 +117,46 @@ class SignalPublisherNode(Node):
 
         self.get_logger().info("Signal publisher node started. Move your controller to controll thrusters.")
        
+    def build_tam(self, thruster_geometry):
+        columns = []
+
+        for thruster in thruster_geometry:
+            if thruster["type"] == "horizontal":
+                columns.append(self.horizontal_column(thruster))
+            elif thruster["type"] == "vertical":
+                columns.append(self.vertical_column(thruster))
+            else:
+                raise ValueError(f"Unknown thruster type: {thruster['type']}")
+
+        return np.column_stack(columns)
+
+    def horizontal_column(self, thruster):
+        x = float(thruster["x"])
+        y = float(thruster["y"])
+        angle_deg = float(thruster["angle_deg"])
+        angle_rad = np.deg2rad(angle_deg)
+
+        dx = np.cos(angle_rad)
+        dy = np.sin(angle_rad)
+        mz = x * dy - y * dx
+
+        return np.array([dx, dy, 0.0, mz], dtype=float)
+
+    def vertical_column(self, thruster):
+        vertical_sign = float(thruster["vertical_sign"])
+        return np.array([0.0, 0.0, vertical_sign, 0.0], dtype=float)
+
+    def allocate_thrusters(self, tau):
+        f = self.B_pinv @ tau
+
+        max_abs = np.max(np.abs(f))
+        if max_abs > 1.0:
+            f = f / max_abs
+
+        pwm = 1500.0 + 400.0 * f
+        pwm = np.clip(pwm, 1100.0, 1900.0)
+
+        return [int(round(v)) for v in pwm]
 
     def serial_timer_callback(self):
 
@@ -157,51 +219,30 @@ class SignalPublisherNode(Node):
         # self.get_logger().info(f"Axes:   {buttons_list}")
         # self.get_logger().info(f"Buttons: {buttons_list}\n---")
 
-        # Translate controller input into signals for thrusters
-        # values_list : { thruster_number : pulse }
-        base = 1500
+        # Translate controller input into desired wrench and then into thruster signals
+        # tau = [Fx, Fy, Fz, Mz]
+        surge = -axis2command(axes_list[1])   # stick forward should mean +Fx
+        sway = axis2command(axes_list[0])     # stick right should mean +Fy
 
-        if (axes_list[1] <= -0.4 or     # forward
-            axes_list[1] >= 0.4 or      # backward
-            axes_list[0] <= -0.4 or     # left
-            axes_list[0] >= 0.4):       # right
+        heave = 0.0
+        if buttons_list[3] == 1:       # up
+            heave += 1.0
+        if buttons_list[0] == 1:       # down
+            heave -= 1.0
 
-            count = 0
-            temp = []
+        yaw = 0.0
+        if buttons_list[4] == 1:       # turn left
+            yaw += 1.0
+        if buttons_list[5] == 1:       # turn right
+            yaw -= 1.0
 
-            # forward or backward
-            if (axes_list[1] <= -0.4 or axes_list[1] >= 0.4):
-                count += 1
-                factor = map2factor(axes_list[1])
-                deviation = [-400, -400, 0, 0, 400, 400]
-                temp.append([factor * float(x) + base for x in deviation])
-            
-            # right or left
-            if (axes_list[0] <= -0.4 or axes_list[0] >= 0.4):
-                count += 1
-                factor = map2factor(axes_list[0])
-                deviation = [400, -400, 0, 0, 400, -400]
-                temp.append([factor * float(x) + base for x in deviation])
+        tau = np.array([surge, sway, heave, yaw], dtype=float)
+        tau = self.wrench_gains * tau
 
-            if count == 1:
-                self.target_values = temp[0]
-            else:
-                self.target_values = [int((temp[0][i] + temp[1][i]) / 2) for i in range(6)]
-
-        elif buttons_list[3] == 1:       # up
-            self.target_values = [1500, 1500, 1900, 1900, 1500, 1500]
-
-        elif buttons_list[0] == 1:       # down
-            self.target_values = [1500, 1500, 1100, 1100, 1500, 1500]
-
-        elif buttons_list[4] == 1:       # turn left
-            self.target_values = [1100, 1900, 1500, 1500, 1900, 1100]
-
-        elif buttons_list[5] == 1:       # turn right
-            self.target_values = [1900, 1100, 1500, 1500, 1100, 1900]
-
-        else:
+        if np.allclose(tau, 0.0):
             self.target_values = [1500, 1500, 1500, 1500, 1500, 1500]
+        else:
+            self.target_values = self.allocate_thrusters(tau)
 
 
         # print(self.target_values)
