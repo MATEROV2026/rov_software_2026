@@ -90,6 +90,8 @@ class SignalPublisherNode(Node):
 
         self.current_values = [1500, 1500, 1500, 1500, 1500, 1500]
         self.target_values = [1500, 1500, 1500, 1500, 1500, 1500]
+        self.seventh_value = 1500
+        self._prev_buttons = []
         self.ramp_mode = ramp_mode
         if self.ramp_mode == "sync":
             self.ramp_steps = int(hz * 0.2)  # 3 second ramp
@@ -164,7 +166,7 @@ class SignalPublisherNode(Node):
     def serial_timer_callback(self):
 
         header = bytes([0xAA, 0x55])
-        length = bytes([0x0C])
+        length = bytes([0x0E])  # 14 bytes: 7 x int16
 
         if self.ramp_mode == "sync":
             for i in range(6):
@@ -190,7 +192,7 @@ class SignalPublisherNode(Node):
                 self.current_values[i] += diff / self.ramp_steps
 
         self.get_logger().debug(f"current_values: {self.current_values}")
-        m = self.list2message(self.current_values)
+        m = self.list2message(self.current_values + [int(self.seventh_value)])
         crc_val = crc8(header + length + m)
         message = header + length + m + bytes([crc_val])
         if self.ser is not None:
@@ -248,8 +250,13 @@ class SignalPublisherNode(Node):
         else:
             self.target_values = self.allocate_thrusters(tau)
 
-
-        # print(self.target_values)
+        # 7th signal — X (buttons[2]) increments, B (buttons[1]) decrements (edge-triggered)
+        if self._prev_buttons:
+            if buttons_list[2] and not self._prev_buttons[2]:   # X pressed
+                self.seventh_value = min(1900, self.seventh_value + 5)
+            if buttons_list[1] and not self._prev_buttons[1]:   # B pressed
+                self.seventh_value = max(1100, self.seventh_value - 5)
+        self._prev_buttons = buttons_list
 
     
 
