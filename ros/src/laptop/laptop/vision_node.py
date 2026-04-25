@@ -10,32 +10,46 @@ class VisionNode(Node):
     def __init__(self):
         super().__init__('vision_node')
 
-        self.subscription = self.create_subscription(
+        self.sub_claw = self.create_subscription(
+            CompressedImage,
+            '/camera/image_compressed',
+            self.claw_callback,
+            10
+        )
+
+        self.sub_zed = self.create_subscription(
             CompressedImage,
             '/zed/zed_node/rgb/image_rect_color/compressed',
-            self.image_callback,
+            self.zed_callback,
             10
         )
 
-        # Publisher for sending commands to the Jetson
-        self.command_publisher = self.create_publisher(
-            String,
-            'commands',
-            10
-        )
+        self.command_publisher = self.create_publisher(String, 'commands', 10)
 
-        self.get_logger().info("Vision node initialized - Camera feed and command control ready")
+        self.get_logger().info("Vision node started — claw cam: /camera/image_compressed, ZED: /zed/zed_node/rgb/image_rect_color/compressed")
 
-    def image_callback(self, msg):
+    def claw_callback(self, msg):
+        frame = self._decode(msg)
+        if frame is None:
+            return
+        cv2.imshow("Claw / Movement Camera (exploreHD)", frame)
+        self._handle_keys(cv2.waitKey(1) & 0xFF)
+
+    def zed_callback(self, msg):
+        frame = self._decode(msg)
+        if frame is None:
+            return
+        cv2.imshow("ZED Camera", frame)
+        cv2.waitKey(1)
+
+    def _decode(self, msg):
         np_arr = np.frombuffer(msg.data, np.uint8)
         frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
         if frame is None:
             self.get_logger().warn("Dropped a corrupt camera frame")
-            return
+        return frame
 
-        cv2.imshow("Camera Feed", frame)
-
-        key = cv2.waitKey(1) & 0xFF
+    def _handle_keys(self, key):
         if key == ord('w'):
             self.send_command("forward")
         elif key == ord('s'):
