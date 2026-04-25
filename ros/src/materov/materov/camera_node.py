@@ -1,3 +1,4 @@
+import time
 import cv2
 import rclpy
 from rclpy.node import Node
@@ -7,11 +8,7 @@ from cv_bridge import CvBridge
 
 
 def _find_explorehd() -> int:
-    """Return the /dev/videoN index for the exploreHD by scanning sysfs.
-
-    ZED cameras identify themselves with 'zed' in their V4L2 name; everything
-    else is assumed to be the exploreHD.  Falls back to 2 if nothing is found.
-    """
+    """Return the /dev/videoN index of the first non-ZED device listed in sysfs."""
     for dev in range(10):
         name_file = Path(f'/sys/class/video4linux/video{dev}/name')
         if not name_file.exists():
@@ -28,10 +25,29 @@ class CameraNode(Node):
         self.bridge = CvBridge()
 
         device = _find_explorehd()
-        self.cap = cv2.VideoCapture(device)
-        if not self.cap.isOpened():
-            self.get_logger().fatal(f'Could not open /dev/video{device}')
-            raise RuntimeError(f'Cannot open video{device}')
+        self.cap = None
+        deadline = time.monotonic() + 15.0
+        while time.monotonic() < deadline:
+            cap = cv2.VideoCapture(device)
+            if cap.isOpened():
+                ret, _ = cap.read()
+                if ret:
+                    self.cap = cap
+                    break
+                cap.release()
+            else:
+                cap.release()
+            self.get_logger().warn(f'Waiting for /dev/video{device} to become available...')
+            time.sleep(1.0)
+
+        if self.cap is None:
+            self.get_logger().error(
+                f'Could not open /dev/video{device} after 15s — running without camera.'
+            )
+            self.pub_compressed = self.create_publisher(CompressedImage, '/camera/image_compressed', 10)
+            self.pub_raw = self.create_publisher(Image, '/camera/image_raw', 10)
+            self.timer = self.create_timer(1.0 / 30.0, self.publish_frame)
+            return
 
         w = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         h = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -46,6 +62,8 @@ class CameraNode(Node):
         self.timer = self.create_timer(1.0 / 30.0, self.publish_frame)
 
     def publish_frame(self):
+        if self.cap is None:
+            return
         ret, frame = self.cap.read()
         if not ret:
             self.get_logger().warn('exploreHD: failed to read frame')
@@ -68,7 +86,7 @@ class CameraNode(Node):
         self.pub_raw.publish(raw_msg)
 
     def destroy_node(self):
-        if self.cap.isOpened():
+        if self.cap is not None and self.cap.isOpened():
             self.cap.release()
         super().destroy_node()
 
