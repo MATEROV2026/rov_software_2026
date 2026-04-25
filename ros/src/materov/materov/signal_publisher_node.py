@@ -206,7 +206,12 @@ class SignalPublisherNode(Node):
         crc_val = crc8(header + length + m)
         message = header + length + m + bytes([crc_val])
         if self.ser is not None:
-            self.ser.write(message)
+            try:
+                self.ser.write(message)
+            except serial.SerialException:
+                self.get_logger().warn("Serial port lost — will retry every 5s.")
+                self.ser = None
+                self._serial_retry_timer = self.create_timer(5.0, self._retry_serial)
 
             
     def list2message(self, values): # values_list to serial message
