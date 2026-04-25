@@ -214,15 +214,11 @@ class SignalPublisherNode(Node):
                 self._serial_retry_timer = self.create_timer(5.0, self._retry_serial)
 
             
-    def list2message(self, values): # values_list to serial message
-        
+    def list2message(self, values):
         message = b""
-
         for v in values:
-            adjusted = int((v - 1500) * 0.5)   # make the max and min closer to neutral
-            adjusted = max(-100, min(100, adjusted))
+            adjusted = max(-400, min(400, int(v - 1500)))
             message += adjusted.to_bytes(2, byteorder="little", signed=True)
-
         return message
 
     def destroy_node(self):
