@@ -216,7 +216,7 @@ class SignalPublisherNode(Node):
     def list2message(self, values):
         message = b""
         for v in values:
-            adjusted = max(-280, min(280, int(v - 1500)))  # 70% of T200 range (±400)
+            adjusted = max(-360, min(360, int(v - 1500)))  # 90% of T200 range (±400)
             message += adjusted.to_bytes(2, byteorder="little", signed=True)
         return message
 
