@@ -26,7 +26,7 @@ class CameraNode(Node):
 
         device = _find_explorehd()
         self.cap = None
-        deadline = time.monotonic() + 15.0
+        deadline = time.monotonic() + 30.0
         while time.monotonic() < deadline:
             cap = cv2.VideoCapture(device)
             if cap.isOpened():
@@ -42,7 +42,7 @@ class CameraNode(Node):
 
         if self.cap is None:
             self.get_logger().error(
-                f'Could not open /dev/video{device} after 15s — running without camera.'
+                f'Could not open /dev/video{device} after 30s — running without camera.'
             )
             self.pub_compressed = self.create_publisher(CompressedImage, '/camera/image_compressed', 10)
             self.pub_raw = self.create_publisher(Image, '/camera/image_raw', 10)
