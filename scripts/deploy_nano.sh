@@ -7,15 +7,15 @@ REPO="/home/m8rov123/materov_workspace/rov_software_2026"
 
 echo "Deploying to $NANO ..."
 
-ssh "$NANO" bash <<EOF
+ssh -t "$NANO" "
 set -e
-cd "$REPO"
+cd $REPO
 git pull
-export PATH="/usr/bin:\$PATH"
+export PATH=/usr/bin:\$PATH
 source /opt/ros/humble/setup.bash
 source ~/ros2_ws/install/setup.bash
 cd ros
 colcon build --packages-select interfaces materov
 sudo systemctl restart rov-launch
-echo "Done — service restarted"
-EOF
+echo 'Done — service restarted'
+"
