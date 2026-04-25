@@ -1,11 +1,24 @@
 import cv2
 import rclpy
 from rclpy.node import Node
+from pathlib import Path
 from sensor_msgs.msg import CompressedImage, Image
 from cv_bridge import CvBridge
 
 
-DEVICE = 2  # exploreHD USB Camera
+def _find_explorehd() -> int:
+    """Return the /dev/videoN index for the exploreHD by scanning sysfs.
+
+    ZED cameras identify themselves with 'zed' in their V4L2 name; everything
+    else is assumed to be the exploreHD.  Falls back to 2 if nothing is found.
+    """
+    for dev in range(10):
+        name_file = Path(f'/sys/class/video4linux/video{dev}/name')
+        if not name_file.exists():
+            continue
+        if 'zed' not in name_file.read_text().strip().lower():
+            return dev
+    return 2
 
 
 class CameraNode(Node):
@@ -14,14 +27,15 @@ class CameraNode(Node):
 
         self.bridge = CvBridge()
 
-        self.cap = cv2.VideoCapture(DEVICE)
+        device = _find_explorehd()
+        self.cap = cv2.VideoCapture(device)
         if not self.cap.isOpened():
-            self.get_logger().fatal(f'Could not open /dev/video{DEVICE}')
-            raise RuntimeError(f'Cannot open video{DEVICE}')
+            self.get_logger().fatal(f'Could not open /dev/video{device}')
+            raise RuntimeError(f'Cannot open video{device}')
 
         w = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         h = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        self.get_logger().info(f'exploreHD opened at /dev/video{DEVICE} — {w}x{h}')
+        self.get_logger().info(f'exploreHD opened at /dev/video{device} — {w}x{h}')
 
         self.pub_compressed = self.create_publisher(
             CompressedImage, '/camera/image_compressed', 10
@@ -39,7 +53,6 @@ class CameraNode(Node):
 
         now = self.get_clock().now().to_msg()
 
-        # Compressed (JPEG) — low bandwidth for network
         ok, buf = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 80])
         if ok:
             msg = CompressedImage()
@@ -49,7 +62,6 @@ class CameraNode(Node):
             msg.data = buf.tobytes()
             self.pub_compressed.publish(msg)
 
-        # Raw — for local consumers
         raw_msg = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
         raw_msg.header.stamp = now
         raw_msg.header.frame_id = 'camera'
