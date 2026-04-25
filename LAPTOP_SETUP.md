@@ -39,7 +39,7 @@ bash scripts/setup_laptop.sh
 |---|---|---|
 | `vision_node` | `laptop` | Subscribes to both camera feeds and displays two OpenCV windows: `"Claw / Movement Camera (exploreHD)"` from `/camera/image_compressed` and `"ZED Camera"` from `/zed/zed_node/rgb/image_rect_color/compressed`. W/S/Q keys in the claw window publish to `commands`. |
 | `reconstruction_service` | `laptop` | ROS service server for `RunReconstruction`; stub for now |
-| `joy_node` | `joy` | Reads joystick from `/dev/input/js0`, publishes `/joy` — DDS carries this to the Nano's `signal_publisher_node` automatically |
+| `joy_linux_node` | `joy_linux` | Reads joystick from `/dev/input/js0`, publishes `/joy` — DDS carries this to the Nano's `signal_publisher_node` automatically |
 
 ## Network
 
@@ -50,6 +50,18 @@ bash scripts/setup_laptop.sh
 ## Python environment note
 
 The machine has Miniconda (Python 3.13) alongside system Python 3.10. ROS Humble requires 3.10 — its C extensions will not load under 3.13. The `export PATH="/usr/bin:$PATH"` line above ensures `python3` resolves to 3.10 before Conda's version. This must be set in every terminal before sourcing ROS or running `ros2`.
+
+## Viewing the Nano camera
+
+```bash
+export PATH="/usr/bin:$PATH"
+source /home/materov/ahmad/rov_software_2026/ros/install/setup.bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export CYCLONEDDS_URI="file:///home/materov/ahmad/rov_software_2026/ros/config/laptop/cyclonedds.xml"
+ros2 run rqt_image_view rqt_image_view
+```
+
+Select `/camera/image_compressed` from the dropdown.
 
 ## Verifying the connection
 

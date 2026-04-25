@@ -242,19 +242,14 @@ class SignalPublisherNode(Node):
 
         # Translate controller input into desired wrench and then into thruster signals
         # tau = [Fx, Fy, Fz, Mz]
-        surge = -axis2command(axes_list[1])   # stick forward should mean +Fx
-        sway = axis2command(axes_list[0])     # stick right should mean +Fy
-
-        heave = 0.0
-        if buttons_list[3] == 1:       # up
-            heave += 1.0
-        if buttons_list[0] == 1:       # down
-            heave -= 1.0
+        surge = -axis2command(axes_list[1])   # left stick Y  → +Fx forward
+        sway = axis2command(axes_list[0])     # left stick X  → +Fy right
+        heave = -axis2command(axes_list[4])   # right stick Y → +Fz up
 
         yaw = 0.0
-        if buttons_list[4] == 1:       # turn left
+        if buttons_list[4] == 1:       # LB → turn left
             yaw += 1.0
-        if buttons_list[5] == 1:       # turn right
+        if buttons_list[5] == 1:       # RB → turn right
             yaw -= 1.0
 
         tau = np.array([surge, sway, heave, yaw], dtype=float)
