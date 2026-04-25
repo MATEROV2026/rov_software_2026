@@ -19,6 +19,11 @@ def generate_launch_description():
         ),
         Node(
             package='materov',
+            executable='camera_node',
+            name='camera_node'
+        ),
+        Node(
+            package='materov',
             executable='imu_sensor_node',
             name='imu_sensor_node'
         ),
