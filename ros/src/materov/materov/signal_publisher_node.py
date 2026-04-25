@@ -103,25 +103,35 @@ class SignalPublisherNode(Node):
         self.B = self.build_tam(THRUSTER_GEOMETRY)
         self.B_pinv = np.linalg.pinv(self.B)
 
-        try:
-            self.ser = serial.Serial(
-                port=port,
-                baudrate=baudrate,
-                timeout=0.01
-            )
-            self.get_logger().info(f"Serial port {port} opened at {baudrate} baud.")
-        except serial.SerialException as e:
-            self.ser = None
-            self.get_logger().error(
-                f"Could not open serial port {port}: {e}  "
-                f"-- running without hardware; thruster signals will NOT be sent."
-            )
+        self._port = port
+        self._baudrate = baudrate
+        self.ser = self._try_open_serial()
 
         # 100 Hz timer → 0.01 seconds
         self.timer = self.create_timer(1.0 / hz, self.serial_timer_callback)
+        self._serial_retry_timer = self.create_timer(5.0, self._retry_serial)
 
         self.get_logger().info("Signal publisher node started. Move your controller to control thrusters.")
        
+    def _try_open_serial(self):
+        try:
+            ser = serial.Serial(port=self._port, baudrate=self._baudrate, timeout=0.01)
+            self.get_logger().info(f"Serial port {self._port} opened at {self._baudrate} baud.")
+            return ser
+        except serial.SerialException as e:
+            self.get_logger().error(
+                f"Could not open serial port {self._port}: {e} -- running without hardware; thruster signals will NOT be sent."
+            )
+            return None
+
+    def _retry_serial(self):
+        if self.ser is not None:
+            self._serial_retry_timer.cancel()
+            return
+        self.ser = self._try_open_serial()
+        if self.ser is not None:
+            self._serial_retry_timer.cancel()
+
     def build_tam(self, thruster_geometry):
         columns = []
 
