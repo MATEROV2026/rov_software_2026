@@ -1,0 +1,21 @@
+[Unit]
+Description=ROV ROS2 Launch
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=m8rov123
+WorkingDirectory=/home/m8rov123/materov_workspace/rov_software_2026
+Environment=ROS_LOCALHOST_ONLY=0
+Environment=ROS_DOMAIN_ID=0
+Environment=RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+Environment=CYCLONEDDS_URI=file:///home/m8rov123/materov_workspace/rov_software_2026/ros/config/jetson/cyclonedds.xml
+ExecStart=/bin/bash -c "source /opt/ros/humble/setup.bash && source /home/m8rov123/ros2_ws/install/setup.bash && source /home/m8rov123/materov_workspace/rov_software_2026/ros/install/setup.bash && exec ros2 launch materov materov.launch.py"
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
