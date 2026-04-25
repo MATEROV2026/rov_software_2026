@@ -145,7 +145,7 @@ check_apt_packages \
   python3-opencv \
   python3-numpy \
   ros-humble-cv-bridge \
-  ros-humble-joy \
+  ros-humble-joy-linux \
   ros-humble-rmw-cyclonedds-cpp
 
 section "Tool Checks"
@@ -186,7 +186,7 @@ fi
 section "ROS Package Checks"
 ros2 pkg prefix interfaces >/dev/null 2>&1 && ok "interfaces package found" || fail "interfaces package missing"
 ros2 pkg prefix laptop >/dev/null 2>&1 && ok "laptop package found" || fail "laptop package missing"
-ros2 pkg prefix joy >/dev/null 2>&1 && ok "joy package found" || fail "joy package missing"
+ros2 pkg prefix joy_linux >/dev/null 2>&1 && ok "joy_linux package found" || fail "joy_linux package missing"
 
 section "Joystick Checks"
 if ls /dev/input/js* >/dev/null 2>&1; then
