@@ -19,8 +19,11 @@ _TASKS_CACHE: List[Dict[str, Any]] | None = None
 def _load_tasks() -> List[Dict[str, Any]]:
     global _TASKS_CACHE
     if _TASKS_CACHE is None:
-        with _TASKS_PATH.open(encoding="utf-8") as f:
-            _TASKS_CACHE = json.load(f)
+        if not _TASKS_PATH.exists():
+            _TASKS_CACHE = []
+        else:
+            with _TASKS_PATH.open(encoding="utf-8") as f:
+                _TASKS_CACHE = json.load(f)
     return _TASKS_CACHE
 
 

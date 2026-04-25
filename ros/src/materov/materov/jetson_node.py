@@ -100,7 +100,10 @@ class JetsonNode(Node):
             self.capture_timer = None
 
         if self.capture_dir.exists():
-            shutil.rmtree(self.capture_dir)
+            try:
+                shutil.rmtree(self.capture_dir)
+            except OSError as e:
+                self.get_logger().warn(f"Could not clear capture dir: {e}")
         self.capture_dir.mkdir(parents=True, exist_ok=True)
 
         self.status_pub.publish(String(data="reconstruction_started"))
