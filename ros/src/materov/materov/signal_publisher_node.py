@@ -91,7 +91,6 @@ class SignalPublisherNode(Node):
         self.current_values = [1500, 1500, 1500, 1500, 1500, 1500]
         self.target_values = [1500, 1500, 1500, 1500, 1500, 1500]
         self.seventh_value = 1500
-        self._prev_buttons = []
         self.ramp_mode = ramp_mode
         if self.ramp_mode == "sync":
             self.ramp_steps = int(hz * 0.2)  # 3 second ramp
@@ -256,13 +255,13 @@ class SignalPublisherNode(Node):
         else:
             self.target_values = self.allocate_thrusters(tau)
 
-        # 7th signal — X (buttons[2]) increments, B (buttons[1]) decrements (edge-triggered)
-        if self._prev_buttons:
-            if buttons_list[2] and not self._prev_buttons[2]:   # X pressed
-                self.seventh_value = min(1900, self.seventh_value + 5)
-            if buttons_list[1] and not self._prev_buttons[1]:   # B pressed
-                self.seventh_value = max(1100, self.seventh_value - 5)
-        self._prev_buttons = buttons_list
+        # 7th signal — hold X for forward, hold B for reverse, neutral on release
+        if buttons_list[2]:
+            self.seventh_value = 1550
+        elif buttons_list[1]:
+            self.seventh_value = 1450
+        else:
+            self.seventh_value = 1500
 
     
 
