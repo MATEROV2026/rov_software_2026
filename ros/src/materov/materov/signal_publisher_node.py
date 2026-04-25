@@ -257,9 +257,9 @@ class SignalPublisherNode(Node):
 
         # 7th signal — hold X for forward, hold B for reverse, neutral on release
         if buttons_list[2]:
-            self.seventh_value = 1575
+            self.seventh_value = 1600
         elif buttons_list[1]:
-            self.seventh_value = 1425
+            self.seventh_value = 1400
         else:
             self.seventh_value = 1500
         self.get_logger().info(f"buttons={buttons_list}  7th={self.seventh_value}")
