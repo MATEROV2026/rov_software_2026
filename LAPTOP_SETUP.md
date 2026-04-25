@@ -37,7 +37,7 @@ bash scripts/setup_laptop.sh
 
 | Node | Package | What it does |
 |---|---|---|
-| `vision_node` | `laptop` | Subscribes to `/zed/zed_node/rgb/image_rect_color/compressed`, displays live camera feed in an OpenCV window |
+| `vision_node` | `laptop` | Subscribes to both camera feeds and displays two OpenCV windows: `"Claw / Movement Camera (exploreHD)"` from `/camera/image_compressed` and `"ZED Camera"` from `/zed/zed_node/rgb/image_rect_color/compressed`. W/S/Q keys in the claw window publish to `commands`. |
 | `reconstruction_service` | `laptop` | ROS service server for `RunReconstruction`; stub for now |
 | `joy_node` | `joy` | Reads joystick from `/dev/input/js0`, publishes `/joy` — DDS carries this to the Nano's `signal_publisher_node` automatically |
 
@@ -66,6 +66,5 @@ ros2 topic list  # should show /zed/zed_node/rgb/image_rect_color/compressed, /j
 |---|---|---|
 | `reconstruction_service` returns fake data | `ros/src/laptop/laptop/reconstruction_service.py` | Stub — COLMAP not wired yet |
 | `move_forward/backward/stop` on Nano are placeholders | `ros/src/materov/materov/jetson_node.py` | Logs only; thruster control handled by `signal_publisher_node` via `/joy` |
-| `camera_node` is empty | `ros/src/materov/materov/camera_node.py` | No implementation |
 | `force_sensor_node` publishes constant 0 | `ros/src/materov/materov/force_sensor_node.py` | Sensor not wired |
 | Capture path hardcoded to `/home/m8rov123/` | `ros/src/materov/materov/jetson_node.py:19` | Should be a ROS parameter |
