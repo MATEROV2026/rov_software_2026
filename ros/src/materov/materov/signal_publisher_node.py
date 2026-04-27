@@ -235,16 +235,22 @@ class SignalPublisherNode(Node):
         # self.get_logger().info(f"Axes:   {buttons_list}")
         # self.get_logger().info(f"Buttons: {buttons_list}\n---")
 
+        def axis(i, default=0.0):
+            return float(axes_list[i]) if i < len(axes_list) else default
+
+        def button(i, default=0):
+            return buttons_list[i] if i < len(buttons_list) else default
+
         # Translate controller input into desired wrench and then into thruster signals
         # tau = [Fx, Fy, Fz, Mz]
-        surge = -axis2command(axes_list[1])   # left stick Y  → +Fx forward
-        sway = axis2command(axes_list[0])     # left stick X  → +Fy right
-        heave = -axis2command(axes_list[4])   # right stick Y → +Fz up
+        surge = -axis2command(axis(1))   # left stick Y  → +Fx forward
+        sway = axis2command(axis(0))     # left stick X  → +Fy right
+        heave = -axis2command(axis(4))   # right stick Y → +Fz up
 
         yaw = 0.0
-        if buttons_list[4] == 1:       # LB → turn left
+        if button(4) == 1:       # LB → turn left
             yaw += 1.0
-        if buttons_list[5] == 1:       # RB → turn right
+        if button(5) == 1:       # RB → turn right
             yaw -= 1.0
 
         tau = np.array([surge, sway, heave, yaw], dtype=float)
@@ -256,9 +262,9 @@ class SignalPublisherNode(Node):
             self.target_values = self.allocate_thrusters(tau)
 
         # 7th signal — hold X for forward, hold B for reverse, neutral on release
-        if buttons_list[2]:
+        if button(2):
             self.seventh_value = 1700
-        elif buttons_list[1]:
+        elif button(1):
             self.seventh_value = 1300
         else:
             self.seventh_value = 1500

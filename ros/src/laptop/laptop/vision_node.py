@@ -26,21 +26,26 @@ class VisionNode(Node):
 
         self.command_publisher = self.create_publisher(String, 'commands', 10)
 
-        self.get_logger().info("Vision node started — claw cam: /camera/image_compressed, ZED: /zed/zed_node/rgb/image_rect_color/compressed")
+        # Pump the OpenCV event loop independently of camera frames so that
+        # keyboard commands still work even if the camera feed drops.
+        self.key_timer = self.create_timer(1.0 / 30.0, self._poll_keys)
+
+        self.get_logger().info("Vision node started — main cam: /camera/image_compressed, ZED (optional): /zed/zed_node/rgb/image_rect_color/compressed")
 
     def claw_callback(self, msg):
         frame = self._decode(msg)
         if frame is None:
             return
-        cv2.imshow("Claw / Movement Camera (exploreHD)", frame)
-        self._handle_keys(cv2.waitKey(1) & 0xFF)
+        cv2.imshow("Main Camera (exploreHD)", frame)
 
     def zed_callback(self, msg):
         frame = self._decode(msg)
         if frame is None:
             return
         cv2.imshow("ZED Camera", frame)
-        cv2.waitKey(1)
+
+    def _poll_keys(self):
+        self._handle_keys(cv2.waitKey(1) & 0xFF)
 
     def _decode(self, msg):
         np_arr = np.frombuffer(msg.data, np.uint8)

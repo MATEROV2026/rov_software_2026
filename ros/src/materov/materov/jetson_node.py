@@ -5,17 +5,15 @@ import os
 import cv2
 import numpy as np
 import rclpy
-from cv_bridge import CvBridge
 from interfaces.srv import RunReconstruction
 from rclpy.node import Node
-from sensor_msgs.msg import CompressedImage, Image, Imu
+from sensor_msgs.msg import CompressedImage, Imu
 from std_msgs.msg import String
 
 
 class JetsonNode(Node):
     def __init__(self):
         super().__init__('jetson_node')
-        self.bridge = CvBridge()
         self.capture_dir = Path("/home/m8rov123/shared/images")
         os.makedirs(self.capture_dir, exist_ok=True)
         self.capture_target_count = 6
@@ -23,7 +21,7 @@ class JetsonNode(Node):
         self.capture_count = 0
         self.capture_in_progress = False
         self.capture_timer = None
-        self.latest_zed_frame = None
+        self.latest_camera_frame = None  # exploreHD frame (always present)
 
         self.command_subscription = self.create_subscription(
             String,
@@ -31,22 +29,17 @@ class JetsonNode(Node):
             self.command_callback,
             10,
         )
-        self.image_subscription = self.create_subscription(
-            Image,
-            'camera',
-            self.image_callback,
+        # Primary camera (exploreHD) — used for streaming and reconstruction capture
+        self.camera_subscription = self.create_subscription(
+            CompressedImage,
+            '/camera/image_compressed',
+            self.camera_image_callback,
             10,
         )
         self.imu_subscription = self.create_subscription(
             Imu,
             '/imu/data_raw',
             self.imu_callback,
-            10,
-        )
-        self.zed_subscription = self.create_subscription(
-            CompressedImage,
-            '/zed/zed_node/rgb/image_rect_color/compressed',
-            self.zed_image_callback,
             10,
         )
 
@@ -58,23 +51,15 @@ class JetsonNode(Node):
 
         self.get_logger().info("Jetson node started and listening for commands...")
 
-    def image_callback(self, msg: Image):
-        try:
-            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-            h, w = cv_image.shape[:2]
-            self.get_logger().info(f"Received image {w}x{h}")
-        except Exception as e:
-            self.get_logger().error(f"Failed to convert image: {e}")
-
-    def zed_image_callback(self, msg: CompressedImage):
+    def camera_image_callback(self, msg: CompressedImage):
         try:
             np_arr = np.frombuffer(msg.data, np.uint8)
             frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
             if frame is None:
                 raise ValueError("OpenCV returned an empty frame")
-            self.latest_zed_frame = frame
+            self.latest_camera_frame = frame
         except Exception as e:
-            self.get_logger().error(f"Failed to decode ZED image: {e}")
+            self.get_logger().error(f"Failed to decode camera image: {e}")
 
     def command_callback(self, msg: String):
         command = msg.data
@@ -120,7 +105,7 @@ class JetsonNode(Node):
 
         self.status_pub.publish(String(data="reconstruction_started"))
         self.get_logger().info(
-            f"Capturing {self.capture_target_count} images from ZED "
+            f"Capturing {self.capture_target_count} images from exploreHD "
             f"with {self.capture_interval_s:.1f}s spacing"
         )
 
@@ -135,12 +120,12 @@ class JetsonNode(Node):
         if not self.capture_in_progress:
             return
 
-        if self.latest_zed_frame is None:
-            self.get_logger().warn("No ZED frame available yet; waiting for the next tick")
+        if self.latest_camera_frame is None:
+            self.get_logger().warn("No camera frame available yet; waiting for the next tick")
             return
 
         image_path = self.capture_dir / f"capture_{self.capture_count:02d}.jpg"
-        if not cv2.imwrite(str(image_path), self.latest_zed_frame):
+        if not cv2.imwrite(str(image_path), self.latest_camera_frame):
             self.get_logger().error(f"Failed to save image to {image_path}")
             self.finish_capture("reconstruction_failed")
             return
@@ -170,7 +155,7 @@ class JetsonNode(Node):
         gx = msg.angular_velocity.x
         gy = msg.angular_velocity.y
         gz = msg.angular_velocity.z
-        self.get_logger().info(
+        self.get_logger().debug(
             f"IMU Accel: ({ax:.2f}, {ay:.2f}, {az:.2f}) | "
             f"Gyro: ({gx:.2f}, {gy:.2f}, {gz:.2f})"
         )
