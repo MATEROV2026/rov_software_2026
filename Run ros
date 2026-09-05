@@ -1,0 +1,25 @@
+#Backup 
+
+#from now on this is how you connect the laptop to the jetson
+
+
+## 1. launch laptop
+#cd rov_software_2026
+conda deactivate 2>/dev/null; deactivate 2>/dev/null
+export PATH="/usr/bin:$PATH"
+source /opt/ros/humble/setup.bash
+source ros/install/setup.bash
+export ROS_LOCALHOST_ONLY=0
+export ROS_DOMAIN_ID=0
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export CYCLONEDDS_URI="file://$PWD/ros/config/laptop/cyclonedds.xml"
+ros2 launch laptop laptop.launch.py
+
+
+
+
+## 2. Jetson 
+
+```bash
+ssh m8rov123@192.168.2.2 'systemctl is-active rov-launch'
+
