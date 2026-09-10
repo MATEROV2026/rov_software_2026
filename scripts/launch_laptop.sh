@@ -16,9 +16,19 @@ fi
 # shellcheck disable=SC1091
 source "$REPO_ROOT/ros/install/setup.bash"
 
-export ROS_LOCALHOST_ONLY=0
 export ROS_DOMAIN_ID=0
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-export CYCLONEDDS_URI="file://$REPO_ROOT/ros/config/laptop/cyclonedds.xml"
+
+# Only pin to enp8s0 when the Nano ethernet interface is actually up.
+# Without this check CycloneDDS refuses to start if the cable isn't plugged in.
+if ip link show enp8s0 2>/dev/null | grep -q "state UP"; then
+  export ROS_LOCALHOST_ONLY=0
+  export CYCLONEDDS_URI="file://$REPO_ROOT/ros/config/laptop/cyclonedds.xml"
+  echo "[launch] enp8s0 up — using CycloneDDS with Nano config"
+else
+  export ROS_LOCALHOST_ONLY=1
+  unset CYCLONEDDS_URI
+  echo "[launch] enp8s0 not up — running localhost-only (no Nano)"
+fi
 
 exec ros2 launch laptop laptop.launch.py
