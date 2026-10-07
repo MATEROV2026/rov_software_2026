@@ -15,6 +15,7 @@ import customtkinter as ctk
 from gui import api as api_mod
 from gui.controller import build_mission_input
 from gui.screens.home import HomeScreen
+from gui.screens.iceberg import IcebergScreen
 from gui.screens.task_detail import TaskDetailScreen
 from gui.screens.task_menu import TaskMenuScreen
 from gui.screens.thrusters import ThrusterScreen
@@ -30,6 +31,7 @@ class MissionApp(ctk.CTk):
         self._state, self._screen = 'home', None
         self._tasks, self._current_task = [], {}
         self._uploads = {}
+        self._iceberg_form = {}  # survives leaving the calculator screen
         self._vehicle_armed = None
         self._closing = False
         self._destroyed = False
@@ -154,6 +156,9 @@ class MissionApp(ctk.CTk):
     def _show_upload(self, task_id):
         self._mount('upload', UploadScreen, task_id)
 
+    def _show_iceberg(self):
+        self._mount('iceberg', IcebergScreen, self._iceberg_form)
+
     def _input_tick(self):
         if self._closing:
             return
@@ -207,8 +212,12 @@ class MissionApp(ctk.CTk):
                 self._show_upload(task_id)
             elif action == 'Run reconstruction':
                 self._run_reconstruction_command(task_id)
+            elif action == 'Iceberg threat calculator':
+                self._show_iceberg()
             elif action == 'Back':
                 self._show_menu()
+        elif isinstance(screen, IcebergScreen):
+            screen.compute()
         elif isinstance(screen, UploadScreen):
             action = screen.selected_action()
             if action == 'Choose files…':
@@ -226,7 +235,7 @@ class MissionApp(ctk.CTk):
             self._show_home()
         elif self._state == 'detail':
             self._show_menu()
-        elif self._state == 'upload':
+        elif self._state in ('upload', 'iceberg'):
             self._show_detail(self._current_task)
 
     def _do_upload(self, screen):
@@ -293,7 +302,10 @@ class MissionApp(ctk.CTk):
         self._control_worker.shutdown(wait=False, cancel_futures=True)
         self._destroyed = True
         for timer in self.tk.call('after', 'info'):
-            self.after_cancel(timer)
+            # Cancel at the Tcl level only: after_cancel() would delete a
+            # callback that a child widget still owns, and that widget's own
+            # destroy() then fails with "can't delete Tcl command".
+            self.tk.call('after', 'cancel', timer)
         super().destroy()
 
 

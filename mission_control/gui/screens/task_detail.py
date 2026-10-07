@@ -10,7 +10,8 @@ class TaskDetailScreen(ctk.CTkFrame):
     """
     Displays one task; bottom menu drives task actions.
 
-    Task 1.2 also gets a selectable reconstruction action.
+    Task 1.2 also gets a selectable reconstruction action, and task 2.3 the
+    iceberg threat calculator.
     """
 
     def __init__(
@@ -28,6 +29,8 @@ class TaskDetailScreen(ctk.CTkFrame):
         self._actions = ["Upload images"]
         if tid == "1.2":
             self._actions.append("Run reconstruction")
+        if tid == "2.3":
+            self._actions.append("Iceberg threat calculator")
         self._actions.append("Back")
 
         title = task.get("title", "")
