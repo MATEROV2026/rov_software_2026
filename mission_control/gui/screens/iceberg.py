@@ -9,7 +9,8 @@ from __future__ import annotations
 
 import math
 import tkinter as tk
-from typing import Callable, Dict, List
+import tkinter.font as tkfont
+from typing import Callable, Dict, List, Tuple
 
 import customtkinter as ctk
 
@@ -18,20 +19,35 @@ from shared import iceberg as ice
 PLATFORM_NAMES = ('Hibernia', 'Sea Rose', 'Terra Nova', 'Hebron')
 PLATFORM_FIELDS = ('lat', 'lon', 'depth')
 
-# Practice only: approximate real-world platform positions. Scenario 1 hits
-# every surface rule; scenario 2 adds the subsea rules scenario 1 cannot
-# (never within 25 nm, keel below 70%). In the pool, type the judge's sheet.
-_PRACTICE_PLATFORMS = {
-    'Hibernia_lat': '46 45.0 N', 'Hibernia_lon': '48 47.0 W', 'Hibernia_depth': '80',
-    'Sea Rose_lat': '46 47.4 N', 'Sea Rose_lon': '48 01.0 W', 'Sea Rose_depth': '120',
-    'Terra Nova_lat': '46 28.5 N', 'Terra Nova_lon': '48 28.8 W', 'Terra Nova_depth': '95',
-    'Hebron_lat': '46 32.7 N', 'Hebron_lon': '48 29.9 W', 'Hebron_depth': '93',
+# Practice data: MATE's official 2026 platform table and its six iceberg
+# practice examples, A-F, with MATE's answers (materovcompetition.org/2026,
+# "Iceberg track practice examples", updated 2/16). Positions are the table's
+# degrees-minutes-seconds column. Its decimal column puts Terra Nova at
+# (46.4, -48.4), about 4.8 nm away; that gives the same answers for A-F.
+_MATE_PLATFORMS = {
+    'Hibernia_lat': '46°45\'02"N', 'Hibernia_lon': '48°46\'59"W', 'Hibernia_depth': '78',
+    'Sea Rose_lat': '46°47\'19"N', 'Sea Rose_lon': '48°08\'36"W', 'Sea Rose_depth': '107',
+    'Terra Nova_lat': '46°23\'21"N', 'Terra Nova_lon': '48°28\'46"W', 'Terra Nova_depth': '91',
+    'Hebron_lat': '46°32\'11"N', 'Hebron_lon': '48°30\'46"W', 'Hebron_depth': '93',
 }
+
+
+def _example(name, lat, lon, heading, keel, surface, subsea):
+    """surface/subsea: MATE's calls for Hibernia, Sea Rose, Terra Nova, Hebron."""
+    return {'name': f'MATE example {name}',
+            'form': {'ice_lat': lat, 'ice_lon': lon, 'ice_heading': heading, 'ice_keel': keel,
+                     **_MATE_PLATFORMS},
+            'answers': dict(zip(PLATFORM_NAMES, zip(surface, subsea)))}
+
+
+_G, _Y, _R = ice.GREEN, ice.YELLOW, ice.RED
 PRACTICE_SCENARIOS = [
-    {'ice_lat': '47 00.0 N', 'ice_lon': '49 02.0 W', 'ice_heading': '135', 'ice_keel': '100',
-     **_PRACTICE_PLATFORMS},
-    {'ice_lat': '47 00.0 N', 'ice_lon': '47 42.0 W', 'ice_heading': '215', 'ice_keel': '60',
-     **_PRACTICE_PLATFORMS},
+    _example('A', '47°39\'00"N', '48°37\'00"W', '158', '99', (_G, _R, _G, _G), (_G, _R, _R, _R)),
+    _example('B', '47°58\'00"N', '48°50\'00"W', '180', '78', (_R, _G, _G, _G), (_R, _G, _Y, _Y)),
+    _example('C', '47°53\'00"N', '47°51\'00"W', '188', '112', (_G, _R, _G, _G), (_G, _R, _G, _G)),
+    _example('D', '47°40\'00"N', '49°25\'00"W', '152', '60', (_R, _G, _R, _R), (_Y, _G, _G, _G)),
+    _example('E', '47°45\'00"N', '48°29\'00"W', '198', '84', (_Y, _G, _G, _G), (_R, _G, _G, _R)),
+    _example('F', '47°56\'00"N', '47°45\'00"W', '181', '126', (_G, _G, _G, _G), (_G, _G, _G, _G)),
 ]
 
 THREAT_COLOURS = {ice.GREEN: '#1e8449', ice.YELLOW: '#b7950b', ice.RED: '#c0392b'}
@@ -170,18 +186,24 @@ class IcebergScreen(ctk.CTkScrollableFrame):
 
     def _form_is_practice(self) -> bool:
         form = {key: var.get() for key, var in self._vars.items()}
-        return form in PRACTICE_SCENARIOS
+        return any(form == scenario['form'] for scenario in PRACTICE_SCENARIOS)
 
     def _load_practice(self) -> None:
-        """Each click loads the next practice scenario."""
+        """Each click loads the next MATE example and checks it against MATE's answers."""
         index = int(self._store.get('_practice_next', '0')) % len(PRACTICE_SCENARIOS)
         self._store['_practice_next'] = str(index + 1)
-        for key, value in PRACTICE_SCENARIOS[index].items():
+        scenario = PRACTICE_SCENARIOS[index]
+        for key, value in scenario['form'].items():
             self._vars[key].set(value)
         self.compute()
-        self._message.configure(text=f'PRACTICE DATA, scenario {index + 1} of {len(PRACTICE_SCENARIOS)} '
-                                     "(approximate real positions). Use the judge's sheet in competition.\n"
-                                     + self._message.cget('text'))
+        got = {r.platform.name: (r.surface, r.subsea) for r in self._last[1]} if self._last else {}
+        misses = [name for name, answer in scenario['answers'].items() if got.get(name) != answer]
+        verdict = ("matches MATE's answer key (all 8 calls)." if not misses
+                   else f"DIFFERS from MATE's answer key for {', '.join(misses)}.")
+        self._message.configure(
+            text=f"PRACTICE: {scenario['name']} ({index + 1} of {len(PRACTICE_SCENARIOS)}) {verdict}\n"
+                 + self._message.cget('text'),
+            text_color=ERROR_COLOUR if misses else self._message.cget('text_color'))
 
     def _clear(self) -> None:
         for var in self._vars.values():
@@ -265,22 +287,25 @@ class IcebergScreen(ctk.CTkScrollableFrame):
                 canvas.create_oval(left, top, right, bottom, outline=colour, dash=(3, 3))
 
         canvas.create_line(*px(start), *px(end), fill=MAP_INK, width=2, arrow=tk.LAST)
+        markers = []
         for spot, result in zip(spots, results):
-            p = result.platform
             if result.along_track_nm > 0:
                 near = local(*ice.destination(iceberg.lat, iceberg.lon, iceberg.heading_deg,
                                               result.along_track_nm))
             else:
                 near = start
-            (x1, y1), (x2, y2) = px(near), px(spot)
-            canvas.create_line(x1, y1, x2, y2, fill=MAP_DIM, dash=(2, 3))
-            canvas.create_rectangle(x2 - 6, y2 - 6, x2 + 6, y2 + 6,
-                                    fill=THREAT_COLOURS[result.surface], outline=MAP_INK)
-            self._map_label(x2 + 9, y2, f'{p.name} · {result.closest_nm:.1f} nm', MAP_INK)
-
+            canvas.create_line(*px(near), *px(spot), fill=MAP_DIM, dash=(2, 3))
+            markers.append(px(spot))
         sx, sy = px(start)
         canvas.create_polygon(sx, sy - 7, sx + 6, sy, sx, sy + 7, sx - 6, sy, fill='white')
-        self._map_label(sx + 9, sy - 9, 'Iceberg', 'white')
+        # Markers first, then labels, so no marker is ever drawn over a label.
+        taken = [(x - 7, y - 7, x + 7, y + 7) for x, y in markers + [(sx, sy)]]
+        for (x, y), result in zip(markers, results):
+            canvas.create_rectangle(x - 6, y - 6, x + 6, y + 6,
+                                    fill=THREAT_COLOURS[result.surface], outline=MAP_INK)
+            self._place_label(x, y, f'{result.platform.name} · {result.closest_nm:.1f} nm',
+                              MAP_INK, taken)
+        self._place_label(sx, sy, 'Iceberg', 'white', taken)
 
         canvas.create_line(width - 24, 40, width - 24, 14, fill=MAP_INK, width=2, arrow=tk.LAST)
         canvas.create_text(width - 24, 50, text='N', fill=MAP_INK, font=('TkDefaultFont', 10, 'bold'))
@@ -288,9 +313,26 @@ class IcebergScreen(ctk.CTkScrollableFrame):
         canvas.create_line(12, 14, 12 + bar_nm * scale, 14, fill=MAP_INK, width=2)
         self._map_label(18 + bar_nm * scale, 14, f'{bar_nm} nm', MAP_INK, size=9)
 
-    def _map_label(self, x: float, y: float, text: str, colour: str, size: int = 10) -> None:
-        item = self._map.create_text(x, y, text=text, fill=colour, anchor='w',
+    def _map_label(self, x: float, y: float, text: str, colour: str, size: int = 10,
+                   anchor: str = 'w') -> Tuple[int, int, int, int]:
+        item = self._map.create_text(x, y, text=text, fill=colour, anchor=anchor,
                                      font=('TkDefaultFont', size, 'bold'))
         left, top, right, bottom = self._map.bbox(item)
         backing = self._map.create_rectangle(left - 2, top, right + 2, bottom, fill=MAP_BG, outline='')
         self._map.tag_lower(backing, item)
+        return left - 2, top, right + 2, bottom
+
+    def _place_label(self, x: float, y: float, text: str, colour: str,
+                     taken: List[Tuple[float, float, float, float]]) -> None:
+        """Label a marker on the first free side: right, left, above, below."""
+        font = tkfont.Font(family='TkDefaultFont', size=10, weight='bold')
+        w, h = font.measure(text) + 4, font.metrics('linespace')
+        options = [(x + 9, y, 'w', (x + 7, y - h / 2, x + 11 + w, y + h / 2)),
+                   (x - 9, y, 'e', (x - 11 - w, y - h / 2, x - 7, y + h / 2)),
+                   (x, y - 9, 's', (x - w / 2, y - 9 - h, x + w / 2, y - 9)),
+                   (x, y + 9, 'n', (x - w / 2, y + 9, x + w / 2, y + 9 + h))]
+        free = [o for o in options
+                if not any(o[3][0] < b[2] and b[0] < o[3][2] and o[3][1] < b[3] and b[1] < o[3][3]
+                           for b in taken)]
+        lx, ly, anchor, _ = (free or options)[0]
+        taken.append(self._map_label(lx, ly, text, colour, anchor=anchor))
