@@ -1,0 +1,4 @@
+# MATE Floats! station (float_station/app.py)
+customtkinter>=5.2.0
+matplotlib>=3.8
+pyserial>=3.5
