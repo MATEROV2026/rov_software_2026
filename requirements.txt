@@ -1,0 +1,43 @@
+# NOT INSTALLED VIA PIP — install separately:
+#   ROS 2 Humble & ROS Python bindings (rclpy, sensor_msgs,
+#   std_msgs, cv_bridge, launch, ament_*):
+#     sudo apt install \
+#       ros-humble-desktop \
+#       ros-humble-cv-bridge \
+#       ros-humble-rmw-cyclonedds-cpp \
+#       ros-humble-joy-linux \
+#       ros-humble-v4l2-camera \
+#       python3-colcon-common-extensions
+#
+#   Jetson I2C sensor bus (used by imu_sensor_node, pressure_sensor_node):
+#     sudo apt install python3-smbus
+#
+#   ZED 2i SDK (used by camera/main.py — pyzed.sl):
+#     Download from https://www.stereolabs.com/developers/release/
+#
+# ============================================================
+# --- Numerical / vision -------------------------------------
+# Used by: vision_node, jetson_node, camera_node, signal_publisher_node,
+# camera/main.py
+# IMPORTANT: cv_bridge in ROS Humble was built against numpy 1.x.
+# DO NOT upgrade numpy to 2.x — cv_bridge will segfault.
+numpy>=1.24,<2.0
+opencv-python>=4.8.0,<5.0
+# --- Serial (Jetson, signal_publisher_node → MCU) -----------
+pyserial>=3.5
+# --- Mission Control backend (FastAPI) ----------------------
+# Used by: mission_control/backend/*
+fastapi>=0.109.0,<1.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.6
+pydantic>=2.5.0,<3.0
+# --- Mission Control GUI (CustomTkinter) --------------------
+# Used by: mission_control/gui/*
+# (GUI uses stdlib urllib for HTTP, no httpx needed)
+customtkinter>=5.2.0
+# --- Optional: gamepad in the GUI (Linux/Windows only) ------
+# Skip on macOS — pygame SDL wheels abort on import.
+# Used by: mission_control/gui/joystick_pygame.py
+pygame>=2.5.0
+# --- Dev / tests --------------------------------------------
+pytest>=7.4.0

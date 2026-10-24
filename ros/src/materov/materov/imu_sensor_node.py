@@ -1,11 +1,9 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Imu
-import math
 import smbus
 import time
 
-bus = smbus.SMBus(7)
 addr = 0x68
 
 REG_BANK_SEL = 0x7F
@@ -42,18 +40,20 @@ class ImuSensorNode(Node):
     def __init__(self):
         super().__init__('imu_sensor_node')
 
+        self.bus = smbus.SMBus(7)
+
         # Initialize IMU sensor
         self.select_bank(0)
-        bus.write_byte_data(addr, LP_CONFIG, 0x00)
-        bus.write_byte_data(addr, PWR_MGMT_1, 0x01)
+        self.bus.write_byte_data(addr, LP_CONFIG, 0x00)
+        self.bus.write_byte_data(addr, PWR_MGMT_1, 0x01)
         time.sleep(0.05)
         self.select_bank(2)
         # About 55Hz if divider = 19, based on SparkFun / InvenSense example formulas
-        bus.write_byte_data(addr, GYRO_SMPLRT_DIV, 19)
-        bus.write_byte_data(addr, ACCEL_SMPLRT_DIV_1, 0x00)
-        bus.write_byte_data(addr, ACCEL_SMPLRT_DIV_2, 19)
-        bus.write_byte_data(addr, GYRO_CONFIG_1, 0x01)   # low range starter config
-        bus.write_byte_data(addr, ACCEL_CONFIG, 0x01)    # low range starter config
+        self.bus.write_byte_data(addr, GYRO_SMPLRT_DIV, 19)
+        self.bus.write_byte_data(addr, ACCEL_SMPLRT_DIV_1, 0x00)
+        self.bus.write_byte_data(addr, ACCEL_SMPLRT_DIV_2, 19)
+        self.bus.write_byte_data(addr, GYRO_CONFIG_1, 0x01)   # low range starter config
+        self.bus.write_byte_data(addr, ACCEL_CONFIG, 0x01)    # low range starter config
         time.sleep(0.05)
         self.select_bank(0)
 
@@ -89,7 +89,7 @@ class ImuSensorNode(Node):
         msg.angular_velocity.z = float(gz)
 
         # No orientation
-        msg.orientation_covariance[0] = -1
+        msg.orientation_covariance[0] = -1.0
 
         # Covariances (recommended)
         msg.angular_velocity_covariance = [
@@ -106,14 +106,14 @@ class ImuSensorNode(Node):
 
         self.pub.publish(msg)
 
-        self.get_logger().info("Published IMU data")
+        self.get_logger().debug("Published IMU data")
     
     def select_bank(self, bank):
-        bus.write_byte_data(addr, REG_BANK_SEL, bank << 4)
+        self.bus.write_byte_data(addr, REG_BANK_SEL, bank << 4)
 
     def read_word_2c(self, reg_h):
-        high = bus.read_byte_data(addr, reg_h)
-        low = bus.read_byte_data(addr, reg_h + 1)
+        high = self.bus.read_byte_data(addr, reg_h)
+        low = self.bus.read_byte_data(addr, reg_h + 1)
         value = (high << 8) | low
         if value & 0x8000:
             value -= 65536
@@ -123,7 +123,11 @@ class ImuSensorNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = ImuSensorNode()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 

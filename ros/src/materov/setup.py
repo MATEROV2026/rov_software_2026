@@ -29,6 +29,8 @@ setup(
             'camera_node = materov.camera_node:main',
             'imu_sensor_node = materov.imu_sensor_node:main',
             'pressure_sensor_node = materov.pressure_sensor_node:main',
+            'force_sensor_node = materov.force_sensor_node:main',
+            'signal_publisher_node = materov.signal_publisher_node:main',
         ],
     },
 )
