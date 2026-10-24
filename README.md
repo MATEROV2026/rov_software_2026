@@ -178,6 +178,67 @@ This starts:
 - `pressure_sensor_node`, which publishes MS5837 data to `/pressure/data_raw`.
 - `zed_node`, the ZED 2i stereo camera node. This is optional and included only if `zed_wrapper` is installed; use `enable_zed:=false` to disable it.
 
+### IMU orientation and calibration view
+
+#### Arduino on macOS (no ROS)
+
+Install pySerial, list connected ports, then launch the standalone viewer:
+
+```bash
+python3 -m pip install pyserial
+python3 scripts/imu_visualizer.py --list-ports
+python3 scripts/imu_visualizer.py --port /dev/cu.usbserial-A5069RR4 \
+  --baud 115200 --accel-unit g --gyro-unit deg/s
+```
+
+The Arduino should print one six-value CSV row per sample in this order:
+`ax,ay,az,gx,gy,gz`. The defaults match common Arduino output (`g` and
+`deg/s`). The visualizer uses Tkinter, which is included with many Python
+installations on macOS.
+
+For the ICM-20948, open `arduino/imu_icm20948_streamer/imu_icm20948_streamer.ino`
+in Arduino IDE and install **SparkFun ICM-20948 Arduino Library** from Library
+Manager. Wire I²C SDA to Uno A4, SCL to A5, and connect ground. Check that the
+IMU breakout accepts 5V Uno logic; the bare ICM-20948 chip needs level shifting.
+The sketch tries I²C addresses 0x69 and 0x68 and streams at 115200 baud. Close
+Arduino IDE's Serial Monitor before starting the Mac viewer.
+
+#### ROS 2 laptop package
+
+Build the laptop package after sourcing ROS 2:
+
+```bash
+cd ros
+colcon build --packages-select laptop
+source install/setup.bash
+ros2 run laptop imu_visualizer
+```
+
+The viewer subscribes to `/imu/data_raw` and draws body-frame X/Y/Z axes with
+roll, pitch, and relative yaw. For an Arduino serial stream, print one CSV row
+per sample as `ax,ay,az,gx,gy,gz`, with no labels. Units default to acceleration
+in m/s² and angular velocity in rad/s; specify other common units explicitly:
+
+```bash
+ros2 run laptop imu_visualizer -- --serial-port /dev/ttyACM0 --baud 115200 \
+  --accel-unit g --gyro-unit deg/s
+```
+
+Press **C** while the sensor is motionless to estimate gyro bias for this run;
+the viewer rejects samples whose gyro variation suggests movement. Press **[**
+or **]** to lower or raise the complementary filter's gyro weight, **R** to
+reset relative yaw, and **Q** to close. A filter weight nearer 1 follows the
+gyro more strongly and is smoother short term, but lets drift last longer.
+Acceleration magnitude near 9.81 m/s² is a useful stationary sanity check; it
+does not prove axis alignment or accelerometer calibration. This viewer can
+correct gyro zero-rate bias only, and it does not save calibration across runs.
+
+The current ICM-20649/ICM-20948 path publishes acceleration and gyro only.
+Pitch and roll use gravity plus gyro fusion. Yaw integrates gyro Z and will
+drift; stable absolute heading needs a calibrated magnetometer or another
+heading reference. Mounting orientation and axis signs should also be checked
+by rotating one axis at a time before using these readings for vehicle control.
+
 ---
 
 ### Mission Control GUI (Laptop)

@@ -21,7 +21,10 @@ setup(
     entry_points={
         'console_scripts': [
             'vision_node = laptop.vision_node:main',
-            'reconstruction_service = laptop.reconstruction_service:main'
+            'reconstruction_service = laptop.reconstruction_service:main',
+            'imu_visualizer = laptop.imu_visualizer:main',
         ],
     },
 )
+
+# Built by Raneem Mousa
