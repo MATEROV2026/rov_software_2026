@@ -40,6 +40,37 @@ def decode_icm20649(block):
     return decode_icm(block, ICM20649_WHO_AM_I)
 
 
+def apply_accel_calibration(acceleration, bias, scale):
+    """Return acceleration with per-axis offset and gain error removed.
+
+    The sensor model is ``measured = scale * true + bias``, solved from six
+    static positions: with an axis pointing up it reads +1g, pointing down
+    -1g, so ``bias = (up + down) / 2`` and ``scale = (up - down) / 2``.
+    Inverting gives ``(measured - bias) / scale``.
+
+    Bias is in the same units as ``acceleration`` (m/s^2 here, so a 10 mg
+    offset is 0.098); scale is dimensionless and near 1.0.
+    """
+    if len(acceleration) != 3 or len(bias) != 3 or len(scale) != 3:
+        raise ValueError('Accelerometer calibration needs three axes')
+    if any(s == 0.0 for s in scale):
+        raise ValueError('Accelerometer scale factor cannot be zero')
+    return [(a - b) / s for a, b, s in zip(acceleration, bias, scale)]
+
+
+def apply_gyro_bias(angular_velocity, bias):
+    """Return angular velocity with the stationary offset removed.
+
+    Bias is the mean reading while the vehicle is still, in rad/s. It matters
+    more than it looks: heading is the integral of this signal and nothing
+    underwater corrects it, so 0.02 rad/s of residual is 69 degrees of false
+    yaw per minute.
+    """
+    if len(angular_velocity) != 3 or len(bias) != 3:
+        raise ValueError('Gyroscope bias needs three axes')
+    return [w - b for w, b in zip(angular_velocity, bias)]
+
+
 def prom_crc4(words):
     if len(words) != 7:
         raise ValueError('Expected seven PROM words')

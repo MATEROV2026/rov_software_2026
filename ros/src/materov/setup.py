@@ -11,6 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', ['launch/materov.launch.py']),
+        ('share/' + package_name + '/config', ['config/imu_calibration.yaml']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

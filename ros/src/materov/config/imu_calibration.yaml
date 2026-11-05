@@ -1,0 +1,27 @@
+# IMU calibration for the vehicle's ICM-20948 (I2C 0x69).
+#
+# Six-position bench procedure: with an axis up the true reading is +1g and
+# down it is -1g, so bias = (up + down) / 2 and scale = (up - down) / 2.
+# The node applies (measured - bias) / scale.
+#
+# Units are SI to match sensor_msgs/Imu: accel_bias in m/s^2, gyro_bias in
+# rad/s, variances in (m/s^2)^2 and (rad/s)^2. accel_scale is dimensionless.
+# Every value carries a decimal point because YAML reads an unsuffixed whole
+# number as an int, which ROS rejects for a double_array.
+
+imu_sensor_node:
+  ros__parameters:
+
+    # Converted from the bench values -0.061 / -0.056 / -0.004 g.
+    # X and Y are large next to Z because the flat poses sit square on the
+    # bench and the on-edge poses do not. Verify |accel| reads 1.000 in all
+    # six orientations before trusting these.
+    accel_bias: [-0.598206, -0.549172, -0.039227]
+    accel_scale: [1.008000, 1.005000, 1.004000]
+
+    # NOT YET MEASURED. Zero means heading drifts without bound.
+    gyro_bias: [0.000000, 0.000000, 0.000000]
+
+    # Conservative stand-ins until the noise is characterised.
+    accel_variance: [0.100000, 0.100000, 0.100000]
+    gyro_variance: [0.010000, 0.010000, 0.010000]
