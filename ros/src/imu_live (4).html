@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IMU Live Tuner</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#e9edf1; --surface:#fff; --surface-2:#f4f7f9; --line:#d1d9e0; --line-2:#e3e9ee;
+  --fg:#0f1d29; --fg-2:#45586a; --fg-3:#73879a;
+  --accent:#0d6f78; --accent-soft:#dcedef;
+  --good:#1a6f57; --warn:#9c6117; --bad:#b63a30;
+  --body:#2a78d6; --viz:#fff; --grid:#dde4ea;
+  --fd:'Archivo',Arial,sans-serif; --fb:'IBM Plex Sans',Arial,sans-serif;
+  --fm:'IBM Plex Mono',Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0a1018; --surface:#121b25; --surface-2:#18232e; --line:#273746; --line-2:#1d2b37;
+  --fg:#e5eef4; --fg-2:#9cb0c1; --fg-3:#6c8094;
+  --accent:#43c2cb; --accent-soft:#113037;
+  --good:#4ec79a; --warn:#dfa44f; --bad:#e8776c;
+  --body:#3987e5; --viz:#121b25; --grid:#22313e;
+  color-scheme:dark;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--fb);line-height:1.5;font-size:14px}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 16px 56px;display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--fd);font-size:clamp(22px,3.6vw,30px);margin:0;letter-spacing:-.018em}
+.sub{color:var(--fg-2);margin:4px 0 0;max-width:70ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.ch{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:11px 15px;
+  border-bottom:1px solid var(--line-2);flex-wrap:wrap}
+.ch h2{font-family:var(--fd);font-size:14px;margin:0;font-weight:600}
+.ch .note{font-family:var(--fm);font-size:11px;color:var(--fg-3)}
+.pad{padding:14px 15px 17px;display:flex;flex-direction:column;gap:13px}
+
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 15px}
+button{font-family:var(--fb);font-size:13px;font-weight:600;padding:8px 13px;border-radius:7px;
+  border:1px solid var(--line);background:var(--surface-2);color:var(--fg);cursor:pointer}
+button:hover:not(:disabled){border-color:var(--accent)}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.primary{background:var(--accent);border-color:var(--accent);color:#06181b}
+@media (prefers-color-scheme:light){button.primary{color:#fff}}
+button.sm{padding:5px 9px;font-size:12px;font-weight:500}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--fg-3);display:inline-block;flex:none}
+.dot.on{background:var(--good)} .dot.err{background:var(--bad)}
+.stat{font-family:var(--fm);font-size:12px;color:var(--fg-2)}
+
+.main{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+@media (max-width:900px){.main{grid-template-columns:1fr}}
+canvas{display:block;width:100%}
+#scene{height:360px;background:var(--viz)}
+.rpy{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-2)}
+.rpy div{padding:10px;text-align:center;border-right:1px solid var(--line-2)}
+.rpy div:last-child{border-right:none}
+.rpy .k{font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3)}
+.rpy .v{font-family:var(--fm);font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
+.rpy .r{font-family:var(--fm);font-size:11px;color:var(--fg-3);font-variant-numeric:tabular-nums}
+
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line-2);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{font-family:var(--fm);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--fg-3)}
+td{font-family:var(--fm);font-variant-numeric:tabular-nums}
+td.n{font-family:var(--fb);color:var(--fg-2)}
+tr.live{background:var(--accent-soft)}
+.ok{color:var(--good);font-weight:600}.no{color:var(--bad);font-weight:600}.idle{color:var(--fg-3)}
+
+.lab{font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--fg-3);margin-bottom:6px}
+.srow{display:grid;grid-template-columns:16px 1fr 62px;align-items:center;gap:8px;margin-bottom:4px}
+.srow .ax{font-family:var(--fm);font-size:12px;color:var(--fg-2);font-weight:600}
+.srow output{font-family:var(--fm);font-size:12px;text-align:right;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--accent);margin:0}
+select{font-family:var(--fb);font-size:12px;padding:5px 7px;border-radius:6px;border:1px solid var(--line);
+  background:var(--surface-2);color:var(--fg)}
+.maprow{display:grid;grid-template-columns:70px 1fr auto;gap:8px;align-items:center;margin-bottom:6px}
+.maprow label{font-size:12px;color:var(--fg-2)}
+.poses{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.pose{padding:7px 4px;border:1px solid var(--line);border-radius:7px;background:var(--surface-2);
+  font-family:var(--fm);font-size:11.5px;cursor:pointer;text-align:center}
+.pose.done{border-color:var(--good);color:var(--good)}
+.pose.busy{border-color:var(--warn);color:var(--warn)}
+pre{font-family:var(--fm);font-size:11.5px;background:var(--surface-2);border:1px solid var(--line-2);
+  border-radius:7px;padding:10px;overflow-x:auto;margin:0;white-space:pre}
+.hint{font-size:12.5px;color:var(--fg-2)}
+.hint code{font-family:var(--fm);font-size:11.5px;background:var(--surface-2);padding:1px 4px;
+  border-radius:4px;border:1px solid var(--line-2)}
+.warnbox{border:1px solid var(--warn);border-radius:8px;padding:10px 12px;font-size:12.5px;
+  color:var(--fg-2);background:var(--surface-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>IMU Live Tuner</h1>
+    <p class="sub">Streams your IMU over USB, applies bias and scale corrections live, and draws the attitude so you can check that roll, pitch and heading move the way you expect as you turn the board in your hands.</p>
+  </header>
+
+  <div class="card">
+    <div class="bar">
+      <button class="primary" id="btn-connect">Connect to IMU</button>
+      <button id="btn-disconnect" disabled>Disconnect</button>
+      <span class="dot" id="dot"></span>
+      <span class="stat" id="status">not connected</span>
+      <span style="flex:1"></span>
+      <label class="stat" style="display:flex;gap:6px;align-items:center;cursor:pointer">
+        <input type="checkbox" id="sim"> simulated data
+      </label>
+      <button class="sm" id="btn-zero-att">Reset attitude</button>
+    </div>
+    <div id="serial-warn" class="pad" style="padding-top:0;display:none">
+      <div class="warnbox" id="serial-warn-text"></div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="card">
+      <div class="ch"><h2>Attitude</h2><span class="note" id="rate">— Hz</span></div>
+      <canvas id="scene"></canvas>
+      <div class="rpy">
+        <div><div class="k">Roll</div><div class="v" id="v-roll">0.0°</div><div class="r" id="r-roll">0.0 °/s</div></div>
+        <div><div class="k">Pitch</div><div class="v" id="v-pitch">0.0°</div><div class="r" id="r-pitch">0.0 °/s</div></div>
+        <div><div class="k">Heading</div><div class="v" id="v-yaw">0.0°</div><div class="r" id="r-yaw">0.0 °/s</div></div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="card">
+        <div class="ch"><h2>Does it move the right way?</h2><span class="note" id="motion-now">still</span></div>
+        <div class="pad" style="padding-top:11px">
+          <table>
+            <thead><tr><th>Move the board like this</th><th>Expect</th><th>Seen</th></tr></thead>
+            <tbody>
+              <tr id="m-roll"><td class="n">Starboard side down</td><td>Roll +</td><td class="idle">—</td></tr>
+              <tr id="m-pitch"><td class="n">Nose up</td><td>Pitch +</td><td class="idle">—</td></tr>
+              <tr id="m-yaw"><td class="n">Nose turns right</td><td>Heading +</td><td class="idle">—</td></tr>
+            </tbody>
+          </table>
+          <p class="hint" style="margin:2px 0 0">A row lights up while you make that motion. <span class="ok">OK</span> means the angle moved the way it should. <span class="no">flipped</span> means that axis needs its sign inverted below.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="ch"><h2>Raw sensor</h2><span class="note" id="part">no banner yet</span></div>
+        <div class="pad" style="padding-top:11px">
+          <table>
+            <thead><tr><th></th><th>X</th><th>Y</th><th>Z</th></tr></thead>
+            <tbody>
+              <tr><td class="n">Accel (g)</td><td id="ax">—</td><td id="ay">—</td><td id="az">—</td></tr>
+              <tr><td class="n">Gyro (°/s)</td><td id="gx">—</td><td id="gy">—</td><td id="gz">—</td></tr>
+              <tr><td class="n">|Accel| (g)</td><td colspan="3" id="amag">—</td></tr>
+              <tr><td class="n">Linear (m/s²)</td><td id="lx">—</td><td id="ly">—</td><td id="lz">—</td></tr>
+              <tr><td class="n">|Linear| (m/s²)</td><td colspan="3" id="lmag">—</td></tr>
+            </tbody>
+          </table>
+          <p class="hint" style="margin:2px 0 0">Values are after axis mapping and calibration. Resting <code>|Accel|</code> should sit at <code>1.000</code>; if it does not, the scale factors are off.</p>
+          <p class="hint" style="margin:2px 0 0"><strong>Linear</strong> is motion only — the gravity vector, rotated into the body frame by the current attitude, has been subtracted. Held still at any angle it should read near zero; what is left over is calibration error plus whatever the attitude estimate gets wrong.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="card pad">
+      <div>
+        <div class="lab">Axis mapping — body frame is X forward, Y starboard, Z down</div>
+        <div id="map-rows"></div>
+        <div id="map-warn" style="display:none;margin-top:8px"></div>
+        <p class="hint" style="margin:4px 0 0">Set these so the three checks above all read OK. Mounting the breakout any way but perfectly nose-forward needs a remap here.</p>
+      </div>
+      <div>
+        <div class="lab">Gyro bias (°/s)</div>
+        <div id="g-gb"></div>
+        <button class="sm" id="btn-zero-gyro" style="margin-top:6px">Measure gyro bias — hold completely still for 3 s</button>
+        <span class="stat" id="zero-stat"></span>
+      </div>
+      <div>
+        <div class="lab">Complementary filter weight</div>
+        <div id="g-alpha"></div>
+        <p class="hint" style="margin:4px 0 0">How hard gravity pulls roll and pitch back toward the accelerometer reading. Higher follows the accelerometer and is noisier under vibration; lower trusts the gyro and drifts more. <code>2.0</code> is a sane start. Heading never gets a correction — there is no magnetometer.</p>
+      </div>
+    </div>
+
+    <div class="card pad">
+      <div>
+        <div class="lab">Six-position accelerometer capture</div>
+        <div class="poses" id="poses"></div>
+        <p class="hint" style="margin:7px 0 0">Rest the board with each axis pointing at the sky, hold still, click. Each capture averages 2 s.</p>
+        <div style="display:flex;gap:8px;margin-top:9px;flex-wrap:wrap">
+          <button id="btn-solve" disabled>Solve bias &amp; scale</button>
+          <button class="sm" id="btn-clear-poses">Clear captures</button>
+        </div>
+        <span class="stat" id="solve-stat"></span>
+      </div>
+      <div>
+        <div class="lab">Accel bias (g)</div><div id="g-ab"></div>
+      </div>
+      <div>
+        <div class="lab">Accel scale</div><div id="g-as"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch"><h2>Calibration for the ROS node</h2>
+      <span style="display:flex;gap:7px">
+        <button class="sm" id="btn-copy">Copy</button>
+        <button class="sm" id="btn-dl">Download YAML</button>
+      </span>
+    </div>
+    <div class="pad" style="padding-top:12px"><pre id="yaml"></pre>
+      <p class="hint" style="margin:0">Save as <code>ros/config/jetson/imu_calibration.yaml</code>. Every value carries a decimal point on purpose — ROS rejects an integer where it expects a <code>double_array</code>.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch"><h2>Running this</h2></div>
+    <div class="pad" style="padding-top:12px">
+      <p class="hint" style="margin:0">Flash <code>imu_stream.ino</code>, close the Arduino Serial Monitor (it holds the port), then click Connect and pick the <code>usbmodem</code> port. Needs Chrome or Edge — Safari and Firefox have no Web Serial.</p>
+      <p class="hint" style="margin:0">If Connect does nothing from a <code>file://</code> page, serve it instead: <code>python3 -m http.server 8000</code> in this folder, then open <code>http://localhost:8000/imu_live.html</code>.</p>
+      <p class="hint" style="margin:0">No hardware yet? Tick <strong>simulated data</strong> to drive the whole page from a synthetic sensor with built-in bias and scale error.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var DEG=Math.PI/180, RADD=180/Math.PI;
+
+var S={
+  connected:false, sim:false,
+  part:'—', aLsb:8192, gLsb:65.5,
+  map:[0,1,2], sign:[1,1,1],
+  gb:[0,0,0], ab:[0,0,0], as:[1,1,1],
+  kp:2.0,
+  q:[1,0,0,0], att:{phi:0,theta:0,psi:0}, prev:null,
+  acc:[0,0,1], gyr:[0,0,0], lin:[0,0,0],
+  rates:{phi:0,theta:0,psi:0},
+  poses:{}, capture:null,
+  zeroing:null,
+  nSample:0, rate:0, lastT:0, haveAtt:false, gotData:false, stall:0
+};
+
+/* ---------- maths ---------- */
+function Rbw(phi,th,psi){
+  var cp=Math.cos(phi),sp=Math.sin(phi),ct=Math.cos(th),st=Math.sin(th),
+      cs=Math.cos(psi),ss=Math.sin(psi);
+  return [[ct*cs,ct*ss,-st],
+          [sp*st*cs-cp*ss,sp*st*ss+cp*cs,sp*ct],
+          [cp*st*cs+sp*ss,cp*st*ss-sp*cs,cp*ct]];
+}
+function transpose(M){return [[M[0][0],M[1][0],M[2][0]],[M[0][1],M[1][1],M[2][1]],[M[0][2],M[1][2],M[2][2]]];}
+function mulMV(M,v){return [M[0][0]*v[0]+M[0][1]*v[1]+M[0][2]*v[2],
+  M[1][0]*v[0]+M[1][1]*v[1]+M[1][2]*v[2],M[2][0]*v[0]+M[2][1]*v[1]+M[2][2]*v[2]];}
+function wrapPi(a){while(a>Math.PI)a-=2*Math.PI;while(a<-Math.PI)a+=2*Math.PI;return a;}
+
+function remap(v){
+  return [S.sign[0]*v[S.map[0]], S.sign[1]*v[S.map[1]], S.sign[2]*v[S.map[2]]];
+}
+/* Rotation taking body vectors into the world, straight from the quaternion.
+   Attitude is held as a quaternion rather than Euler angles because Euler
+   integration divides by cos(pitch) — and the six-position capture puts the
+   board at exactly pitch 90°, where that blows up. */
+function Rwb(q){
+  var w=q[0],x=q[1],y=q[2],z=q[3];
+  return [[1-2*(y*y+z*z), 2*(x*y-w*z),   2*(x*z+w*y)],
+          [2*(x*y+w*z),   1-2*(x*x+z*z), 2*(y*z-w*x)],
+          [2*(x*z-w*y),   2*(y*z+w*x),   1-2*(x*x+y*y)]];
+}
+function eulerFromQ(q){
+  var R=Rwb(q), s=-R[2][0];
+  if(s>1)s=1; if(s<-1)s=-1;
+  return {phi:Math.atan2(R[2][1],R[2][2]), theta:Math.asin(s), psi:Math.atan2(R[1][0],R[0][0])};
+}
+/* Seed the quaternion from gravity alone: level heading, correct tilt. */
+function qFromAccel(a){
+  var v=[-a[0],-a[1],-a[2]], n=Math.hypot(v[0],v[1],v[2]);
+  if(!(n>0.3))return [1,0,0,0];
+  v=[v[0]/n,v[1]/n,v[2]/n];
+  var phi=Math.atan2(v[1],v[2]), th=Math.atan2(-v[0],Math.hypot(v[1],v[2]));
+  var cr=Math.cos(phi/2),sr=Math.sin(phi/2),cp=Math.cos(th/2),sp=Math.sin(th/2);
+  return [cr*cp, sr*cp, cr*sp, -sr*sp];
+}
+
+/* ---------- sample pipeline ---------- */
+function onSample(raw){
+  S.gotData=true;
+  var now=performance.now();
+  var dt=S.lastT?Math.min((now-S.lastT)/1000,0.1):0.01;
+  S.lastT=now; S.nSample++;
+
+  var aRaw=remap([raw[0]/S.aLsb, raw[1]/S.aLsb, raw[2]/S.aLsb]);
+  var gRaw=remap([raw[3]/S.gLsb, raw[4]/S.gLsb, raw[5]/S.gLsb]);
+
+  if(S.capture) S.capture.buf.push(aRaw.slice());
+  if(S.zeroing) S.zeroing.buf.push(gRaw.slice());
+
+  var a=[(aRaw[0]-S.ab[0])/S.as[0],(aRaw[1]-S.ab[1])/S.as[1],(aRaw[2]-S.ab[2])/S.as[2]];
+  var g=[gRaw[0]-S.gb[0], gRaw[1]-S.gb[1], gRaw[2]-S.gb[2]];
+  S.acc=a; S.gyr=g;
+
+  if(!S.haveAtt){ S.q=qFromAccel(a); S.att=eulerFromQ(S.q); S.prev=null; S.haveAtt=true; return; }
+
+  /* Mahony-style complementary filter on the quaternion: integrate the gyro,
+     and steer the estimated gravity direction toward the measured one. */
+  var gx=g[0]*DEG, gy=g[1]*DEG, gz=g[2]*DEG;
+  var v=[-a[0],-a[1],-a[2]], n=Math.hypot(v[0],v[1],v[2]);
+  if(n>0.3){
+    v=[v[0]/n,v[1]/n,v[2]/n];
+    var w=S.q[0],x=S.q[1],y=S.q[2],z=S.q[3];
+    var est=[2*(x*z-w*y), 2*(y*z+w*x), 1-2*(x*x+y*y)];   // world-down, in body
+    gx+=S.kp*(v[1]*est[2]-v[2]*est[1]);
+    gy+=S.kp*(v[2]*est[0]-v[0]*est[2]);
+    gz+=S.kp*(v[0]*est[1]-v[1]*est[0]);
+  }
+  var qw=S.q[0],qx=S.q[1],qy=S.q[2],qz=S.q[3];
+  var nq=[qw+0.5*(-qx*gx-qy*gy-qz*gz)*dt,
+          qx+0.5*( qw*gx+qy*gz-qz*gy)*dt,
+          qy+0.5*( qw*gy-qx*gz+qz*gx)*dt,
+          qz+0.5*( qw*gz+qx*gy-qy*gx)*dt];
+  var m=Math.hypot(nq[0],nq[1],nq[2],nq[3]);
+  if(!(m>1e-6)||!isFinite(m)){ S.haveAtt=false; return; }   // diverged: reseed
+  S.q=[nq[0]/m,nq[1]/m,nq[2]/m,nq[3]/m];
+
+  var e=eulerFromQ(S.q);
+  if(S.prev&&dt>1e-4){
+    var k=0.15;
+    S.rates.phi   += k*(wrapPi(e.phi-S.prev.phi)/dt*RADD     - S.rates.phi);
+    S.rates.theta += k*(wrapPi(e.theta-S.prev.theta)/dt*RADD - S.rates.theta);
+    S.rates.psi   += k*(wrapPi(e.psi-S.prev.psi)/dt*RADD     - S.rates.psi);
+  }
+  S.prev={phi:e.phi,theta:e.theta,psi:e.psi};
+  S.att=e;
+
+  /* Motion only: subtract the gravity vector rotated into the body frame.
+     Subtracting 1 g from a single axis is only correct when perfectly level. */
+  var qw2=S.q[0],qx2=S.q[1],qy2=S.q[2],qz2=S.q[3];
+  var gb=[2*(qx2*qz2-qw2*qy2), 2*(qy2*qz2+qw2*qx2), 1-2*(qx2*qx2+qy2*qy2)];
+  S.lin=[(a[0]+gb[0])*9.80665,(a[1]+gb[1])*9.80665,(a[2]+gb[2])*9.80665];
+}
+
+/* ---------- serial ---------- */
+var port=null, reader=null, keepReading=false;
+function setStatus(txt,cls){
+  document.getElementById('status').textContent=txt;
+  var d=document.getElementById('dot'); d.className='dot'+(cls?' '+cls:'');
+}
+function showWarn(msg){
+  var box=document.getElementById('serial-warn');
+  document.getElementById('serial-warn-text').innerHTML=msg;
+  box.style.display='';
+}
+async function connect(){
+  if(!('serial' in navigator)){
+    showWarn('This browser has no Web Serial API. Use <strong>Chrome</strong> or <strong>Edge</strong>. '+
+      'If you are already in Chrome and opened this as a <code>file://</code> page, serve it over localhost instead: '+
+      '<code>python3 -m http.server 8000</code> then open <code>http://localhost:8000/imu_live.html</code>.');
+    return;
+  }
+  try{
+    port=await navigator.serial.requestPort();
+    await port.open({baudRate:115200});
+  }catch(err){
+    if(err && err.name==='NotFoundError'){ setStatus('no port selected'); return; }
+    showWarn('Could not open the port: '+(err&&err.message?err.message:err)+
+      '<br>Close the Arduino Serial Monitor — it holds the port open — and try again.');
+    setStatus('open failed','err'); return;
+  }
+  S.connected=true; keepReading=true;
+  document.getElementById('btn-connect').disabled=true;
+  document.getElementById('btn-disconnect').disabled=false;
+  document.getElementById('sim').checked=false; S.sim=false;
+  setStatus('connected','on');
+  readLoop();
+}
+async function readLoop(){
+  var dec=new TextDecoderStream();
+  port.readable.pipeTo(dec.writable).catch(function(){});
+  reader=dec.readable.getReader();
+  var buf='';
+  try{
+    while(keepReading){
+      var out=await reader.read();
+      if(out.done)break;
+      buf+=out.value;
+      var lines=buf.split('\n');
+      buf=lines.pop();
+      for(var i=0;i<lines.length;i++) handleLine(lines[i].trim());
+    }
+  }catch(err){ setStatus('read error: '+err.message,'err'); }
+}
+function handleLine(line){
+  if(!line)return;
+  if(line.charAt(0)==='#'){
+    var p=line.split(',');
+    if(p[0]==='#IMU'&&p.length>=4){
+      S.part=p[1]; S.aLsb=parseFloat(p[2])||S.aLsb; S.gLsb=parseFloat(p[3])||S.gLsb;
+      document.getElementById('part').textContent=S.part+' · '+S.aLsb+' LSB/g · '+
+        S.gLsb+' LSB/°/s'+(p[4]?' · '+p[4]:'');
+      // A banner only proves the Arduino is alive. Data lines prove the IMU is.
+      // The banner repeats every 5 s, so never let it downgrade a live stream.
+      if(!S.gotData) setStatus('board detected — waiting for sensor data','err');
+      if(p.length<5) showWarn('<strong>This is the older sketch.</strong> It reports '+
+        'the part as <code>'+p[1]+'</code> and no I²C address, which means it could not '+
+        'identify the IMU and is now streaming nothing. Flash the updated '+
+        '<code>imu_stream.ino</code> — it probes both addresses and prints a bus scan.');
+    }else if(p[0]==='#ERR'){
+      setStatus('sensor not responding','err');
+      showWarn('<strong>The Arduino cannot reach the IMU.</strong><br>'+
+        line.slice(5)+'<br><br>Check 3.3 V power, that SDA and SCL are not swapped, '+
+        'and that the board is not being driven at 5 V without a level shifter. '+
+        'The next line lists every I²C address that answered.');
+    }else if(p[0]==='#SCAN'){
+      var found=p.slice(1).join(', ');
+      var box=document.getElementById('serial-warn-text');
+      box.innerHTML+='<br><br><strong>I²C scan:</strong> '+
+        (found==='none'?'nothing answered — this is a wiring or power fault, not an address problem.'
+          :found+' responded.');
+    }
+    return;
+  }
+  var f=line.split(',');
+  if(f.length<6)return;
+  var v=[],k;
+  for(k=0;k<6;k++){ v[k]=parseInt(f[k],10); if(!isFinite(v[k]))return; }
+  // Real samples win: a left-on simulated source would otherwise drown them out.
+  if(S.sim){ S.sim=false; document.getElementById('sim').checked=false; S.haveAtt=false; }
+  if(!S.gotData){ S.gotData=true; setStatus('streaming','on');
+    document.getElementById('serial-warn').style.display='none'; }
+  onSample(v);
+}
+async function disconnect(){
+  keepReading=false;
+  try{ if(reader)await reader.cancel(); }catch(e){}
+  try{ if(port)await port.close(); }catch(e){}
+  port=null; reader=null; S.connected=false;
+  document.getElementById('btn-connect').disabled=false;
+  document.getElementById('btn-disconnect').disabled=true;
+  setStatus('disconnected');
+}
+document.getElementById('btn-connect').addEventListener('click',connect);
+document.getElementById('btn-disconnect').addEventListener('click',disconnect);
+
+/* ---------- simulated source ---------- */
+var simT=0;
+function simTick(dt){
+  simT+=dt;
+  var phi=22*DEG*Math.sin(0.7*simT), th=16*DEG*Math.sin(0.5*simT+1), psi=40*DEG*Math.sin(0.23*simT);
+  var h=0.005;
+  var f=function(t){return [22*DEG*Math.sin(0.7*t),16*DEG*Math.sin(0.5*t+1),40*DEG*Math.sin(0.23*t)];};
+  var A=f(simT-h),B=f(simT+h);
+  var pd=(B[0]-A[0])/(2*h), td=(B[1]-A[1])/(2*h), sd=(B[2]-A[2])/(2*h);
+  var sp=Math.sin(phi),cp=Math.cos(phi),st=Math.sin(th),ct=Math.cos(th);
+  var w=[pd-sd*st, td*cp+sd*ct*sp, -td*sp+sd*ct*cp];
+  var acc=mulMV(Rbw(phi,th,psi),[0,0,-1]);
+  var TB=[0.031,-0.017,0.013], TS=[1.028,0.981,1.005], TG=[0.1,-0.4,1.4];
+  var n=function(s){return (Math.random()+Math.random()+Math.random()-1.5)*s;};
+  return [Math.round((TS[0]*acc[0]+TB[0]+n(0.004))*S.aLsb),
+          Math.round((TS[1]*acc[1]+TB[1]+n(0.004))*S.aLsb),
+          Math.round((TS[2]*acc[2]+TB[2]+n(0.004))*S.aLsb),
+          Math.round((w[0]*RADD+TG[0]+n(0.08))*S.gLsb),
+          Math.round((w[1]*RADD+TG[1]+n(0.08))*S.gLsb),
+          Math.round((w[2]*RADD+TG[2]+n(0.08))*S.gLsb)];
+}
+document.getElementById('sim').addEventListener('change',function(e){
+  S.sim=e.target.checked;
+  if(S.sim){ S.part='SIMULATED'; S.aLsb=8192; S.gLsb=65.5;
+    document.getElementById('part').textContent='simulated · 8192 LSB/g · 65.5 LSB/°/s';
+    setStatus('simulated source','on'); }
+  else if(!S.connected) setStatus('not connected');
+});
+
+/* ---------- geometry & scene ---------- */
+function box(x0,x1,y0,y1,z0,z1,tone){
+  var P=[[x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0],[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]];
+  var q=[[0,1,2,3],[4,5,6,7],[0,1,5,4],[2,3,7,6],[1,2,6,5],[0,3,7,4]],o=[];
+  q.forEach(function(f){o.push({p:[P[f[0]],P[f[1]],P[f[2]],P[f[3]]],tone:tone});});
+  return o;
+}
+var SUB=(function(){
+  var prof=[[-1.18,0.001],[-1.02,0.13],[-0.72,0.25],[-0.25,0.33],[0.35,0.34],[0.80,0.30],[1.10,0.20],[1.26,0.001]];
+  var NS=16,f=[],rings=[],i,j,a,pts;
+  for(i=0;i<prof.length;i++){ pts=[];
+    for(j=0;j<NS;j++){ a=j/NS*Math.PI*2; pts.push([prof[i][0],prof[i][1]*Math.cos(a),prof[i][1]*Math.sin(a)]); }
+    rings.push(pts); }
+  for(i=0;i<rings.length-1;i++) for(j=0;j<NS;j++){ var j2=(j+1)%NS;
+    f.push({p:[rings[i][j],rings[i][j2],rings[i+1][j2],rings[i+1][j]],tone:1.0}); }
+  return f.concat(box(0.02,0.46,-0.085,0.085,-0.62,-0.31,0.72),
+    box(-0.95,-0.58,0.17,0.66,-0.028,0.028,0.86), box(-0.95,-0.58,-0.66,-0.17,-0.028,0.028,0.86),
+    box(-0.95,-0.58,-0.028,0.028,-0.74,-0.22,0.86), box(-0.95,-0.58,-0.028,0.028,0.22,0.52,0.86));
+})();
+var CAM={az:-40*DEG, el:21*DEG, dist:6.6};
+function proj(p,W,H,sc){
+  var ca=Math.cos(CAM.az),sa=Math.sin(CAM.az);
+  var x=p[0]*ca-p[1]*sa,y=p[0]*sa+p[1]*ca,z=p[2];
+  var ce=Math.cos(CAM.el),se=Math.sin(CAM.el);
+  var x2=x*ce+z*se, z2=-x*se+z*ce, d=x2+CAM.dist; if(d<0.2)d=0.2;
+  return [W/2+sc*(-y)/d, H*0.52+sc*(-z2)/d, d];
+}
+function toDraw(p){return [p[0],-p[1],-p[2]];}
+var css={};
+function readTheme(){var cs=getComputedStyle(document.documentElement);
+  ['--viz','--grid','--fg-2','--fg-3','--body','--accent','--bad','--good'].forEach(function(k){
+    css[k]=cs.getPropertyValue(k).trim();});}
+function hexRGB(h){h=h.replace('#','');if(h.length===3)h=h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+  return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+function shade(c,f){return 'rgb('+Math.min(255,c[0]*f|0)+','+Math.min(255,c[1]*f|0)+','+Math.min(255,c[2]*f|0)+')';}
+function fit(c){var r=c.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);
+  if(c.width!==(r.width*dpr|0)||c.height!==(r.height*dpr|0)){c.width=r.width*dpr|0;c.height=r.height*dpr|0;}
+  var x=c.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); return {x:x,W:r.width,H:r.height};}
+function normalOf(p,M){
+  var a=toDraw(mulMV(M,p[0])),b=toDraw(mulMV(M,p[1])),c=toDraw(mulMV(M,p[2]));
+  var u=[b[0]-a[0],b[1]-a[1],b[2]-a[2]],v=[c[0]-a[0],c[1]-a[1],c[2]-a[2]];
+  var n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];
+  var L=Math.hypot(n[0],n[1],n[2])||1; return [n[0]/L,n[1]/L,n[2]/L];
+}
+function drawScene(){
+  var f=fit(document.getElementById('scene')),ctx=f.x,W=f.W,H=f.H;
+  var sc=Math.min(W*1.2,H*2.0);
+  ctx.clearRect(0,0,W,H); ctx.fillStyle=css['--viz']; ctx.fillRect(0,0,W,H);
+  var i,a,p,q,R=2.25;
+  ctx.strokeStyle=css['--grid']; ctx.lineWidth=1; ctx.beginPath();
+  for(i=0;i<=72;i++){a=i/72*Math.PI*2;p=proj([R*Math.cos(a),R*Math.sin(a),0],W,H,sc);
+    if(i===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);}
+  ctx.stroke();
+  for(i=0;i<12;i++){a=i/12*Math.PI*2;
+    p=proj([R*Math.cos(a),R*Math.sin(a),0],W,H,sc); q=proj([(R-0.17)*Math.cos(a),(R-0.17)*Math.sin(a),0],W,H,sc);
+    ctx.beginPath();ctx.moveTo(p[0],p[1]);ctx.lineTo(q[0],q[1]);ctx.stroke();}
+  ctx.fillStyle=css['--fg-3']; ctx.font='600 11px IBM Plex Mono, monospace';
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  p=proj([R+0.30,0,0],W,H,sc); ctx.fillText('0°',p[0],p[1]);
+
+  var M=Rwb(S.q);
+  var rgb=hexRGB(css['--body']),out=[],k;
+  for(k=0;k<SUB.length;k++){
+    var fc=SUB[k],pts=[],ds=0,j;
+    for(j=0;j<fc.p.length;j++){var pr=proj(toDraw(mulMV(M,fc.p[j])),W,H,sc);pts.push(pr);ds+=pr[2];}
+    out.push({pts:pts,d:ds/fc.p.length,n:normalOf(fc.p,M),tone:fc.tone});
+  }
+  out.sort(function(x,y){return y.d-x.d;});
+  var L=[0.34,0.46,0.82],Ln=Math.hypot(L[0],L[1],L[2]);
+  for(k=0;k<out.length;k++){var o=out[k];
+    var dot=Math.abs((o.n[0]*L[0]+o.n[1]*L[1]+o.n[2]*L[2])/Ln);
+    ctx.fillStyle=shade(rgb,(0.44+0.62*dot)*o.tone);
+    ctx.beginPath();ctx.moveTo(o.pts[0][0],o.pts[0][1]);
+    for(var m=1;m<o.pts.length;m++)ctx.lineTo(o.pts[m][0],o.pts[m][1]);
+    ctx.closePath();ctx.fill();}
+
+  /* body axis triad */
+  var axes=[[1.75,0,0,'X fwd'],[0,1.5,0,'Y stbd'],[0,0,1.2,'Z down']];
+  ctx.lineWidth=2; ctx.font='600 10px IBM Plex Mono, monospace';
+  for(k=0;k<3;k++){
+    var e0=proj(toDraw(mulMV(M,[0,0,0])),W,H,sc);
+    var e1=proj(toDraw(mulMV(M,[axes[k][0],axes[k][1],axes[k][2]])),W,H,sc);
+    ctx.strokeStyle=k===0?css['--accent']:(k===1?css['--good']:css['--bad']);
+    ctx.beginPath();ctx.moveTo(e0[0],e0[1]);ctx.lineTo(e1[0],e1[1]);ctx.stroke();
+    ctx.fillStyle=ctx.strokeStyle; ctx.fillText(axes[k][3],e1[0],e1[1]-8);
+  }
+}
+
+/* ---------- controls ---------- */
+function slider(host,label,get,set,min,max,stepv,dec){
+  var row=document.createElement('div'); row.className='srow';
+  var id='s'+Math.random().toString(36).slice(2,8);
+  row.innerHTML='<span class="ax">'+label+'</span><input type="range" id="'+id+
+    '" min="'+min+'" max="'+max+'" step="'+stepv+'" value="'+get()+'"><output id="o-'+id+'">'+
+    get().toFixed(dec)+'</output>';
+  host.appendChild(row);
+  var inp=row.querySelector('input'),out=row.querySelector('output');
+  inp.addEventListener('input',function(){set(parseFloat(inp.value));out.textContent=get().toFixed(dec);buildYaml();});
+  return {set:function(v){inp.value=v;out.textContent=parseFloat(v).toFixed(dec);}};
+}
+var gbS=[],abS=[],asS=[];
+['X','Y','Z'].forEach(function(n,k){
+  gbS.push(slider(document.getElementById('g-gb'),n,function(){return S.gb[k];},
+    function(v){S.gb[k]=v;},-10,10,0.01,2));
+});
+['X','Y','Z'].forEach(function(n,k){
+  abS.push(slider(document.getElementById('g-ab'),n,function(){return S.ab[k];},
+    function(v){S.ab[k]=v;},-0.25,0.25,0.001,3));
+});
+['X','Y','Z'].forEach(function(n,k){
+  asS.push(slider(document.getElementById('g-as'),n,function(){return S.as[k];},
+    function(v){S.as[k]=v;},0.85,1.15,0.001,3));
+});
+slider(document.getElementById('g-alpha'),'Kp',function(){return S.kp;},
+  function(v){S.kp=v;},0.1,8,0.1,1);
+
+/* axis mapping */
+(function(){
+  var host=document.getElementById('map-rows'),names=['Body X (fwd)','Body Y (stbd)','Body Z (down)'];
+  names.forEach(function(nm,k){
+    var row=document.createElement('div'); row.className='maprow';
+    row.innerHTML='<label>'+nm+'</label>'+
+      '<select><option value="0">sensor X</option><option value="1">sensor Y</option><option value="2">sensor Z</option></select>'+
+      '<button class="sm" type="button">+</button>';
+    host.appendChild(row);
+    var sel=row.querySelector('select'),btn=row.querySelector('button');
+    sel.value=String(S.map[k]);
+    sel.addEventListener('change',function(){
+      S.map[k]=parseInt(sel.value,10);S.haveAtt=false;checkMapping();});
+    btn.addEventListener('click',function(){
+      S.sign[k]*=-1; btn.textContent=S.sign[k]>0?'+':'−'; S.haveAtt=false; checkMapping();});
+  });
+})();
+/* A remap must be a proper rotation. Reusing a sensor axis, or flipping an odd
+   number of signs, produces a left-handed frame — every rotation then comes out
+   mirrored, and no amount of sign-flipping afterwards makes the checks pass. */
+function checkMapping(){
+  var box=document.getElementById('map-warn'), m=S.map, msg='';
+  if(m[0]===m[1]||m[1]===m[2]||m[0]===m[2]){
+    msg='<strong>Each sensor axis must be used exactly once.</strong> '+
+      'Two body axes are reading the same sensor axis, so one direction is invisible.';
+  }else{
+    // parity of the permutation, times the product of the sign flips
+    var parity=((m[1]-m[0])*(m[2]-m[0])*(m[2]-m[1])>0)?1:-1;
+    if(parity*S.sign[0]*S.sign[1]*S.sign[2]<0)
+      msg='<strong>This mapping is left-handed.</strong> Flip a second axis as well — '+
+        'sign changes come in pairs. Turning the board over is Y and Z together, '+
+        'a 180° rotation about X.';
+  }
+  if(msg){ box.innerHTML='<div class="warnbox">'+msg+'</div>'; box.style.display=''; }
+  else box.style.display='none';
+}
+checkMapping();
+
+/* six-position capture */
+var POSES=[['+X up',0,1],['−X up',0,-1],['+Y up',1,1],['−Y up',1,-1],['+Z up',2,1],['−Z up',2,-1]];
+(function(){
+  var host=document.getElementById('poses');
+  POSES.forEach(function(p,i){
+    var b=document.createElement('button'); b.className='pose'; b.type='button'; b.textContent=p[0];
+    b.addEventListener('click',function(){startCapture(i,b);});
+    host.appendChild(b);
+  });
+})();
+function startCapture(i,btn){
+  if(S.capture)return;
+  btn.className='pose busy'; btn.textContent='hold…';
+  S.capture={idx:i,buf:[],btn:btn};
+  setTimeout(function(){
+    var c=S.capture; S.capture=null;
+    if(!c.buf.length){ c.btn.className='pose'; c.btn.textContent=POSES[i][0];
+      document.getElementById('solve-stat').textContent=' no data — connect first'; return; }
+    var m=[0,0,0],j,k;
+    for(j=0;j<c.buf.length;j++)for(k=0;k<3;k++)m[k]+=c.buf[j][k];
+    for(k=0;k<3;k++)m[k]/=c.buf.length;
+    S.poses[i]=m;
+    c.btn.className='pose done'; c.btn.textContent=POSES[i][0]+' ✓';
+    document.getElementById('btn-solve').disabled=Object.keys(S.poses).length<6;
+    document.getElementById('solve-stat').textContent=' '+Object.keys(S.poses).length+'/6 captured';
+  },2000);
+}
+document.getElementById('btn-clear-poses').addEventListener('click',function(){
+  S.poses={}; S.capture=null;
+  document.querySelectorAll('.pose').forEach(function(b,i){b.className='pose';b.textContent=POSES[i][0];});
+  document.getElementById('btn-solve').disabled=true;
+  document.getElementById('solve-stat').textContent='';
+});
+document.getElementById('btn-solve').addEventListener('click',function(){
+  var k,up,dn,res=[];
+  for(k=0;k<3;k++){
+    up=S.poses[k*2][k]; dn=S.poses[k*2+1][k];
+    S.ab[k]=(up+dn)/2; S.as[k]=(up-dn)/2;
+    abS[k].set(S.ab[k].toFixed(3)); asS[k].set(S.as[k].toFixed(3));
+    res.push(Math.abs(S.as[k]-1));
+  }
+  S.haveAtt=false; buildYaml();
+  document.getElementById('solve-stat').textContent=' solved — worst scale error '+
+    (Math.max.apply(null,res)*100).toFixed(1)+'%';
+});
+
+/* gyro zeroing */
+document.getElementById('btn-zero-gyro').addEventListener('click',function(){
+  if(S.zeroing)return;
+  var st=document.getElementById('zero-stat'); st.textContent=' hold still…';
+  S.zeroing={buf:[]};
+  setTimeout(function(){
+    var z=S.zeroing; S.zeroing=null;
+    if(!z.buf.length){ st.textContent=' no data — connect first'; return; }
+    var m=[0,0,0],j,k,v=[0,0,0];
+    for(j=0;j<z.buf.length;j++)for(k=0;k<3;k++)m[k]+=z.buf[j][k];
+    for(k=0;k<3;k++)m[k]/=z.buf.length;
+    for(j=0;j<z.buf.length;j++)for(k=0;k<3;k++)v[k]+=Math.pow(z.buf[j][k]-m[k],2);
+    for(k=0;k<3;k++){ v[k]=Math.sqrt(v[k]/z.buf.length); S.gb[k]=m[k]; gbS[k].set(m[k].toFixed(2)); }
+    buildYaml();
+    st.textContent=' bias set · noise σ '+Math.max.apply(null,v).toFixed(2)+' °/s';
+  },3000);
+});
+document.getElementById('btn-zero-att').addEventListener('click',function(){S.haveAtt=false;});
+
+/* ---------- yaml ---------- */
+function num(x,d){var s=x.toFixed(d); if(s.indexOf('.')<0)s+='.0'; return s;}
+function buildYaml(){
+  var y='# Generated by IMU Live Tuner · part: '+S.part+'\n'+
+    '# Axis map: body XYZ <- sensor ['+S.map.map(function(m,i){
+      return (S.sign[i]>0?'+':'-')+'XYZ'[m];}).join(', ')+']\n'+
+    '# gyro_bias is rad/s to match sensor_msgs/Imu. In °/s it is ['+
+      S.gb.map(function(v){return num(v,3);}).join(', ')+'].\n'+
+    'imu_sensor_node:\n  ros__parameters:\n'+
+    '    accel_bias: ['+S.ab.map(function(v){return num(v,6);}).join(', ')+']\n'+
+    '    accel_scale: ['+S.as.map(function(v){return num(v,6);}).join(', ')+']\n'+
+    '    gyro_bias: ['+S.gb.map(function(v){return num(v*DEG,6);}).join(', ')+']\n';
+  document.getElementById('yaml').textContent=y;
+  return y;
+}
+document.getElementById('btn-copy').addEventListener('click',function(){
+  navigator.clipboard.writeText(buildYaml()).then(function(){
+    var b=document.getElementById('btn-copy'); b.textContent='Copied';
+    setTimeout(function(){b.textContent='Copy';},1400);
+  }).catch(function(){});
+});
+document.getElementById('btn-dl').addEventListener('click',function(){
+  var blob=new Blob([buildYaml()],{type:'text/yaml'});
+  var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='imu_calibration.yaml'; a.click(); URL.revokeObjectURL(a.href);
+});
+
+/* ---------- motion check ---------- */
+var MROWS=[['m-roll','phi',0],['m-pitch','theta',1],['m-yaw','psi',2]];
+function motionCheck(){
+  var g=S.gyr, mag=[Math.abs(g[0]),Math.abs(g[1]),Math.abs(g[2])];
+  var dom=mag.indexOf(Math.max.apply(null,mag));
+  var moving=mag[dom]>12;
+  document.getElementById('motion-now').textContent=moving?
+    (['roll','pitch','yaw'][dom]+' '+(g[dom]>0?'+':'−')+' at '+mag[dom].toFixed(0)+' °/s'):'still';
+  MROWS.forEach(function(m,i){
+    var tr=document.getElementById(m[0]),cell=tr.children[2];
+    var active=moving&&dom===i;
+    tr.className=active?'live':'';
+    if(!active){ if(!cell.dataset.locked){cell.className='idle';cell.textContent='—';} return; }
+    var r=S.rates[m[1]];
+    if(Math.abs(r)<3){cell.className='idle';cell.textContent='…';return;}
+    var agree=(r>0)===(g[i]>0);
+    cell.className=agree?'ok':'no';
+    cell.textContent=agree?'OK':'flipped';
+    cell.dataset.locked='1';
+    setTimeout(function(){delete cell.dataset.locked;},2500);
+  });
+}
+
+/* ---------- loop ---------- */
+var last=performance.now(),acc=0,tick=0;
+readTheme(); buildYaml();
+function frame(now){
+  var dt=Math.min((now-last)/1000,0.1); last=now;
+  if(S.sim){ var n=Math.max(1,Math.round(dt/0.01));
+    for(var i=0;i<n;i++) onSample(simTick(0.01)); }
+  acc+=dt;
+  if(acc>=0.5){ S.rate=S.nSample/acc; S.nSample=0; acc=0;
+    document.getElementById('rate').textContent=S.rate.toFixed(0)+' Hz';
+    // Connected but silent: the Arduino is up and the IMU is not.
+    if(S.connected&&S.rate<=0){
+      if(++S.stall===6) showWarn('<strong>Connected, but no sensor data in 3 s.</strong> '+
+        'The Arduino is talking to this page; the IMU is not talking to the Arduino. '+
+        'Flash the updated <code>imu_stream.ino</code> and read the <code>#SCAN</code> '+
+        'line it prints — that lists every I²C address that answers.');
+    } else S.stall=0;
+  }
+  if(++tick%30===0)readTheme();
+
+  drawScene();
+  document.getElementById('v-roll').textContent=(S.att.phi*RADD).toFixed(1)+'°';
+  document.getElementById('v-pitch').textContent=(S.att.theta*RADD).toFixed(1)+'°';
+  document.getElementById('v-yaw').textContent=(((S.att.psi*RADD)%360+360)%360).toFixed(1)+'°';
+  document.getElementById('r-roll').textContent=S.rates.phi.toFixed(1)+' °/s';
+  document.getElementById('r-pitch').textContent=S.rates.theta.toFixed(1)+' °/s';
+  document.getElementById('r-yaw').textContent=S.rates.psi.toFixed(1)+' °/s';
+  ['x','y','z'].forEach(function(n,k){
+    document.getElementById('a'+n).textContent=S.gotData?S.acc[k].toFixed(3):'—';
+    document.getElementById('g'+n).textContent=S.gotData?S.gyr[k].toFixed(2):'—';
+  });
+  document.getElementById('amag').textContent=S.gotData?
+    Math.hypot(S.acc[0],S.acc[1],S.acc[2]).toFixed(3):'—';
+  ['x','y','z'].forEach(function(n,k){
+    document.getElementById('l'+n).textContent=S.gotData?S.lin[k].toFixed(2):'—';
+  });
+  document.getElementById('lmag').textContent=S.gotData?
+    Math.hypot(S.lin[0],S.lin[1],S.lin[2]).toFixed(2):'—';
+  motionCheck();
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
