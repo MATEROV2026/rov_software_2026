@@ -424,7 +424,16 @@ is running. The Nano already starts through the `rov-launch` systemd service.
 
 ### Sensors
 
-The sensor topics provide acceleration/angular velocity and absolute pressure, but nothing closes the loop yet. The pressure node defaults to MS5837 `pressure_model:=30BA`; select `02BA` for that sensor variant. Need to:
+## IMU Sensor- ICM-20948:
+I2C Connect through address `0x69` . arduino/imu_live.html for further calibration. runs a quaternion filter (roll, pitch, heading, angles or rotation). Acceleration model = scale* true + bias. 6 positions, each measure up then down. where the truth is +g and -g. So bias = (up+down)/2 / scale= (up-down)/2. Node applies (measured-bias) / scale. Gyro biaso is the mean reading while stationary. Measured
+X	Y	Z
+accel bias (g)	−0.061	−0.056	−0.004
+accel scale	1.008	1.005	1.004
+gyro bias	—	—	—
+
+where the calibartion can be found: ros/src/materov/config/imu_calibration.yaml, in SI to match sensor_msgs/Imu — so −0.598206 m/s² where the bench read −0.061 g. 
+imu_sensor_node declares five parameters and applies them in publish_sample. Maths sits in sensor_math.apply_accel_calibration and apply_gyro_bias
+
 
 - Use the IMU to detect actual ROV orientation and compensate for yaw/roll drift.
 - Use the pressure sensor to hold depth automatically.
