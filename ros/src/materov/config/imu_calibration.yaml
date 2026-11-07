@@ -31,7 +31,7 @@ imu_sensor_node:
     # over a 20 C difference is larger than the bias itself. /imu/temperature
     # publishes the die temperature so the number can be interpreted later.
     # Record the temperature it was measured at when filling this in.
-    gyro_bias: [0.000000, 0.000000, 0.000000]
+    gyro_bias: [-0.004189, 0.000262, 0.002967]
 
     # Conservative stand-ins until the noise is characterised.
     accel_variance: [0.100000, 0.100000, 0.100000]
