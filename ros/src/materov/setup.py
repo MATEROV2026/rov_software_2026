@@ -14,6 +14,7 @@ setup(
         ('share/' + package_name + '/config', ['config/imu_calibration.yaml']),
     ],
     install_requires=['setuptools'],
+    extras_require={'test': ['pytest']},
     zip_safe=True,
     maintainer='m8rov123',
     maintainer_email='a.h.hamzeh@wustl.edu',

@@ -12,6 +12,11 @@
 imu_sensor_node:
   ros__parameters:
 
+    # This vehicle's breakout straps AD0 high. The node probes 0x68 and 0x69
+    # either way, so this is a record rather than a requirement - but setting
+    # it silences the "answered at 0x69, not the configured 0x68" warning.
+    i2c_address: 0x69
+
     # Converted from the bench values -0.061 / -0.056 / -0.004 g.
     # X and Y are large next to Z because the flat poses sit square on the
     # bench and the on-edge poses do not. Verify |accel| reads 1.000 in all
@@ -20,8 +25,18 @@ imu_sensor_node:
     accel_scale: [1.008000, 1.005000, 1.004000]
 
     # NOT YET MEASURED. Zero means heading drifts without bound.
+    #
+    # Measure it with the vehicle stationary and warm, not on a cool bench:
+    # this part's zero-rate output moves about 0.05 deg/s per degree C, which
+    # over a 20 C difference is larger than the bias itself. /imu/temperature
+    # publishes the die temperature so the number can be interpreted later.
+    # Record the temperature it was measured at when filling this in.
     gyro_bias: [0.000000, 0.000000, 0.000000]
 
     # Conservative stand-ins until the noise is characterised.
     accel_variance: [0.100000, 0.100000, 0.100000]
     gyro_variance: [0.010000, 0.010000, 0.010000]
+
+    # Seconds between /imu/temperature publications. The die warms over
+    # minutes, so the IMU's own 50 Hz would be traffic for nothing.
+    temperature_period: 1.0

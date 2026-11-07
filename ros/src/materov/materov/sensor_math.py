@@ -21,18 +21,58 @@ _ICM_SCALE = {
     ICM20948_WHO_AM_I: (16384.0, 131.0),
 }
 
+# LSB per degree C and the die temperature at which the raw count is zero.
+# Both parts specify the same figures. TEMP_OUT_H/L sit at 0x39/0x3A, directly
+# after GYRO_ZOUT_L, so one 14-byte burst from ACCEL_XOUT_H picks them up with
+# no extra transaction - and the temperature is then guaranteed to belong to
+# the same sample as the accel and gyro it arrived with.
+_ICM_TEMP = {
+    ICM20649_WHO_AM_I: (333.87, 21.0),
+    ICM20948_WHO_AM_I: (333.87, 21.0),
+}
+
+ICM_BURST_WITHOUT_TEMPERATURE = 12
+ICM_BURST_WITH_TEMPERATURE = 14
+
 
 def decode_icm(block, who_am_i=ICM20649_WHO_AM_I):
-    """Return (acceleration m/s^2, angular velocity rad/s) from a 12-byte burst."""
-    if len(block) != 12:
-        raise ValueError('ICM burst must be one 12-byte read')
+    """Return (acceleration m/s^2, angular velocity rad/s) from an ICM burst.
+
+    Accepts a 12-byte accel+gyro read or the 14-byte read that also carries
+    TEMP_OUT. The trailing temperature bytes are ignored here; pass the same
+    block to ``decode_icm_temperature`` for those.
+    """
+    if len(block) not in (ICM_BURST_WITHOUT_TEMPERATURE, ICM_BURST_WITH_TEMPERATURE):
+        raise ValueError(
+            'ICM burst must be one 12-byte (accel+gyro) or 14-byte '
+            f'(accel+gyro+temperature) read; got {len(block)}')
     scale = _ICM_SCALE.get(who_am_i)
     if scale is None:
         raise ValueError(f'Unsupported IMU WHO_AM_I 0x{who_am_i:02x}')
     accel_lsb_per_g, gyro_lsb_per_dps = scale
-    raw = struct.unpack('>6h', bytes(block))
+    raw = struct.unpack('>6h', bytes(block[:ICM_BURST_WITHOUT_TEMPERATURE]))
     return ([v * 9.80665 / accel_lsb_per_g for v in raw[:3]],
             [math.radians(v / gyro_lsb_per_dps) for v in raw[3:]])
+
+
+def decode_icm_temperature(block, who_am_i=ICM20649_WHO_AM_I):
+    """Return the die temperature in Celsius from a 14-byte ICM burst.
+
+    This is the sensor's own die, not the water: it reads well above ambient
+    once the board has been powered for a while. It is worth publishing anyway,
+    because gyro bias moves with it at roughly 0.05 deg/s per degree C - enough
+    that a bias measured on a cool bench does not describe a warm vehicle.
+    """
+    if len(block) != ICM_BURST_WITH_TEMPERATURE:
+        raise ValueError(
+            'Temperature needs the 14-byte burst that includes TEMP_OUT; '
+            f'got {len(block)}')
+    calibration = _ICM_TEMP.get(who_am_i)
+    if calibration is None:
+        raise ValueError(f'Unsupported IMU WHO_AM_I 0x{who_am_i:02x}')
+    lsb_per_degc, offset_degc = calibration
+    raw = struct.unpack('>h', bytes(block[ICM_BURST_WITHOUT_TEMPERATURE:]))[0]
+    return raw / lsb_per_degc + offset_degc
 
 
 def decode_icm20649(block):

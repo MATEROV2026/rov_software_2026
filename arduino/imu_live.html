@@ -155,6 +155,7 @@ pre{font-family:var(--fm);font-size:11.5px;background:var(--surface-2);border:1p
               <tr><td class="n">|Accel| (g)</td><td colspan="3" id="amag">—</td></tr>
               <tr><td class="n">Linear (m/s²)</td><td id="lx">—</td><td id="ly">—</td><td id="lz">—</td></tr>
               <tr><td class="n">|Linear| (m/s²)</td><td colspan="3" id="lmag">—</td></tr>
+              <tr><td class="n">Die temp (°C)</td><td colspan="3" id="dietemp">—</td></tr>
             </tbody>
           </table>
           <p class="hint" style="margin:2px 0 0">Values are after axis mapping and calibration. Resting <code>|Accel|</code> should sit at <code>1.000</code>; if it does not, the scale factors are off.</p>
@@ -213,14 +214,14 @@ pre{font-family:var(--fm);font-size:11.5px;background:var(--surface-2);border:1p
       </span>
     </div>
     <div class="pad" style="padding-top:12px"><pre id="yaml"></pre>
-      <p class="hint" style="margin:0">Save as <code>ros/config/jetson/imu_calibration.yaml</code>. Every value carries a decimal point on purpose — ROS rejects an integer where it expects a <code>double_array</code>.</p>
+      <p class="hint" style="margin:0">Save as <code>ros/src/materov/config/imu_calibration.yaml</code> — inside the package, so colcon installs it where the launch file looks. Every value carries a decimal point on purpose: ROS rejects an integer where it expects a <code>double_array</code>.</p>
     </div>
   </div>
 
   <div class="card">
     <div class="ch"><h2>Running this</h2></div>
     <div class="pad" style="padding-top:12px">
-      <p class="hint" style="margin:0">Flash <code>imu_stream.ino</code>, close the Arduino Serial Monitor (it holds the port), then click Connect and pick the <code>usbmodem</code> port. Needs Chrome or Edge — Safari and Firefox have no Web Serial.</p>
+      <p class="hint" style="margin:0">Flash <code>imu_icm20948_streamer/</code>, close the Arduino Serial Monitor (it holds the port), then click Connect and pick the <code>usbmodem</code> port. Needs Chrome or Edge — Safari and Firefox have no Web Serial.</p>
       <p class="hint" style="margin:0">If Connect does nothing from a <code>file://</code> page, serve it instead: <code>python3 -m http.server 8000</code> in this folder, then open <code>http://localhost:8000/imu_live.html</code>.</p>
       <p class="hint" style="margin:0">No hardware yet? Tick <strong>simulated data</strong> to drive the whole page from a synthetic sensor with built-in bias and scale error.</p>
     </div>
@@ -241,6 +242,7 @@ var S={
   q:[1,0,0,0], att:{phi:0,theta:0,psi:0}, prev:null,
   acc:[0,0,1], gyr:[0,0,0], lin:[0,0,0],
   accVar:[0.1,0.1,0.1], gyrVar:[0.01,0.01,0.01], varSum:[0,0,0], varN:0,
+  dieTemp:null, gyroTempC:null,
   rates:{phi:0,theta:0,psi:0},
   poses:{}, capture:null,
   zeroing:null,
@@ -427,8 +429,13 @@ function handleLine(line){
   }
   var f=line.split(',');
   if(f.length<6)return;
+  // parseFloat, not parseInt: the firmware sends g and °/s with decimals, and
+  // parseInt("0.0110") is 0 — which passes isFinite, so the page would show
+  // zeros with no error anywhere. Fields 7-10 (mag, die temperature) are sent
+  // too; read the temperature, ignore the rest.
   var v=[],k;
-  for(k=0;k<6;k++){ v[k]=parseInt(f[k],10); if(!isFinite(v[k]))return; }
+  for(k=0;k<6;k++){ v[k]=parseFloat(f[k]); if(!isFinite(v[k]))return; }
+  if(f.length>=10){ var t=parseFloat(f[9]); if(isFinite(t))S.dieTemp=t; }
   // Real samples win: a left-on simulated source would otherwise drown them out.
   if(S.sim){ S.sim=false; document.getElementById('sim').checked=false; S.haveAtt=false; }
   if(!S.gotData){ S.gotData=true; setStatus('streaming','on');
@@ -702,8 +709,12 @@ document.getElementById('btn-zero-gyro').addEventListener('click',function(){
       S.gyrVar[k]=Math.pow(v[k]*DEG,2);      // (rad/s)^2 for the covariance
       S.gb[k]=m[k]; gbS[k].set(m[k].toFixed(2));
     }
+    // Record the die temperature: gyro bias moves with it, so the number is
+    // only interpretable alongside the temperature it was taken at.
+    S.gyroTempC=S.dieTemp;
     buildYaml();
-    st.textContent=' bias set · noise σ '+Math.max.apply(null,v).toFixed(2)+' °/s';
+    st.textContent=' bias set · noise σ '+Math.max.apply(null,v).toFixed(2)+' °/s'+
+      (S.dieTemp===null?'':' · die '+S.dieTemp.toFixed(1)+' °C');
   },3000);
 });
 document.getElementById('btn-zero-att').addEventListener('click',function(){S.haveAtt=false;});
@@ -719,6 +730,10 @@ function buildYaml(){
     '# Units are SI to match sensor_msgs/Imu. In the units the bench reads,\n'+
     '#   accel_bias = ['+S.ab.map(function(v){return num(v,4);}).join(', ')+'] g\n'+
     '#   gyro_bias  = ['+S.gb.map(function(v){return num(v,3);}).join(', ')+'] °/s\n'+
+    (S.gyroTempC===null?'':
+      '# Gyro bias measured at a die temperature of '+S.gyroTempC.toFixed(1)+
+      ' °C. It moves\n# about 0.05 °/s per °C, so re-measure if the vehicle '+
+      'runs much warmer.\n')+
     '# Every value carries a decimal point: YAML reads an unsuffixed whole\n'+
     '# number as an int, which ROS then rejects for a double_array.\n'+
     'imu_sensor_node:\n  ros__parameters:\n'+
@@ -803,6 +818,8 @@ function frame(now){
   });
   document.getElementById('lmag').textContent=S.gotData?
     Math.hypot(S.lin[0],S.lin[1],S.lin[2]).toFixed(2):'—';
+  document.getElementById('dietemp').textContent=
+    S.dieTemp===null?'—':S.dieTemp.toFixed(1);
   motionCheck();
   requestAnimationFrame(frame);
 }
