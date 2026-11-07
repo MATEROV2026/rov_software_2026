@@ -1,0 +1,7 @@
+{
+  "_source": "MATE 2026 crab-counting practice images (materovcompetition.org/2026), counted by eye",
+  "Crab Sample 1.jpg": {"green": 2, "rock": 4, "jonah": 4},
+  "Crab Sample 2.jpg": {"green": 3, "rock": 1, "jonah": 4},
+  "Crab Sample 3.jpg": {"green": 3, "rock": 3, "jonah": 2},
+  "Crab Sample 4.jpg": {"green": 1, "rock": 4, "jonah": 4}
+}
