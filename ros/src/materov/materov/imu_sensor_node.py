@@ -105,7 +105,7 @@ class ImuSensorNode(I2CSensorNode):
         self.select_bank(0)
 
     def publish_sample(self):
-        block = self.bus.read_i2c_block_data(self.address, 0x2D, 12)
+        block = self.bus.read_i2c_block_data(self.address, 0x2D, 14)
         acceleration, gyro = decode_icm(block, self.who_am_i)
         acceleration = apply_accel_calibration(
             acceleration, self.accel_bias, self.accel_scale)
